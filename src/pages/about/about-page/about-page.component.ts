@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about-page',
@@ -8,23 +7,10 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class AboutPageComponent implements OnInit {
 
-    constructor(meta: Meta, title: Title) {
-    title.setTitle('My About Page');
+    constructor() {
+    }
 
-    meta.addTags([ 
-      {
-        name: 'author', content: 'anasit.com'
-      },
-      {
-        name: 'keywords', content: 'angular 4 tutorial, angular seo'
-      },
-      {
-        name: 'description', content: 'This is my great description.'
-      },
-    ])
-  }
-
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
