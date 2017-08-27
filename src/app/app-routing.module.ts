@@ -37,6 +37,10 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule',
     data: { title: "卡牌预览" }
   },
+  { path: 'goods-shop',
+    loadChildren: '../pages/goods-shop/goods-shop.module#GoodsShopModule' ,
+    data:{title:"7-12 网上商城"}
+  },
   {
     path: 'fast-mail',
     loadChildren: '../pages/fast-mail/fast-mail.module#FastMailModule',
@@ -52,6 +56,14 @@ const SSRroutes: Routes = [
   { path: 'employee', 
   loadChildren: '../pages/employee/employee.module#EmployeeModule',
   data:{title:"员工管理" }
+ },
+  { path: 'betsy-account', 
+  loadChildren: '../pages/betsy-account/betsy-account.module#BetsyAccountModule',
+  data:{title:"天天记账" },
+},
+  { path: 'trainingcourse', 
+  loadChildren: '../pages/training-course/training-course.module#TrainingCourseModule',
+  data:{title:"培训课程" }
 },
 {
   path: 'product',
