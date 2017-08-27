@@ -129,6 +129,11 @@ data: { title: "球员数据排行" }
     loadChildren: '../pages/cookbook/cookbook.module#CookbookModule',
     data:{title:"食谱烹饪" }
   },
+    {
+    path: 'zhangyuDepartment',
+    loadChildren: '../pages/zhangyu/zhangyu.module#ZhangyuModule',
+    data: { title: "部门管理" }
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
