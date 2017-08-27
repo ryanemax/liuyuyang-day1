@@ -56,9 +56,13 @@ const SSRroutes: Routes = [
   { path: 'employee', 
   loadChildren: '../pages/employee/employee.module#EmployeeModule',
   data:{title:"员工管理" }
+ },
+  { path: 'betsy-account', 
+  loadChildren: '../pages/betsy-account/betsy-account.module#BetsyAccountModule',
+  data:{title:"天天记账" },
 },
   { path: 'trainingcourse', 
-  loadChildren: '../pages/training/training-course.module#TrainingCourseModule',
+  loadChildren: '../pages/training-course/training-course.module#TrainingCourseModule',
   data:{title:"培训课程" }
 },
   { path: '**', redirectTo: '', pathMatch: 'full' },
