@@ -70,17 +70,15 @@ const SSRroutes: Routes = [
   data:{title:"培训课程" }
 },
 {
-<<<<<<< HEAD
     path: 'hansheng-book-store',
     loadChildren: '../pages/hansheng-book-store/hansheng-book-store.module#HanshengBookStoreModule',
     data: { title: "hansheng的书店" }
   },
-=======
+  {
   path: 'product',
   loadChildren: '../pages/product/product.module#ProductModule',
   data: { title: "聚美优品" }
 },
->>>>>>> 12778109fe434b1323463ef4c5ca7f8ce713f8f1
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
