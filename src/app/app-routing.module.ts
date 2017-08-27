@@ -10,12 +10,12 @@ const SSRroutes: Routes = [
   {
     path: 'home',
     loadChildren: '../pages/home/home.module#HomeModule',
-    data: { title: "主页" }
+    // data: { title: "主页" }
   },
   {
     path: 'about',
     loadChildren: '../pages/about/about.module#AboutModule',
-    data: { title: "关于我们" }
+    // data: { title: "关于我们" }
   },
   {
     path: 'contact',
@@ -32,6 +32,10 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/pmj/pmj.module#PmjModule',
     data: { title: "PMJ" }
   },
+  { path: 'myfavoritenbaplayers',
+	loadChildren: '../pages/my-favorite-nba-players/my-favorite-nba-players.module#MyFavoriteNbaPlayersModule' ,
+	data:{title:"My Favorite NBA Players"}
+	},
   {
     path: 'cardpreview',
     loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule',
@@ -53,6 +57,11 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/zhangyuexam/zhangyuexam.module#ZhangyuexamModule',
     data: { title: "大杂烩店铺" }
   },
+
+  { path: 'device', 
+    loadChildren: '../pages/liuchaoexam/device.module#DeviceModule',
+    data: { title: "物资管理系统" }
+  },
   { path: 'employee', 
   loadChildren: '../pages/employee/employee.module#EmployeeModule',
   data:{title:"员工管理" }
@@ -66,10 +75,20 @@ const SSRroutes: Routes = [
   data:{title:"培训课程" }
 },
 {
+    path: 'hansheng-book-store',
+    loadChildren: '../pages/hansheng-book-store/hansheng-book-store.module#HanshengBookStoreModule',
+    data: { title: "hansheng的书店" }
+  },
+  {
   path: 'product',
   loadChildren: '../pages/product/product.module#ProductModule',
   data: { title: "聚美优品" }
 },
+{
+    path: 'trainer',
+    loadChildren: '../pages/trainer/trainer.module#TrainerModule',
+    data: { title: "讲师列表" }
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

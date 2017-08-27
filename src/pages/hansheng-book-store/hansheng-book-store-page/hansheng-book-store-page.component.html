@@ -1,0 +1,19 @@
+<app-hansheng-book-button [title]="'添加新书籍'" (click)="addBook()" id="button"></app-hansheng-book-button>
+<app-hansheng-book-button [title]="'字数正序'" (click)="asc()" id="button"></app-hansheng-book-button>
+<app-hansheng-book-button [title]="'字数逆序'" (click)="desc()" id="button"></app-hansheng-book-button>
+<app-hansheng-book-button [title]="'随机排序'" (click)="random()" id="button"></app-hansheng-book-button>
+
+<h3>书籍列表</h3>
+<table  width="100%" class = "table">
+<tbody><tr bgcolor="#b3e5fc">
+    <th align="centre">名称</th>
+    <th align="centre">作者</th>
+    <th align="centre">简介</th>
+    <th align="centre">字数</th>
+</tr>
+<tr *ngFor="let book of books" class="mytr">
+    <td width="25%">{{book.name}}</td>
+    <td width="25%">{{book.author}}</td>
+    <td width="25%">{{book.introduce}}</td>
+    <td width="25%">{{book.wordsNum}}</td>
+</tr>
