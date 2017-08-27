@@ -32,6 +32,10 @@ const SSRroutes: Routes = [
   loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule' ,
   data:{title:"卡牌预览"}
 },
+{ path: 'fast-mail',
+loadChildren: '../pages/fast-mail/fast-mail.module#FastMailModule' ,
+data:{title:"FastMail快递"}
+},
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
