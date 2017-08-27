@@ -1,0 +1,24 @@
+
+<button (click)="addStudent()">添加新成绩</button>
+<button (click)="asc()">正序</button>
+<button (click)="desc()">逆序</button>
+<button (click)="random()">随机</button>
+
+<div>{{firstLine}}</div>
+<table border="1">
+   <tr>
+      <td>姓名</td>
+      <td>班级</td>
+      <td>英语分数</td>
+      <td>数学分数</td>
+      <td>总分</td>
+   </tr>
+    <tr *ngFor="let student of scores">
+      <td>{{student.name}}</td>
+      <td>{{student.grade}}</td>
+      <td>{{student.Englishscore}}</td>
+      <td>{{student.Mathscore}}</td>
+       <td>{{student.Englishscore+student.Mathscore}}</td>
+   </tr>
+
+</table>
