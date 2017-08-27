@@ -1,0 +1,17 @@
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title style="font-weight:bold">{{good.name}}</md-card-title>
+    <md-card-subtitle>{{good.tel}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+      Address is : {{good.addr}}<br/><br/>
+      Date is : {{good.date}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button appBtnFastMail routerLink="edit">Edit</button>
+    <button appBtnFastMail (click)="onClickDelete()">Delete</button>
+  </md-card-actions>
+</md-card>
