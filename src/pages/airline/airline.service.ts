@@ -17,12 +17,12 @@ airlines:Array<Airline>;
 
   getAirlines(){
      this.airlines = [
-      {from:"dalian",price:1300,to:"shanghai",year:2017,image:"../../../assets/img/flight/dalian.jpg"},
-      {from:"kaoshi",price:700,to:"beijing",year:2017,image:"../../../assets/img/flight/kaoshi.jpg"},
-      {from:"london",price:1500,to:"us",year:2017,image:"../../../assets/img/flight/london.jpg"},
-      {from:"singpore",price:3300,to:"japan",year:2017,image:"../../../assets/img/flight/singpore.jpg"},
-      {from:"vancouver",price:1000,to:"hongkong",year:2016,image:"../../../assets/img/flight/vancouver.jpg"},
-      {from:"xiamen",price:900,to:"shanghai",year:2016,image:"../../../assets/img/flight/xiamen.jpg"}
+      {from:"dalian",price:1300,to:"shanghai",year:2017,image:"../../../assets/img/flight/dalian.jpg",username:""},
+      {from:"kaoshi",price:700,to:"beijing",year:2017,image:"../../../assets/img/flight/kaoshi.jpg",username:""},
+      {from:"london",price:1500,to:"us",year:2017,image:"../../../assets/img/flight/london.jpg",username:""},
+      {from:"singpore",price:3300,to:"japan",year:2017,image:"../../../assets/img/flight/singpore.jpg",username:""},
+      {from:"vancouver",price:1000,to:"hongkong",year:2016,image:"../../../assets/img/flight/vancouver.jpg",username:""},
+      {from:"xiamen",price:900,to:"shanghai",year:2016,image:"../../../assets/img/flight/xiamen.jpg",username:""}
     ]
   }
 

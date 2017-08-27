@@ -7,6 +7,11 @@ import { AirlineService } from "../airline.service"
   styleUrls: ['./airline-list.component.scss']
 })
 export class AirlineListComponent implements OnInit {
+  title:string="Welcome to Flight Airline!";
+  add:string="Add";
+  Asc:string="asc";
+  Desc:string="desc";
+  Random:string="random";
   list:Array<any>;
    constructor(private airlineServ:AirlineService) {
     this.list = this.airlineServ.airlines

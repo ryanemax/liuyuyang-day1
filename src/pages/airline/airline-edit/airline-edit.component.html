@@ -28,11 +28,13 @@
     560-900
   </md-option>
 </md-select>
-
+<md-input-container>
+  <input [(ngModel)]="object.username" mdInput placeholder="Please input your username" value="">
+</md-input-container>
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button routerLink="/airline">取消</button>
-    <button md-button (click)="save()">保存</button>
+    <button md-button (click)="cacel()">Cancel</button>
+    <button md-button (click)="save()">Save</button>
   </md-card-actions>
 </md-card>

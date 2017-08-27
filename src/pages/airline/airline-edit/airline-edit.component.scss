@@ -10,3 +10,17 @@
     float: left;
   }
 }
+  button{
+    background: #006564 !important;
+    font-size: 0.875em !important;
+    color: white;
+    border-radius: 3px !important;
+    border: none;
+    height: 32px;
+    width: 20px;
+  }
+  .mat-card-actions{
+    float: right;
+    margin-top: -79px;
+    margin-right: 2em;
+  }

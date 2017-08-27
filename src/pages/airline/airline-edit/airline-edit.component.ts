@@ -16,7 +16,8 @@ object:Airline = {
     price:1700, 
     to:"Shanghai",
     year:2017,
-    image:"../../../assets/img/flight/dalian.jpg"
+    image:"../../../assets/img/flight/dalian.jpg",
+    username: "Poppy"
   }
   isNew:boolean
   constructor(
@@ -30,7 +31,7 @@ object:Airline = {
   }
   
   save(){
-    if(this.object.from==""||this.object.price<=0 ||this.object.to=="" ){
+    if(this.object.from==""||this.object.price<=0 ||this.object.to==""||this.object.username=="" ){
       alert("信息不完整，请检查")
       // this.dialog.open(DialogResult);
       return
@@ -39,6 +40,9 @@ object:Airline = {
       this.airlineServ.addAirlines(this.object)
     }
     this.back()
+  }
+  cacel(){
+    this.back() 
   }
   back(){
     this.loc.back()
