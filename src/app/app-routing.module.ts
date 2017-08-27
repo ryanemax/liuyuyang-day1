@@ -74,6 +74,11 @@ const SSRroutes: Routes = [
   loadChildren: '../pages/product/product.module#ProductModule',
   data: { title: "聚美优品" }
 },
+{
+  path: 'book-management',
+  loadChildren: '../pages/book-management/book-management.module#BookManagementModule',
+  data: { title: "图书管理" }
+},
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
