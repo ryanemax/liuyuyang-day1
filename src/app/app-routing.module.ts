@@ -48,6 +48,11 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/zhangyuexam/zhangyuexam.module#ZhangyuexamModule',
     data: { title: "大杂烩店铺" }
   },
+  { 
+    path: 'flight', 
+    loadChildren: '../pages/airline/airline.module#AirlineModule' ,
+    data:{title:"Flight航空"}
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
