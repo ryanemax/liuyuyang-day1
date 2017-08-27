@@ -57,6 +57,11 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/zhangyuexam/zhangyuexam.module#ZhangyuexamModule',
     data: { title: "大杂烩店铺" }
   },
+
+  { path: 'device', 
+    loadChildren: '../pages/liuchaoexam/device.module#DeviceModule',
+    data: { title: "物资管理系统" }
+  },
   { path: 'employee', 
   loadChildren: '../pages/employee/employee.module#EmployeeModule',
   data:{title:"员工管理" }
@@ -70,6 +75,11 @@ const SSRroutes: Routes = [
   data:{title:"培训课程" }
 },
 {
+    path: 'hansheng-book-store',
+    loadChildren: '../pages/hansheng-book-store/hansheng-book-store.module#HanshengBookStoreModule',
+    data: { title: "hansheng的书店" }
+  },
+  {
   path: 'product',
   loadChildren: '../pages/product/product.module#ProductModule',
   data: { title: "聚美优品" }
