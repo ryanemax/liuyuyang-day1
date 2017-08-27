@@ -98,6 +98,11 @@ const SSRroutes: Routes = [
   data: { title: "聚美优品" }
 },
 {
+  path: 'book-management',
+  loadChildren: '../pages/book-management/book-management.module#BookManagementModule',
+  data: { title: "图书管理" }
+},
+{
     path: 'trainer',
     loadChildren: '../pages/trainer/trainer.module#TrainerModule',
     data: { title: "讲师列表" }
