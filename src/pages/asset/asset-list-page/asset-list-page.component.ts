@@ -6,8 +6,7 @@ interface Asset {
   classification: string,
   brand: string
   price: number
-  addTime: string,
-  status:number
+  addTime: string
 }
 
 @Component({
@@ -28,32 +27,32 @@ export class AssetListPageComponent implements OnInit {
         no: 1, name: "ONLY黑色连帽卫衣",
         classification: "上衣",
         brand: "ONLY",
-        price: 244, addTime: "2016-03-03",status:0
+        price: 244, addTime: "2016-03-03"
       },{
         no: 2, name: "ONLY荷叶边连衣裙",
         classification: "裙装",
         brand: "ONLY",
-        price: 249, addTime: "2016-06-07",status:0
+        price: 249, addTime: "2016-06-07"
       },{
         no: 3, name: "ONLY修身小脚牛仔裤",
         classification: "裤装",
         brand: "ONLY",
-        price: 199, addTime: "2016-10-05",status:1
+        price: 199, addTime: "2016-10-05"
       }, {
         no: 4, name: "平底绣花布鞋",
         classification: "鞋靴",
         brand: "老北京布鞋",
-        price: 29, addTime: "2016-10-05",status:0
+        price: 29, addTime: "2016-10-05"
       }, {
         no: 5, name: "恒源祥夏用披肩",
         classification: "围巾",
         brand: "恒源祥",
-        price: 138, addTime: "2017-07-03",status:1
+        price: 138, addTime: "2017-07-03"
       }, {
         no: 6, name: "ZARA几何图形印花晚宴包",
         classification: "包包",
         brand: "ZARA",
-        price: 399, addTime: "2017-08-10",status:0
+        price: 399, addTime: "2017-08-10"
       }
     ]
   }
