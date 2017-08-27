@@ -37,12 +37,17 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule',
     data: { title: "卡牌预览" }
   },
+  { path: 'goods-shop',
+    loadChildren: '../pages/goods-shop/goods-shop.module#GoodsShopModule' ,
+    data:{title:"7-12 网上商城"}
+  },
   {
     path: 'fast-mail',
     loadChildren: '../pages/fast-mail/fast-mail.module#FastMailModule',
     data: { title: "FastMail快递" }
   },
   { path: 'bug', loadChildren: '../pages/bug/bug.module#BugModule', data: { title: "Bug 管理系统" } },
+  { path: 'asset', loadChildren: '../pages/asset/asset.module#AssetModule' ,data:{title:"我的衣帽间"}},
   {
     path: 'zhangyuexam',
     loadChildren: '../pages/zhangyuexam/zhangyuexam.module#ZhangyuexamModule',
@@ -51,6 +56,10 @@ const SSRroutes: Routes = [
   { path: 'employee', 
   loadChildren: '../pages/employee/employee.module#EmployeeModule',
   data:{title:"员工管理" }
+},
+  { path: 'trainingcourse', 
+  loadChildren: '../pages/training/training-course.module#TrainingCourseModule',
+  data:{title:"培训课程" }
 },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
