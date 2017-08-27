@@ -29,6 +29,9 @@ export class TrainingCourseInfoComponent implements OnInit {
   doRandom(){
     this.service.sortByRadom()
   }
+  sortByAsc2No(name){
+    this.service.sortByAsc2No(name)
+  }
   ngOnInit() {
   }
 
