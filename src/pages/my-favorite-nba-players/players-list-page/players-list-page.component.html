@@ -5,8 +5,8 @@
     <button (click)="sortList('up')">ASC</button>
     <button (click)="sortList('down')">DESC</button>
     <button (click)="sortList('random')">Randomly</button>
+    <button routerLink="edit/new">Create New Player</button>
 </div> 
-
 
 <div>
     <table class="gridtable">
@@ -15,12 +15,16 @@
             <th>Name</th>
             <th>Ability Score</th>
             <th>Salary</th>
+            <th></th>
+            <th></th>
         </tr>
         <tr *ngFor="let player of players">
             <td>{{player.index}}</td>
             <td>{{player.name}}</td>
             <td>{{player.abilityScore}}</td>
-            <td>{{player.salary}}</td>
+            <td appCurrencyHighlight>{{player.salary | currencyFormat}}</td>
+            <td><button routerLink="edit/{{player.index}}">Edit</button></td>
+            <td><button (click)="delete(player)">Delete</button></td>
         </tr>
     </table>
 </div>
