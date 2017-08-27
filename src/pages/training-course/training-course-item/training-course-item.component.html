@@ -1,0 +1,19 @@
+<md-card class="example-card">
+    <md-card-header>
+      <div md-card-avatar class="example-header-image"></div>
+      <md-card-title>学生姓名 : {{record.stName}}</md-card-title>
+      <md-card-title>是否完成:{{record.isOk | statusFinish:"cn"}}</md-card-title>
+    </md-card-header>
+    <md-card-content>
+      <p>
+          课程名:{{record.courseName}}
+      </p>
+      <p>
+
+          完成日期:{{record.date | date:"y-mm-dd"}}
+      </p>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button (click)="back()">BACK</button>
+    </md-card-actions>
+</md-card>
