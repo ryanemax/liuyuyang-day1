@@ -32,6 +32,10 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/pmj/pmj.module#PmjModule',
     data: { title: "PMJ" }
   },
+  { path: 'myfavoritenbaplayers',
+	loadChildren: '../pages/my-favorite-nba-players/my-favorite-nba-players.module#MyFavoriteNbaPlayersModule' ,
+	data:{title:"My Favorite NBA Players"}
+	},
   {
     path: 'cardpreview',
     loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule',
