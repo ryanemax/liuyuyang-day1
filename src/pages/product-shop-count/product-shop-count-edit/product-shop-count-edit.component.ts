@@ -12,7 +12,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
   styleUrls: ['./product-shop-count-edit.component.scss']
 })
 export class ProductShopCountEditComponent implements OnInit {
-  object:Product = {
+  object:ProductShop = {
     product_code:"",
     product_description:"",
     shop_code:"",

@@ -1,4 +1,4 @@
-interface Product{
+interface ProductShop{
   addDate?:Date
   product_code:string,
   product_description:string,

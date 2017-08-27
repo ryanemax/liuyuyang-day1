@@ -6,12 +6,12 @@ import 'rxjs/add/observable/of';
 
 @Injectable()
 export class ProductShopCountService {
-  products:Array<Product>;
-  editObject:Product;
+  products:Array<ProductShop>;
+  editObject:ProductShop;
   constructor() {
     this.getProducts()
    }
-  getProductByProductCode(product_code):Observable<Product>{
+  getProductByProductCode(product_code):Observable<ProductShop>{
     let product = this.products.find(item=>item.product_code ==product_code)
     return Observable.of(product)
   
