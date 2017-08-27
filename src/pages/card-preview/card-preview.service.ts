@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-
+import { Observable } from "rxjs/Observable"
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/observable/of';
 @Injectable()
 
 export class CardPreviewService {
@@ -24,6 +26,14 @@ export class CardPreviewService {
       }
     })
   }
+  addCard(card:Card){
+    this.cards.push(card);
+  }
+  getCardByName(name):Observable<Card>{
+    let card = this.cards.find(item=>item.name == name)
+    return Observable.of(card)
+  }
+
   asc(type) {
     switch (type) {
     case 0:
