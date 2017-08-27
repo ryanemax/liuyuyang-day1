@@ -53,6 +53,10 @@ const SSRroutes: Routes = [
   loadChildren: '../pages/employee/employee.module#EmployeeModule',
   data:{title:"员工管理" }
 },
+  { path: 'trainingcourse', 
+  loadChildren: '../pages/training/training-course.module#TrainingCourseModule',
+  data:{title:"培训课程" }
+},
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
