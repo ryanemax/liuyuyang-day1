@@ -1,3 +1,8 @@
-<p>
-  contact-list works!
-</p>
+
+<app-diy-button [title]="'添加新联系人'" (click)="addContact()"></app-diy-button>
+<app-diy-button [title]="'正序'" (click)="asc()"></app-diy-button>
+<app-diy-button [title]="'逆序'" (click)="desc()"></app-diy-button>
+<app-diy-button [title]="'随机'" (click)="random()"></app-diy-button>
+<div style="margin-top:14px;">
+<app-contact-item [user]="user" *ngFor="let user of contacts"></app-contact-item>
+</div>

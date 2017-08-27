@@ -1,0 +1,19 @@
+<button appHighlight (click)="sortByUp()">正序</button>
+<button appHighlight (click)="sortByDown()">倒序</button>
+<button appHighlight (click)="sortByRandom()">随机</button>
+<table id="goods">
+  <tr>
+    <th>index</th>
+    <th>名称</th>
+    <th>规格</th>
+    <th>价格</th>
+    <th>剩余数量</th>
+  </tr>
+  <tr *ngFor="let good of goods">
+    <td >{{good.index}}</td>
+    <td >{{good.name}}</td>
+    <td >{{good.spec}}</td>
+    <td >{{good.price}}</td>
+    <td >{{good.count}}</td>
+  </tr>
+</table>
