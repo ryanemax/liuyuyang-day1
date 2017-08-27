@@ -2,22 +2,7 @@
 <app-diy-button [title]="'添加新联系人'" (click)="addContact()"></app-diy-button>
 <app-diy-button [title]="'正序'" (click)="asc()"></app-diy-button>
 <app-diy-button [title]="'逆序'" (click)="desc()"></app-diy-button>
-<app-diy-button [title]="'倒序'" (click)="random()"></app-diy-button>
-
-
-<button appButtonCircle>我是指令按钮</button>
-<button appButtonCircle>我是指令按钮</button>
-<button appButtonCircle>我是指令按钮</button>
-
-
-<div>第一个联系人是：{{this.contacts[0].name}}</div>
-<div>{{firstLine}}</div>
-<ul>
-    <li *ngFor="let user of contacts">
-        {{user.name | lowercase | uppercase}} 
-        {{user.sex | sexName:"cn"}}
-        <span appHighlight>{{user.mobile}}</span>
-        {{user.birth | date:"y-MM-dd"}}
-        </li>
-
-</ul>
+<app-diy-button [title]="'随机'" (click)="random()"></app-diy-button>
+<div style="margin-top:14px;">
+<app-contact-item [user]="user" *ngFor="let user of contacts"></app-contact-item>
+</div>
