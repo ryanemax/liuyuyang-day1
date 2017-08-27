@@ -1,0 +1,36 @@
+<button md-raised-button (click)="back()">返回</button>
+
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>品牌：{{object.brand}}</md-card-title>
+    <md-card-subtitle>类型：{{object.type}}</md-card-subtitle>
+    <md-card-subtitle>功能：{{object.function}}</md-card-subtitle>
+    <md-card-subtitle>价格：{{object.price}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+       
+
+<md-input-container>
+  <input [(ngModel)]="object.brand" mdInput placeholder="品牌" value="">
+</md-input-container>
+
+<md-input-container>
+  <input [(ngModel)]="object.type" mdInput placeholder="类型" value="">
+</md-input-container>
+<md-input-container>
+  <input [(ngModel)]="object.function" mdInput placeholder="功能" value="">
+</md-input-container>
+<md-input-container>
+  <input [(ngModel)]="object.price" mdInput placeholder="价格" value="">
+</md-input-container>
+
+
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button routerLink="/product">取消</button>
+    <button md-button (click)="save()">保存</button>
+  </md-card-actions>
+</md-card>
