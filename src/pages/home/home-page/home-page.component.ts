@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 interface Contact{
+  birth?:Date
   name:string,
   sex:string,
   mobile:string,
@@ -22,10 +23,10 @@ export class HomePageComponent implements OnInit {
   
   getContacts(){
      this.contacts = [
-      {name:"LiuYuyang",sex:"M",mobile:"1316666666",age:20},
-      {name:"Wangkai",sex:"F",mobile:"1316666667"},
-      {name:"Yaoming",sex:"M",mobile:"1316666668"},
-      {name:"Yaoming",sex:"F",mobile:"1316666668"},
+      {birth:new Date(),name:"LiuYuyang",sex:"M",mobile:"1316666666",age:20},
+      {birth:new Date(),name:"Wangkai",sex:"F",mobile:"1316666667"},
+      {birth:new Date(),name:"Yaoming",sex:"M",mobile:"1316666668"},
+      {birth:new Date(),name:"Yaoming",sex:"F",mobile:"1316666668"},
     ]
     this.firstLine =`第一个联系人是：${this.contacts[0].name}`
   }

@@ -1,3 +1,24 @@
+html,body{
+    height:100%;    
+}
+body{
+    background-image:url(./assets/img/bg.svg);
+}
+
+$primary:    #2196f3;
+$secondary:  #00bcd4;
+$danger:     #f53d3d;
+$light:      #f4f4f4;
+$dark:       #222;
+$favorite:   #69BB7B;
+$twitter:    #1da1f4;
+$google:     #dc4a38;
+$vimeo:      #23b6ea;
+$facebook:   #3b5998;
+
+
+
+// Reactive Grid Layouts
 * {
     box-sizing: border-box;
 }
@@ -17,7 +38,7 @@ html {
     font-family: "Lucida Sans", sans-serif;
 }
 .header {
-    background-color: #9933cc;
+    background-color: $primary;
     color: #ffffff;
     padding: 15px;
 }
@@ -29,15 +50,15 @@ html {
 .menu li {
     padding: 8px;
     margin-bottom: 7px;
-    background-color :#33b5e5;
+    background-color :$secondary;
     color: #ffffff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .menu li:hover {
-    background-color: #0099cc;
+    background-color: $primary;
 }
 .aside {
-    background-color: #33b5e5;
+    background-color: $secondary;
     padding: 15px;
     color: #ffffff;
     text-align: center;
@@ -45,11 +66,13 @@ html {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .footer {
-    background-color: #0099cc;
+    background-color: $primary;
     color: #ffffff;
     text-align: center;
     font-size: 12px;
     padding: 15px;
+    width:100%;
+    bottom:0px;
 }
 /* For mobile phones: */
 [class*="col-"] {

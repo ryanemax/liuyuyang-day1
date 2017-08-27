@@ -9,19 +9,9 @@ const SSRroutes: Routes = [
   },
   { path: 'home', loadChildren: '../pages/home/home.module#HomeModule' },
   { path: 'about', loadChildren: '../pages/about/about.module#AboutModule' },
+  { path: 'contact', loadChildren: '../pages/contact/contact.module#ContactModule' },
+  { path: 'movie', loadChildren: '../pages/movie/movie.module#MovieModule' },
   { path: '**', redirectTo: '', pathMatch: 'full' },
-];
-
-// SPA模式路由，适合客户端打包
-import { HomePageComponent } from '../pages/home/home-page/home-page.component';
-import { AboutPageComponent } from '../pages/about/about-page/about-page.component';
-const SPAroutes: Routes = [
-  {
-    path: '',
-    children: []
-  },
-  { path: 'home', component: HomePageComponent },
-  { path: 'about', component: AboutPageComponent },
 ];
 
 // 配置路由模式
