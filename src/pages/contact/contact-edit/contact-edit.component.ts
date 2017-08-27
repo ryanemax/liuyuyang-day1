@@ -34,7 +34,9 @@ export class ContactEditComponent implements OnInit {
       // this.dialog.open(DialogResult);
       return
     }
-    this.contactServ.addContact(this.object)
+    if(this.isNew){
+      this.contactServ.addContact(this.object)
+    }
     this.back()
   }
   back(){
