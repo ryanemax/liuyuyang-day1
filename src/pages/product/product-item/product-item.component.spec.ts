@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AssetAddPageComponent } from './asset-add-page.component';
+import { ProductItemComponent } from './product-item.component';
 
-describe('AssetAddPageComponent', () => {
-  let component: AssetAddPageComponent;
-  let fixture: ComponentFixture<AssetAddPageComponent>;
+describe('ProductItemComponent', () => {
+  let component: ProductItemComponent;
+  let fixture: ComponentFixture<ProductItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AssetAddPageComponent ]
+      declarations: [ ProductItemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AssetAddPageComponent);
+    fixture = TestBed.createComponent(ProductItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

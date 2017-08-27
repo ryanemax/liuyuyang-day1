@@ -1,0 +1,15 @@
+$primary:    #2196f3;
+$secondary:  #00bcd4;
+
+button{
+    background:$secondary;
+    padding:7px;
+    font-size:20px;
+    color:white;
+    border-radius:34px;
+    border:none;
+}
+
+button:hover{
+    background:$primary;
+}
