@@ -58,7 +58,7 @@ const SSRroutes: Routes = [
   data:{title:"员工管理" }
 },
   { path: 'trainingcourse', 
-  loadChildren: '../pages/training/training-course.module#TrainingCourseModule',
+  loadChildren: '../pages/training-course/training-course.module#TrainingCourseModule',
   data:{title:"培训课程" }
 },
   { path: '**', redirectTo: '', pathMatch: 'full' },
