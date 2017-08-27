@@ -1,0 +1,35 @@
+<button md-raised-button (click)="back()">返回</button>
+
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>用户名：{{object.name}}</md-card-title>
+    <md-card-subtitle>手机号：{{object.mobile}}</md-card-subtitle>
+    <md-card-subtitle>性别：{{object.sex | sexName}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+<md-input-container>
+  <input [(ngModel)]="object.name" mdInput placeholder="姓名" value="">
+</md-input-container>
+
+<md-input-container>
+  <input [(ngModel)]="object.mobile" mdInput placeholder="手机" value="">
+</md-input-container>
+
+<md-select [(ngModel)]="object.sex" placeholder="性别">
+  <md-option [value]="'M'">
+    男
+  </md-option>
+  <md-option [value]="'Ｆ'">
+    女
+  </md-option>
+</md-select>
+
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button routerLink="/contact">取消</button>
+    <button md-button (click)="save()">保存</button>
+  </md-card-actions>
+</md-card>

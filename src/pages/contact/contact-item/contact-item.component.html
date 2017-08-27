@@ -4,7 +4,6 @@
     <md-card-title>{{user.name}}</md-card-title>
     <md-card-subtitle>{{user.mobile}}</md-card-subtitle>
   </md-card-header>
-  <img md-card-image src="assets/img/examples/shiba2.jpg">
   <md-card-content>
     <p>
       性别： {{user.sex | sexName:"cn"}}
@@ -12,7 +11,7 @@
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button>编辑</button>
-    <button md-button>删除</button>
+    <button md-button routerLink="edit/{{user.name}}">编辑</button>
+    <button md-button (click)="delete(user)">删除</button>
   </md-card-actions>
 </md-card>
