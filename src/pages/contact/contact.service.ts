@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { FormsModule }    from '@angular/forms';
 import { Observable } from "rxjs/Observable"
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
