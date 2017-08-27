@@ -3,15 +3,17 @@
 
 <md-card class="example-card">
   <md-card-header>
+    <md-card-title>用户名：{{object.name}}</md-card-title>
+    <md-card-subtitle>手机号：{{object.price}}</md-card-subtitle>
   </md-card-header>
   <md-card-content>
     <p>
     <md-input-container>
-      <input  mdInput placeholder="商品名称" value="">
+      <input [(ngModel)]="object.name" mdInput placeholder="商品名称" value="">
     </md-input-container>
 
     <md-input-container>
-      <input  mdInput placeholder="价格" value="">
+      <input [(ngModel)]="object.price" mdInput placeholder="价格" value="">
     </md-input-container>
     </p>
   </md-card-content>
