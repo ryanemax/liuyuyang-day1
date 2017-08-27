@@ -89,6 +89,11 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/trainer/trainer.module#TrainerModule',
     data: { title: "讲师列表" }
   },
+  {
+    path: 'game', 
+    loadChildren: '../pages/game/game.module#GameModule',
+    data:{title:"游戏排行榜" }
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
