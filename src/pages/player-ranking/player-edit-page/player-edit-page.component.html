@@ -1,0 +1,38 @@
+<button md-raised-button (click)="back()">返回</button>
+
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>姓名：{{object.name}}</md-card-title>
+    <md-card-subtitle>球队：{{object.team}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+<md-input-container>
+  <input [(ngModel)]="object.name" mdInput placeholder="姓名" value="">
+</md-input-container>
+
+<md-input-container>
+    <input [(ngModel)]="object.team" mdInput placeholder="球队" value="">
+  </md-input-container>
+
+<md-input-container>
+  <input [(ngModel)]="object.goal" mdInput placeholder="进球数" value="">
+</md-input-container>
+
+<md-input-container>
+    <input [(ngModel)]="object.palyerMinutes" mdInput placeholder="比赛时间" value="">
+  </md-input-container>
+
+<md-input-container>
+    <input [(ngModel)]="object.assist" mdInput placeholder="助攻" value="">
+  </md-input-container>
+
+
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button routerLink="/player-ranking">取消</button>
+    <button md-button (click)="save()">保存</button>
+  </md-card-actions>
+</md-card>
