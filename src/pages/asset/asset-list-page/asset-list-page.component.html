@@ -1,5 +1,7 @@
 <h1>我的衣帽间</h1>
 <div>
+
+    <button routerLink="edit/new">新增宝贝</button>
     <p>
         <button (click)="random()">价格随机</button>
         <button (click)="priceDesc()">价格倒序</button>
@@ -10,6 +12,7 @@
         <thead>
             <tr>
                 <th>编号</th>
+                <th>宝贝图片</th>
                 <th>宝贝名称</th>
                 <th>类别</th>
                 <th>品牌</th>
@@ -20,13 +23,14 @@
         </thead>
         <tbody>
             <tr *ngFor="let asset of assets">
-                <td class="center">{{asset.no}}</td>
+                <td>{{asset.no}}</td>
+                <td><img src="{{asset.img}}"/></td>
                 <td>{{asset.name}}</td>
-                <td class="center">{{asset.classification}}</td>
-                <td class="center">{{asset.brand}}</td>
-                <td class="center">{{asset.price}}</td>
-                <td class="center">{{asset.addTime}}</td>
-                <td><a>修改</a> <a>查看</a></td>
+                <td>{{asset.classification}}</td>
+                <td>{{asset.brand}}</td>
+                <td>{{asset.price}}</td>
+                <td>{{asset.addTime | date:"y-MM-dd"}}</td>
+                <td><a routerLink="edit/{{asset.no}}">修改</a> <a routerLink="view">查看</a></td>
             </tr>
         </tbody>
     </table>
