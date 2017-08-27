@@ -74,6 +74,10 @@ const SSRroutes: Routes = [
   { path: 'employee', 
   loadChildren: '../pages/employee/employee.module#EmployeeModule',
   data:{title:"员工管理" }
+  },
+  { path: 'product-shop-count', 
+  loadChildren: '../pages/product-shop-count/productshopcount.module#ProductshopcountModule',
+  data:{title:"Annotation 工具" }
  },
   { path: 'betsy-account', 
   loadChildren: '../pages/betsy-account/betsy-account.module#BetsyAccountModule',
@@ -83,6 +87,13 @@ const SSRroutes: Routes = [
   loadChildren: '../pages/training-course/training-course.module#TrainingCourseModule',
   data:{title:"培训课程" }
 },
+
+{ path: 'player-ranking',
+loadChildren: '../pages/player-ranking/player-ranking.module#PlayerRankingModule',
+data: { title: "球员数据排行" }
+
+},
+
 {
     path: 'hansheng-book-store',
     loadChildren: '../pages/hansheng-book-store/hansheng-book-store.module#HanshengBookStoreModule',
@@ -94,14 +105,29 @@ const SSRroutes: Routes = [
   data: { title: "聚美优品" }
 },
 {
+  path: 'book-management',
+  loadChildren: '../pages/book-management/book-management.module#BookManagementModule',
+  data: { title: "图书管理" }
+},
+{
     path: 'trainer',
     loadChildren: '../pages/trainer/trainer.module#TrainerModule',
     data: { title: "讲师列表" }
   },
+  { path: 'shoplist', 
+  loadChildren: '../pages/taobao-shoplist/shoplist.module#ShoplistModule',
+  data:{title:"淘宝购物车商品管理" }
+},
   {
     path: 'game', 
     loadChildren: '../pages/game/game.module#GameModule',
     data:{title:"游戏排行榜" }
+  },
+
+  {
+    path: 'cookbook', 
+    loadChildren: '../pages/cookbook/cookbook.module#CookbookModule',
+    data:{title:"食谱烹饪" }
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

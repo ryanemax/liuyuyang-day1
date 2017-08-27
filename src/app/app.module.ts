@@ -4,13 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7af3e953fa9a515a22fd5310fa2bd2571ee61c12
 
 // 当打包部署静态包时，需要加载本Module，当使用服务端渲染时，请注释
 // import { SPAModule } from '../pages/spa.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-lazyload-starter' }),

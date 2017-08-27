@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-
+import { Observable } from "rxjs/Observable"
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/observable/of';
 @Injectable()
 
 export class CardPreviewService {
@@ -16,6 +18,20 @@ export class CardPreviewService {
      {name:"冰猴",type:"龙",cost:7,vocation:"中立",img:"./assets/img/cardpreview/binghou.jpg"},
      {name:"风暴看守者",type:"元素",cost:8,vocation:"中立",img:"./assets/img/cardpreview/fengbaokanshou.jpg"}
 ];
+  }
+  del(card){
+    this.cards.forEach((item,index,arr)=>{
+      if(item.name == card.name){
+        arr.splice(index,1)
+      }
+    })
+  }
+  addCard(card:Card){
+    this.cards.push(card);
+  }
+  getCardByName(name):Observable<Card>{
+    let card = this.cards.find(item=>item.name == name)
+    return Observable.of(card)
   }
 
   asc(type) {

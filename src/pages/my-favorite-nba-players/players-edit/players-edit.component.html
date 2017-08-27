@@ -1,0 +1,27 @@
+<button md-raised-button (click)="back()">Back</button>
+
+<md-card class="example-card">
+    <md-card-header>
+        <div md-card-avatar class="example-header-image"></div>
+        <md-card-subtitle>Name:{{object.name}}</md-card-subtitle>
+        <md-card-subtitle>Ability Score:{{object.abilityScore}}</md-card-subtitle>
+        <md-card-subtitle>Salary:{{object.salary}}</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+        <p>
+            <md-input-container>
+                <input [(ngModel)]="object.name" mdInput placeholder="Name" value="">
+            </md-input-container>
+            <md-input-container>
+                <input [(ngModel)]="object.abilityScore" mdInput placeholder="Ability Score" value="">
+            </md-input-container>
+            <md-input-container>
+                <input [(ngModel)]="object.salary" mdInput placeholder="Salary" value="">
+            </md-input-container>
+        </p>
+    </md-card-content>
+    <md-card-actions>
+        <button md-button (click)="save()">Save</button>
+        <button md-button routerLink="/myfavoritenbaplayers">Cancel</button>
+    </md-card-actions>
+</md-card>
