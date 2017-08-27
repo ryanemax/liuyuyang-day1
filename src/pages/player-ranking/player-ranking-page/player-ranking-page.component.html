@@ -1,9 +1,9 @@
 
-<button (click)="goalSort()">按进球数排序</button>
-<button (click)="assistSort()">按助攻数排序</button>
-<button (click)="random()">随机</button>
-
-<app-zs-button>按进球数排序</app-zs-button>
+<app-zs-button [title]= "'按进球数排序'" (click)="goalSort()"></app-zs-button>
+<app-zs-button [title]= "'按助攻数排序'" (click)="assistSort()"></app-zs-button>
+<app-zs-button [title]= "'随机'" (click)="random()"></app-zs-button>
+<app-zs-button [title]= "'增加球员'" >按进球数排序</app-zs-button>
+<app-zs-button [title]= "'编辑'" (click)="random()"></app-zs-button>
 
 
 <div id="datacenter">
@@ -11,6 +11,10 @@
         <img src="/assets/img/player-ranking/premier.jpg" width="30" height="37" alt="">
     </div>
 </div>
+
+<app-player-info [player]="player" *ngFor="let user of players"></app-player-info>
+
+
 <table width="100%">
   <tbody>
       <tr>
