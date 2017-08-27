@@ -1,0 +1,31 @@
+<div class="contianer">
+  <div class="tool-bar">
+      <button (click)="addAccount()">添加新联系人</button>
+      <button (click)="asc()">正序</button>
+      <button (click)="desc()">逆序</button>
+      <button (click)="random()">随机</button>
+  </div>
+  <div class="content">
+   
+   
+    <table class="table col-12">
+        <tr>
+            <td></td>
+            <td>日期</td>
+            <td>事件</td>
+            <td>预算</td>
+            <td>花费</td>
+            <td>备注</td>
+        </tr>
+        <tr *ngFor="let item of accounting">
+          <td>{{item.index}}</td>
+          <td>{{item.date}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.budget}}</td>
+          <td>{{item.cost}}</td>
+          <td>{{item.comment}}</td>
+        </tr>
+      </table>
+  </div>
+
+</div>
