@@ -31,7 +31,7 @@ export class AssetEditPageComponent implements OnInit {
   // 新增/保存
   saveAsset(){
     if(this.obj.name==""||this.obj.brand==""||this.obj.price<0){
-      alert("信息不完整，请检查")
+     alert("信息不完整，请检查")
       return
     }
     if(this.obj.no==0){// 编号为空，代表新增

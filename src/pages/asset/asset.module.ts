@@ -9,8 +9,8 @@ import { MaterialModule } from "@angular/material"
 import {MdSelectModule} from '@angular/material';
 import {MdButtonModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
-
-
+import { AssetCurrencyPipe } from './asset-currency.pipe';
+import { AssetButtonDirective } from './asset-button.directive';
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [AssetListPageComponent,
     AssetEditPageComponent,
-    AssetDetailPageComponent],
+    AssetDetailPageComponent,AssetCurrencyPipe,AssetButtonDirective],
   providers: [AssetService]
 })
 
