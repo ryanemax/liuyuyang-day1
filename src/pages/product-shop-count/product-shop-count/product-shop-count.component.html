@@ -1,0 +1,24 @@
+<button (click)="addProduct()">添加产品信息</button>
+<button (click)="asc()">排序-正序-产品库编号</button>
+<button (click)="desc()">排序-逆序-Count</button>
+<button (click)="random()">随机</button>
+
+<table width="100%">
+<tbody><tr>
+    <th align="left">Product Code</th>
+    <th align="left">Product Description</th>
+    <th align="left">Shop Code</th>
+    <th align="left">Dataset Code</th>
+    <th align="left">Quantities</th>
+</tr>
+<tr *ngFor="let product of products">
+    <td>{{product.product_code}}</td>
+    <td>{{product.product_description}}</td>
+    <td>{{product.shop_code}}</td>
+    <td>{{product.dataset_code}}</td>
+    <td>{{product.quantities}}</td>
+    </tr>
+
+</tbody></table>
+<br>
+<hr>

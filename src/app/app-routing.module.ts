@@ -56,7 +56,11 @@ const SSRroutes: Routes = [
   { path: 'employee', 
   loadChildren: '../pages/employee/employee.module#EmployeeModule',
   data:{title:"员工管理" }
-},
+  },
+  { path: 'product-shop-count', 
+  loadChildren: '../pages/product-shop-count/productshopcount.module#ProductshopcountModule',
+  data:{title:"Annotation 工具" }
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
