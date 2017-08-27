@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CardPreviewService } from '../card-preview.service';
 import { Location } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-card-edit',
   templateUrl: './card-edit.component.html',
