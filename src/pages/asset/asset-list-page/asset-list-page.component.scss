@@ -1,9 +1,12 @@
-div{width:90%; }
+div{width:100%; }
 table{width:100%;background-color: #f9f5f5;}
-p button {float: right;margin-bottom: 10px;height: 30px;width: 70px;}
+button {float: left;}
+p button {float: right;}
 table{margin-bottom: 10px;}
 thead tr{font-weight: bold;}
 td,th{border:1px solid rgba(198, 183, 183, 0.75);padding: 10px;}
 .center{text-align: center;}
 th{background-color: #00bcd4;}
 td a{margin: 0px 5px;}
+td{text-align: center;}
+table img{width: 80px;height: 80px;}
