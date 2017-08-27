@@ -11,6 +11,7 @@ const SSRroutes: Routes = [
   { path: 'about', loadChildren: '../pages/about/about.module#AboutModule' },
   { path: 'contact', loadChildren: '../pages/contact/contact.module#ContactModule' },
   { path: 'movie', loadChildren: '../pages/movie/movie.module#MovieModule' },
+  { path: 'device', loadChildren: '../pages/liuchaoexam/device.module#DeviceModule' },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
