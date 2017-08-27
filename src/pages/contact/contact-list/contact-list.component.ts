@@ -16,7 +16,6 @@ interface Contact{
 })
 export class ContactListComponent implements OnInit {
   contacts:Array<Contact>;
-  firstLine:string;
   constructor() {
    this.getContacts()
   }
@@ -28,7 +27,6 @@ export class ContactListComponent implements OnInit {
       {birth:new Date(),name:"Yaoming",sex:"M",mobile:"1316666668"},
       {birth:new Date(),name:"Yaoming",sex:"F",mobile:"1316666668"},
     ]
-    this.firstLine =`第一个联系人是：${this.contacts[0].name}`
   }
 
   addContact(){
@@ -44,7 +42,7 @@ export class ContactListComponent implements OnInit {
     // 正序排列
     // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
     this.contacts.sort((a,b)=>{
-      if(a.sex>b.sex){
+      if(a.name>b.name){
         return 1
       }else{
         return -1
@@ -54,12 +52,23 @@ export class ContactListComponent implements OnInit {
 
 
   desc(){
-    // 逆序排列    
+    // 逆序排列   
+      this.contacts.sort((a,b)=>{
+      if(a.name>b.name){
+        return -1
+      }else{
+        return 1
+      }
+    }) 
   }
   random(){
     // 随机排列
     // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-  }
+    this.contacts.forEach(item=>{
+      item.random = Math.random()
+    })
+    this.asc()
+}
   ngOnInit() {
   }
 

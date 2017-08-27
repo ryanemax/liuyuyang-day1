@@ -6,6 +6,9 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { SharedModule } from "../../shared/shared.module";
 import { MaterialModule } from "@angular/material"
 
+import { ContactItemComponent } from './contact-item/contact-item.component';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -14,6 +17,6 @@ import { MaterialModule } from "@angular/material"
       { path: '', component: ContactListComponent, pathMatch: 'full' }
     ])
   ],
-  declarations: [ContactListComponent]
+  declarations: [ContactListComponent,ContactItemComponent]
 })
 export class ContactModule { }
