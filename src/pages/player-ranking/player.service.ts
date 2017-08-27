@@ -2,20 +2,13 @@ import {
   Injectable
 } from '@angular/core';
 
-interface Player {
-  name: string,
-    goal: number,
-    assist: number,
-    team: string,
-    palyerMinutes: number,
-    age ? : number,
-    random ? : number,
-}
 
 
 @Injectable()
 export class PlayerService {
-  contacts:Array<Player>;
+  players: Array<Player>;
+  editObject: Player;
+
   getPlayers() {
     this.players = [{
         name: "卢卡库",
@@ -69,6 +62,18 @@ export class PlayerService {
     })
   }
 
+  deleteByName(name) {
+    this.players.forEach((item, index, arr) => {
+      if (item.name == name) {
+        arr.splice(index, 1)
+      }
+    })
+  }
+
+  addPlayer(player) {
+    this.players.push(player)
+  }
+
 
   assistSort() {
     // 逆序排列   
@@ -96,6 +101,10 @@ export class PlayerService {
     })
   }
 
-  constructor() {}
+
+
+  constructor() {
+    this.getPlayers();
+  }
 
 }

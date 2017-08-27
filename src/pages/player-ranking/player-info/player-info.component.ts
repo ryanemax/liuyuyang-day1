@@ -9,9 +9,7 @@ import { PlayerService } from "../player.service"
 export class PlayerInfoComponent implements OnInit {
   @Input() player:any
   constructor(private playerServ:PlayerService) { 
-
-
-
+    
   }
 
   deletePlayer(user){

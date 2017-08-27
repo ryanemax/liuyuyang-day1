@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-
+import { PlayerService } from "../player.service"
 
 
 
@@ -13,9 +13,9 @@ export class PlayerRankingPageComponent implements OnInit {
 
 
   players:Array<Player>;
-  firstLine:string;
-  constructor() {
-   this.getPlayers()
+
+  constructor(private playerServ:PlayerService) {
+    this.players = this.playerServ.players;
   }
   
   
