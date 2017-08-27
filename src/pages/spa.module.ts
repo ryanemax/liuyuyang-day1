@@ -11,7 +11,7 @@ import { AboutModule } from './about/about.module';
   imports: [
     CommonModule,
     HomeModule,
-    AboutModule
+    AboutModule,
   ],
 })
 export class SPAModule { }

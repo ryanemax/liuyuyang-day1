@@ -11,10 +11,10 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'ng-lazyload-starter'}),
+    BrowserModule.withServerTransition({ appId: 'ng-lazyload-starter' }),
     AppRoutingModule,
     NoopAnimationsModule,
     // SPAModule, // 静态打包时加载
