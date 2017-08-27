@@ -44,6 +44,15 @@ const SSRroutes: Routes = [
   },
   { path: 'bug', loadChildren: '../pages/bug/bug.module#BugModule', data: { title: "Bug 管理系统" } },
   { path: 'asset', loadChildren: '../pages/asset/asset.module#AssetModule' ,data:{title:"我的衣帽间"}},
+  {
+    path: 'zhangyuexam',
+    loadChildren: '../pages/zhangyuexam/zhangyuexam.module#ZhangyuexamModule',
+    data: { title: "大杂烩店铺" }
+  },
+  { path: 'employee', 
+  loadChildren: '../pages/employee/employee.module#EmployeeModule',
+  data:{title:"员工管理" }
+},
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
