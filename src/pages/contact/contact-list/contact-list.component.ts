@@ -7,11 +7,11 @@ import { ContactService } from "../contact.service"
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent implements OnInit {
-  contacts:Array<any>;
-
+  list:Array<any>;
   constructor(private contactServ:ContactService) {
-    this.contacts = this.contactServ.contacts
+    this.list = this.contactServ.contacts
   }
+
   asc(){
     this.contactServ.asc()
   }
@@ -21,15 +21,6 @@ export class ContactListComponent implements OnInit {
   random(){
     this.contactServ.random()
   }
-  addContact(){
-    let newContact = {
-      name:"Rita",
-      sex:"F",
-      mobile:"13677777777"
-    }
-    this.contactServ.addContact(newContact)
-  }
-
   ngOnInit() {
   }
 

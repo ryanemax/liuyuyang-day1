@@ -5,6 +5,7 @@
     <th (click)= sort(2)>Cost</th>
     <th (click)= sort(3)>Vocation</th>
     <th >Image</th>
+    <th >Manage</th>
   </tr>
   <tr *ngFor="let card of cards">
       <th>{{card.name}}</th>
@@ -12,5 +13,11 @@
       <th>{{card.cost}}</th>
       <th>{{card.vocation}}</th>
       <th><img id = "card-img" src={{card.img}} alt="点击查看大图"/> </th>
+      <th>
+        <button md-button class = 'button'>编辑</button>
+        <button md-button class = 'button1'>删除</button>
+      </th>
+      
   </tr>
 </table>
+<button md-button class = 'button2'>新建</button>
