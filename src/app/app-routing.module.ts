@@ -11,6 +11,7 @@ const SSRroutes: Routes = [
   { path: 'about', loadChildren: '../pages/about/about.module#AboutModule' },
   { path: 'contact', loadChildren: '../pages/contact/contact.module#ContactModule' },
   { path: 'movie', loadChildren: '../pages/movie/movie.module#MovieModule' },
+  { path: 'bug', loadChildren: '../pages/bug/bug.module#BugModule', data: { title: "Bug 管理系统" } },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
