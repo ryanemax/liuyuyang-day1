@@ -10,12 +10,12 @@ const SSRroutes: Routes = [
   {
     path: 'home',
     loadChildren: '../pages/home/home.module#HomeModule',
-    data: { title: "主页" }
+    // data: { title: "主页" }
   },
   {
     path: 'about',
     loadChildren: '../pages/about/about.module#AboutModule',
-    data: { title: "关于我们" }
+    // data: { title: "关于我们" }
   },
   {
     path: 'contact',
