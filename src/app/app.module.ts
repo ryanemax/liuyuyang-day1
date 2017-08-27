@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations'
-
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 // 当打包部署静态包时，需要加载本Module，当使用服务端渲染时，请注释
 // import { SPAModule } from '../pages/spa.module';

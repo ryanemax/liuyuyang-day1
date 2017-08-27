@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AirlinePageComponent } from './airline-page.component';
+import { AirlineEditComponent } from './airline-edit.component';
 
-describe('AirlinePageComponent', () => {
-  let component: AirlinePageComponent;
-  let fixture: ComponentFixture<AirlinePageComponent>;
+describe('AirlineEditComponent', () => {
+  let component: AirlineEditComponent;
+  let fixture: ComponentFixture<AirlineEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AirlinePageComponent ]
+      declarations: [ AirlineEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AirlinePageComponent);
+    fixture = TestBed.createComponent(AirlineEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
