@@ -35,7 +35,7 @@ export class AssetEditPageComponent implements OnInit {
       return
     }
     if(this.obj.no==0){// 编号为空，代表新增
-      this.obj.no = (this.assetService.getAssets.length+1)
+      this.obj.no = (this.assetService.assets.length+1)
       this.obj.addTime=new Date()
       this.obj.img="../../../assets/img/asset/img.png"
       this.assetService.add(this.obj)
