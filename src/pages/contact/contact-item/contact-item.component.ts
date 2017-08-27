@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ContactService } from "../contact.service"
 
 @Component({
   selector: 'app-contact-item',
@@ -8,8 +9,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ContactItemComponent implements OnInit {
   @Input() user:any
 
-  constructor() { }
-
+  constructor(private contactServ:ContactService) { }
+  delete(user){
+    this.contactServ.deleteByName(user.name)
+  }
   ngOnInit() {
   }
 

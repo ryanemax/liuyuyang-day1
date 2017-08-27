@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'ng-lazyload-starter'}),
+    BrowserModule.withServerTransition({ appId: 'ng-lazyload-starter' }),
     AppRoutingModule,
     // SPAModule, // 静态打包时加载
   ],
