@@ -50,6 +50,11 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/fast-mail/fast-mail.module#FastMailModule',
     data: { title: "FastMail快递" }
   },
+  {
+    path: 'snack',
+    loadChildren: '../pages/snack/snack.module#SnackModule',
+    data: { title: "snack street" }
+  },
   { path: 'bug', loadChildren: '../pages/bug/bug.module#BugModule', data: { title: "Bug 管理系统" } },
   { path: 'asset', loadChildren: '../pages/asset/asset.module#AssetModule' ,data:{title:"我的衣帽间"}},
   {
@@ -93,6 +98,11 @@ const SSRroutes: Routes = [
     path: 'trainer',
     loadChildren: '../pages/trainer/trainer.module#TrainerModule',
     data: { title: "讲师列表" }
+  },
+  {
+    path: 'game', 
+    loadChildren: '../pages/game/game.module#GameModule',
+    data:{title:"游戏排行榜" }
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
