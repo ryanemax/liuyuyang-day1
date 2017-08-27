@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable } from "rxjs/Observable"
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/observable/of';
 
 interface BookModel{
   name:string,
@@ -11,6 +14,7 @@ interface BookModel{
 @Injectable()
 export class HanshengBookStoreService {
 
+  editObject:Book;
   books:Array<BookModel>;
   constructor() { 
     this.getbookModels()
@@ -24,12 +28,17 @@ export class HanshengBookStoreService {
       {name:"ANGULAR2权威指南",author:"Nate Murray",introduce:"一本关于angular的书", wordsNum:400,random:50},
     ]
   }
-   addBook(){
+
+  getBookByName(name):Observable<Book>{
+    let book = this.books.find(item=>item.name == name)
+    return Observable.of(book)
+  }
+   addBook(obj:Book){
     var random = Math.random();
     random = Math.round(random*10000);
     let newBook = {
-      name:"新增加书籍" + random,
-      author:"随机作者"+ random,
+      name:"新增加书籍" + obj.name,
+      author:"随机作者"+ obj.author,
       introduce:"一本随机的书",
       wordsNum:Math.round(random/100),
       random:Math.random()
@@ -64,6 +73,14 @@ export class HanshengBookStoreService {
     this.books.sort((a,b)=>{
         return Math.random()
     })   
+  }
+
+  deleteByName(name){
+    this.books.forEach((item,index,arr)=>{
+      if(item.name == name){
+        arr.splice(index,1)
+      }
+    })
   }
 
 }

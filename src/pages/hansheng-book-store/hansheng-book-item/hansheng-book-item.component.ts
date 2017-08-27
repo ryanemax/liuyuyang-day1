@@ -1,5 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { HanshengBookStoreService } from "../hansheng-book-store.service"
+import { Location } from "@angular/common"
 
 @Component({
   selector: 'app-hansheng-book-item',
@@ -9,12 +10,15 @@ import { HanshengBookStoreService } from "../hansheng-book-store.service"
 export class HanshengBookItemComponent implements OnInit {
 
   @Input() book:any
-  constructor(private hanshengBookStoreService:HanshengBookStoreService) { 
+  constructor(private hanshengBookStoreService:HanshengBookStoreService,
+  private loc:Location) { }
+  delete(book){
+    this.hanshengBookStoreService.deleteByName(book.name)
+  }
+  edit(){
+    this.hanshengBookStoreService.editObject = this.book
 
   }
-
-  // 依赖处理 start
-  // 依赖处理 end
   ngOnInit() {
   }
 
