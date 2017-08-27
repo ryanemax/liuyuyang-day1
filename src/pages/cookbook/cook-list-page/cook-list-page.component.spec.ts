@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AssetAddPageComponent } from './asset-add-page.component';
+import { CookListPageComponent } from './cook-list-page.component';
 
-describe('AssetAddPageComponent', () => {
-  let component: AssetAddPageComponent;
-  let fixture: ComponentFixture<AssetAddPageComponent>;
+describe('CookListPageComponent', () => {
+  let component: CookListPageComponent;
+  let fixture: ComponentFixture<CookListPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AssetAddPageComponent ]
+      declarations: [ CookListPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AssetAddPageComponent);
+    fixture = TestBed.createComponent(CookListPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
