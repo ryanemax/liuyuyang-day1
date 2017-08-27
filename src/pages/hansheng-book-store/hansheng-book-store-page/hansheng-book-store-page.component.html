@@ -1,10 +1,10 @@
-<app-hansheng-book-button [title]="'添加新书籍'" (click)="addBook()" id="button"></app-hansheng-book-button>
-<app-hansheng-book-button [title]="'字数正序'" (click)="asc()" id="button"></app-hansheng-book-button>
-<app-hansheng-book-button [title]="'字数逆序'" (click)="desc()" id="button"></app-hansheng-book-button>
-<app-hansheng-book-button [title]="'随机排序'" (click)="random()" id="button"></app-hansheng-book-button>
+<button  routerLink="hansheng-edit/new" id="button">添加新书籍</button>
+<button (click)="asc()" id="button">字数正序</button>
+<button (click)="desc()" id="button">字数逆序</button>
+<button (click)="random()" id="button">随机排序</button>
 
 <h3>书籍列表</h3>
-<table  width="100%" class = "table">
+<!-- <table  width="100%" class = "table">
 <tbody><tr bgcolor="#b3e5fc">
     <th align="centre">名称</th>
     <th align="centre">作者</th>
@@ -16,4 +16,8 @@
     <td width="25%">{{book.author}}</td>
     <td width="25%">{{book.introduce}}</td>
     <td width="25%">{{book.wordsNum}}</td>
-</tr>
+</tr> -->
+
+<div style="margin-top:14px;">
+<app-hansheng-book-item [book]="book" *ngFor="let book of books"></app-hansheng-book-item>
+</div>

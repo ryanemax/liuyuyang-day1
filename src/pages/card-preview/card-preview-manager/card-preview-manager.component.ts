@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 import { CardPreviewService } from '../card-preview.service';
 
 
@@ -8,14 +8,19 @@ import { CardPreviewService } from '../card-preview.service';
   styleUrls: ['./card-preview-manager.component.scss']
 })
 export class CardPreviewManagerComponent implements OnInit {
-  cards:Array<any>;
+  @Input() card:Card
+  cards:Array<Card>;
   clickCount:number = 0;
   sortTypeTmp:number = 0;
+  
   constructor(private cardPreviewService:CardPreviewService) { 
     this.cards = this.cardPreviewService.cards;
   }
 
   ngOnInit() {
+  }
+  del(card){
+    this.cardPreviewService.del(card);
   }
   sort(type) {
     if ( type !== this.sortTypeTmp) {
