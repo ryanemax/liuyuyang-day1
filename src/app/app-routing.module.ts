@@ -65,6 +65,11 @@ const SSRroutes: Routes = [
   loadChildren: '../pages/training-course/training-course.module#TrainingCourseModule',
   data:{title:"培训课程" }
 },
+{ path: 'player-ranking',
+loadChildren: '../pages/player-ranking/player-ranking.module#PlayerRankingModule',
+data: { title: "球员数据排行" }
+
+},
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

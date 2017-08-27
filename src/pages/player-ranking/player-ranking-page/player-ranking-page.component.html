@@ -1,0 +1,32 @@
+
+<button (click)="goalSort()">按进球数排序</button>
+<button (click)="assistSort()">按助攻数排序</button>
+<button (click)="random()">随机</button>
+
+<app-zs-button>按进球数排序</app-zs-button>
+
+
+<div id="datacenter">
+    <div>
+        <img src="/assets/img/player-ranking/premier.jpg" width="30" height="37" alt="">
+    </div>
+</div>
+<table width="100%">
+  <tbody>
+      <tr>
+        <th align="left">球员名字</th>
+        <th align="left">所属球队</th>
+        <th align="left">进球数</th>
+        <th align="left">助攻数</th>
+        <th align="left">参赛时间</th>
+      </tr>
+        <tr *ngFor="let player of players">
+            <td width="20%">{{player.name}}</td>
+            <td width="20%">{{player.team}}</td>
+            <td width="20%">{{player.goal}}</td>
+            <td width="20%">{{player.assist}}</td>
+            <td width="20%">{{player.palyerMinutes}}</td>
+        </tr>
+  
+  </tbody>
+</table>
