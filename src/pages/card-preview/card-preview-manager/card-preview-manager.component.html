@@ -1,0 +1,14 @@
+<table id = "table" border="0.5">
+  <tr id = "header">
+    <th (click)= sort(0)>Name</th>
+    <th (click)= sort(1)>Type</th>
+    <th (click)= sort(2)>Cost</th>
+    <th (click)= sort(3)>Vocation</th>
+  </tr>
+  <tr *ngFor="let card of cards">
+      <th>{{card.name}}</th>
+      <th>{{card.type}}</th>
+      <th>{{card.cost}}</th>
+      <th>{{card.vocation}}</th>
+  </tr>
+</table>

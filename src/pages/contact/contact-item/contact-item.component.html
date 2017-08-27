@@ -1,0 +1,18 @@
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{user.name}}</md-card-title>
+    <md-card-subtitle>{{user.mobile}}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="assets/img/examples/shiba2.jpg">
+  <md-card-content>
+    <p>
+      性别： {{user.sex | sexName:"cn"}}
+      生日： {{user.birth | date:"y-MM-dd"}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>编辑</button>
+    <button md-button>删除</button>
+  </md-card-actions>
+</md-card>
