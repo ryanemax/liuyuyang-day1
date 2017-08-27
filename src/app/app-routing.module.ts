@@ -37,6 +37,10 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule',
     data: { title: "卡牌预览" }
   },
+  { path: 'goods-shop',
+    loadChildren: '../pages/goods-shop/goods-shop.module#GoodsShopModule' ,
+    data:{title:"7-12 网上商城"}
+  },
   {
     path: 'fast-mail',
     loadChildren: '../pages/fast-mail/fast-mail.module#FastMailModule',
