@@ -43,6 +43,11 @@ const SSRroutes: Routes = [
     data: { title: "FastMail快递" }
   },
   { path: 'bug', loadChildren: '../pages/bug/bug.module#BugModule', data: { title: "Bug 管理系统" } },
+  {
+    path: 'zhangyuexam',
+    loadChildren: '../pages/zhangyuexam/zhangyuexam.module#ZhangyuexamModule',
+    data: { title: "大杂烩店铺" }
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
