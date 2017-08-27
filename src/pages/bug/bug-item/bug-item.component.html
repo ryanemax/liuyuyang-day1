@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Index</th>
+    <th>Level</th>
+    <th>Status</th>
+    <th>Assignee Name</th>
+  </tr>
+  <tr *ngFor="let bug of bugs">
+    <td>{{bug.index}}</td>
+    <td>{{bug.level}}</td>
+    <td>{{bug.status}}</td>
+    <td>{{bug.assigneeName}}</td>
+  </tr>
+</table>
