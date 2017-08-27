@@ -1,14 +1,16 @@
 <h2>PMJ Brand List</h2>
 
-<button appButtonCircle (click)="addBrand()">Add Brand</button>
-<button appButtonCircle (click)="asc()">Asc Sort</button>
-<button appButtonCircle (click)="desc()">Desc Sort</button>
-<button appButtonCircle (click)="random()">Random Sort</button>
+<button appPmjButton routerLink="edit/new">Add Brand</button>
+<button appPmjButton (click)="asc()">Asc Sort</button>
+<button appPmjButton (click)="desc()">Desc Sort</button>
+<button appPmjButton (click)="random()">Random Sort</button>
 
 <br />
 <br />
 
-<table border="1">
+<!--<span appPmjHighlight>Highlight Test</span>-->
+
+<!--<table border="1">
   <tr>
     <th>Brand</th>
     <th>Consumer Account</th>
@@ -23,4 +25,8 @@
     <td>{{brand.taegetAudience}} </td>
     <td>{{brand.averagePrize}} </td>
   </tr>
-</table>
+</table>-->
+
+
+
+<app-pmj-item [brand]="brand" *ngFor="let brand of brands"></app-pmj-item>

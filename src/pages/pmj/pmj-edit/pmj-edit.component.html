@@ -1,0 +1,39 @@
+<button appPmjButton (click)="back()">Back</button>
+
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>Brand: {{object.name}}</md-card-title>
+    <md-card-subtitle>ConsumerAccount: {{object.consumerAccount}}</md-card-subtitle>
+    <md-card-subtitle>CampaignAccount: {{object.campaignAccount}}</md-card-subtitle>
+    <md-card-subtitle>TaegetAudience: {{object.taegetAudience}}</md-card-subtitle>
+    <md-card-subtitle>AveragePrize: {{object.averagePrize}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+      <md-input-container>
+        <input [(ngModel)]="object.name" mdInput placeholder="Brand" value="">
+      </md-input-container>
+
+      <md-input-container>
+        <input [(ngModel)]="object.consumerAccount" mdInput placeholder="ConsumerAccount" value="">
+      </md-input-container>
+
+      <md-input-container>
+        <input [(ngModel)]="object.campaignAccount" mdInput placeholder="CampaignAccount" value="">
+      </md-input-container>
+
+      <md-input-container>
+        <input [(ngModel)]="object.taegetAudience" mdInput placeholder="TaegetAudience" value="">
+      </md-input-container>
+
+      <md-input-container>
+        <input [(ngModel)]="object.averagePrize" mdInput placeholder="AveragePrize" value="">
+      </md-input-container>
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button routerLink="/pmj">Cancel</button>
+    <button md-button (click)="save()">Confirm</button>
+  </md-card-actions>
+</md-card>
