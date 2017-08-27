@@ -61,6 +61,10 @@ const SSRroutes: Routes = [
   loadChildren: '../pages/betsy-account/betsy-account.module#BetsyAccountModule',
   data:{title:"天天记账" },
 },
+  { path: 'trainingcourse', 
+  loadChildren: '../pages/training/training-course.module#TrainingCourseModule',
+  data:{title:"培训课程" }
+},
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
