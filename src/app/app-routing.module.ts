@@ -8,30 +8,34 @@ const SSRroutes: Routes = [
     children: []
   },
   { path: 'home', 
-  loadChildren: '../pages/home/home.module#HomeModule',
-  data:{title:"主页"} 
- },
+    loadChildren: '../pages/home/home.module#HomeModule',
+    data:{title:"主页"} 
+  },
   { path: 'about', 
-  loadChildren: '../pages/about/about.module#AboutModule',
-  data:{title:"关于我们"} 
-},
+    loadChildren: '../pages/about/about.module#AboutModule',
+    data:{title:"关于我们"} 
+  },
   { 
     path: 'contact', 
     loadChildren: '../pages/contact/contact.module#ContactModule', 
     data:{title:"联系人"}
   },
   { path: 'movie', 
-  loadChildren: '../pages/movie/movie.module#MovieModule',
-  data:{title:"电影"}
-},
- { path: 'pmj', 
- loadChildren: '../pages/pmj/pmj.module#PmjModule',
-  data:{title:"PMJ"}
- },
+    loadChildren: '../pages/movie/movie.module#MovieModule',
+    data:{title:"电影"}
+  },
+  { path: 'pmj', 
+    loadChildren: '../pages/pmj/pmj.module#PmjModule',
+    data:{title:"PMJ"}
+  },
   { path: 'cardpreview',
-  loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule' ,
-  data:{title:"卡牌预览"}
-},
+    loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule' ,
+    data:{title:"卡牌预览"}
+  },
+  { path: 'goods-shop',
+    loadChildren: '../pages/goods-shop/goods-shop.module#GoodsShopModule' ,
+    data:{title:"7-12 网上商城"}
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
