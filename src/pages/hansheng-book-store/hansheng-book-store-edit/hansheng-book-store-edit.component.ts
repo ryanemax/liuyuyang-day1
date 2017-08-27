@@ -35,8 +35,9 @@ export class HanshengBookStoreEditComponent implements OnInit {
       return
     }
     if(this.isNew){
+      console.log(2222)
       this.hanshengBookStoreService.addBook(this.book)
-    }
+    } 
     this.back()
   }
   back(){

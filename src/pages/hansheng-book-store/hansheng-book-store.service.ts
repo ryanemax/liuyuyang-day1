@@ -43,6 +43,7 @@ export class HanshengBookStoreService {
       wordsNum:Math.round(random/100),
       random:Math.random()
     }
+    console.log(11111)
     this.books.push(newBook)
   }
 
