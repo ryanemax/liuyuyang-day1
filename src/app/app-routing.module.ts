@@ -74,6 +74,11 @@ const SSRroutes: Routes = [
   loadChildren: '../pages/product/product.module#ProductModule',
   data: { title: "聚美优品" }
 },
+{
+    path: 'trainer',
+    loadChildren: '../pages/trainer/trainer.module#TrainerModule',
+    data: { title: "讲师列表" }
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
