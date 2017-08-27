@@ -1,0 +1,30 @@
+<button md-raised-button (click)="back()">返回</button>
+
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>食谱菜名：{{object.cookingname}}</md-card-title>
+    <md-card-subtitle>食材：{{object.material}}</md-card-subtitle>
+    <md-card-subtitle>烹饪时间：{{object.cooktime}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+<md-input-container>
+  <input [(ngModel)]="object.cookingname" mdInput placeholder="食谱菜名" value="">
+</md-input-container>
+
+<md-input-container>
+  <input [(ngModel)]="object.material" mdInput placeholder="食材" value="">
+</md-input-container>
+
+<md-input-container>
+  <input [(ngModel)]="object.material" mdInput placeholder="烹饪时间" value="">
+</md-input-container>
+
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button routerLink="/contact">取消</button>
+    <button md-button (click)="save()">保存</button>
+  </md-card-actions>
+</md-card>
