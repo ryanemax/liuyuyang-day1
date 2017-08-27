@@ -62,7 +62,11 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/zhangyuexam/zhangyuexam.module#ZhangyuexamModule',
     data: { title: "大杂烩店铺" }
   },
-
+  { 
+    path: 'flight', 
+    loadChildren: '../pages/airline/airline.module#AirlineModule' ,
+    data:{title:"Flight航空"}
+  },
   { path: 'device', 
     loadChildren: '../pages/liuchaoexam/device.module#DeviceModule',
     data: { title: "物资管理系统" }
@@ -70,6 +74,10 @@ const SSRroutes: Routes = [
   { path: 'employee', 
   loadChildren: '../pages/employee/employee.module#EmployeeModule',
   data:{title:"员工管理" }
+  },
+  { path: 'product-shop-count', 
+  loadChildren: '../pages/product-shop-count/productshopcount.module#ProductshopcountModule',
+  data:{title:"Annotation 工具" }
  },
   { path: 'betsy-account', 
   loadChildren: '../pages/betsy-account/betsy-account.module#BetsyAccountModule',
@@ -88,6 +96,11 @@ const SSRroutes: Routes = [
   path: 'product',
   loadChildren: '../pages/product/product.module#ProductModule',
   data: { title: "聚美优品" }
+},
+{
+  path: 'book-management',
+  loadChildren: '../pages/book-management/book-management.module#BookManagementModule',
+  data: { title: "图书管理" }
 },
 {
     path: 'trainer',
