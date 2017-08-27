@@ -1,12 +1,11 @@
 <h1>商品列表</h1>
 <div>
+  <button (click)="random()">默认排序</button>
   <button (click)="asc()">按价格从低到高</button>
   <button (click)="desc()">按价格从高到低</button>
+  <button routerLink="edit/new">添加商品</button>
 </div>
 
 <br/>
 
-<div class="items" *ngFor="let item of goods">
-  <img src="./assets/img/goods/{{item.name}}.jpg" width="200px" height="200px">
-  <p><span class="name">{{item.name}}</span>  <span class="price">价格:{{item.price}}</span></p>   
-</div>
+<app-goods-item [item]="item" *ngFor="let item of goods"></app-goods-item>

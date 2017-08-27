@@ -1,22 +1,25 @@
 
-<button (click)="asc()">正序</button>
+<div><button (click)="asc()">正序</button>
 <button (click)="desc()">逆序</button>
-<button (click)="random()">倒序</button>
+<button (click)="random()">倒序</button></div>
 
 
 
-<table border="1" width="100%">
-    <tbody><tr>
+<!-- <table border="1" width="100%"> -->
+    <!-- <tbody><tr>
         <th align="left">品牌</th>
         <th align="left">分类</th>
         <th align="left">功能</th>
         <th align="left">价格</th>
-    </tr>
-    <tr *ngFor="let Product of products">
+    </tr> -->
+    <!-- <tr *ngFor="let Product of list">
         <td width="25%">{{Product.brand}}</td>
         <td width="25%">{{Product.type}}</td>
         <td width="25%">{{Product.function}}</td>
         <td width="25%">{{Product.price}}</td>
-    </tr>
-    </tbody>
-</table>
+    </tr> -->
+    <app-product-item [product]="product" *ngFor="let product of list"></app-product-item>
+    
+   
+    <!-- </tbody> -->
+<!-- </table> -->
