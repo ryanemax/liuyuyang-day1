@@ -13,12 +13,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
-<<<<<<< HEAD
-    AppComponent,
-    EmployeeEditPageComponent,
-=======
     AppComponent
->>>>>>> 4cb985aa6c02a1c9659125205dc405b679f1e9a0
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-lazyload-starter' }),
