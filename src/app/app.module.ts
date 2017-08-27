@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations'
+
 
 
 
@@ -11,12 +13,12 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
- 
+    AppComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-lazyload-starter' }),
     AppRoutingModule,
+    NoopAnimationsModule,
     // SPAModule, // 静态打包时加载
   ],
   providers: [],

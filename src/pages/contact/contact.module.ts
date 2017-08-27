@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ContactListComponent } from './contact-list/contact-list.component';
 // 引入第三方共享模块
 import { SharedModule } from "../../shared/shared.module";
@@ -14,11 +15,11 @@ import { ContactService } from "./contact.service"
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule,FormsModule,
     SharedModule,MaterialModule,
     RouterModule.forChild([
       { path: '', component: ContactListComponent, pathMatch: 'full' },
-      { path: 'edit', component: ContactEditComponent, pathMatch: 'full' }
+      { path: 'edit/:name', component: ContactEditComponent, pathMatch: 'full' }
     ])
   ],
   providers:[ContactService],

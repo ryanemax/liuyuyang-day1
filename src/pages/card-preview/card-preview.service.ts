@@ -1,13 +1,5 @@
 import { Injectable } from '@angular/core';
 
-interface Card{
-  name:string,
-  type:string,
-  cost:number,
-  vocation:string,
-  img:string,
-  random?:number
-}
 @Injectable()
 
 export class CardPreviewService {
@@ -25,7 +17,13 @@ export class CardPreviewService {
      {name:"风暴看守者",type:"元素",cost:8,vocation:"中立",img:"./assets/img/cardpreview/fengbaokanshou.jpg"}
 ];
   }
-
+  del(card){
+    this.cards.forEach((item,index,arr)=>{
+      if(item.name == card.name){
+        arr.splice(index,1)
+      }
+    })
+  }
   asc(type) {
     switch (type) {
     case 0:

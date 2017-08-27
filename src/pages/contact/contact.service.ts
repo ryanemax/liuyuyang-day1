@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 
-interface Contact{
-  birth?:Date
-  name:string,
-  sex:string,
-  mobile:string,
-  age?:number
-  random?:number
-}
+import { Observable } from "rxjs/Observable"
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/observable/of';
 
 
 @Injectable()
 export class ContactService {
   contacts:Array<Contact>;
-
+  editObject:Contact;
   constructor() { 
     this.getContacts()
+  }
+  getContactByName(name):Observable<Contact>{
+    let contact = this.contacts.find(item=>item.name == name)
+    return Observable.of(contact)
   }
 
   getContacts(){
