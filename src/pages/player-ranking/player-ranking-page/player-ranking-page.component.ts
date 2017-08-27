@@ -18,7 +18,15 @@ export class PlayerRankingPageComponent implements OnInit {
     this.players = this.playerServ.players;
   }
   
-  
+  goalSort(){
+    this.playerServ.goalSort()
+  }
+  assistSort(){
+    this.playerServ.assistSort()
+  }
+  random(){
+    this.playerServ.random()
+  }
 
   ngOnInit() {
   }

@@ -48,6 +48,17 @@ export class PlayerEditPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params=>{
+      let name = params['name']
+      if(name=="new"){
+        this.isNew = true;
+      }else{
+        this.playerServ.getPlayerByName(name).subscribe(player=>{
+        this.object = player
+    })
+  }
+
+})
   }
 
 }

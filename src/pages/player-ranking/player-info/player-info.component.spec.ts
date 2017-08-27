@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlayerInfoPageComponent } from './player-info-page.component';
+import { PlayerInfoComponent } from './player-info.component';
 
-describe('PlayerInfoPageComponent', () => {
-  let component: PlayerInfoPageComponent;
-  let fixture: ComponentFixture<PlayerInfoPageComponent>;
+describe('PlayerInfoComponent', () => {
+  let component: PlayerInfoComponent;
+  let fixture: ComponentFixture<PlayerInfoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlayerInfoPageComponent ]
+      declarations: [ PlayerInfoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlayerInfoPageComponent);
+    fixture = TestBed.createComponent(PlayerInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

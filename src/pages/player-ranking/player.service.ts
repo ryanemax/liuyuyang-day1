@@ -1,7 +1,9 @@
 import {
   Injectable
 } from '@angular/core';
-
+import { Observable } from "rxjs/Observable"
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/observable/of';
 
 
 @Injectable()
@@ -62,7 +64,13 @@ export class PlayerService {
     })
   }
 
+  getPlayerByName(name):Observable<Player>{
+    let player = this.players.find(item=>item.name == name)
+    return Observable.of(player)
+  }
+
   deleteByName(name) {
+    console.log(name);
     this.players.forEach((item, index, arr) => {
       if (item.name == name) {
         arr.splice(index, 1)
