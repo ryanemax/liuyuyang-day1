@@ -89,6 +89,10 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/trainer/trainer.module#TrainerModule',
     data: { title: "讲师列表" }
   },
+  { path: 'shoplist', 
+  loadChildren: '../pages/taobao-shoplist/shoplist.module#ShoplistModule',
+  data:{title:"淘宝购物车商品管理" }
+},
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
