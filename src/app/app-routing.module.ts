@@ -24,6 +24,14 @@ const SSRroutes: Routes = [
   loadChildren: '../pages/movie/movie.module#MovieModule',
   data:{title:"电影"}
 },
+ { path: 'pmj', 
+ loadChildren: '../pages/pmj/pmj.module#PmjModule',
+  data:{title:"PMJ"}
+ },
+  { path: 'cardpreview',
+  loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule' ,
+  data:{title:"卡牌预览"}
+},
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
