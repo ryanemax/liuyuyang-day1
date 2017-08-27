@@ -1,0 +1,26 @@
+<button (click)="onClickBack()" appBtnFastMail>Back</button>
+<md-card class="example-card">
+<md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{tmpGood.name}}</md-card-title>
+    <md-card-subtitle>{{tmpGood.tel}}</md-card-subtitle>
+</md-card-header>
+<md-card-content>
+    <md-input-container>
+        <input [(ngModel)]="tmpGood.name" mdInput placeholder="name" value="">
+    </md-input-container>
+    <md-input-container>
+        <input [(ngModel)]="tmpGood.tel" mdInput placeholder="tel" value="">
+    </md-input-container>
+    <md-input-container>
+        <input [(ngModel)]="tmpGood.addr" mdInput placeholder="addr" value="">
+    </md-input-container>
+    <md-input-container>
+        <input [(ngModel)]="tmpGood.date" mdInput placeholder="date" value="">
+    </md-input-container>
+</md-card-content>
+<md-card-actions>
+    <button appBtnFastMail (click)="onClickBack()">Cancel</button>
+    <button appBtnFastMail (click)="onClickSave()">Save</button>
+</md-card-actions>
+</md-card>
