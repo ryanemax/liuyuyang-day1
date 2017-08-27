@@ -1,13 +1,5 @@
 import { Injectable } from '@angular/core';
 
-interface Card{
-  name:string,
-  type:string,
-  cost:number,
-  vocation:string,
-  img:string,
-  random?:number
-}
 @Injectable()
 
 export class CardPreviewService {

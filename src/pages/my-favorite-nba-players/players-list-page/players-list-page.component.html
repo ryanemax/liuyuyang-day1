@@ -1,0 +1,26 @@
+<h1 style="text-align:center;">My Favorite NBA Players</h1>
+
+<div>
+    <span>Sort By Ability Score</span>
+    <button (click)="sortList('up')">ASC</button>
+    <button (click)="sortList('down')">DESC</button>
+    <button (click)="sortList('random')">Randomly</button>
+</div> 
+
+
+<div>
+    <table class="gridtable">
+        <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Ability Score</th>
+            <th>Salary</th>
+        </tr>
+        <tr *ngFor="let player of players">
+            <td>{{player.index}}</td>
+            <td>{{player.name}}</td>
+            <td>{{player.abilityScore}}</td>
+            <td>{{player.salary}}</td>
+        </tr>
+    </table>
+</div>

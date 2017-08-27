@@ -37,8 +37,6 @@ export class EmployeeListPageComponent implements OnInit {
   }
 
   asc(){
-    // 正序排列
-    // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
     this.employees.sort((a,b)=>{
       if(a.age>b.age){
         return 1
@@ -47,8 +45,6 @@ export class EmployeeListPageComponent implements OnInit {
       }
     })
 }
-
-
   desc(){
     // 逆序排列    
     this.employees.sort((a,b)=>{
