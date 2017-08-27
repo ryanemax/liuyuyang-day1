@@ -74,6 +74,10 @@ const SSRroutes: Routes = [
   { path: 'employee', 
   loadChildren: '../pages/employee/employee.module#EmployeeModule',
   data:{title:"员工管理" }
+  },
+  { path: 'product-shop-count', 
+  loadChildren: '../pages/product-shop-count/productshopcount.module#ProductshopcountModule',
+  data:{title:"Annotation 工具" }
  },
   { path: 'betsy-account', 
   loadChildren: '../pages/betsy-account/betsy-account.module#BetsyAccountModule',
@@ -110,6 +114,10 @@ data: { title: "球员数据排行" }
     loadChildren: '../pages/trainer/trainer.module#TrainerModule',
     data: { title: "讲师列表" }
   },
+  { path: 'shoplist', 
+  loadChildren: '../pages/taobao-shoplist/shoplist.module#ShoplistModule',
+  data:{title:"淘宝购物车商品管理" }
+},
   {
     path: 'game', 
     loadChildren: '../pages/game/game.module#GameModule',
