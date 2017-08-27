@@ -124,6 +124,11 @@ data: { title: "球员数据排行" }
     data:{title:"游戏排行榜" }
   },
 
+  {
+    path: 'cookbook', 
+    loadChildren: '../pages/cookbook/cookbook.module#CookbookModule',
+    data:{title:"食谱烹饪" }
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
