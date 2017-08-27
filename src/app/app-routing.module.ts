@@ -7,35 +7,56 @@ const SSRroutes: Routes = [
     path: '',
     children: []
   },
-  { path: 'home', 
+  {
+    path: 'home',
     loadChildren: '../pages/home/home.module#HomeModule',
-    data:{title:"主页"} 
+    data: { title: "主页" }
   },
-  { path: 'about', 
+  {
+    path: 'about',
     loadChildren: '../pages/about/about.module#AboutModule',
-    data:{title:"关于我们"} 
+    data: { title: "关于我们" }
   },
-  { 
-    path: 'contact', 
-    loadChildren: '../pages/contact/contact.module#ContactModule', 
-    data:{title:"联系人"}
+  {
+    path: 'contact',
+    loadChildren: '../pages/contact/contact.module#ContactModule',
+    data: { title: "联系人" }
   },
-  { path: 'movie', 
+  {
+    path: 'movie',
     loadChildren: '../pages/movie/movie.module#MovieModule',
-    data:{title:"电影"}
+    data: { title: "电影" }
   },
-  { path: 'pmj', 
+  {
+    path: 'pmj',
     loadChildren: '../pages/pmj/pmj.module#PmjModule',
-    data:{title:"PMJ"}
+    data: { title: "PMJ" }
   },
-  { path: 'cardpreview',
-    loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule' ,
-    data:{title:"卡牌预览"}
+  {
+    path: 'cardpreview',
+    loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule',
+    data: { title: "卡牌预览" }
   },
   { path: 'goods-shop',
     loadChildren: '../pages/goods-shop/goods-shop.module#GoodsShopModule' ,
     data:{title:"7-12 网上商城"}
   },
+  {
+    path: 'fast-mail',
+    loadChildren: '../pages/fast-mail/fast-mail.module#FastMailModule',
+    data: { title: "FastMail快递" }
+  },
+  { path: 'bug', loadChildren: '../pages/bug/bug.module#BugModule', data: { title: "Bug 管理系统" } },
+  { path: 'asset', loadChildren: '../pages/asset/asset.module#AssetModule' ,data:{title:"我的衣帽间"}},
+  {
+    path: 'zhangyuexam',
+    loadChildren: '../pages/zhangyuexam/zhangyuexam.module#ZhangyuexamModule',
+    data: { title: "大杂烩店铺" }
+  },
+  { path: 'employee', 
+  loadChildren: '../pages/employee/employee.module#EmployeeModule',
+  data:{title:"员工管理" }
+},
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

@@ -6,14 +6,22 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { SharedModule } from "../../shared/shared.module";
 import { MaterialModule } from "@angular/material"
 
+import { ContactItemComponent } from './contact-item/contact-item.component';
+import { ContactEditComponent } from './contact-edit/contact-edit.component';
+
+import { ContactService } from "./contact.service"
+
+
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,MaterialModule,
     RouterModule.forChild([
-      { path: '', component: ContactListComponent, pathMatch: 'full' }
+      { path: '', component: ContactListComponent, pathMatch: 'full' },
+      { path: 'edit', component: ContactEditComponent, pathMatch: 'full' }
     ])
   ],
-  declarations: [ContactListComponent]
+  providers:[ContactService],
+  declarations: [ContactListComponent,ContactItemComponent,ContactEditComponent]
 })
 export class ContactModule { }
