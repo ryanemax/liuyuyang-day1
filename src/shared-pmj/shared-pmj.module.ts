@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 // Import Directive
 import { PmjHighlightDirective } from './pmj-highlight.directive';
+import { PmjButtonDirective } from './pmj-button.directive';
 
 @NgModule({
   imports: [
@@ -10,9 +11,11 @@ import { PmjHighlightDirective } from './pmj-highlight.directive';
   ],
   declarations: [
     PmjHighlightDirective,
+    PmjButtonDirective
   ],
   exports: [
     PmjHighlightDirective,
+    PmjButtonDirective
   ]
 })
 export class SharedPmjModule { }
