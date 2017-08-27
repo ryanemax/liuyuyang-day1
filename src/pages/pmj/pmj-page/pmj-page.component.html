@@ -1,0 +1,26 @@
+<h2>PMJ Brand List</h2>
+
+<button appButtonCircle (click)="addBrand()">Add Brand</button>
+<button appButtonCircle (click)="asc()">Asc Sort</button>
+<button appButtonCircle (click)="desc()">Desc Sort</button>
+<button appButtonCircle (click)="random()">Random Sort</button>
+
+<br />
+<br />
+
+<table border="1">
+  <tr>
+    <th>Brand</th>
+    <th>Consumer Account</th>
+    <th>Campaign Account</th>
+    <th>Taeget Audience</th>
+    <th>Average Prize</th>
+  </tr>
+  <tr *ngFor="let brand of brands">
+    <td>{{brand.name}} </td>
+    <td>{{brand.consumerAccount}} </td>
+    <td>{{brand.campaignAccount}} </td>
+    <td>{{brand.taegetAudience}} </td>
+    <td>{{brand.averagePrize}} </td>
+  </tr>
+</table>

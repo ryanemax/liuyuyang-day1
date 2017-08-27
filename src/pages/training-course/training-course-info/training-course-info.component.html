@@ -1,0 +1,29 @@
+
+<table >
+  
+        <tr>
+          <td>
+            <button (click)="add()">添加</button>
+            <button (click)="sortByAsc()">升序</button>
+            <button (click)="sortByDesc()">降序</button>
+            <button (click)="sortByRadom()">随机</button>
+          </td>
+    </table>
+  <table border="1" width="100%">
+    <thead>
+        <tr style="background-color:#e91e63;">
+            <th (click)="sortByAsc2No('1')"> 学生姓名 </th>
+            <th (click)="sortByAsc2No('2')">课程名 </th>
+            <th (click)="sortByAsc2No('3')">完成日期 </th>
+            <th (click)="sortByAsc2No('4')">是否完成 </th>
+        </tr>
+    </thead>
+  <tbody>
+  <tr *ngFor="let course of courses">
+      <th align="left">{{course.stName}}</th>
+      <th align="left">{{course.courseName}}</th>
+      <th align="left">{{course.date}}</th>
+      <th align="left">{{course.isOk}}</th>
+  </tr>
+  </tbody>
+  </table>
