@@ -65,6 +65,11 @@ const SSRroutes: Routes = [
   loadChildren: '../pages/training-course/training-course.module#TrainingCourseModule',
   data:{title:"培训课程" }
 },
+{
+    path: 'hansheng-book-store',
+    loadChildren: '../pages/hansheng-book-store/hansheng-book-store.module#HanshengBookStoreModule',
+    data: { title: "hansheng的书店" }
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
