@@ -1,3 +1,18 @@
-<p>
-  account-item works!
-</p>
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar >{{account.name}}</div>
+    <md-card-title>{{account.type}}</md-card-title>
+    <md-card-subtitle>{{account.date}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+      $$$： {{account.cost}}
+      备注： {{account.comment}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button routerLink="">编辑</button>
+    <button md-button >删除</button>
+  </md-card-actions>
+</md-card>
+

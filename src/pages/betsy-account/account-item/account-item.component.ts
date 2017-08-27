@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+
+import { BetsyAccountService } from "../betsy-account.service"
+import { Location } from "@angular/common"
 
 @Component({
   selector: 'app-account-item',
@@ -6,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-item.component.scss']
 })
 export class AccountItemComponent implements OnInit {
-
-  constructor() { }
+  @Input() account:any
+  constructor(private contactServ:BetsyAccountService,
+    private loc:Location) { }
 
   ngOnInit() {
   }

@@ -7,7 +7,7 @@ import { MaterialModule } from "@angular/material"
 import { AccountItemComponent } from './account-item/account-item.component';
 
 import { BetsyAccountService } from "./betsy-account.service"
-
+import { AccoundCardDirective } from './accound-card.directive'
 @NgModule({
   imports: [
     CommonModule,
@@ -17,6 +17,6 @@ import { BetsyAccountService } from "./betsy-account.service"
     ])
   ],
   providers:[BetsyAccountService],
-  declarations: [AccountPageComponent,AccountItemComponent]
+  declarations: [AccountPageComponent,AccountItemComponent,AccoundCardDirective]
 })
 export class BetsyAccountModule { }

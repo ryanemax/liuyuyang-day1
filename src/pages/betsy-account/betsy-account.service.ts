@@ -6,6 +6,7 @@ interface Account{
   comment?:string,
   budget?:number,
   cost:number,
+  type: string,
   random?:number
 }
 @Injectable()
@@ -17,18 +18,18 @@ export class BetsyAccountService {
   }
   getAccountingList(){
     this.accounting = [
-     {date:"2017/1/1" ,name:"Meal",cost:200,budget:500,random:20},
-     {date:"2017/1/1",name:"Traffic",cost:100,random:30},
-     {date:"2017/1/1",name:"Dress",cost:300,random:25},
-     {date:"2017/1/1",name:"cosmetics",cost:300,random:40},
-     {date:"2017/1/1",name:"Social",cost:500,random:15},
-     {date:"2017/1/1",name:"Electric Communication",cost:300},
+     {date:"2017/1/1" ,name:"Meal",cost:200,budget:500,type: "cost",random:20},
+     {date:"2017/1/1",name:"Traffic",type: "cost",cost:100,random:30},
+     {date:"2017/1/1",name:"Dress",cost:300,type: "cost", random:25},
+     {date:"2017/1/1",name:"cosmetics",cost:300,type: "cost",random:40},
+     {date:"2017/1/1",name:"Social",cost:500,type: "cost",random:15},
+     {date:"2017/1/1",name:"Electric Communication",type: "cost",cost:300},
    ]
  }
 
  addAccount(){
    let rrr = Math.random()
-   let newAccount= {date:"2017/1/3",name:"Traffic",cost:100,random: rrr}
+   let newAccount= {date:"2017/1/3",name:"Traffic",cost:100,type: "cost",random: rrr}
    this.accounting.push(newAccount)
  }
 
