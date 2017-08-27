@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ContactListComponent } from './contact-list/contact-list.component';
+import { PmjPageComponent } from './pmj-page/pmj-page.component';
+
 // 引入第三方共享模块
 import { SharedModule } from "../../shared/shared.module";
-import { MaterialModule } from "@angular/material"
+import { MaterialModule } from "@angular/material";
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule,MaterialModule,
+    SharedModule,
+    MaterialModule,
     RouterModule.forChild([
-      { path: '', component: ContactListComponent, pathMatch: 'full' }
+      { path: '', component: PmjPageComponent, pathMatch: 'full' }
     ])
   ],
-  declarations: [ContactListComponent]
+  declarations: [PmjPageComponent]
 })
-export class ContactModule { }
+export class PmjModule { }
