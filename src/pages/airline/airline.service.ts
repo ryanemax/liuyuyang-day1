@@ -1,72 +1,131 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs/Observable"
-import 'rxjs/add/observable/merge';
+import { Observable } from "rxjs/Observable";
+import { Http, Headers } from '@angular/http';
+
+import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
 @Injectable()
 export class AirlineService {
-airlines:Array<Airline>;
+  // HTTP Params
+  authHeaders:Headers = new Headers()
+  host = "http://47.92.145.25:2337/parse"
+  className = "FlightAirline"
+  // airlines:Array<Airline>;
   editObject:Airline;
-  constructor() { 
-    this.getAirlines()
-  }
-  getContactByName(price):Observable<Airline>{
-    let airline = this.airlines.find(item=>item.price == price)
-    return Observable.of(airline)
-  }
+  constructor(private http:Http) { 
+    this.authHeaders.append("X-Parse-Application-Id","dev")
+    this.authHeaders.append("X-Parse-Master-Key","angulardev")
+    this.authHeaders.append("Content-Type","application/json")
 
-  getAirlines(){
-     this.airlines = [
-      {from:"dalian",price:1300,to:"shanghai",year:2017,image:"../../../assets/img/flight/dalian.jpg"},
-      {from:"kaoshi",price:700,to:"beijing",year:2017,image:"../../../assets/img/flight/kaoshi.jpg"},
-      {from:"london",price:1500,to:"us",year:2017,image:"../../../assets/img/flight/london.jpg"},
-      {from:"singpore",price:3300,to:"japan",year:2017,image:"../../../assets/img/flight/singpore.jpg"},
-      {from:"vancouver",price:1000,to:"hongkong",year:2016,image:"../../../assets/img/flight/vancouver.jpg"},
-      {from:"xiamen",price:900,to:"shanghai",year:2016,image:"../../../assets/img/flight/xiamen.jpg"}
-    ]
+    // this.getAirlineByPrice("SvsaxHrECT").subscribe(data=>{
+    //   console.log(data)
+    // })
   }
+    getAirlineByFrom(from):Observable<Airline>{
+      // let contact = this.contacts.find(item=>item.name == name)
+      // return Observable.of(contact)
+      return
+    }
+    getAirlineByPrice(id):Observable<Airline>{
+      // let contact = this.contacts.find(item=>item.name == name)
+      // return Observable.of(contact)
 
-  addAirlines(airline){
-    this.airlines.push(airline)
-  }
-  deleteByName(price){
-    this.airlines.forEach((item,index,arr)=>{
-      if(item.price == price){
-        arr.splice(index,1)
+      let url = this.host+"/classes/" + this.className + "/" + id
+      let options = {
+        headers:this.authHeaders
       }
-    })
-  }
 
-  asc(){
-    // 正序排列
-    // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-    this.airlines.sort((a,b)=>{
-      if(a.price>b.price){
-        return 1
+      return this.http
+      .get(url,options)
+      .map(data=>data.json())
+    }
+    getAirlines():Observable<Array<any>>{
+
+      let url = this.host+"/classes/" + this.className
+      let options = {
+        headers:this.authHeaders
+      }
+
+      return this.http
+      .get(url,options)
+      .map(data=>data.json().results)
+    }
+
+    addAirline(airline){
+      // this.http.post()
+      // let contact = this.contacts.find(item=>item.name == name)
+      // return Observable.of(contact)
+
+      let url = this.host+"/classes/" + this.className
+      let options = {
+        headers:this.authHeaders
+      }
+      return this.http
+      .post(url,airline,options)
+    }
+    saveAirline(airline){
+      // this.http.post()
+      let url = this.host+"/classes/" + this.className
+      let options = {
+        headers:this.authHeaders
+      }
+    
+      if(airline.objectId){
+        let id = airline.objectId
+        delete airline.createdAt
+        delete airline.updatedAt
+        delete airline.objectId
+        delete airline.ACL
+
+        return this.http
+        .put(url+"/"+id,airline,options)
+        .map(data=>data.json())
       }else{
-        return -1
+        return this.http
+        .post(url,airline,options)
+        .map(data=>data.json())
       }
-    })
-}
-
-
-  desc(){
-    // 逆序排列   
-      this.airlines.sort((a,b)=>{
-      if(a.price>b.price){
-        return -1
-      }else{
-        return 1
+    }
+    deleteByPrice(Price){
+      let url = this.host+"/classes/" + this.className + "/" +Price
+      let options = {
+        headers:this.authHeaders
       }
-    }) 
-  }
-  random(){
-    // 随机排列
-    // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-    this.airlines.forEach(item=>{
-      item.random = Math.random()
-    })
-    this.asc()
-}
+
+      return this.http
+      .delete(url,options)
+      .map(data=>data.json())
+    }
+  // editObject:Airline;
+  // constructor() { 
+  //   this.getAirlines()
+  // }
+  // getContactByName(price):Observable<Airline>{
+  //   let airline = this.airlines.find(item=>item.price == price)
+  //   return Observable.of(airline)
+  // }
+
+  // getAirlines(){
+  //    this.airlines = [
+  //     {from:"dalian",price:1300,to:"shanghai",year:2017,image:"../../../assets/img/flight/dalian.jpg",username:""},
+  //     {from:"kaoshi",price:700,to:"beijing",year:2017,image:"../../../assets/img/flight/kaoshi.jpg",username:""},
+  //     {from:"london",price:1500,to:"us",year:2017,image:"../../../assets/img/flight/london.jpg",username:""},
+  //     {from:"singpore",price:3300,to:"japan",year:2017,image:"../../../assets/img/flight/singpore.jpg",username:""},
+  //     {from:"vancouver",price:1000,to:"hongkong",year:2016,image:"../../../assets/img/flight/vancouver.jpg",username:""},
+  //     {from:"xiamen",price:900,to:"shanghai",year:2016,image:"../../../assets/img/flight/xiamen.jpg",username:""}
+  //   ]
+  // }
+
+  // addAirlines(airline){
+  //   this.airlines.push(airline)
+  // }
+  // deleteByName(price){
+  //   this.airlines.forEach((item,index,arr)=>{
+  //     if(item.price == price){
+  //       arr.splice(index,1)
+  //     }
+  //   })
+  // }
 
 }

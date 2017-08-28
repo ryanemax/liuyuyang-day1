@@ -13,8 +13,8 @@ export class PmjEditComponent implements OnInit {
 
   object:Brand = {
     name:"",
-    consumerAccount:0,
-    campaignAccount:0,
+    consumerAccount:"",
+    campaignAccount:"",
     taegetAudience:"",
     averagePrize:""
   }
@@ -38,10 +38,18 @@ export class PmjEditComponent implements OnInit {
       // this.dialog.open(DialogResult);
       return;
     }
+    console.log(this.isNew);
     if(this.isNew){
-      this.pmjServ.addBrand(this.object);
+      this.pmjServ.addBrand(this.object).subscribe(data=>{
+        console.log(data);
+        this.back();
+      });
+    } else {
+      this.pmjServ.updateBrand(this.object).subscribe(data=>{
+        console.log(data);
+        this.back();
+      });
     }
-    this.back()
   }
 
   back(){
@@ -50,11 +58,18 @@ export class PmjEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
-          let name = params['name']
-          if(name=="new"){
+          // let name = params['name']
+          // if(name=="new"){
+          //   this.isNew = true;
+          // }else{
+          //   this.pmjServ.getBrandByName(name).subscribe(brand=>{
+          //   this.object = brand;
+          let id = params['id']
+          console.log("OnInit=" + id);
+          if(id=="new"){
             this.isNew = true;
           }else{
-            this.pmjServ.getBrandByName(name).subscribe(brand=>{
+            this.pmjServ.getBrandById(id).subscribe(brand=>{
             this.object = brand;
         })
       }

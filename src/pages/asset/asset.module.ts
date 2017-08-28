@@ -19,8 +19,8 @@ import { AssetButtonDirective } from './asset-button.directive';
        { path: '', component: AssetListPageComponent, pathMatch: 'full' }
     ]),
     RouterModule.forChild([
-       { path: 'edit/:no', component: AssetEditPageComponent, pathMatch: 'full' },
-       { path: 'view/:no', component: AssetDetailPageComponent, pathMatch: 'full' },
+       { path: 'edit/:id', component: AssetEditPageComponent, pathMatch: 'full' },
+       { path: 'view/:id', component: AssetDetailPageComponent, pathMatch: 'full' },
     ])
   ],
   declarations: [

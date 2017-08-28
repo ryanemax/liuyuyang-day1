@@ -39,9 +39,14 @@ export class PlayerEditPageComponent implements OnInit {
       return
     }
     if(this.isNew){
-      this.playerServ.addPlayer(this.object)
+      this.playerServ.savePlayer(this.object).subscribe(data=>{
+        this.back()
+      })
+    } else{
+      this.playerServ.savePlayer(this.object).subscribe(data=>{
+        this.back()
+      })
     }
-    this.back()
   }
   back(){
     this.loc.back()
@@ -50,7 +55,7 @@ export class PlayerEditPageComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params=>{
       let id = params['id']
-      console.log(id)
+
       if(id=="new"){
         this.isNew = true;
       }else{

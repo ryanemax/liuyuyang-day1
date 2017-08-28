@@ -24,6 +24,9 @@ export class TrainerEditComponent implements OnInit {
     private trainServ:TrainerService,
     public dialog: MdDialog)
    {
+     if(trainServ.editObject){
+      this.object = trainServ.editObject
+    }
   }
 
   save() {
@@ -31,10 +34,16 @@ export class TrainerEditComponent implements OnInit {
       alert("信息不完整，请检查");
       return;
     }
-    if (this.isNew) {
-      this.trainServ.addTranier(this.object)
+    
+    if(this.isNew){
+      this.trainServ.addTranier(this.object).subscribe(data=>{
+        this.back()
+      })
+    }else{
+      this.trainServ.addTranier(this.object).subscribe(data=>{
+        this.back()
+      })
     }
-    this.back();
   }
 
   back(){
@@ -42,11 +51,11 @@ export class TrainerEditComponent implements OnInit {
   }
   ngOnInit() {
     this.route.params.subscribe(params => {
-      let index = params['index']
-      if (index == "new") {
+      let id = params['id']
+      if (id == "new") {
         this.isNew = true;
       } else {
-        this.trainServ.getTrainerrByIndex(index).subscribe(contact => {
+        this.trainServ.getTrainerById(id).subscribe(contact => {
           this.object = contact
         })
       }

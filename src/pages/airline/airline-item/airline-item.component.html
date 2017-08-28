@@ -1,13 +1,13 @@
 <md-card class="example-card">
   <div class="item-list"><img src={{user.image}}/></div>
   <md-card-header>    
-    <md-card-title>Orign:{{user.from}}</md-card-title>
-    <md-card-subtitle>Destination:{{user.to}}</md-card-subtitle>
-    <md-card-subtitle>Price: {{user.price}}</md-card-subtitle>
+    <md-card-title>Orign:{{user.From}}</md-card-title>
+    <md-card-subtitle>Destination:{{user.To}}</md-card-subtitle>
+    <md-card-subtitle>Price: {{user.Price}}</md-card-subtitle>
   </md-card-header>
 
   <md-card-actions>
-    <button md-button routerLink="edit/{{user.from}}">Book</button>
+    <button md-button routerLink="edit/{{user.objectId}}">Book</button>
     <button md-button (click)="delete(user)">Delete</button>
   </md-card-actions>
 </md-card>

@@ -8,12 +8,12 @@
     <th>操作</th>
   </tr>
   <tr *ngFor="let department of departmentList">
-    <td >{{department.id}}</td>
+    <td >{{department.depId}}</td>
     <td >{{department.name}}</td>
     <td >{{department.count}}</td>
-    <td >{{department.createDate | date:"y-MM-dd"}}</td>
+    <td >{{department.createDate}}</td>
     <td >
-      <button  routerLink="edit/{{department.id}}">修改</button>
+      <button  routerLink="edit/{{department.objectId}}">修改</button>
       <button  (click)="delDepartment(department)">删除</button>
     </td>
     <td ></td>

@@ -18,7 +18,7 @@ import { SharedModule } from "../../shared/shared.module";
     SharedModule,
     RouterModule.forChild([
     {path:'',component:EmployeeListPageComponent,pathMatch:'full'},
-    {path:'edit/:name',component:EmployeeEditPageComponent,pathMatch:'full'}
+    {path:'edit/:id',component:EmployeeEditPageComponent,pathMatch:'full'}
   ])
   ],
   declarations: [EmployeeListPageComponent,EmployeeEditPageComponent],
