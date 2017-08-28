@@ -7,11 +7,13 @@ import { DiyButtonComponent } from './diy-button/diy-button.component';
 // 引入管道
 import { SexNamePipe } from './sex-name.pipe';
 import { CurrencyFormatPipe } from './currency/currency-format/currency-format.pipe';
+import { TypeSelectPipe } from './account-card/type-select.pipe';
 
 // 引入指令
 import { HighlightDirective } from './highlight.directive';
 import { ButtonCircleDirective } from './button-circle.directive';
 import { CurrencyHighlightDirective } from './currency/currency-highlight/currency-highlight.directive';
+import { AccoundCardDirective } from './account-card/accound-card.directive';
 
 // 引入自定义主键
 import { HanshengBookButtonComponent } from './hansheng-book-button/hansheng-book-button.component';
@@ -27,7 +29,8 @@ import { HanshengBookButtonComponent } from './hansheng-book-button/hansheng-boo
     CurrencyFormatPipe,
     HighlightDirective,
     ButtonCircleDirective,
-    CurrencyHighlightDirective
+    CurrencyHighlightDirective,
+    TypeSelectPipe
   ],
   exports: [
     DiyButtonComponent,
@@ -36,7 +39,8 @@ import { HanshengBookButtonComponent } from './hansheng-book-button/hansheng-boo
     HanshengBookButtonComponent,
     HighlightDirective,
     ButtonCircleDirective,
-    CurrencyHighlightDirective
+    CurrencyHighlightDirective,
+    TypeSelectPipe
   ]
 })
 export class SharedModule { }
