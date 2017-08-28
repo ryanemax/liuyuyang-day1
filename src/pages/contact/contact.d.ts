@@ -3,6 +3,6 @@ interface Contact{
   name:string,
   sex:string,
   mobile:string,
-  age?:number
+  age?:number,
   random?:number
 }

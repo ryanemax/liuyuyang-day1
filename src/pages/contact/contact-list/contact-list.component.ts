@@ -7,20 +7,45 @@ import { ContactService } from "../contact.service"
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent implements OnInit {
-  list:Array<any>;
+  contacts:Array<any>;
   constructor(private contactServ:ContactService) {
-    this.list = this.contactServ.contacts
+    // this.list = this.contactServ.contacts
+    this.contactServ.getContacts().subscribe(data=>{
+      this.contacts = data
+    })
   }
 
   asc(){
-    this.contactServ.asc()
-  }
+    // 正序排列
+    // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+    this.contacts.sort((a,b)=>{
+      if(a.name>b.name){
+        return 1
+      }else{
+        return -1
+      }
+    })
+}
+
+
   desc(){
-    this.contactServ.desc()
+    // 逆序排列   
+      this.contacts.sort((a,b)=>{
+      if(a.name>b.name){
+        return -1
+      }else{
+        return 1
+      }
+    }) 
   }
   random(){
-    this.contactServ.random()
-  }
+    // 随机排列
+    // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+    this.contacts.forEach(item=>{
+      item.random = Math.random()
+    })
+    this.asc()
+}
   ngOnInit() {
   }
 

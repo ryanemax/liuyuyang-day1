@@ -36,6 +36,8 @@ export class ContactEditComponent implements OnInit {
     }
     if(this.isNew){
       this.contactServ.addContact(this.object)
+    }else{
+      this.contactServ.updateContact(this.object)
     }
     this.back()
   }
@@ -44,11 +46,11 @@ export class ContactEditComponent implements OnInit {
   }
   ngOnInit() {
             this.route.params.subscribe(params=>{
-          let name = params['name']
-          if(name=="new"){
+          let id = params['id']
+          if(id=="new"){
             this.isNew = true;
           }else{
-            this.contactServ.getContactByName(name).subscribe(contact=>{
+            this.contactServ.getContactById(id).subscribe(contact=>{
             this.object = contact
         })
       }
