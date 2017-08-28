@@ -14,7 +14,7 @@ export class AirlineItemComponent implements OnInit {
   constructor(private airlineServ:AirlineService,
   private loc:Location) { }
   delete(user){
-    this.airlineServ.deleteByName(user.price)
+    this.airlineServ.deleteByPrice(user.Price)
   }
   edit(){
     this.airlineServ.editObject = this.user

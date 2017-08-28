@@ -12,12 +12,10 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 })
 export class AirlineEditComponent implements OnInit {
 object:Airline = {
-    from:"Dalian",
-    price:1700, 
-    to:"Shanghai",
-    year:2017,
-    image:"../../../assets/img/flight/dalian.jpg",
-    username: "Poppy"
+    From:"",
+    To:"",
+    Price:"", 
+    FareClass:""
   }
   isNew:boolean
   constructor(
@@ -31,13 +29,16 @@ object:Airline = {
   }
   
   save(){
-    if(this.object.from==""||this.object.price<=0 ||this.object.to==""||this.object.username=="" ){
+    if(this.object.From==""||this.object.Price=="" ||this.object.To==""){
       alert("信息不完整，请检查")
       // this.dialog.open(DialogResult);
       return
     }
     if(this.isNew){
-      this.airlineServ.addAirlines(this.object)
+      this.airlineServ.addAirline(this.object).subscribe()
+      console.log(this.object);
+    }else{
+      this.airlineServ.updateAirline(this.object)
     }
     this.back()
   }
@@ -49,11 +50,11 @@ object:Airline = {
   }
   ngOnInit() {
             this.route.params.subscribe(params=>{
-          let name = params['price']
-          if(name!=="0"){
+          let price = params['price']
+          if(price!=="0"){
             this.isNew = true;
           }else{
-            this.airlineServ.getContactByName(name).subscribe(contact=>{
+            this.airlineServ.getAirlineByPrice(price).subscribe(contact=>{
             this.object = contact
         })
       }
