@@ -16,7 +16,7 @@ export class AssetDetailPageComponent implements OnInit {
     classification: "",
     brand: "",
     price: 0,
-    addTime: null,
+    addTime: new Date(),
     img: ""
   }
 
@@ -30,11 +30,11 @@ export class AssetDetailPageComponent implements OnInit {
   ngOnInit() {
     // 根据ID显示信息
     this.route.params.subscribe(params => {
-      let no = params['no']
-      if ( no != "new") {
-        this.assetService.getAssetByNo(no).subscribe(asset => {
-          this.obj = asset
-        })
+      let id = params['id']
+      if ( id != "new") {
+        this.assetService.getAssetById(id).subscribe(data=>{
+          this.obj = data
+      })
       }
     })
   }
