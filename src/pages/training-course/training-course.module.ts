@@ -11,6 +11,7 @@ import { TrainingCourseItemComponent } from './training-course-item/training-cou
 import { TrainingCourseEditComponent } from './training-course-edit/training-course-edit.component';
 import { CircleButtonDirective } from './circle-button.directive'
 import { StatusFinishPipe } from './status-finish.pipe'
+
 @NgModule({
   imports: [
     CommonModule,FormsModule,
