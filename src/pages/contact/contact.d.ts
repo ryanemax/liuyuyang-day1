@@ -5,5 +5,6 @@ interface Contact{
   mobile:string,
   tag?:Array<string>,
   age?:number,
+  likeCount?:number,
   random?:number
 }

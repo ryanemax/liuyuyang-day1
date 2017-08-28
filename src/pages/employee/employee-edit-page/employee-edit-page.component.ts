@@ -12,10 +12,10 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 })
 export class EmployeeEditPageComponent implements OnInit {
   employee:Employee = {
-    eid:0,
+    eid:"",
     name:"",
     sex:"",
-    age:0,
+    age:"",
     position:""
   }
   isNew:boolean
@@ -30,14 +30,19 @@ export class EmployeeEditPageComponent implements OnInit {
   }
   
   save(){
-    if(this.employee.eid == 0 || this.employee.name==""||this.employee.sex==""||this.employee.position=="" || this.employee.age==0){
+    if(this.employee.eid == "" || this.employee.name==""||this.employee.sex==""||this.employee.position=="" || this.employee.age==""){
       alert("请输入完整信息！")
       return
     }
     if(this.isNew){
-      this.employeetServ.addEmployee(this.employee)
+      this.employeetServ.saveEmployee(this.employee).subscribe(data=>{
+        this.back()
+      })
+    }else{
+      this.employeetServ.saveEmployee(this.employee).subscribe(data=>{
+        this.back()
+      })
     }
-    this.back()
   }
   back(){
     this.loc.back()

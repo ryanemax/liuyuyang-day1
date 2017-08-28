@@ -43,7 +43,6 @@ export class FastMailService {
   }
 
   addGoods(good: Good): Observable<any> {
-    // this.goodList.push(good);
     let url = this.host + "/classes/" + this.className;
     let options = {
       headers: this.authHeaders
@@ -76,14 +75,17 @@ export class FastMailService {
     .map(data => data.json());
   }
 
-  updateGoodsById(good: Good): Observable<any> {
+  updateGoods(good: Good): Observable<any> {
+    let tmpGood: Good = {
+      name: good.name, tel: good.tel, addr: good.addr, date: good.date
+    };
     let url = this.host + "/classes/" + this.className + "/" + good.objectId;
     let options = {
       headers: this.authHeaders
     };
 
     return this.http
-    .put(url, good, options)
+    .put(url, tmpGood, options)
     .map(data => data.json());
   }
 
