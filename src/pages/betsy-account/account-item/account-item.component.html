@@ -2,7 +2,7 @@
     <div appaccountcard ><img src="./assets/img/account/{{account.type}}.png" class="title-avta"></div>
     <img src="./assets/img/account/{{account.event | typeSelect}}.png" class="event-avta">
     <div class="title-content">
-      <p>$$$： {{account.cost}}</p>
+      <p><strong>$$$</strong>： {{account.cost}}</p>
      <md-card-subtitle>{{account.date}}</md-card-subtitle>
 
   </div>
@@ -10,9 +10,9 @@
 <md-card-content>
     <p>备注： {{account.comment}}</p>
   </md-card-content>
-  <md-card-actions>
-    <button md-button routerLink="edit/{{account.event}}">编辑</button>
-    <button md-button (click)="delete(account)">删除</button>
+  <md-card-actions style="float:right">
+    <button  routerLink="edit/{{account.event}}">✎</button>
+    <button  (click)="delete(account)">X</button>
   </md-card-actions>
 </md-card>
 
