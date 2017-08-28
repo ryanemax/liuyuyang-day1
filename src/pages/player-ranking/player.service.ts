@@ -8,8 +8,8 @@ import 'rxjs/add/observable/of';
 
 @Injectable()
 export class PlayerService {
-  players: Array<Player>;
-  editObject: Player;
+  players: Array<FootballPlayer>;
+  editObject: FootballPlayer;
 
   getPlayers() {
     this.players = [{
@@ -64,7 +64,7 @@ export class PlayerService {
     })
   }
 
-  getPlayerByName(name):Observable<Player>{
+  getPlayerByName(name):Observable<FootballPlayer>{
     let player = this.players.find(item=>item.name == name)
     return Observable.of(player)
   }

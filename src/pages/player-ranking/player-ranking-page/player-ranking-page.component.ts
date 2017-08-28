@@ -12,7 +12,7 @@ import { PlayerService } from "../player.service"
 export class PlayerRankingPageComponent implements OnInit {
 
 
-  players:Array<Player>;
+  players:Array<FootballPlayer>;
 
   constructor(private playerServ:PlayerService) {
     this.players = this.playerServ.players;

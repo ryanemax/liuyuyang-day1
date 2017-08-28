@@ -12,7 +12,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 })
 export class PlayerEditPageComponent implements OnInit {
 
-  object:Player = {
+  object:FootballPlayer = {
     name:"",
     team:"",
     goal:0,

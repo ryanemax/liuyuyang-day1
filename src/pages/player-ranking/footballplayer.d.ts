@@ -1,4 +1,4 @@
-interface Player {
+interface FootballPlayer {
     name?: string,
       goal?: number,
       assist?: number,
