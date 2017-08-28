@@ -1,72 +1,66 @@
 import { Injectable } from '@angular/core';
 
+import { Http, Headers } from '@angular/http';
+
 import { Observable } from "rxjs/Observable"
-import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
 export class ContactService {
-  contacts:Array<Contact>;
+  // HTTP Params
+  authHeaders:Headers = new Headers()
+  host = "http://47.92.145.25:2337/parse"
+  className = "ContactUser"
+  // contacts:Array<Contact>;
   editObject:Contact;
-  constructor() { 
-    this.getContacts()
+  constructor(private http:Http) { 
+    this.authHeaders.append("X-Parse-Application-Id","dev")
+    this.authHeaders.append("X-Parse-Master-Key","angulardev")
+    this.authHeaders.append("Content-Type","application/json")
+
+    this.getContactById("SvsaxHrECT").subscribe(data=>{
+      console.log(data)
+    })
   }
   getContactByName(name):Observable<Contact>{
-    let contact = this.contacts.find(item=>item.name == name)
-    return Observable.of(contact)
+    // let contact = this.contacts.find(item=>item.name == name)
+    // return Observable.of(contact)
+    return
   }
+  getContactById(id):Observable<Contact>{
+    // let contact = this.contacts.find(item=>item.name == name)
+    // return Observable.of(contact)
 
-  getContacts(){
-     this.contacts = [
-      {birth:new Date(),name:"LiuYuyang",sex:"M",mobile:"1316666666",age:20},
-      {birth:new Date(),name:"Wangkai",sex:"F",mobile:"1316666667"},
-      {birth:new Date(),name:"Yaoming",sex:"M",mobile:"1316666668"},
-      {birth:new Date(),name:"Yaoming",sex:"F",mobile:"1316666668"},
-    ]
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .get(url,options)
+    .map(data=>data.json())
+  }
+  getContacts():Observable<Array<Contact>>{
+
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .get(url,options)
+    .map(data=>data.json().results)
   }
 
   addContact(contact){
-    this.contacts.push(contact)
+    // this.http.post()
   }
-  deleteByName(name){
-    this.contacts.forEach((item,index,arr)=>{
-      if(item.name == name){
-        arr.splice(index,1)
-      }
-    })
+  updateContact(contact){
+    // this.http.put()
   }
-
-  asc(){
-    // 正序排列
-    // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-    this.contacts.sort((a,b)=>{
-      if(a.name>b.name){
-        return 1
-      }else{
-        return -1
-      }
-    })
-}
-
-
-  desc(){
-    // 逆序排列   
-      this.contacts.sort((a,b)=>{
-      if(a.name>b.name){
-        return -1
-      }else{
-        return 1
-      }
-    }) 
+  deleteById(id){
+    // this.http.delete()
   }
-  random(){
-    // 随机排列
-    // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-    this.contacts.forEach(item=>{
-      item.random = Math.random()
-    })
-    this.asc()
-}
-
 }

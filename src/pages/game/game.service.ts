@@ -1,58 +1,92 @@
 import { Injectable } from '@angular/core';
+import { Location } from '@angular/common';
+import { Http, Headers } from '@angular/http';
 
-interface Game{
-  type:string,
-  gameName:string,
-  gameImage:string,
-  updateDate:Date,
-  downloads:number,
-  price:number,
-  random?:number
-}
+import { Observable } from "rxjs/Observable"
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class GameService {
-  games: Array<Game>;
-  constructor() {
-    this.getGames();
+  // HTTP Params
+  authHeaders:Headers = new Headers()
+  host = "http://47.92.145.25:2337/parse"
+  className = "Game"
+  games: Array<Game>
+  editObject: Game
+  constructor(private loc: Location, private http: Http) {
+    this.authHeaders.append("X-Parse-Application-Id","dev")
+    this.authHeaders.append("X-Parse-Master-Key","angulardev")
+    this.authHeaders.append("Content-Type","application/json")
   }
 
-  getGames(){
-    this.games = [
-      {type: '网游', gameName: '奇迹mu', gameImage: 'qijimu.png', updateDate: new Date, downloads: 200000, price: 0},
-      {type: '网游', gameName: '传奇世界', gameImage: 'cqsj.png', updateDate: new Date, downloads: 190000, price: 0},
-      {type: '网游', gameName: '龙神契约', gameImage: 'lsqy.png', updateDate: new Date, downloads: 170000, price: 0},
-      {type: '网游', gameName: '楚乔传', gameImage: 'cqz.png', updateDate: new Date, downloads: 150000, price: 0},
-      {type: '网游', gameName: '九天封神', gameImage: 'jtfs.png', updateDate: new Date, downloads: 130000, price: 0},
-      {type: '网游', gameName: '魔域永恒', gameImage: 'myyh.png', updateDate: new Date, downloads: 129999, price: 0}
+  getGames():Observable<Array<Game>>{
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
 
-      // {type: '手游', gameName: '奇迹暖暖', gameImage: 'qijimu.png', updateDate: new Date, downloads: 200000, price: 0},
-      // {type: '手游', gameName: '弹弹堂', gameImage: 'cqsj.png', updateDate: new Date, downloads: 190000, price: 0},
-      // {type: '手游', gameName: '王者', gameImage: 'lsqy.png', updateDate: new Date, downloads: 170000, price: 0},
-      // {type: '手游', gameName: '楚乔传', gameImage: 'cqz.png', updateDate: new Date, downloads: 150000, price: 0},
-      // {type: '手游', gameName: '九天封神', gameImage: 'jtfs.png', updateDate: new Date, downloads: 130000, price: 0},
-      // {type: '手游', gameName: '魔域永恒', gameImage: 'myyh.png', updateDate: new Date, downloads: 129999, price: 0}
-    ]
-
-    return this.games;
+    return this.http
+    .get(url,options)
+    .map(data=>data.json().results)
   }
 
-  ascByDownloads(){
+  showFree(){
+    this.getGames().subscribe(data =>{
+      data.filter(item=>{
+        
+      })
+    })
+
+    let freeList =  this.games.filter((item)=>{
+      if(item.price == 0){
+        return item;
+      }
+    })
+    this.games = freeList;
+    return freeList
+  }
+
+  descByDownloads(){
     this.games.sort((a,b)=>{
       if(a.downloads>b.downloads){
-        return 1
-      }else{
         return -1
+      }else{
+        return 1
       }
     })
   }
-  ascByDate(){
+  descByDate(){
     this.games.sort((a,b)=>{
-      if(a.updateDate>b.updateDate){
-        return 1
-      }else{
+      if(a.lastReleaseDate>b.lastReleaseDate){
         return -1
+      }else{
+        return 1
       }
     })
   }
+
+  back(){
+    this.loc.back();
+  }
+
+  insertGame(game){
+    this.games.push(game);
+  }
+
+  saveGame(game){
+    
+  }
+
+  delectById(id){
+   
+  }
+
+  getGameById(id):Observable<Game>{
+    let game = this.games.find(item => item.type == id);
+    console.log(game.gameName);
+    return Observable.of(game);
+  }
+
+  save(){}
 }

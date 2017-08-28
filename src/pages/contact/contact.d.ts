@@ -1,8 +1,9 @@
 interface Contact{
-  birth?:Date
+  birth?:Date,
   name:string,
   sex:string,
   mobile:string,
-  age?:number
+  tag?:Array<string>,
+  age?:number,
   random?:number
 }

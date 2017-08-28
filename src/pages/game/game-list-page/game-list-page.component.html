@@ -1,16 +1,11 @@
 
 <h3>游戏排行榜</h3>
 <div>
-  <a href="javascript:void(0)" (click)="asc()" highlilght>最热门</a>
-  <a href="javascript:void(0)" (click)="desc()">最新发布</a>
-  <a href="javascript:void(0)" (click)="ascByPrice()">免费</a>
+  <a href="javascript:void(0)" (click)="descByDownloads()" highlilght>最热门</a>
+  <a href="javascript:void(0)" (click)="descByDate()">最新发布</a>
+  <a href="javascript:void(0)" (click)="showFree()">免费</a>
+  <a href="javascript:void(0)" (click)="showAll()">全部</a>
+  <a href="javascript:void(0)" routerLink="insert">添加一个新游戏</a>
 </div>
 <br>
-
-<div class="game-item" *ngFor="let game of games">
-  <img src="./assets/img/game/{{game.gameImage}}" title="{{game.gameName}}" width="200px" height="200px">
-  <p class = "gameTitle">{{game.gameName}}</p>
-  <p><span>最后更新时间:{{game.updateDate}}</span></p>
-  <p><span>下载量:{{game.downloads}}</span></p>
-  <p><span >价格:{{game.price}}</span></p>
-</div>
+<app-game-item [game]="game" *ngFor="let game of games"></app-game-item>

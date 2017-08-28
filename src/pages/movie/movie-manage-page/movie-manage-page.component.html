@@ -1,3 +1,24 @@
-<p>
-  movie-manage-page works!
-</p>
+
+
+    <md-input-container>
+        <input [(ngModel)]="object.movieName" mdInput placeholder="电影名" value="">
+    </md-input-container>
+
+
+    <md-input-container>
+        <input [(ngModel)]="object.mark" mdInput placeholder="评分" value="">
+    </md-input-container>
+
+
+<md-input-container>
+    <input [(ngModel)]="object.director" mdInput placeholder="导演" value="">
+  </md-input-container>
+  
+
+
+
+
+    <br>
+
+  <button md-button routerLink="/movie">取消</button>
+  <button md-button (click)="save()">保存</button>

@@ -8,9 +8,26 @@ import { GameService } from "../game.service"
   styleUrls: ['./game-list-page.component.scss']
 })
 export class GameListPageComponent implements OnInit {
-  games: Array<any>;
+  games: Array<Game>;
   constructor(private gameServ: GameService) {
-    this.games = this.gameServ.getGames();
+    this.showAll();
+  }
+  showAll(){
+    this.gameServ.getGames().subscribe(data => {
+      this.games = data;
+    });
+  }
+  
+  descByDownloads(){
+    this.gameServ.descByDownloads();
+  }
+
+  descByDate(){
+    this.gameServ.descByDate();
+  }
+
+  showFree(){
+    this.games = this.gameServ.showFree();
   }
   
   ngOnInit() {

@@ -3,6 +3,7 @@
     <div md-card-avatar class="example-header-image"></div>
     <md-card-title>{{user.name}}</md-card-title>
     <md-card-subtitle>{{user.mobile}}</md-card-subtitle>
+    <md-card-subtitle>粉丝数：{{user.likeCount | toK}}</md-card-subtitle>
   </md-card-header>
   <md-card-content>
     <p>
@@ -11,7 +12,7 @@
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button routerLink="edit/{{user.name}}">编辑</button>
+    <button md-button routerLink="edit/{{user.objectId}}">编辑</button>
     <button md-button (click)="delete(user)">删除</button>
   </md-card-actions>
 </md-card>

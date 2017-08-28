@@ -1,0 +1,23 @@
+<button  class="button" routerLink="edit/new" style="width:10%;">添加新商品</button>
+<button class="button" (click)="asc()" style="width:10%;">正序</button>
+<button class="button" (click)="desc()" style="width:10%;">逆序</button>
+<button class="button" (click)="random()" style="width:10%;">随机</button>
+
+    <table class="gridtable" style="width:100%;" border="1px solid #F00" cellspacing="0" cellpadding="0">
+        <tr style="background-color:darksalmon">
+            <th style="width:10%;">索引</th>
+            <th style="width:40%;">商品名</th>
+            <th style="width:10%;" >售出数量</th>
+            <th style="width:10%;">价格</th>
+            <th style="width:30%;">操作</th>
+        </tr>
+        <tr *ngFor="let shop of shops">
+
+            <td>{{shop.index}}</td>
+            <td>{{shop.productName}}</td>
+            <td>{{shop.number}}</td>
+            <td>{{shop.prices}}</td>
+            <td><button class="button1" routerLink="edit/{{shop.productName}}">编辑</button>
+            <button class="button1" (click)="delete(shop)">删除</button></td>
+        </tr>
+    </table>

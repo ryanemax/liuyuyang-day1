@@ -4,11 +4,15 @@
   <md-card-header>
     <div md-card-avatar class="example-header-image"></div>
     <md-card-title>用户名：{{object.name}}</md-card-title>
+    <md-card-subtitle *ngIf="object.tag">标签：<span style="background:black;color:white;margin-left:5px;padding:3px;" *ngFor="let t of object.tag">{{t}}</span></md-card-subtitle>
     <md-card-subtitle>手机号：{{object.mobile}}</md-card-subtitle>
     <md-card-subtitle>性别：{{object.sex | sexName}}</md-card-subtitle>
   </md-card-header>
   <md-card-content>
     <p>
+
+<app-edit-tag [tags]="object.tag"></app-edit-tag>
+
 <md-input-container>
   <input [(ngModel)]="object.name" mdInput placeholder="姓名" value="">
 </md-input-container>
@@ -21,7 +25,7 @@
   <md-option [value]="'M'">
     男
   </md-option>
-  <md-option [value]="'Ｆ'">
+  <md-option [value]="'F'">
     女
   </md-option>
 </md-select>

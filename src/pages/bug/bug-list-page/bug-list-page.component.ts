@@ -8,14 +8,16 @@ import { BugService } from "../bug.service"
 })
 export class BugListPageComponent implements OnInit {
 
-  bugs: Array<any>;
+  bugs: Array<Bug>;
 
   constructor(private bugService: BugService) {
-    this.bugs = this.bugService.getBugs();
+    this.bugService.getBugs().subscribe(data => {
+      this.bugs = data
+    })
   }
 
-  addBug() {
-    this.bugService.addBug(this.bugs);
+  add() {
+    this.bugService.add(this.bugs);
   }
 
   sortList(type: string) {

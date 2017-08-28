@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { PmjService } from "../pmj.service"
 @Component({
   selector: 'app-pmj-item',
   templateUrl: './pmj-item.component.html',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PmjItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() brand:any
+
+  constructor(private pmjService:PmjService) { }
 
   ngOnInit() {
   }
 
+  delete(brand){
+    this.pmjService.deleteByName(brand.name)
+  }
+
+  edit(){
+    this.pmjService.editObject = this.brand
+  }
 }
