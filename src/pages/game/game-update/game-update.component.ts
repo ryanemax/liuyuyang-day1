@@ -10,13 +10,12 @@ import { GameService } from '../game.service';
 })
 export class GameUpdateComponent implements OnInit {
   object:Game = {
-    id: 0,
     type:'',
     gameName:'',
     gameImage:'',
-    updateDate:new Date(),
+    lastReleaseDate:new Date(),
     downloads:0,
-    price:0,
+    price:0
   }
   constructor(private route: ActivatedRoute,private gameServ: GameService) {
     console.log('constructor...'+gameServ.editObject);
@@ -40,7 +39,7 @@ export class GameUpdateComponent implements OnInit {
   }
 
   save(){
-    if(this.object.type==""||this.object.gameName==""||this.object.gameImage==""||this.object.updateDate.toString()==""){
+    if(this.object.type==""||this.object.gameName==""||this.object.gameImage==""||this.object.lastReleaseDate.toString()==""){
       alert("信息不完整，请检查")
       // this.dialog.open(DialogResult);
       return
