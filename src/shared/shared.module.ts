@@ -8,6 +8,7 @@ import { DiyButtonComponent } from './diy-button/diy-button.component';
 import { SexNamePipe } from './sex-name.pipe';
 import { CurrencyFormatPipe } from './currency/currency-format/currency-format.pipe';
 import { TypeSelectPipe } from './account-card/type-select.pipe';
+import { ToKPipe } from './to-k.pipe';
 
 // 引入指令
 import { HighlightDirective } from './highlight.directive';
@@ -38,6 +39,7 @@ import { DeviceRedMarkDirective } from './device-red-mark.directive';
     TypeSelectPipe,
     LiucDeviceButtonComponent,
     DeviceTypePipe,
+    ToKPipe,
     DeviceRedMarkDirective,
 
   ],
@@ -52,6 +54,7 @@ import { DeviceRedMarkDirective } from './device-red-mark.directive';
     TypeSelectPipe,
     LiucDeviceButtonComponent,
     DeviceTypePipe,
+    ToKPipe,
     DeviceRedMarkDirective,
   ]
 })
