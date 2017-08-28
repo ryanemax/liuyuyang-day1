@@ -16,9 +16,8 @@ export class MovieManagePageComponent implements OnInit {
 
   object:Movie = {
     movieName:"",
-    mark:0,
     director:"",
-    year:0
+    mark:0
   }
   isNew:boolean
   constructor(
@@ -42,11 +41,11 @@ export class MovieManagePageComponent implements OnInit {
   }
   ngOnInit() {
           this.route.params.subscribe(params=>{
-          let movieName = params['movieName']
-          if(movieName=="jack"){
+          let name = params['name']
+          if(name=="new"){
             this.isNew = true;
           }else{
-            this.contactServ.getMovieByName(movieName).subscribe(movie=>{
+            this.contactServ.getMovieByName(name).subscribe(movie=>{
             this.object = movie
         })
       }
