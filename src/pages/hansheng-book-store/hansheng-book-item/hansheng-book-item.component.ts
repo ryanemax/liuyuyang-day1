@@ -13,7 +13,9 @@ export class HanshengBookItemComponent implements OnInit {
   constructor(private hanshengBookStoreService:HanshengBookStoreService,
   private loc:Location) { }
   delete(book){
-    this.hanshengBookStoreService.deleteByName(book.name)
+    this.hanshengBookStoreService.deleteById(book.objectId).subscribe(data=>{
+        location.href = "/hansheng-book-store"
+    })
   }
   edit(){
     this.hanshengBookStoreService.editObject = this.book

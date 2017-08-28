@@ -13,7 +13,7 @@ import { MaterialModule } from "@angular/material";
     CommonModule,MaterialModule,FormsModule,
     RouterModule.forChild([
       { path: '', component: ProductListPageComponent, pathMatch: 'full' },
-      { path: 'edit/:brand', component: ProductEditComponent, pathMatch: 'full' }
+      { path: 'edit/:id', component: ProductEditComponent, pathMatch: 'full' }
     ])
   ],
   providers:[ProductService],

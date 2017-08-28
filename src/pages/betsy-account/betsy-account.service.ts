@@ -1,80 +1,69 @@
 import { Injectable } from '@angular/core';
 
+import { Http, Headers } from '@angular/http';
+
 import { Observable } from "rxjs/Observable"
-import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 
 
 @Injectable()
 export class BetsyAccountService {
-  accounting:Array<Account>;
+  authHeaders:Headers = new Headers()
+  host = "http://localhost:1337/parse"
+  className = "accounting"
+
   editObject:Account;
-  constructor() {
-   this.getAccountingList()
+  constructor(private http:Http) {
+    this.authHeaders.append("X-Parse-Application-Id","dev")
+    this.authHeaders.append("X-Parse-Master-Key","angulardev")
+    this.authHeaders.append("Content-Type","application/json")
+    this.getContactById("44VpzQwmbo").subscribe(data=>{
+      console.log(data)
+    })
   }
 
  
   getAccountByName(name):Observable<Account>{
-    let account = this.accounting.find(item=>item.event == name)
-    return Observable.of(account)
+    // let account = this.accounting.find(item=>item.event == name)
+    // return Observable.of(account)
+    return
   }
 
-  addAccount(newAccount){
-    this.accounting.push(newAccount)
-  }
- 
-  
-  deleteByName(name){
-    this.accounting.forEach((item,index,arr)=>{
-      if(item.event == name){
-        arr.splice(index,1)
-      }
-    })
-  }
-  getAccountingList(){
-    this.accounting = [
-     {date:"2017/1/1" ,event:"Meal",cost:200,budget:500,type: "cost",random:20},
-     {date:"2017/1/1",event:"Traffic",type: "income",cost:100,random:30},
-     {date:"2017/1/1",event:"Dress",cost:300,type: "cost", random:25},
-     {date:"2017/1/1",event:"cosmetics",cost:300,type: "income",random:40},
-     {date:"2017/1/1",event:"Social",cost:500,type: "cost",random:15},
-     {date:"2017/1/1",event:"Electric Communication",type: "cost",cost:300},
-   ]
- }
+  getContactById(id):Observable<Account>{
+    // let contact = this.contacts.find(item=>item.name == name)
+    // return Observable.of(contact)
 
-
-
-
- asc(){
-   // 正序排列
-   // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-   this.accounting.sort((a,b)=>{
-     if(a.cost>b.cost){
-       return 1
-     }else{
-       return -1
-     }
-   })
-}
-
-
- desc(){
-  this.accounting.sort((a,b)=>{
-    if(a.cost<b.cost){
-      return 1
-    }else{
-      return -1
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
     }
-  })   
- }
- random(){
-   // 随机排列
-   // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
 
-   this.accounting.sort((a,b)=>{
-      return Math.random()
-  
-  })
- }
+    return this.http
+    .get(url,options)
+    .map(data=>data.json())
+  }
+
+  getAccountingList():Observable<Array<Account>>{
+    
+        let url = this.host+"/classes/" + this.className
+        let options = {
+          headers:this.authHeaders
+        }
+    
+        return this.http
+        .get(url,options)
+        .map(data=>data.json().results)
+      }
+
+      addAccount(newaccount){
+        // this.http.post()
+      }
+      updateAccount(newaccount){
+        // this.http.put()
+      }
+      deleteById(id){
+        // this.http.delete()
+      }
 }
