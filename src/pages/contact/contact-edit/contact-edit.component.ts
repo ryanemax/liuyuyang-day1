@@ -27,7 +27,6 @@ export class ContactEditComponent implements OnInit {
       this.object = contactServ.editObject
     }
   }
-  
   save(){
     if(this.object.name==""||this.object.mobile==""||this.object.sex==""){
       alert("信息不完整，请检查")
@@ -35,11 +34,14 @@ export class ContactEditComponent implements OnInit {
       return
     }
     if(this.isNew){
-      this.contactServ.addContact(this.object)
+      this.contactServ.saveContact(this.object).subscribe(data=>{
+        this.back()
+      })
     }else{
-      this.contactServ.updateContact(this.object)
+      this.contactServ.saveContact(this.object).subscribe(data=>{
+        this.back()
+      })
     }
-    this.back()
   }
   back(){
     this.loc.back()
