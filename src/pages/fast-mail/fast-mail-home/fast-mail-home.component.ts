@@ -15,7 +15,7 @@ export class FastMailHomeComponent implements OnInit {
   ngOnInit() {
     this.fService.getGoods().subscribe(data => {
       this.fService.goodList = data;
-      this.goodList = data;
+      this.goodList = this.fService.goodList;
     });
   }
 
