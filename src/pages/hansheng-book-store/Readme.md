@@ -2,7 +2,7 @@
 # 修改之前代码的增删改查通过mongo数据库
 # 需要在线上mongo中新建数据模型类HanshengBookStore
 ## HanshengBookStore数据结构如下：
-nterface Book{
+interface HanshengBookStore{
   name:string,
   author:string,
   introduce:string,
