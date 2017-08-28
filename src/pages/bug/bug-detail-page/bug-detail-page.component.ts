@@ -9,7 +9,8 @@ import { BugService } from "../bug.service"
 })
 export class BugDetailPageComponent implements OnInit {
 
-  bug: Bug;
+  bug: Bug = { index: "", level: "", status: "", assigneeName: "" };
+
   constructor(private route: ActivatedRoute, private bugService: BugService) {
 
   }

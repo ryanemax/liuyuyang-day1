@@ -36,7 +36,7 @@ export class BugService {
         let options = {
             headers: this.authHeaders
         }
-        return this.http.get(url + '/' + objectId, options).map(data => data.json().results);
+        return this.http.get(url + '/' + objectId, options).map(data => data.json());
     }
 
 
