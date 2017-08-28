@@ -3,33 +3,38 @@
 <md-card class="example-card">
   <div class="item-edit"><img src={{object.image}}/></div>
   <md-card-header>
-    <md-card-title>Origin:{{object.From}}</md-card-title>
+    <md-card-title >Origin:{{object.From}}</md-card-title>
     <md-card-subtitle>Destination：{{object.To}}</md-card-subtitle>
     <md-card-subtitle>Price:{{object.Price}}</md-card-subtitle>
   </md-card-header>
   <md-card-content>
     <p>
 <md-input-container>
-  <input [(ngModel)]="object.From" mdInput placeholder="Origin" value="">
+  <input [(ngModel)]="object.From" mdInput placeholder="From" value="">
 </md-input-container>
 
 <md-input-container>
   <input [(ngModel)]="object.To" mdInput placeholder="Destination" value="">
 </md-input-container>
-<md-input-container>
 
-  <input [(ngModel)]="object.FareClass" mdInput placeholder="FareClass" value="">
-</md-input-container>
+<md-select [(ngModel)]="object.FareClass" placeholder="FareClass">
+  <md-option [value]="'Economy'">
+    Economy
+  </md-option>
+  <md-option [value]="'Business'">
+    Business
+  </md-option>
+</md-select>
 
 <md-select [(ngModel)]="object.Price" placeholder="Price">
   <md-option [value]="'1200'">
-    1200-1400
+    1200
   </md-option>
   <md-option [value]="'900'">
-    900-1000
+    900
   </md-option>
   <md-option [value]="'560'">
-    560-900
+    560
   </md-option>
 </md-select>
     </p>
