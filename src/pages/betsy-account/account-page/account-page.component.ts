@@ -23,9 +23,9 @@ export class AccountPageComponent implements OnInit {
     random(){
       this.accountServ.random()
     }
-    addAccount(){
+    addAccount(acc){
     //  let newContact = {}
-      this.accountServ.addAccount()
+      this.accountServ.addAccount(acc)
     }
 
   

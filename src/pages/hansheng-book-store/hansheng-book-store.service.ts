@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable"
-import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
+import { Http, Headers } from '@angular/http';
 
 interface BookModel{
   name:string,
@@ -14,25 +15,68 @@ interface BookModel{
 @Injectable()
 export class HanshengBookStoreService {
 
+  // HTTP Params
+  authHeaders:Headers = new Headers()
+  host = "http://localhost:1337/parse"
+  className = "HanshengBookStore"
+
   editObject:Book;
   books:Array<BookModel>;
-  constructor() { 
-    this.getbookModels()
+  constructor(private http:Http) {
+    this.authHeaders.append("X-Parse-Application-Id","dev")
+    this.authHeaders.append("X-Parse-Master-Key","angulardev")
+    this.authHeaders.append("Content-Type","application/json")
+
+    // TODO?
+    this.getBookById("1I5Xc6S5Zf").subscribe(data=>{
+      console.log(data)
+    })
+    // this.getbookModels()
   }
 
-  getbookModels(){
-     this.books = [
-      {name:"JAVA编程思想",author:"埃克尔",introduce:"一本关于java的书",wordsNum:100,random:20},
-      {name:"PYTHON基础教程",author:"赫特兰",introduce:"基础教程",wordsNum:200, random:30},
-      {name:"VUEX权威指南",author:"张耀春等",introduce:"一本关于VUE的书",wordsNum:300, random:40},
-      {name:"ANGULAR2权威指南",author:"Nate Murray",introduce:"一本关于angular的书", wordsNum:400,random:50},
-    ]
-  }
+  // getbookModels(){
+  //    this.books = [
+  //     {name:"JAVA编程思想",author:"埃克尔",introduce:"一本关于java的书",wordsNum:100,random:20},
+  //     {name:"PYTHON基础教程",author:"赫特兰",introduce:"基础教程",wordsNum:200, random:30},
+  //     {name:"VUEX权威指南",author:"张耀春等",introduce:"一本关于VUE的书",wordsNum:300, random:40},
+  //     {name:"ANGULAR2权威指南",author:"Nate Murray",introduce:"一本关于angular的书", wordsNum:400,random:50},
+  //   ]
+  // }
 
   getBookByName(name):Observable<Book>{
-    let book = this.books.find(item=>item.name == name)
-    return Observable.of(book)
+    // let book = this.books.find(item=>item.name == name)
+    // return Observable.of(book)
+
+    return
   }
+
+  // select object by id 2017/08/28 start
+  getBookById(id):Observable<Book>{
+
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
+    }
+
+    // http 调用
+    return this.http
+    .get(url,options)
+    .map(data=>data.json())
+  }
+  // select object by id 2017/08/28 end
+
+  getBooks():Observable<Array<Book>>{
+
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .get(url,options)
+    .map(data=>data.json().results)
+  }
+
    addBook(obj:Book){
     var random = Math.random();
     random = Math.round(random*10000);
@@ -43,7 +87,7 @@ export class HanshengBookStoreService {
       wordsNum:Math.round(random/100),
       random:Math.random()
     }
-    console.log(11111)
+
     this.books.push(newBook)
   }
 
