@@ -14,10 +14,10 @@ export class FastMailEditComponent implements OnInit {
     tel: "",
     addr: "",
     date: "",
-    index: 0
+    objectId: ""
   };
 
-  index: number;
+  objectId: string;
 
   constructor(private loc: Location,
   private fService: FastMailService,
@@ -25,11 +25,13 @@ export class FastMailEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
-      this.index = params['index'];
-      if (this.index == -1) {
-        this.tmpGood.index = this.fService.getListLength();
+      this.objectId = params['id'];
+      if (this.objectId == '-1') {
+
       } else {
-        this.tmpGood = this.fService.getGoodsById(this.index);
+        this.fService.getGoodsById(this.objectId).subscribe(data => {
+          this.tmpGood = data;
+        });
       }
     })
   }
@@ -39,7 +41,14 @@ export class FastMailEditComponent implements OnInit {
   }
 
   onClickSave(): void {
-    this.fService.addGoods(this.tmpGood);
-    this.onClickBack();
+    if (this.objectId == '-1') {
+      this.fService.addGoods(this.tmpGood).subscribe(data => {
+        this.onClickBack();
+      });
+    } else {
+      this.fService.updateGoodsById(this.tmpGood).subscribe(data => {
+        this.onClickBack();
+      });
+    }
   }
 }
