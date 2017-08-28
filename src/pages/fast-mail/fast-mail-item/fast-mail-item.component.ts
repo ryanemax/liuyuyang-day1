@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { FastMailService } from '../fast-mail.service';
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-fast-mail-item',
@@ -15,8 +16,8 @@ export class FastMailItemComponent implements OnInit {
   }
 
   onClickDelete(): void {
-    this.fService.deleteGoodsById(this.good.objectId).subscribe(data => {
-      
+    this.fService.deleteGoodsById(this.good.objectId).subscribe(data=>{
+      location.href = "/fast-mail";
     });
   }
 

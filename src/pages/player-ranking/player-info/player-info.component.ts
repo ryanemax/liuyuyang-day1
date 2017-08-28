@@ -13,7 +13,9 @@ export class PlayerInfoComponent implements OnInit {
   }
 
   deletePlayer(player){
-    this.playerServ.deleteById(player.objectId)
+    this.playerServ.deleteById(player.objectId).subscribe(data=>{
+      location.href = "/player-ranking"
+  })
 
   }
 

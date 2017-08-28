@@ -16,7 +16,8 @@ export class ContactEditComponent implements OnInit {
     
     name:"",
     mobile:"",
-    sex:""
+    sex:"",
+    birth:new Date()
   }
   isNew:boolean
   constructor(
