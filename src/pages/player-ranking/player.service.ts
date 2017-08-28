@@ -7,6 +7,7 @@ import { Http, Headers } from '@angular/http';
 import { Observable } from "rxjs/Observable"
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 
 
@@ -22,7 +23,7 @@ export class PlayerService {
     this.authHeaders.append("Content-Type","application/json")
 
 
-    this.getPlayerByName("SvsaxHrECT").subscribe(data=>{
+    this.getPlayerById("ZS03CywJm4").subscribe(data=>{
       console.log(data)
     })
   }
@@ -30,7 +31,7 @@ export class PlayerService {
 
   // HTTP Params
   authHeaders:Headers = new Headers()
-  host = "http://47.92.145.25:1337/parse"
+  host = "http://localhost:1337/parse"
   className = "FootballPlayer"
 
   getPlayers() :Observable<Array<FootballPlayer>>{
@@ -42,18 +43,18 @@ export class PlayerService {
           return this.http
           .get(url,options)
           .map(data=>data.json().results)
-        }
+  }
  
 
 
   
 
-  getPlayerByName(name):Observable<FootballPlayer>{
-    let player = this.players.find(item=>item.name == name)
-    return Observable.of(player)
+  getPlayerByName(name) :Observable<FootballPlayer>{
+    // let player = this.players.find(item=>item.name == name)
+    return 
   }
 
-  getPlayerById(id):Observable<FootballPlayer>{
+  getPlayerById(id) :Observable<FootballPlayer>{
     // let player = this.players.find(item=>item.name == name)
     // return Observable.of(player)
 
