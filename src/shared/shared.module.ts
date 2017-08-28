@@ -7,11 +7,13 @@ import { DiyButtonComponent } from './diy-button/diy-button.component';
 // 引入管道
 import { SexNamePipe } from './sex-name.pipe';
 import { CurrencyFormatPipe } from './currency/currency-format/currency-format.pipe';
+import { TypeSelectPipe } from './account-card/type-select.pipe';
 
 // 引入指令
 import { HighlightDirective } from './highlight.directive';
 import { ButtonCircleDirective } from './button-circle.directive';
 import { CurrencyHighlightDirective } from './currency/currency-highlight/currency-highlight.directive';
+import { AccoundCardDirective } from './account-card/accound-card.directive';
 
 // 引入自定义组件
 import { HanshengBookButtonComponent } from './hansheng-book-button/hansheng-book-button.component';
@@ -33,9 +35,11 @@ import { DeviceRedMarkDirective } from './device-red-mark.directive';
     HighlightDirective,
     ButtonCircleDirective,
     CurrencyHighlightDirective,
+    TypeSelectPipe,
     LiucDeviceButtonComponent,
     DeviceTypePipe,
     DeviceRedMarkDirective,
+
   ],
   exports: [
     DiyButtonComponent,
@@ -45,6 +49,7 @@ import { DeviceRedMarkDirective } from './device-red-mark.directive';
     HighlightDirective,
     ButtonCircleDirective,
     CurrencyHighlightDirective,
+    TypeSelectPipe,
     LiucDeviceButtonComponent,
     DeviceTypePipe,
     DeviceRedMarkDirective,
