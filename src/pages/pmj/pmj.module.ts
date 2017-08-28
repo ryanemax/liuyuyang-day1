@@ -21,7 +21,7 @@ import { MaterialModule } from "@angular/material";
     MaterialModule,
     RouterModule.forChild([
       { path: '', component: PmjPageComponent, pathMatch: 'full' },
-      { path: 'edit/:name', component: PmjEditComponent, pathMatch: 'full' }
+      { path: 'edit/:id', component: PmjEditComponent, pathMatch: 'full' }
     ])
   ],
   providers:[PmjService],

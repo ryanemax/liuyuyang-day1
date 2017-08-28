@@ -8,16 +8,17 @@ import { GoodsItemComponent } from './goods-item/goods-item.component';
 import { GoodsEditComponent } from './goods-edit/goods-edit.component';
 
 import { MaterialModule } from "@angular/material"
+import { SharedModule } from "../../shared/shared.module";
 
 import { GoodsShopService } from "./goods-shop.service"
 
 @NgModule({
   imports: [
     CommonModule,MaterialModule,
-    FormsModule,
+    FormsModule,SharedModule,
     RouterModule.forChild([
       { path: '', component: GoodsInfoPageComponent, pathMatch: 'full' },
-      { path: 'edit/:name', component: GoodsEditComponent, pathMatch: 'full' }
+      { path: 'edit/:id', component: GoodsEditComponent, pathMatch: 'full' }
     ])
   ], 
   providers:[GoodsShopService],

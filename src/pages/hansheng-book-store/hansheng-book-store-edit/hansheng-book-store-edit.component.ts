@@ -35,10 +35,14 @@ export class HanshengBookStoreEditComponent implements OnInit {
       return
     }
     if(this.isNew){
-      console.log(2222)
-      this.hanshengBookStoreService.addBook(this.book)
-    } 
-    this.back()
+      this.hanshengBookStoreService.saveBook(this.book).subscribe(data=>{
+        this.back()
+      })
+    } else {
+      this.hanshengBookStoreService.saveBook(this.book).subscribe(data=>{
+        this.back()
+      })
+    }
   }
   back(){
     this.loc.back()
@@ -46,11 +50,11 @@ export class HanshengBookStoreEditComponent implements OnInit {
 
   ngOnInit() {
      this.route.params.subscribe(params=>{
-          let name = params['name']
+          let name = params['id']
           if(name=="new"){
             this.isNew = true;
           }else{
-            this.hanshengBookStoreService.getBookByName(name).subscribe(book=>{
+            this.hanshengBookStoreService.getBookById(name).subscribe(book=>{
             this.book = book
         })
       }
