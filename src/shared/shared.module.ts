@@ -13,7 +13,7 @@ import { HighlightDirective } from './highlight.directive';
 import { ButtonCircleDirective } from './button-circle.directive';
 import { CurrencyHighlightDirective } from './currency/currency-highlight/currency-highlight.directive';
 
-// 引入自定义主键
+// 引入自定义组件
 import { HanshengBookButtonComponent } from './hansheng-book-button/hansheng-book-button.component';
 
 // 引入标签组件
