@@ -1,0 +1,29 @@
+<button md-raised-button (click)="back()">返回</button>
+
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar></div>
+    <md-card-title>部门编号：{{editDepartment.id}}</md-card-title>
+    <md-card-subtitle>部门名称：{{editDepartment.name}}</md-card-subtitle>
+    <md-card-subtitle>员工数量：{{editDepartment.count}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+<md-input-container>
+  <input [(ngModel)]="editDepartment.id" mdInput placeholder="部门编号" value="">
+</md-input-container>
+
+<md-input-container>
+  <input [(ngModel)]="editDepartment.name" mdInput placeholder="部门名称" value="">
+</md-input-container>
+<md-input-container>
+  <input [(ngModel)]="editDepartment.count" mdInput placeholder="员工数量" value="">
+</md-input-container>
+
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button routerLink="/zhangyu">取消</button>
+    <button md-button (click)="saveDepartment()">保存</button>
+  </md-card-actions>
+</md-card>

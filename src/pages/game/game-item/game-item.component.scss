@@ -1,0 +1,24 @@
+.game-item{
+    display: inline-block;
+    border: 1px solid #78b396;
+    border-radius: 0.2em;
+    width: calc((100% - 4px) / 4);
+    text-align: center; 
+
+    img{
+        width: 203px;
+        height: 150px;
+        border-radius: 40px;
+    }
+}
+
+a{
+    display: inline-block;
+    border-radius: 0.2em;
+    border: 1px solid #5db5bf;
+    background: #6dc5bf;
+    text-decoration: none;
+    color: #fff;
+    margin: 1px;
+    width: 99%;
+}

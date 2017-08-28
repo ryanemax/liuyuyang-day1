@@ -1,3 +1,33 @@
-<p>
-  edit-merchant-page works!
-</p>
+<h2>
+  Edit Merchant Message
+</h2>
+
+<button md-raised-button (click)="back()">返回</button>
+
+<md-card class="example-card">
+<md-card-header>
+  <md-card-title>商户名：{{object.name}}</md-card-title>
+  <md-card-subtitle>电话：{{object.mobile}}</md-card-subtitle>
+  <md-card-subtitle>地址：{{object.local}}</md-card-subtitle>
+</md-card-header>
+
+<md-card-content>
+  <p>
+<md-input-container>
+<input [(ngModel)]="object.name" mdInput placeholder="商户名：" value="">
+</md-input-container>
+
+<md-input-container>
+  <input [(ngModel)]="object.mobile" mdInput placeholder="电话：" value="">
+</md-input-container>
+
+<md-input-container>
+  <input [(ngModel)]="object.local" mdInput placeholder="地址：" value="">
+</md-input-container>
+  </p>
+</md-card-content>
+<md-card-actions>
+  <button md-button routerLink="/snack">取消</button>
+  <button md-button (click)="save()">保存</button>
+</md-card-actions>
+</md-card>

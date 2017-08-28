@@ -34,6 +34,17 @@ export class FastMailService {
     });
   }
 
+  getGoodsById(index: number): Good {
+    let flag = -1;
+    this.goodList.forEach((good, i, arr) => {
+      if (good.index == index) {
+        flag = i;
+      }
+    });
+
+    return this.goodList[flag];
+  }
+
   getListLength(): number {
       return this.goodList.length;
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { FastMailService } from '../fast-mail.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-fast-mail-edit',
@@ -16,11 +17,21 @@ export class FastMailEditComponent implements OnInit {
     index: 0
   };
 
+  index: number;
+
   constructor(private loc: Location,
-  private fService: FastMailService) { }
+  private fService: FastMailService,
+  private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.tmpGood.index = this.fService.getListLength();
+    this.route.params.subscribe(params=>{
+      this.index = params['index'];
+      if (this.index == -1) {
+        this.tmpGood.index = this.fService.getListLength();
+      } else {
+        this.tmpGood = this.fService.getGoodsById(this.index);
+      }
+    })
   }
 
   onClickBack(): void {
