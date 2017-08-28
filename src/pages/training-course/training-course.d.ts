@@ -4,4 +4,4 @@ interface CourseReload{
     date:string,
     isOk:string,
     random?:number
-  }
+  }   
