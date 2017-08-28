@@ -18,7 +18,7 @@ import { FastMailEditComponent } from './fast-mail-edit/fast-mail-edit.component
     FormsModule,
     RouterModule.forChild([
       { path: '', component: FastMailHomeComponent, pathMatch: 'full' },
-      { path: 'edit/:index', component: FastMailEditComponent, pathMatch: 'full'}
+      { path: 'edit/:id', component: FastMailEditComponent, pathMatch: 'full'}
     ])
   ],
   declarations: [
