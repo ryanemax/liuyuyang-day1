@@ -22,6 +22,7 @@ export class MovieListPageComponent implements OnInit {
   random(){
     this.movieServ.random()
   }
+
   ngOnInit() {
   }
 

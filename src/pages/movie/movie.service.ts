@@ -7,6 +7,12 @@ import 'rxjs/add/observable/of';
 
 @Injectable()
 export class MovieService {
+
+  // HTTP Params
+  authHeaders:Headers = new Headers()
+  host = "http://47.92.145.25:2337/parse"
+  className = "ContactUser"
+
   movies:Array<Movie>;
   editObject:Movie;
   constructor() { 
@@ -27,6 +33,7 @@ export class MovieService {
    ]
  }
   addMovie(movie){
+    movie.movieName = "战狼2"
     this.movies.push(movie)
   }
   deleteByName(name){

@@ -13,13 +13,14 @@ export class ContactItemComponent implements OnInit {
   constructor(private contactServ:ContactService,
   private loc:Location) { }
   delete(user){
-    this.contactServ.deleteById(user.objectId)
+    this.contactServ.deleteById(user.objectId).subscribe(data=>{
+        location.href = "/contact"
+    })
   }
   edit(){
     this.contactServ.editObject = this.user
-    // this.loc.go("/contact/edit")
-    // location.href = "/contact/edit"
   }
+
   ngOnInit() {
   }
 

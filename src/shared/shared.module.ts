@@ -8,6 +8,7 @@ import { DiyButtonComponent } from './diy-button/diy-button.component';
 import { SexNamePipe } from './sex-name.pipe';
 import { CurrencyFormatPipe } from './currency/currency-format/currency-format.pipe';
 import { TypeSelectPipe } from './account-card/type-select.pipe';
+import { ToKPipe } from './to-k.pipe';
 
 // 引入指令
 import { HighlightDirective } from './highlight.directive';
@@ -15,8 +16,9 @@ import { ButtonCircleDirective } from './button-circle.directive';
 import { CurrencyHighlightDirective } from './currency/currency-highlight/currency-highlight.directive';
 import { AccoundCardDirective } from './account-card/accound-card.directive';
 
-// 引入自定义主键
+// 引入自定义组件
 import { HanshengBookButtonComponent } from './hansheng-book-button/hansheng-book-button.component';
+import { JianglunBookButtonComponent } from './jianglun-book-button/jianglun-book-button.component';
 
 // 引入标签组件
 import { LiucDeviceButtonComponent } from './liuc-device-button/liuc-device-button.component';
@@ -38,7 +40,9 @@ import { DeviceRedMarkDirective } from './device-red-mark.directive';
     TypeSelectPipe,
     LiucDeviceButtonComponent,
     DeviceTypePipe,
+    ToKPipe,
     DeviceRedMarkDirective,
+    JianglunBookButtonComponent
 
   ],
   exports: [
@@ -52,7 +56,9 @@ import { DeviceRedMarkDirective } from './device-red-mark.directive';
     TypeSelectPipe,
     LiucDeviceButtonComponent,
     DeviceTypePipe,
+    ToKPipe,
     DeviceRedMarkDirective,
+    JianglunBookButtonComponent
   ]
 })
 export class SharedModule { }
