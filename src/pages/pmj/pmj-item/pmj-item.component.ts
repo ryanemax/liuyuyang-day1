@@ -15,7 +15,10 @@ export class PmjItemComponent implements OnInit {
   }
 
   delete(brand){
-    this.pmjService.deleteByName(brand.name)
+    this.pmjService.deleteBrandById(brand.objectId).subscribe(data=>{
+        console.log(data);
+        location.href = "/pmj";
+      });;
   }
 
   edit(){

@@ -1,7 +1,7 @@
 interface Brand{
   name:string,
-  consumerAccount:number,
-  campaignAccount:number,
+  consumerAccount:string,
+  campaignAccount:string,
   taegetAudience:string,
   averagePrize:string
 }
