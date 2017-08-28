@@ -5,6 +5,7 @@
 <h2 class="tittle">员工信息列表</h2>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
    <tr class="tb-header">
+       <th>员工ID</th>
        <th>姓名</th>
        <th>性别</th>
        <th>年龄</th>
@@ -12,6 +13,7 @@
        <th>操作</th>
    </tr>
    <tr *ngFor="let employee of employees" class="tb-list">
+    <td class="tb-cell">{{employee.eid}}</td>
     <td class="tb-cell">{{employee.name}}</td>
     <td class="tb-cell">{{employee.sex}}</td>
     <td class="tb-cell">{{employee.age}}</td>

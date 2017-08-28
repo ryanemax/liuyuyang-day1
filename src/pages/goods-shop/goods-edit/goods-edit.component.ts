@@ -14,8 +14,8 @@ export class GoodsEditComponent implements OnInit {
     price: ""
   }
   isNew:boolean
-  constructor(private route: ActivatedRoute,private loc:Location,
-  private goodsServ: GoodsShopService) { 
+  constructor(private route: ActivatedRoute,
+  private goodsServ: GoodsShopService,private loc:Location) { 
     if(goodsServ.editObject){
       this.object = goodsServ.editObject
     }
@@ -28,7 +28,9 @@ export class GoodsEditComponent implements OnInit {
       return
     }
     if(this.isNew){
-      this.goodsServ.addContact(this.object)
+      this.goodsServ.addContact(this.object).subscribe()
+    }else{
+      this.goodsServ.updateContact(this.object).subscribe()
     }
     this.back()
   }
@@ -39,11 +41,11 @@ export class GoodsEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
-      let name = params['name']
-      if(name=="new"){
+      let id = params['id']
+      if(id=="new"){
         this.isNew = true;
       }else{
-        this.goodsServ.getContactByName(name).subscribe(item=>{
+        this.goodsServ.getContactById(id).subscribe(item=>{
           this.object = item;
         })
       }
