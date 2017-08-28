@@ -12,7 +12,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 })
 export class PlayerEditPageComponent implements OnInit {
 
-  object:Player = {
+  object:FootballPlayer = {
     name:"",
     team:"",
     goal:0,
@@ -39,9 +39,14 @@ export class PlayerEditPageComponent implements OnInit {
       return
     }
     if(this.isNew){
-      this.playerServ.addPlayer(this.object)
+      this.playerServ.savePlayer(this.object).subscribe(data=>{
+        this.back()
+      })
+    } else{
+      this.playerServ.savePlayer(this.object).subscribe(data=>{
+        this.back()
+      })
     }
-    this.back()
   }
   back(){
     this.loc.back()
@@ -49,11 +54,12 @@ export class PlayerEditPageComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
-      let name = params['name']
-      if(name=="new"){
+      let id = params['id']
+
+      if(id=="new"){
         this.isNew = true;
       }else{
-        this.playerServ.getPlayerByName(name).subscribe(player=>{
+        this.playerServ.getPlayerById(id).subscribe(player=>{
         this.object = player
     })
   }

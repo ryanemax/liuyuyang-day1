@@ -14,7 +14,10 @@ export class EmployeeListPageComponent implements OnInit {
 
   employees:Array<Employee>
   constructor(private employeeServ:EmployeeService,private loc:Location) {
-    this.employees = this.employeeServ.employees;
+    this.employeeServ.getEmployees().subscribe(data=>{
+      console.log("data:"+data);
+      this.employees = data;
+    });
   }
 
     delete(employee){

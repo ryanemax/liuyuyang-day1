@@ -7,13 +7,16 @@ import { FastMailService } from '../fast-mail.service'
   styleUrls: ['./fast-mail-home.component.scss']
 })
 export class FastMailHomeComponent implements OnInit {
-  goodList: Array<any>;
+  goodList: Array<Good>;
 
   constructor(private fService: FastMailService) {
   }
 
   ngOnInit() {
-     this.goodList = this.fService.getGoods();
+    this.fService.getGoods().subscribe(data => {
+      this.fService.goodList = data;
+      this.goodList = data;
+    });
   }
 
   onAscSortClick(): void {

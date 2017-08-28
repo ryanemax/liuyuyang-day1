@@ -1,51 +1,60 @@
 import { Injectable } from '@angular/core';
 
-interface Bug {
-    index: string,
-    level: string,
-    status: string,
-    assigneeName?: string,
-}
+import { Http, Headers } from '@angular/http';
+
+import { Observable } from "rxjs/Observable"
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class BugService {
 
-    constructor() {
+    // HTTP Params
+    authHeaders: Headers = new Headers()
+    host = "http://47.92.145.25:2337/parse"
+    className = "Bug"
 
+    constructor(private http: Http) {
+        this.authHeaders.append("X-Parse-Application-Id", "dev")
+        this.authHeaders.append("X-Parse-Master-Key", "angulardev")
+        this.authHeaders.append("Content-Type", "application/json")
+    }
+    getBugs(): Observable<Array<Bug>> {
+        let url = this.host + "/classes/" + this.className
+        let options = {
+            headers: this.authHeaders
+        }
+
+        return this.http
+            .get(url, options)
+            .map(data => data.json().results)
     }
 
-    getBugs() {
-        let bugs: Array<Bug>;
-        bugs = [
-            { index: "PPS10001", level: "block", status: "waiting for prod-test", assigneeName: "谢理" },
-            { index: "PPS10004", level: "minor", status: "not started" },
-            { index: "PPS10003", level: "major", status: "in development", assigneeName: "李四" },
-            { index: "PPS10002", level: "crital", status: "waiting for pre-test", assigneeName: "张三" },
-            { index: "PPS10005", level: "crital", status: "not started" },
-        ];
-        return bugs;
+    getBug(objectId: String): Observable<Bug> {
+        let url = this.host + "/classes/" + this.className
+        let options = {
+            headers: this.authHeaders
+        }
+        return this.http.get(url + '/' + objectId, options).map(data => data.json().results);
     }
+
 
     add(bugs: Array<Bug>) {
-        let newBug = {
-            index: "PPS10010",
-            level: "major",
-            status: "not started"
-        }
-        bugs.push(newBug);
+        // let newBug = {
+        //     index: "PPS10010",
+        //     level: "major",
+        //     status: "not started"
+        // }
+        // bugs.push(newBug);
     }
 
-    delete(index: String, bugs: Array<Bug>) {
-        let arrayIndex;
-        for (let i = 0; i < bugs.length; i++) {
-            if (bugs[i].index == index) {
-                arrayIndex = i;
-                break;
-            }
+    delete(objectId: String): Observable<Bug> {
+        let url = this.host + "/classes/" + this.className
+        let options = {
+            headers: this.authHeaders
         }
-        // delete bugs[arrayIndex];
-        bugs.splice(arrayIndex, 1);
-        console.log(bugs);
+        return this.http.delete(url + '/' + objectId, options).map(data => data.json().results);
     }
 
     sortList(type: string, bugs: Array<Bug>) {

@@ -3,6 +3,25 @@
   float:left;
   margin:10px;
 }
-.item-list,.mat-card-actions{
+.item-list{
+  float:left; 
+}
+.mat-card-actions{
   float:left;
+  margin-left:2em;
+}
+.mat-card{
+  border-radius:44px;
+  img{
+    border-radius:27px;
+  }
+  button{
+    background: #006564 !important;
+    font-size: 0.875em !important;
+    color: white;
+    border-radius: 3px !important;
+    border: none;
+    height: 32px;
+    width: 20px;
+  }
 }

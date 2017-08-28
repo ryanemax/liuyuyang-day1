@@ -13,9 +13,18 @@ export class PlayerInfoComponent implements OnInit {
   }
 
   deletePlayer(player){
-    this.playerServ.deleteByName(player.name)
+    this.playerServ.deleteById(player.objectId).subscribe(data=>{
+      location.href = "/player-ranking"
+  })
+
   }
 
+
+  edit(){
+    this.playerServ.editObject = this.player
+    // this.loc.go("/contact/edit")
+    // location.href = "/contact/edit"
+  }
   ngOnInit() {
   }
 

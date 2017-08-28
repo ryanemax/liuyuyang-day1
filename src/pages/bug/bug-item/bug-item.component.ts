@@ -10,8 +10,12 @@ export class BugItemComponent implements OnInit {
   @Input() bugs: any
   constructor(private bugService: BugService) { }
 
-  delete(index: string) {
-    this.bugService.delete(index, this.bugs);
+  delete(objectId: string) {
+    this.bugService.delete(objectId).subscribe(() => {
+      this.bugService.getBugs().subscribe(data => {
+        this.bugs = data
+      })
+    });
   }
 
   ngOnInit() {

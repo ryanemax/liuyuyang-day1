@@ -1,8 +1,9 @@
+<h1>{{title}}</h1>
 
-<app-diy-button [title]="'添加'"  routerLink="edit/new"></app-diy-button>
-<app-diy-button [title]="'正序'" (click)="asc()"></app-diy-button>
-<app-diy-button [title]="'逆序'" (click)="desc()"></app-diy-button>
-<app-diy-button [title]="'随机'" (click)="random()"></app-diy-button>
+<button routerLink="edit/new">{{add}}</button>
+<button [title]="'Asc'" (click)="asc()">{{Asc}}</button>
+<button [title]="'Desc'" (click)="desc()">{{Desc}}</button>
+<button [title]="'Random'" (click)="random()">{{Random}}</button>
 <div style="margin-top:14px;">
-<app-airline-item [user]="user" *ngFor="let user of list"></app-airline-item>
+<app-airline-item [user]="flight" *ngFor="let flight of airlines"></app-airline-item>
 </div>

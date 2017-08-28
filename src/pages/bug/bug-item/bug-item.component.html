@@ -11,7 +11,7 @@
     <td>{{bug.level}}</td>
     <td>{{bug.status}}</td>
     <td>{{bug.assigneeName}}</td>
-    <td routerLink="/bug/detail">Edit</td>
-    <td (click)="delete(bug.index)">Delete</td>
+    <td routerLink="/bug/detail/{{bug.objectId}}">Edit</td>
+    <td (click)="delete(bug.objectId)">Delete</td>
   </tr>
 </table>
