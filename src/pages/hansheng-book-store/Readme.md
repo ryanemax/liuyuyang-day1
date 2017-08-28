@@ -7,7 +7,7 @@ interface HanshengBookStore{
   author:string,
   introduce:string,
   wordsNum:number
-  random?:number
+  random:number
 }
 
 
