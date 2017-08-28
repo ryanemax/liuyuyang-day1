@@ -11,7 +11,7 @@ import { ZhangyuService } from "../zhangyu.service";
 export class DepartmentEditComponent implements OnInit {
 
   editDepartment: Department = {
-    id:"",
+    depId:"",
     createDate:new Date(),
     name:"",
     count:""
@@ -27,19 +27,14 @@ export class DepartmentEditComponent implements OnInit {
     this.loc.back();
   }
   saveDepartment(){
-  if(this.editDepartment.id == ""||this.editDepartment.name==""||this.editDepartment.count==""){
+  if(this.editDepartment.depId == ""||this.editDepartment.name==""||this.editDepartment.count==""){
       alert("信息不完整，请检查")
       // this.dialog.open(DialogResult);
       return
     }
-   
-    if(this.isNew){
-      // this.editDepartment.id = this.zhangyuServ.departmentVo.id + 10;
-      this.zhangyuServ.addDepartment(this.editDepartment);
-    }else{
-      // this.editDepartment.id = this.zhangyuServ.departmentVo.id;
-    }
-    this.back()
+    this.zhangyuServ.saveDepartment(this.editDepartment).subscribe(data=>{
+        this.back()
+    })
   }
   ngOnInit() {
     this.route.params.subscribe(params=>{

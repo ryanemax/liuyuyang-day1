@@ -11,16 +11,19 @@ import {MdButtonModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { AssetCurrencyPipe } from './asset-currency.pipe';
 import { AssetButtonDirective } from './asset-button.directive';
+import {MdDatepickerModule,MdNativeDateModule} from '@angular/material';
+
+
 
 
 @NgModule({
   imports: [
-    CommonModule,MaterialModule,MdSelectModule,MdButtonModule,FormsModule,RouterModule.forChild([
+    CommonModule,MaterialModule,MdDatepickerModule,MdNativeDateModule,MdSelectModule,MdButtonModule,FormsModule,RouterModule.forChild([
        { path: '', component: AssetListPageComponent, pathMatch: 'full' }
     ]),
     RouterModule.forChild([
-       { path: 'edit/:no', component: AssetEditPageComponent, pathMatch: 'full' },
-       { path: 'view/:no', component: AssetDetailPageComponent, pathMatch: 'full' },
+       { path: 'edit/:id', component: AssetEditPageComponent, pathMatch: 'full' },
+       { path: 'view/:id', component: AssetDetailPageComponent, pathMatch: 'full' },
     ])
   ],
   declarations: [

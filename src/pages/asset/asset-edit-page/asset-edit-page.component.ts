@@ -16,12 +16,18 @@ export class AssetEditPageComponent implements OnInit {
     name: "",
     classification: "",
     brand: "",
-    price: 0,
+    price: 1,
     addTime: null,
     img: ""
   }
 
-  constructor(private route: ActivatedRoute, private assetService: AssetService, private location: Location) { }
+  currentMaxNo: number
+
+  constructor(private route: ActivatedRoute, private assetService: AssetService, private location: Location) {
+    this.assetService.getAssetCount().subscribe(data => {
+      this.currentMaxNo = data
+    })
+  }
 
   // 返回上一页
   returnList() {
@@ -29,27 +35,39 @@ export class AssetEditPageComponent implements OnInit {
   }
 
   // 新增/保存
-  saveAsset(){
-    if(this.obj.name==""||this.obj.brand==""||this.obj.price<0){
-     alert("信息不完整，请检查")
+  saveAsset() {
+    if (this.obj.name == "" || this.obj.brand == "" || this.obj.price < 0) {
+      alert("信息不完整，请检查")
       return
     }
-    if(this.obj.no==0){// 编号为空，代表新增
-      this.obj.no = (this.assetService.assets.length+1)
-      this.obj.addTime=new Date()
-      this.obj.img="../../../assets/img/asset/img.png"
-      this.assetService.add(this.obj)
+    console.log(this.obj.addTime)
+    delete this.obj.addTime
+
+    if (this.obj.no == 0) {// 编号为空，代表新增
+      // 第一次输出为0，第二次输出正确？
+      // this.assetService.getAssetCount().subscribe(data => {
+      //   this.obj.no =  data+1
+      //   console.log(this.obj.no)
+      //  })
+      //  console.log(this.obj.no)
+      this.obj.no = this.currentMaxNo + 1
+      this.assetService.add(this.obj).subscribe(data => {
+        this.returnList()
+      })
+    } else {
+      this.assetService.update(this.obj).subscribe(data => {
+        this.returnList()
+      })
     }
-    this.returnList()
   }
 
   ngOnInit() {
     // 修改的时候显示信息
     this.route.params.subscribe(params => {
-      let no = params['no']
-      if ( no != "new") {
-        this.assetService.getAssetByNo(no).subscribe(asset => {
-          this.obj = asset
+      let id = params['id']
+      if (id != "new") {
+        this.assetService.getAssetById(id).subscribe(data => {
+          this.obj = data
         })
       }
     })
