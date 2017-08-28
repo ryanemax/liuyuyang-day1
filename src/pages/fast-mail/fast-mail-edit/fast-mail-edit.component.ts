@@ -46,7 +46,7 @@ export class FastMailEditComponent implements OnInit {
         this.onClickBack();
       });
     } else {
-      this.fService.updateGoodsById(this.tmpGood).subscribe(data => {
+      this.fService.updateGoods(this.tmpGood).subscribe(data => {
         this.onClickBack();
       });
     }

@@ -12,20 +12,42 @@ export class AccountPageComponent implements OnInit {
   accounting:Array<any>;
   
     constructor(private accountServ:BetsyAccountService) {
-      this.accounting = this.accountServ.accounting
+      this.accountServ.getAccountingList().subscribe(data =>{
+        this.accounting = data
+      })
     }
+
+    
     asc(){
-      this.accountServ.asc()
-    }
+      // 正序排列
+      // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+      this.accounting.sort((a,b)=>{
+        if(a.cost>b.cost){
+          return 1
+        }else{
+          return -1
+        }
+      })
+   }
+   
+   
     desc(){
-      this.accountServ.desc()
+     this.accounting.sort((a,b)=>{
+       if(a.cost<b.cost){
+         return 1
+       }else{
+         return -1
+       }
+     })   
     }
     random(){
-      this.accountServ.random()
-    }
-    addAccount(acc){
-    //  let newContact = {}
-      this.accountServ.addAccount(acc)
+      // 随机排列
+      // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+   
+      this.accounting.sort((a,b)=>{
+         return Math.random()
+     
+     })
     }
 
   
