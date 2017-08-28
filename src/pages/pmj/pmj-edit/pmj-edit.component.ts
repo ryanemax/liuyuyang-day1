@@ -50,11 +50,17 @@ export class PmjEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
-          let name = params['name']
-          if(name=="new"){
+          // let name = params['name']
+          // if(name=="new"){
+          //   this.isNew = true;
+          // }else{
+          //   this.pmjServ.getBrandByName(name).subscribe(brand=>{
+          //   this.object = brand;
+          let id = params['id']
+          if(id=="new"){
             this.isNew = true;
           }else{
-            this.pmjServ.getBrandByName(name).subscribe(brand=>{
+            this.pmjServ.getBrandById(id).subscribe(brand=>{
             this.object = brand;
         })
       }

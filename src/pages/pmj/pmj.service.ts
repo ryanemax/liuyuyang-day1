@@ -3,13 +3,52 @@ import { Observable } from "rxjs/Observable"
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
 
+import { Http, Headers } from '@angular/http';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
+
+
 @Injectable()
 export class PmjService {
   brands:Array<Brand>;
   editObject:Brand;
-  
-  constructor() { 
+
+  authHeaders:Headers = new Headers();
+  className = "Pmj";
+  host = "http://localhost:1337/parse"
+
+  constructor(private http:Http) { 
     this.setBrands();
+
+    this.authHeaders.append("X-Parse-Application-Id","dev")
+    this.authHeaders.append("X-Parse-Master-Key","angulardev")
+    this.authHeaders.append("Content-Type","application/json")
+  }
+
+  getBrandById(id):Observable<Brand>{
+    // let contact = this.contacts.find(item=>item.name == name)
+    // return Observable.of(contact)
+
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+      .get(url,options)
+      .map(data=>data.json());
+  }
+
+  getBrands():Observable<Array<Brand>>{
+
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .get(url,options)
+    .map(data=>data.json().results)
   }
 
   setBrands(){
@@ -40,37 +79,6 @@ export class PmjService {
     })
   }
 
-  asc(){
-    this.brands.sort((a,b)=>{
-      if(a.consumerAccount>b.consumerAccount){
-        return 1
-      }else{
-        return -1
-      }
-    })
-  }
-
-  desc(){
-    this.brands.sort((a,b)=>{
-      if(a.consumerAccount<b.consumerAccount){
-        return 1
-      }else{
-        return -1
-      }
-    })   
-  }
-
-  random(){
-    // this.brands.forEach((item)=>{
-      
-    // })
-    this.brands.sort((a,b)=>{
-      if(Math.random()<Math.random()){
-        return 1
-      }else{
-        return -1
-      }
-    })  
-  }
+   
 
 }
