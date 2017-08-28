@@ -14,7 +14,9 @@ export class AirlineItemComponent implements OnInit {
   constructor(private airlineServ:AirlineService,
   private loc:Location) { }
   delete(user){
-    this.airlineServ.deleteByPrice(user.Price)
+    this.airlineServ.deleteByPrice(user.objectId).subscribe(data=>{
+    location.href = "/flight"
+    })
   }
   edit(){
     this.airlineServ.editObject = this.user
