@@ -8,12 +8,14 @@ import { GameService } from "../game.service"
   styleUrls: ['./game-list-page.component.scss']
 })
 export class GameListPageComponent implements OnInit {
-  games: Array<any>;
+  games: Array<Game>;
   constructor(private gameServ: GameService) {
-    this.games = this.gameServ.games;
+    this.showAll();
   }
   showAll(){
-    this.games = this.gameServ.getGames();
+    this.gameServ.getGames().subscribe(data => {
+      this.games = data;
+    });
   }
   
   descByDownloads(){
