@@ -15,6 +15,7 @@ export class TrainingCourseInfoComponent implements OnInit {
       console.log(this.courses)
     })
   }
+  
   doDel(name){
    
     this.service.delete(name).subscribe(data=>{
