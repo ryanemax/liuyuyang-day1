@@ -76,8 +76,6 @@ export class AssetService {
   add(asset) {
 
     // 新增宝贝
-    // asset.no = 10// (this.assets.length + 1)
-    // asset.addTime = new Date()
     asset.img = "../../../assets/img/asset/img.png"
     return this.http
       .post(this.url, asset, this.options)

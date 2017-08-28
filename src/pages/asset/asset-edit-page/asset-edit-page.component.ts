@@ -16,7 +16,7 @@ export class AssetEditPageComponent implements OnInit {
     name: "",
     classification: "",
     brand: "",
-    price: 0,
+    price: 1,
     addTime: null,
     img: ""
   }
@@ -40,6 +40,9 @@ export class AssetEditPageComponent implements OnInit {
       alert("信息不完整，请检查")
       return
     }
+    console.log(this.obj.addTime)
+    delete this.obj.addTime
+
     if (this.obj.no == 0) {// 编号为空，代表新增
       // 第一次输出为0，第二次输出正确？
       // this.assetService.getAssetCount().subscribe(data => {
@@ -47,13 +50,11 @@ export class AssetEditPageComponent implements OnInit {
       //   console.log(this.obj.no)
       //  })
       //  console.log(this.obj.no)
-
       this.obj.no = this.currentMaxNo + 1
       this.assetService.add(this.obj).subscribe(data => {
         this.returnList()
       })
     } else {
-
       this.assetService.update(this.obj).subscribe(data => {
         this.returnList()
       })
