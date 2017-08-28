@@ -1,5 +1,4 @@
 import { Component, OnInit, Input} from '@angular/core';
-
 import { BetsyAccountService } from "../betsy-account.service"
 import { Location } from "@angular/common"
 

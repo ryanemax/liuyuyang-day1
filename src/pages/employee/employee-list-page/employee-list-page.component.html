@@ -1,6 +1,6 @@
-<button (click)="asc()">按年龄正序</button>
-<button (click)="desc()">按年龄逆序</button>
-<button (click)="random()">按年龄乱序</button>
+<button (click)="asc()">按年龄正序排列</button>
+<button (click)="desc()">按年龄逆序排列</button>
+<button (click)="random()">按年龄随机排列</button>
 <button routerLink="edit/new">添加新员工信息</button>
 <h2 class="tittle">员工信息列表</h2>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -19,13 +19,8 @@
     <td class="tb-cell">{{employee.age}}</td>
     <td class="tb-cell">{{employee.position}}</td>
     <td class="tb-cell">
-        <button md-button routerLink="edit/{{employee.name}}">编辑</button>
+        <button md-button routerLink="edit/{{employee.objectId}}">编辑</button>
         <button md-button (click)="delete(employee)">删除</button>
     </td>
-
-    <!-- <md-card-actions>
-        <button md-button routerLink="edit/{{employee.name}}">编辑</button>
-        <button md-button (click)="delete(employee)">删除</button>
-      </md-card-actions> -->
    </tr>
 </table>
