@@ -7,7 +7,7 @@ import { FastMailService } from '../fast-mail.service';
   styleUrls: ['./fast-mail-item.component.scss']
 })
 export class FastMailItemComponent implements OnInit {
-  @Input() good: any
+  @Input() good: Good
 
   constructor(private fService: FastMailService) { }
 
@@ -15,7 +15,9 @@ export class FastMailItemComponent implements OnInit {
   }
 
   onClickDelete(): void {
-    this.fService.deleteGoodsById(this.good.index);
+    this.fService.deleteGoodsById(this.good.objectId).subscribe(data => {
+      
+    });
   }
 
 }

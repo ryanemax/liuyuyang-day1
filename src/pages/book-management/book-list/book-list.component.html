@@ -1,3 +1,26 @@
-<p>
-  book-list works!
-</p>
+
+<app-jianglun-book-button [title]="'添加书籍'"  routerLink="edit/new"></app-jianglun-book-button>
+<app-jianglun-book-button [title]="'价格正序'" (click)="ascPrice()"></app-jianglun-book-button>
+<app-jianglun-book-button [title]="'价格逆序'" (click)="descPrice()"></app-jianglun-book-button>
+<app-jianglun-book-button [title]="'随机排序'" (click)="random()"></app-jianglun-book-button>
+
+<table align=center>
+    <caption>【书籍列表】</caption>
+    <tr bgcolor="#cccccc">
+     <th>序号</th>
+     <th>书名</th>
+     <th>作者</th>
+     <th>价格</th>
+     <th>摘要</th>
+     <th>操作</th>
+    </tr>
+    <tr *ngFor="let book of books">
+     <td>{{book.index}}</td>
+     <td>{{book.bookName}}</td>
+     <td>{{book.author}}</td>
+     <td appHighlight>{{book.price | currency:'USD':true:'4.2-2'}}</td>
+     <td>{{book.summary}}</td>
+     <td><button md-button routerLink="edit/{{book.index}}">编辑</button>
+        <button md-button (click)="delete(book)">删除</button></td>
+    </tr>
+</table>
