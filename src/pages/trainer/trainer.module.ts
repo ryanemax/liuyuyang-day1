@@ -19,7 +19,7 @@ import { TrainerItemComponent } from './trainer-item/trainer-item.component';
     SharedModule,MaterialModule,
     RouterModule.forChild([
       { path: '', component: TrainerListPageComponent, pathMatch: 'full' },
-      { path: 'edit/:index', component: TrainerEditComponent, pathMatch: 'full' }
+      { path: 'edit/:id', component: TrainerEditComponent, pathMatch: 'full' }
     ])
   ],
   providers:[TrainerService],
