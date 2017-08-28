@@ -1,0 +1,6 @@
+<div class="items">
+  <img src="./assets/img/goods/{{item.name}}.jpg" width="200px" height="200px">
+  <p><span class="name">{{item.name}}</span>  <span class="price">价格:{{item.price}}</span></p>
+  <button routerLink="edit/{{item.name}}">编辑</button>
+  <button md-button (click)="delete(item)">删除</button>
+</div>

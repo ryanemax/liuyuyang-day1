@@ -1,0 +1,19 @@
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>Brand: {{brand.name}}</md-card-title>
+    <md-card-subtitle>TaegetAudience: {{brand.taegetAudience}}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="assets/img/examples/shiba2.jpg">
+  <md-card-content>
+    <p>
+      ConsumerAccount is {{brand.consumerAccount}}<br />
+      CampaignAccount is {{brand.campaignAccount}}<br />
+      TaegetAudience is {{brand.taegetAudience}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button routerLink="edit/{{brand.name}}">Edit</button>
+    <button md-button (click)="delete(brand)">Del</button>
+  </md-card-actions>
+</md-card>

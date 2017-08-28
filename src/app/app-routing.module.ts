@@ -33,9 +33,9 @@ const SSRroutes: Routes = [
     data: { title: "PMJ" }
   },
   { path: 'myfavoritenbaplayers',
-	loadChildren: '../pages/my-favorite-nba-players/my-favorite-nba-players.module#MyFavoriteNbaPlayersModule' ,
-	data:{title:"My Favorite NBA Players"}
-	},
+    loadChildren: '../pages/my-favorite-nba-players/my-favorite-nba-players.module#MyFavoriteNbaPlayersModule',
+    data:{title:"My Favorite NBA Players"}
+ },
   {
     path: 'cardpreview',
     loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule',
@@ -50,6 +50,11 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/fast-mail/fast-mail.module#FastMailModule',
     data: { title: "FastMail快递" }
   },
+  {
+    path: 'snack',
+    loadChildren: '../pages/snack/snack.module#SnackModule',
+    data: { title: "snack street" }
+  },
   { path: 'bug', loadChildren: '../pages/bug/bug.module#BugModule', data: { title: "Bug 管理系统" } },
   { path: 'asset', loadChildren: '../pages/asset/asset.module#AssetModule' ,data:{title:"我的衣帽间"}},
   {
@@ -57,7 +62,11 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/zhangyuexam/zhangyuexam.module#ZhangyuexamModule',
     data: { title: "大杂烩店铺" }
   },
-
+  { 
+    path: 'flight', 
+    loadChildren: '../pages/airline/airline.module#AirlineModule' ,
+    data:{title:"Flight航空"}
+  },
   { path: 'device', 
     loadChildren: '../pages/liuchaoexam/device.module#DeviceModule',
     data: { title: "物资管理系统" }
@@ -65,6 +74,10 @@ const SSRroutes: Routes = [
   { path: 'employee', 
   loadChildren: '../pages/employee/employee.module#EmployeeModule',
   data:{title:"员工管理" }
+  },
+  { path: 'product-shop-count', 
+  loadChildren: '../pages/product-shop-count/productshopcount.module#ProductshopcountModule',
+  data:{title:"Annotation 工具" }
  },
   { path: 'betsy-account', 
   loadChildren: '../pages/betsy-account/betsy-account.module#BetsyAccountModule',
@@ -74,6 +87,13 @@ const SSRroutes: Routes = [
   loadChildren: '../pages/training-course/training-course.module#TrainingCourseModule',
   data:{title:"培训课程" }
 },
+
+{ path: 'player-ranking',
+loadChildren: '../pages/player-ranking/player-ranking.module#PlayerRankingModule',
+data: { title: "球员数据排行" }
+
+},
+
 {
     path: 'hansheng-book-store',
     loadChildren: '../pages/hansheng-book-store/hansheng-book-store.module#HanshengBookStoreModule',
@@ -85,9 +105,34 @@ const SSRroutes: Routes = [
   data: { title: "聚美优品" }
 },
 {
+  path: 'book-management',
+  loadChildren: '../pages/book-management/book-management.module#BookManagementModule',
+  data: { title: "图书管理" }
+},
+{
     path: 'trainer',
     loadChildren: '../pages/trainer/trainer.module#TrainerModule',
     data: { title: "讲师列表" }
+  },
+  { path: 'shoplist', 
+  loadChildren: '../pages/taobao-shoplist/shoplist.module#ShoplistModule',
+  data:{title:"淘宝购物车商品管理" }
+},
+  {
+    path: 'game', 
+    loadChildren: '../pages/game/game.module#GameModule',
+    data:{title:"游戏排行榜" }
+  },
+
+  {
+    path: 'cookbook', 
+    loadChildren: '../pages/cookbook/cookbook.module#CookbookModule',
+    data:{title:"食谱烹饪" }
+  },
+    {
+    path: 'zhangyuDepartment',
+    loadChildren: '../pages/zhangyu/zhangyu.module#ZhangyuModule',
+    data: { title: "部门管理" }
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

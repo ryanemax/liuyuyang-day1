@@ -1,0 +1,19 @@
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{player.name}}</md-card-title>
+    <md-card-subtitle>{{player.team}}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="assets/img/examples/shiba2.jpg">
+  <md-card-content>
+    <p>
+      进球数： {{player.goal }}
+      助攻数： {{player.assist }}
+      参赛时间： {{player.palyerMinutes }}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button routerLink="edit/{{player.name}}">编辑</button>
+    <button md-button (click)="deletePlayer(player)">删除</button>
+  </md-card-actions>
+</md-card>

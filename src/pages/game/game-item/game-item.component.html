@@ -1,0 +1,10 @@
+<div class="game-item">
+  <img src="./assets/img/game/{{game.gameImage}}" title="{{game.gameName}}" width="200px" height="200px">
+  <p class = "gameTitle">{{game.gameName}}</p>
+  <p><span>下载量:{{game.downloads}}</span></p>
+  <p><span>最后版本更新:{{game.updateDate | date : 'yyyy-MM-dd'}}</span></p>
+  <p><span >价格:{{game.price}}</span></p>
+  <p></p>
+  <a href="javascript:void(0)" routerLink="update/{{game.id}}" highlilght>修改</a>
+  <a href="javascript:void(0)" (click)="delete(game)" highlilght>删除</a>
+</div>

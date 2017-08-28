@@ -1,0 +1,11 @@
+
+<h3>游戏排行榜</h3>
+<div>
+  <a href="javascript:void(0)" (click)="descByDownloads()" highlilght>最热门</a>
+  <a href="javascript:void(0)" (click)="descByDate()">最新发布</a>
+  <a href="javascript:void(0)" (click)="showFree()">免费</a>
+  <a href="javascript:void(0)" (click)="showAll()">全部</a>
+  <a href="javascript:void(0)" routerLink="insert">添加一个新游戏</a>
+</div>
+<br>
+<app-game-item [game]="game" *ngFor="let game of games"></app-game-item>
