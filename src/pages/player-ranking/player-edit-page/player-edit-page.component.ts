@@ -49,11 +49,12 @@ export class PlayerEditPageComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
-      let name = params['name']
-      if(name=="new"){
+      let id = params['id']
+      console.log(id)
+      if(id=="new"){
         this.isNew = true;
       }else{
-        this.playerServ.getPlayerByName(name).subscribe(player=>{
+        this.playerServ.getPlayerById(id).subscribe(player=>{
         this.object = player
     })
   }

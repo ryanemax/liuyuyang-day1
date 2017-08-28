@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     SharedModule,MaterialModule,
     RouterModule.forChild([
       { path: '', component: PlayerRankingPageComponent, pathMatch: 'full' },
-      { path: 'edit/:name', component: PlayerEditPageComponent, pathMatch: 'full' }
+      { path: 'edit/:id', component: PlayerEditPageComponent, pathMatch: 'full' }
     ])
   ],
   providers:[PlayerService],
