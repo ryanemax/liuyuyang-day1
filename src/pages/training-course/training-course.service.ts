@@ -3,19 +3,20 @@ import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable"
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map'
+import { HttpModule,Headers,Http } from '@angular/http';
+
+const APPLICATION_ID:string = "dev"
+const SERVER_URL="";
 
 @Injectable()
 export class TrainingCourseService {
-  ngOnInit() {
-  }
+
   courses:Array<CourseReload> ;
+  constructor(private http:Http) {
 
-
-
-  constructor() {
-
-this.getContent()
-}
+    // this.getContent()
+  }
 delete(name){
   this.courses.forEach((item,index,arr)=>{
     if(item.stName == name){
@@ -32,8 +33,21 @@ getRecordByName(name):Observable<CourseReload>{
 addRecord(record){
   this.courses.push(record)
 }
-getContent(){
-  this.courses=[
+getContent():Observable<Array<CourseReload>>{
+  
+  let header:Headers = new Headers()
+  header.append("X-Parse-Application-Id","dev")
+
+  let host = "";
+  let classes = ""
+  let url = `{{host}}{{classes}}`;
+  this.http.get(url,{}).map(item => item).subscribe(
+    item => item.json
+  )
+
+
+  let courses:Array<CourseReload> = 
+  [
     {
       stName: '小张',courseName:'日语', date: '2017/07/02',isOk:'Ok'
     },{
@@ -50,7 +64,7 @@ getContent(){
       stName: '小张',courseName:'日语', date: '2017/08/26',isOk:'Ng'
     }
   ];
-
+  return Observable.of(courses);
 }
 add(){
   this.courses.push(
