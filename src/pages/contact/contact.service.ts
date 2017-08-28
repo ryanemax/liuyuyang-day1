@@ -5,6 +5,7 @@ import { Http, Headers } from '@angular/http';
 import { Observable } from "rxjs/Observable"
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/finally';
 
 
 @Injectable()
@@ -30,9 +31,6 @@ export class ContactService {
     return
   }
   getContactById(id):Observable<Contact>{
-    // let contact = this.contacts.find(item=>item.name == name)
-    // return Observable.of(contact)
-
     let url = this.host+"/classes/" + this.className + "/" + id
     let options = {
       headers:this.authHeaders
@@ -54,16 +52,38 @@ export class ContactService {
     .map(data=>data.json().results)
   }
 
-  addContact(contact){
+  saveContact(contact){
     // this.http.post()
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
+    
+    if(contact.objectId){
+      let id = contact.objectId
+      delete contact.createdAt
+      delete contact.updatedAt
+      delete contact.objectId
+      delete contact.ACL
+
+      return this.http
+      .put(url+"/"+id,contact,options)
+      .map(data=>data.json())
+    }else{
+      return this.http
+      .post(url,contact,options)
+      .map(data=>data.json())
+    }
   }
-  updateContact(contact){
-    // this.http.put()
-  }
+
   deleteById(id){
-    // this.http.delete()
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .delete(url,options)
+    .map(data=>data.json())
   }
-
-  
-
 }

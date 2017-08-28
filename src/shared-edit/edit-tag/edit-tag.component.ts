@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-edit-tag',
@@ -6,7 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./edit-tag.component.scss']
 })
 export class EditTagComponent implements OnInit {
-  @Input() tags:Array<string> = []
+  @Output() tagsChange = new EventEmitter<any>();
+  @Input() tags:Array<string> = [];
+
   tag:string = ""
   constructor() { }
   addTag(){
@@ -19,10 +21,12 @@ export class EditTagComponent implements OnInit {
       }
       this.tags.push(this.tag)
     }
+    this.tagsChange.emit(this.tags)
   }
   deleteTag(tag){
     let index = this.tags.indexOf(tag)
     this.tags.splice(index,1)
+    this.tagsChange.emit(this.tags)
   }
   ngOnInit() {
   }

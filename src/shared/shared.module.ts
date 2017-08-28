@@ -18,6 +18,7 @@ import { AccoundCardDirective } from './account-card/accound-card.directive';
 
 // 引入自定义组件
 import { HanshengBookButtonComponent } from './hansheng-book-button/hansheng-book-button.component';
+import { JianglunBookButtonComponent } from './jianglun-book-button/jianglun-book-button.component';
 
 // 引入标签组件
 import { LiucDeviceButtonComponent } from './liuc-device-button/liuc-device-button.component';
@@ -41,6 +42,7 @@ import { DeviceRedMarkDirective } from './device-red-mark.directive';
     DeviceTypePipe,
     ToKPipe,
     DeviceRedMarkDirective,
+    JianglunBookButtonComponent
 
   ],
   exports: [
@@ -56,6 +58,7 @@ import { DeviceRedMarkDirective } from './device-red-mark.directive';
     DeviceTypePipe,
     ToKPipe,
     DeviceRedMarkDirective,
+    JianglunBookButtonComponent
   ]
 })
 export class SharedModule { }

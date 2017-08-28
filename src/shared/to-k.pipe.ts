@@ -14,6 +14,7 @@ export class ToKPipe implements PipeTransform {
     }else if(value>999){
       return String((value/1000).toFixed(1)) + "k";
     }
+      return String(value)
   }
 
 }

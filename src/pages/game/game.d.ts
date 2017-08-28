@@ -1,9 +1,8 @@
 interface Game{
-    id: number,
     type:string,
     gameName:string,
     gameImage:string,
-    updateDate:Date,
+    lastReleaseDate:Date,
     downloads:number,
     price:number,
     random?:number
