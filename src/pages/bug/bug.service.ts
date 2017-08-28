@@ -11,9 +11,13 @@ import 'rxjs/add/operator/map';
 export class BugService {
 
     // HTTP Params
-    authHeaders: Headers = new Headers()
+    authHeaders: Headers = new Headers();
     host = "http://47.92.145.25:2337/parse"
-    className = "Bug"
+    className = "Bug";
+    url = this.host + "/classes/" + this.className
+    options = {
+        headers: this.authHeaders
+    };
 
     constructor(private http: Http) {
         this.authHeaders.append("X-Parse-Application-Id", "dev")
@@ -21,24 +25,27 @@ export class BugService {
         this.authHeaders.append("Content-Type", "application/json")
     }
     getBugs(): Observable<Array<Bug>> {
-        let url = this.host + "/classes/" + this.className
-        let options = {
-            headers: this.authHeaders
-        }
-
         return this.http
-            .get(url, options)
+            .get(this.url, this.options)
             .map(data => data.json().results)
     }
 
     getBug(objectId: String): Observable<Bug> {
-        let url = this.host + "/classes/" + this.className
-        let options = {
-            headers: this.authHeaders
-        }
-        return this.http.get(url + '/' + objectId, options).map(data => data.json());
+        return this.http.get(this.url + '/' + objectId, this.options).map(data => data.json());
     }
 
+    saveBug(bug: Bug): Observable<Bug> {
+        
+        let id = bug.objectId;
+        delete bug.ACL;
+        delete bug.objectId;
+        delete bug.createdAt;
+        delete bug.updatedAt;
+        if (id) {
+            return this.http.put(this.url + '/' + id, bug, this.options).map(data => data.json())
+        }
+        return this.http.post(this.url, bug, this.options).map(data => data.json())
+    }
 
     add(bugs: Array<Bug>) {
         // let newBug = {
@@ -50,11 +57,7 @@ export class BugService {
     }
 
     delete(objectId: String): Observable<Bug> {
-        let url = this.host + "/classes/" + this.className
-        let options = {
-            headers: this.authHeaders
-        }
-        return this.http.delete(url + '/' + objectId, options).map(data => data.json().results);
+        return this.http.delete(this.url + '/' + objectId, this.options).map(data => data.json().results);
     }
 
     sortList(type: string, bugs: Array<Bug>) {

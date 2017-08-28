@@ -1,26 +1,22 @@
-<p>
-  bug-detail-page works!
-  {{bug}}
-</p>
 <form>
   <div class="row">
     <label for="index">index</label>
-    <input type="text" name="index" value={{bug.index}}>
+    <input type="text" name="index" [(ngModel)]='bug.index'>
   </div>
   <div class="row">
     <label for="level">level</label>
-    <input type="text" name="level" value={{bug.level}}>
+    <input type="text" name="level" [(ngModel)]='bug.level'>
   </div>
   <div class="row">
     <label for="status">status</label>
-    <input type="text" name="status" value={{bug.status}}>
+    <input type="text" name="status" [(ngModel)]='bug.status'>
   </div>
   <div class="row">
     <label for="assigneeName">assigneeName</label>
-    <input type="text" name="assigneeName" value={{bug.assigneeName}}>
+    <input type="text" name="assigneeName" [(ngModel)]='bug.assigneeName'>
   </div>
   <div class="row">
-    <button>Submit</button>
+    <button (click)="save(bug)">Submit</button>
     <button routerLink="/bug">Cancle</button>
   </div>
 
