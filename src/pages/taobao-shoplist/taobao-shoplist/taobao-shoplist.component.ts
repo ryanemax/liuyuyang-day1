@@ -12,21 +12,51 @@ export class TaobaoShoplistComponent implements OnInit {
 
   shops: Array<any>;
   constructor(private shopServ:ShopService) {
-    this.shops = this.shopServ.shops
+     this.shopServ.getShops().subscribe(data=>{
+       console.log("rrrr"+data)
+      this.shops = data
+    })
+  }
+
+
+  delete(shop){
+    this.shopServ.deleteById(shop.objectId).subscribe(data=>{
+        location.href = "/shoplist"
+    })
   }
   
-  asc(){
-    this.shopServ.asc()
-  }
+
+ asc(){
+    // 正序排列
+    // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+    this.shops.sort((a,b)=>{
+      if(a.index>b.index){
+        return 1
+      }else{
+        return -1
+      }
+    })
+}
+
+
   desc(){
-    this.shopServ.desc()
+    // 逆序排列   
+      this.shops.sort((a,b)=>{
+      if(a.index>b.index){
+        return -1
+      }else{
+        return 1
+      }
+    }) 
   }
   random(){
-    this.shopServ.random()
-  }
-     delete(shop){
-    this.shopServ.deleteByName(shop.productName)
-  }
+    // 随机排列
+    // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+     this.shops.forEach(item=>{
+       item.random = Math.random()
+     })
+     this.asc()
+}
   ngOnInit() {
   }
 
