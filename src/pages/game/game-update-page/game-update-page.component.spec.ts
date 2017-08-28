@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GameInsertComponent } from './game-insert.component';
+import { GameUpdatePageComponent } from './game-update-page.component';
 
-describe('GameInsertComponent', () => {
-  let component: GameInsertComponent;
-  let fixture: ComponentFixture<GameInsertComponent>;
+describe('GameUpdatePageComponent', () => {
+  let component: GameUpdatePageComponent;
+  let fixture: ComponentFixture<GameUpdatePageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameInsertComponent ]
+      declarations: [ GameUpdatePageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GameInsertComponent);
+    fixture = TestBed.createComponent(GameUpdatePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

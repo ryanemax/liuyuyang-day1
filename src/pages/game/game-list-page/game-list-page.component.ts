@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { GameService } from "../game.service"
 
 @Component({
@@ -12,22 +11,39 @@ export class GameListPageComponent implements OnInit {
   constructor(private gameServ: GameService) {
     this.showAll();
   }
+  
   showAll(){
     this.gameServ.getGames().subscribe(data => {
       this.games = data;
     });
   }
+
+  showFree(){
+    this.games = this.games.filter(item=>{
+      if(item.price == 0){
+        return item;
+      }
+    })
+  }
   
   descByDownloads(){
-    this.gameServ.descByDownloads();
+    this.games.sort((a,b)=>{
+      if(a.downloads>b.downloads){
+        return -1
+      }else{
+        return 1
+      }
+    })
   }
 
   descByDate(){
-    this.gameServ.descByDate();
-  }
-
-  showFree(){
-    this.games = this.gameServ.showFree();
+    this.games.sort((a,b)=>{
+      if(a.lastReleaseDate>b.lastReleaseDate){
+        return -1
+      }else{
+        return 1
+      }
+    })
   }
   
   ngOnInit() {
