@@ -49,3 +49,7 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+项目名称：Flight航空
+更新原因：添加增删改查
+作者：李萍萍

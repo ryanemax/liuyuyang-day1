@@ -1,0 +1,31 @@
+<h3>添加一个新游戏</h3>
+
+<button md-raised-button (click)="back()">返回</button>
+<p>
+<md-card class="example-card">
+  <md-card-content>
+  <p>
+
+<md-input-container style="display:none">
+    <input mdInput [(ngModel)]="object.type" placeholder="游戏类型" value="手游">
+  </md-input-container>
+
+<md-input-container>
+  <input mdInput [(ngModel)]="object.gameName" placeholder="游戏名" value="">
+</md-input-container>
+
+<md-input-container>
+  <input  mdInput [(ngModel)]="object.updateDate" placeholder="最后版本更新" value="">
+</md-input-container>
+
+<md-input-container>
+  <input  mdInput [(ngModel)]="object.price" placeholder="价格" value="">
+</md-input-container>
+
+  </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button routerLink="/game">取消</button>
+    <button md-button (click)="save()">保存</button>
+  </md-card-actions>
+</md-card>

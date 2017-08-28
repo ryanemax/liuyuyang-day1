@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DeviceService } from '../device.service';
+import {DataSource} from '@angular/cdk';
 
 @Component({
   selector: 'app-device-list-page',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./device-list-page.component.scss']
 })
 export class DeviceListPageComponent implements OnInit {
-
-  constructor() { }
+  list:Array<any>;
+  constructor(private deviceSer:DeviceService) { 
+   this.list=this.deviceSer.devices;
+  }
 
   ngOnInit() {
   }
+
+  asc(){
+    this.deviceSer.asc()
+  }
+  desc(){
+    this.deviceSer.desc()
+  }
+  random(){
+    this.deviceSer.random()
+  }
+
 
 }

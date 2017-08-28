@@ -37,11 +37,11 @@ export class ShopService {
   getProducts() {
     this.shops = [
 
-      { index: 1, productName: "desk", number: "5", prices: "2", born: "shenyang", random: Math.random() },
-      { index: 2, productName: "chair", number: "4", prices:"34", random: Math.random() },
-      { index: 3, productName: "computer", number: "6", prices: "5", random: Math.random() },
-      { index: 4, productName: "water", number: "7", prices:"8", random: Math.random() },
-      { index: 5, productName: "shoe", number: "8", prices: "43", born: "dalian", random: Math.random() },
+      { index: 1, productName: "吧台桌", number: "5", prices: "790", born: "shenyang", random: Math.random() },
+      { index: 2, productName: "DIY高脚椅子", number: "4", prices:"178", random: Math.random() },
+      { index: 3, productName: "联想Y510", number: "6", prices: "4999", random: Math.random() },
+      { index: 4, productName: "恒大冰泉", number: "7", prices:"2.5", random: Math.random() },
+      { index: 5, productName: "达芙妮女鞋", number: "8", prices: "540", born: "dalian", random: Math.random() },
     ]
   
   }
