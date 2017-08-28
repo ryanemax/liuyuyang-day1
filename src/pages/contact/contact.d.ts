@@ -1,5 +1,5 @@
 interface Contact{
-  birth?:Date
+  birth?:Date,
   name:string,
   sex:string,
   mobile:string,

@@ -35,9 +35,9 @@ export class BetsyAccountService {
   getAccountingList(){
     this.accounting = [
      {date:"2017/1/1" ,event:"Meal",cost:200,budget:500,type: "cost",random:20},
-     {date:"2017/1/1",event:"Traffic",type: "cost",cost:100,random:30},
+     {date:"2017/1/1",event:"Traffic",type: "income",cost:100,random:30},
      {date:"2017/1/1",event:"Dress",cost:300,type: "cost", random:25},
-     {date:"2017/1/1",event:"cosmetics",cost:300,type: "cost",random:40},
+     {date:"2017/1/1",event:"cosmetics",cost:300,type: "income",random:40},
      {date:"2017/1/1",event:"Social",cost:500,type: "cost",random:15},
      {date:"2017/1/1",event:"Electric Communication",type: "cost",cost:300},
    ]

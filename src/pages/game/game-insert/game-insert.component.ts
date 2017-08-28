@@ -8,11 +8,10 @@ import { GameService } from '../game.service';
 })
 export class GameInsertComponent implements OnInit {
   object:Game = {
-    id: 0,
     type:'WG',
     gameName:'',
     gameImage:'qjnn.png',
-    updateDate:new Date(),
+    lastReleaseDate:new Date(),
     downloads:0,
     price:0,
   }
@@ -30,7 +29,7 @@ export class GameInsertComponent implements OnInit {
   }
 
   save(){
-    if(this.object.type==""||this.object.gameName==""||this.object.gameImage==""||this.object.updateDate.toString()==""){
+    if(this.object.type==""||this.object.gameName==""||this.object.gameImage==""||this.object.lastReleaseDate.toString()==""){
       alert("信息不完整，请检查")
       // this.dialog.open(DialogResult);
       return
