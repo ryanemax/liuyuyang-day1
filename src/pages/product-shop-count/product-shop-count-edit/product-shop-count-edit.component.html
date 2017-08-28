@@ -8,7 +8,7 @@
     <md-card-subtitle>Shop code： {{object.shop_code}}</md-card-subtitle>
     <md-card-subtitle>Dataset: {{object.dataset_code}}</md-card-subtitle>
     <md-card-subtitle>Quantities: {{object.quantities}}</md-card-subtitle>
-    <md-card-subtitle>Add Date: {{object.addDate | date}}</md-card-subtitle>
+    <md-card-subtitle>Add Date: {{object.addDate}}</md-card-subtitle>
   </md-card-header>
 
   <md-card-content>
@@ -30,12 +30,12 @@
       </md-input-container>
 
       <md-input-container>
-        <input [(ngModel)]="object.quantities" mdInput placeholder="Quantities" value="">
+        <input type="number" [(ngModel)]="object.quantities" mdInput placeholder="Quantities" value="">
       </md-input-container>
 
-      <md-input-container>
+      <!-- <md-input-container>
         <input [(ngModel)]="object.addDate" mdInput placeholder="Add Date" value="">
-      </md-input-container>
+      </md-input-container> -->
 
     </p>
   </md-card-content>

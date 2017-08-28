@@ -1,82 +1,107 @@
 import { Injectable } from '@angular/core';
 
+import { Http, Headers } from '@angular/http';
+
 import { Observable } from "rxjs/Observable"
-import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/finally';
 
 @Injectable()
 export class ProductShopCountService {
-  products:Array<ProductShop>;
+ // HTTP Params
+  authHeaders:Headers = new Headers()
+  host = "http://47.92.145.25:2337/parse"
+  className = "ProductShop"
+
+ // products:Array<ProductShop>;
   editObject:ProductShop;
-  constructor() {
-    this.getProducts()
-   }
+  constructor(private http:Http) { 
+    this.authHeaders.append("X-Parse-Application-Id","dev")
+    this.authHeaders.append("X-Parse-Master-Key","angulardev")
+    this.authHeaders.append("Content-Type","application/json")
+
+    this.getProductShopById("7zu7euGmJe").subscribe(data=>{
+      console.log(data)
+    })
+  }
   getProductByProductCode(product_code):Observable<ProductShop>{
-    let product = this.products.find(item=>item.product_code ==product_code)
-    return Observable.of(product)
-  
+    // let product = this.products.find(item=>item.product_code ==product_code)
+    // return Observable.of(product)
+    return
   }
 
-  getProducts(){
-    this.products = [
-     {addDate:new Date(), product_code:"600100",product_description:"vc",shop_code:"3020",dataset_code:"05K00X00",quantities:210},
-     {addDate:new Date(), product_code:"600101",product_description:"lip",shop_code:"1314",dataset_code:"03Z00M00",quantities:213},
-     {addDate:new Date(), product_code:"600102",product_description:"cream",shop_code:"3020",dataset_code:"02Z00X00",quantities:89},
-     {addDate:new Date(), product_code:"600103",product_description:"toothbrush",shop_code:"3020",dataset_code:"01D001001",quantities:194},
-    
-    ]
-  }
-
-addProduct(product){
-  this.products.push(product)
-}
-
-deleteByProductCode(product_code){
-  this.products.forEach((item,index,arr)=>{
-    if(item.product_code == product_code){
-      arr.splice(index,1)
+  getProductShopById(id):Observable<ProductShop>{
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+        headers:this.authHeaders
     }
-  })
-}
-
-asc(){
-    // 正序排列
-    // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-    this.products.sort((a,b)=>{
-      if(a.dataset_code>b.dataset_code){
-        return 1
-      }else{
-        return -1
-      }
-    })
-}
-
-
-  desc(){
-    // 逆序排列    
-    this.products.sort((a,b)=>{
-      if(a.quantities<b.quantities){
-        return 1
-      }else{
-        return -1
-      }
-    })
-
-  }
-  random(){
-    // 随机排列
-    // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-  
-    this.products.sort((a,b)=>{
-      return Math.random()
-  })
-
-  }
-  ngOnInit() {
+     return this.http
+    .get(url,options)
+    .map(data=>data.json())
   }
 
+  getProducts():Observable<Array<ProductShop>>{
 
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .get(url,options)
+    .map(data=>data.json().results)
+  }
+
+  saveProductShop(ProductShop){
+      // this.http.post()
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
+
+// start filter fileds
+
+
+// end of filter
+
+
+
+    if(ProductShop.objectId){
+      let id = ProductShop.objectId
+      delete ProductShop.createdAt
+      delete ProductShop.updatedAt
+      delete ProductShop.objectId
+      delete ProductShop.ACL
+
+      return this.http
+      .put(url+"/"+id,ProductShop,options)
+      .map(data=>data.json())
+       }else{
+      return this.http
+      .post(url,ProductShop,options)
+      .map(data=>data.json())
+        }
+  }
+
+  deleteById(id){
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .delete(url,options)
+    .map(data=>data.json())
+  }
 }
+
+
+
+
+
+
+
 
 
 

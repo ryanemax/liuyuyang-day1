@@ -9,11 +9,11 @@
       Shop code： {{product.shop_code}}
       Dataset: {{product.dataset_code}}
       Quantities: {{product.quantities}}
-      Add Date: {{product.addDate | date:"y-MM-dd"}}
+      Add Date: {{product.addDate}}
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button routerLink="edit/{{product.product_code}}">EDIT</button>
+    <button md-button routerLink="edit/{{product.objectId}}">EDIT</button>
     <button md-button (click)="delete(product)">DELETE</button>
   </md-card-actions>
 </md-card>
