@@ -1,33 +1,36 @@
 import { Injectable } from '@angular/core';
+import { Http, Headers } from '@angular/http';
 import { Observable } from "rxjs/Observable"
-import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
 export class DeviceService {
  devices:Array<DeviceInfo>;
  editObject:DeviceInfo;
- constructor() {
-   this.getDevices()
+ url="http://47.92.145.25:2337/parse/classes/DeviceInfo";
+ deviceH:Headers =new Headers();
+
+ constructor(private http:Http) {
+   
+   this.deviceH.append("X-Parse-Application-Id","dev");
+   this.deviceH.append("X-Parse-REST-API-Key","angulardev");
+   this.deviceH.append("Content-Type","application/json")
+  //  this.getDevices().subscribe(data=>{
+  //    console.log(data);
+  //   })
+
   }
 
-getDevices(){
-     this.devices = [
-      {id:"z100",name:"温度传感器",type:"C",factory:"丹东电子设备",price:80},
-      {id:"z101",name:"压力传感器",type:"C",factory:"辽阳电子设备",price:80},
-      {id:"z102",name:"PLC",type:"W",factory:"朝阳电子设备",price:80},
-      {id:"z103",name:"传感器",type:"W",factory:"大连电子设备",price:80},
-      {id:"z104",name:"传感器",type:"W",factory:"丹东电子设备",price:80},
-      {id:"z105",name:"传感器",type:"C",factory:"丹东电子设备",price:80},
-      {id:"z106",name:"传感器",type:"C",factory:"丹东电子设备",price:80}
-    ]
+getDevices():Observable<Array<DeviceInfo>>{
+   let options = {
+      headers:this.deviceH
+    }
+   return this.http
+   .get(this.url,options)
+   .map(data=>data.json().results)
     
-  }
-
-  addDevice(){
-    let newDev = {id:"z108",name:"传感器",type:"C",factory:"丹东电子设备",price:80};
-    this.devices.push(newDev)
   }
 
   asc(){
@@ -72,7 +75,20 @@ getDevices(){
   }
 
 addDeviceInfo(dev){
-  this.devices.push(dev);
+  let options = {
+      headers:this.deviceH
+    }
+  let urlNew=this.url+"/"+dev.objectId;
+  if(dev.objectId){
+    console.log(dev.objectId);
+      return this.http
+     .put(this.url,dev,options);
+  }else{
+      return this.http
+      .post(this.url,dev,options);
+      
+  }
+  
 }
 
 getContactByName(name):Observable<DeviceInfo>{

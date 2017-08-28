@@ -1,6 +1,6 @@
 
 interface DeviceInfo{
-  id:string,
+  deviceId:string,
   type:string,
   name:string,
   factory:string,

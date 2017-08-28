@@ -2,7 +2,7 @@
  <md-card class="example-card">
   <md-card-header>
     <div md-card-avatar class="example-header-image"></div>
-    <md-card-title appDeviceRedMark >{{device.id}}</md-card-title>
+    <md-card-title appDeviceRedMark >{{device.deviceId}}</md-card-title>
     <md-card-subtitle>{{device.name}}</md-card-subtitle>
   </md-card-header>
   <md-card-content>
@@ -13,7 +13,7 @@
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button routerLink="edit/{{device.name}}">编辑</button>
+    <button md-button routerLink="edit/{{device.objectId}}">编辑</button>
     <button md-button (click)="delete(device)">删除</button>
   </md-card-actions>
 </md-card> 
