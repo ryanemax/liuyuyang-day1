@@ -1,14 +1,14 @@
 <md-card class="example-card">
-  <md-card-header>
-    <div appaccountcard >{{account.event}}</div>
-    <md-card-title><img src="./assets/img/account/{{account.type}}.png" class="title-avta"></md-card-title>
-    <md-card-subtitle>{{account.date}}</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
-    <p>
-      $$$： {{account.cost}}
-      备注： {{account.comment}}
-    </p>
+    <div appaccountcard ><img src="./assets/img/account/{{account.type}}.png" class="title-avta"></div>
+    <img src="./assets/img/account/{{account.event | typeSelect}}.png" class="event-avta">
+    <div class="title-content">
+      <p>$$$： {{account.cost}}</p>
+     <md-card-subtitle>{{account.date}}</md-card-subtitle>
+
+  </div>
+
+<md-card-content>
+    <p>备注： {{account.comment}}</p>
   </md-card-content>
   <md-card-actions>
     <button md-button routerLink="edit/{{account.event}}">编辑</button>
