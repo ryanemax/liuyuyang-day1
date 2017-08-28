@@ -7,11 +7,11 @@
   <md-card-content>
     <p>
     <md-input-container>
-      <input  mdInput placeholder="商品名称" value="">
+      <input [(ngModel)]="object.name" mdInput placeholder="商品名称" value="">
     </md-input-container>
 
     <md-input-container>
-      <input  mdInput placeholder="价格" value="">
+      <input [(ngModel)]="object.price" mdInput placeholder="价格" value="">
     </md-input-container>
     </p>
   </md-card-content>

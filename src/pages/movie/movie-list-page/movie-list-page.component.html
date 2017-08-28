@@ -4,7 +4,7 @@
         <button (click)="asc()">按评分从低到高</button>
         <button class="button1" (click)="desc()">按评分从高到低</button>
         <button class="button2" (click)="random()">默认</button>
-        <button class="button3" routerLink="detail">detail</button>
+        <button class="button3" routerLink="manage">编辑</button>
         <button class="button3" (click)="addMovie()">增加电影</button>
 </div>
 
@@ -15,4 +15,4 @@
     <p class = "movieTitle">{{movie.movieName}}  <span> 导演:{{movie.director}}  </span>   <span class="mark">评分:{{movie.mark}}</span></p>   
 </div>-->
 
-<app-movie-item [movie]="movie" *ngFor="let movie of movies"></app-movie-item>
+<app-movie-item [movie]="movie" *ngFor="let movie of list"></app-movie-item>
