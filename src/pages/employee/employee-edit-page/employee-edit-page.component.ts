@@ -12,6 +12,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 })
 export class EmployeeEditPageComponent implements OnInit {
   employee:Employee = {
+    eid:0,
     name:"",
     sex:"",
     age:0,
@@ -29,7 +30,7 @@ export class EmployeeEditPageComponent implements OnInit {
   }
   
   save(){
-    if(this.employee.name==""||this.employee.sex==""||this.employee.position=="" || this.employee.age==0){
+    if(this.employee.eid == 0 || this.employee.name==""||this.employee.sex==""||this.employee.position=="" || this.employee.age==0){
       alert("请输入完整信息！")
       return
     }
@@ -43,11 +44,11 @@ export class EmployeeEditPageComponent implements OnInit {
   }
   ngOnInit() {
             this.route.params.subscribe(params=>{
-          let name = params['name']
-          if(name=="new"){
+          let id = params['id']
+          if(id=="new"){
             this.isNew = true;
           }else{
-            this.employeetServ.getEmployeeByName(name).subscribe(employee=>{
+            this.employeetServ.getEmployeeById(id).subscribe(employee=>{
             this.employee = employee
         })
       }

@@ -11,17 +11,43 @@ export class PmjPageComponent implements OnInit {
   brands:Array<Brand>;
   
   constructor(private pmjServ:PmjService) { 
-    this.brands = this.pmjServ.brands;
+    // this.brands = this.pmjServ.brands;
+    this.pmjServ.getBrands().subscribe(data=>{
+      this.brands = data
+    })
   }
 
   asc(){
-    this.pmjServ.asc();
+    this.brands.sort((a,b)=>{
+      if(a.consumerAccount>b.consumerAccount){
+        return 1
+      }else{
+        return -1
+      }
+    })
   }
+
   desc(){
-    this.pmjServ.desc();
+    this.brands.sort((a,b)=>{
+      if(a.consumerAccount<b.consumerAccount){
+        return 1
+      }else{
+        return -1
+      }
+    })   
   }
+
   random(){
-    this.pmjServ.random();
+    // this.brands.forEach((item)=>{
+      
+    // })
+    this.brands.sort((a,b)=>{
+      if(Math.random()<Math.random()){
+        return 1
+      }else{
+        return -1
+      }
+    })  
   }
   
 
