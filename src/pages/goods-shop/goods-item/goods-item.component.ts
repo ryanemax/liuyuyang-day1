@@ -12,12 +12,11 @@ export class GoodsItemComponent implements OnInit {
   constructor(private goodsServ: GoodsShopService) { }
 
   delete(item){
-    this.goodsServ.deleteByName(item.name)
+    this.goodsServ.deleteById(item.objectId).subscribe()
   }
+
   edit(){
     this.goodsServ.editObject = this.item
-    // this.loc.go("/contact/edit")
-    // location.href = "/contact/edit"
   }
 
   ngOnInit() {

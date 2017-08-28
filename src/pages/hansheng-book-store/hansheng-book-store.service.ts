@@ -77,18 +77,38 @@ export class HanshengBookStoreService {
     .map(data=>data.json().results)
   }
 
-   addBook(obj:Book){
-    var random = Math.random();
-    random = Math.round(random*10000);
-    let newBook = {
-      name:"新增加书籍" + obj.name,
-      author:"随机作者"+ obj.author,
-      introduce:"一本随机的书",
-      wordsNum:Math.round(random/100),
-      random:Math.random()
+   saveBook(obj:any){
+     // common process
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
     }
+    if(obj.objectId){
+      let id = obj.objectId
+      delete obj.createdAt
+      delete obj.updatedAt
+      delete obj.objectId
+      delete obj.ACL
 
-    this.books.push(newBook)
+      return this.http
+      .put(url+"/"+id,obj,options)
+      .map(data=>data.json())
+    } else {
+
+      var random = Math.random();
+      random = Math.round(random*10000);
+      let newBook = {
+        name:"新增加书籍" + obj.name,
+        author:"随机作者"+ obj.author,
+        introduce:"一本随机的书",
+        wordsNum:Math.round(random/100),
+        random:Math.random()
+      }
+
+      return this.http
+      .post(url,obj,options)
+      .map(data=>data.json())
+    }
   }
 
     asc(){
@@ -120,12 +140,15 @@ export class HanshengBookStoreService {
     })   
   }
 
-  deleteByName(name){
-    this.books.forEach((item,index,arr)=>{
-      if(item.name == name){
-        arr.splice(index,1)
-      }
-    })
+  deleteById(id){
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .delete(url,options)
+    .map(data=>data.json())
   }
 
 }
