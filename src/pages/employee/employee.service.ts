@@ -1,29 +1,50 @@
 import { Injectable } from '@angular/core';
+import { Http, Headers } from '@angular/http';
 
 import { Observable } from "rxjs/Observable"
-import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class EmployeeService {
+
+  // HTTP Params
+  authHeaders:Headers = new Headers()
+  host = "http://47.92.145.25:2337/parse"
+  className = "Employee"
+
   employees:Array<Employee>;
   editEmployee:Employee;
-  constructor() { 
+  constructor(private http:Http) { 
+    this.authHeaders.append("X-Parse-Application-Id","dev")
+    this.authHeaders.append("X-Parse-Master-Key","angulardev")
+    this.authHeaders.append("Content-Type","application/json")
+    this.getEmployeeById("3QWvJZok2P").subscribe(data=>{
+      console.log(data)
+    })
     this.getEmployees();
   }
 
-  getEmployeeByName(name):Observable<Employee>{
-    let employee = this.employees.find(item=>item.name == name)
-    return Observable.of(employee)
+  getEmployeeById(id):Observable<Employee>{
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .get(url,options)
+    .map(data=>data.json())
   }
 
   getEmployees(){
-    this.employees = [
-     {name:"张三",sex:"M",age:30,position:"Employee"},
-     {name:"李四",sex:"F",age:21,position:"Manager"},
-     {name:"王小川",sex:"M",age:25,position:"Employee"},
-     {name:"李阳",sex:"F",age:42,position:"Employee"}
-   ]
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .get(url,options)
+    .map(data=>data.json().results)
  }
 
  addEmployee(employee:Employee){

@@ -21,11 +21,6 @@ export class PlayerService {
     this.authHeaders.append("X-Parse-Application-Id","dev")
     this.authHeaders.append("X-Parse-Master-Key","angulardev")
     this.authHeaders.append("Content-Type","application/json")
-
-
-    this.getPlayerById("ZS03CywJm4").subscribe(data=>{
-      console.log(data)
-    })
   }
 
 
@@ -70,7 +65,6 @@ export class PlayerService {
 
 
   deleteByName(name) {
-    console.log(name);
     this.players.forEach((item, index, arr) => {
       if (item.name == name) {
         arr.splice(index, 1)
@@ -78,18 +72,41 @@ export class PlayerService {
     })
   }
 
-  addPlayer(player) {
+  savePlayer(player){
     // this.http.post()
-    this.players.push(player)
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
+    
+    if(player.objectId){
+      let id = player.objectId
+      delete player.createdAt
+      delete player.updatedAt
+      delete player.objectId
+      delete player.ACL
+
+      return this.http
+      .put(url+"/"+id,player,options)
+      .map(data=>data.json())
+    }else{
+      return this.http
+      .post(url,player,options)
+      .map(data=>data.json())
+    }
   }
 
-  updatePlayer(player){
-    // this.http.put()
-  }
 
 
   deleteById(id){
-    // this.http.delete()
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .delete(url,options)
+    .map(data=>data.json())
   }
 
   
