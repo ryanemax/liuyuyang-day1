@@ -9,7 +9,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./book-new.component.scss']
 })
 export class BookNewComponent implements OnInit {
-  object:Book = {
+  object:JianglunBook = {
     index : 0,
     bookName : "",
     author : "",

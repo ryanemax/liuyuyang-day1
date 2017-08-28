@@ -7,7 +7,7 @@ import { BookManagementService } from "../book-management.service"
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
-  books : Array<Book>;
+  books : Array<JianglunBook>;
   @Input() book:any;
   constructor(private bookServ:BookManagementService) {
     this.books = this.bookServ.books;

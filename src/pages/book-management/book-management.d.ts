@@ -1,4 +1,4 @@
-interface Book{
+interface JianglunBook{
   index : number,
   bookName : string,
   author : string,

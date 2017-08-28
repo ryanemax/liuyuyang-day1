@@ -5,12 +5,12 @@ import 'rxjs/add/observable/of';
 
 @Injectable()
 export class BookManagementService {
-  books:Array<Book>;
+  books:Array<JianglunBook>;
   constructor() { 
     this.getBooks()
   }
 
-  getBookByBookIndex(index):Observable<Book>{
+  getBookByBookIndex(index):Observable<JianglunBook>{
     let book = this.books.find(item=>item.index == index)
     return Observable.of(book)
   }
