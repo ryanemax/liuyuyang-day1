@@ -1,7 +1,10 @@
-<md-input-container>
-  <input mdInput placeholder="Favorite food" value="dd">
-</md-input-container>
+<div>
+     <button (click)=returnList()>返回</button>  
+</div>
 
-<md-input-container>
-  <input mdInput placeholder="Favorite food" value="Sushi">
-</md-input-container>
+<br>
+
+<div>
+     <img src="./assets/img/movie/{{detailMovie.movieName}}.png" alt="111">
+     <p class = "movieTitle">{{detailMovie.movieName}}  <span> 导演:{{detailMovie.director}}  </span> <span class="mark">评分:{{detailMovie.mark}}  </span> </p>  
+</div>
