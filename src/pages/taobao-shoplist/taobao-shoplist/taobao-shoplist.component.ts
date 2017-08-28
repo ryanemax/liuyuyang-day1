@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ShopService } from "../shop.service"
+
+
 
 @Component({
   selector: 'app-taobao-shoplist',
@@ -7,8 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaobaoShoplistComponent implements OnInit {
 
-  constructor() { }
-
+  shops: Array<any>;
+  constructor(private shopServ:ShopService) {
+    this.shops = this.shopServ.shops
+  }
+  
+  asc(){
+    this.shopServ.asc()
+  }
+  desc(){
+    this.shopServ.desc()
+  }
+  random(){
+    this.shopServ.random()
+  }
+     delete(shop){
+    this.shopServ.deleteByName(shop.productName)
+  }
   ngOnInit() {
   }
 

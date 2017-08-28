@@ -19,7 +19,7 @@ import { ContactService } from "./contact.service"
     SharedModule,MaterialModule,
     RouterModule.forChild([
       { path: '', component: ContactListComponent, pathMatch: 'full' },
-      { path: 'edit/:name', component: ContactEditComponent, pathMatch: 'full' }
+      { path: 'edit/:id', component: ContactEditComponent, pathMatch: 'full' }
     ])
   ],
   providers:[ContactService],

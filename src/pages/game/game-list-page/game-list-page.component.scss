@@ -5,17 +5,3 @@ a{
     text-decoration: none;
     color: black;
 }
-
-.game-item{
-    display: inline-block;
-    border: 1px solid #78b396;
-    border-radius: 0.2em;
-    width: calc((100% - 4px) / 4);
-    text-align: center; 
-
-    img{
-        width: 35%;
-        height: 35%;
-        border-radius: 50px;
-    }
-}

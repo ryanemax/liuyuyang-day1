@@ -4,11 +4,14 @@
     <th>Level</th>
     <th>Status</th>
     <th>Assignee Name</th>
+    <th colspan="2">Action</th>
   </tr>
   <tr *ngFor="let bug of bugs">
     <td>{{bug.index}}</td>
     <td>{{bug.level}}</td>
     <td>{{bug.status}}</td>
     <td>{{bug.assigneeName}}</td>
+    <td routerLink="/bug/detail">Edit</td>
+    <td (click)="delete(bug.index)">Delete</td>
   </tr>
 </table>

@@ -33,9 +33,9 @@ const SSRroutes: Routes = [
     data: { title: "PMJ" }
   },
   { path: 'myfavoritenbaplayers',
-	loadChildren: '../pages/my-favorite-nba-players/my-favorite-nba-players.module#MyFavoriteNbaPlayersModule' ,
-	data:{title:"My Favorite NBA Players"}
-	},
+    loadChildren: '../pages/my-favorite-nba-players/my-favorite-nba-players.module#MyFavoriteNbaPlayersModule',
+    data:{title:"My Favorite NBA Players"}
+ },
   {
     path: 'cardpreview',
     loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule',
@@ -128,6 +128,11 @@ data: { title: "球员数据排行" }
     path: 'cookbook', 
     loadChildren: '../pages/cookbook/cookbook.module#CookbookModule',
     data:{title:"食谱烹饪" }
+  },
+    {
+    path: 'zhangyuDepartment',
+    loadChildren: '../pages/zhangyu/zhangyu.module#ZhangyuModule',
+    data: { title: "部门管理" }
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

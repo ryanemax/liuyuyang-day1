@@ -1,5 +1,7 @@
 <h3>
-  <a routerLink="/asset">我的衣帽间</a> > 修改宝贝</h3>
+  <a routerLink="/asset">我的衣帽间</a> > 修改宝贝  
+  <button appAssetButton (click)=returnList()>返回</button>  
+</h3> 
 <div>
   <md-input-container class="example-full-width">
     <input mdInput placeholder="名称" value="{{obj.name}}" [(ngModel)]="obj.name">
@@ -36,6 +38,11 @@
   <md-input-container class="example-full-width">
     <input mdInput placeholder="价格" value="{{obj.price}}" [(ngModel)]="obj.price">
   </md-input-container>
+
+  <br/>
+  <br/>
+  <br/>
+  <br/>
 
   <button appAssetButton (click)=returnList()>取消</button>
   <button appAssetButton (click)=saveAsset()>提交</button>
