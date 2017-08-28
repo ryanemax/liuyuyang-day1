@@ -20,6 +20,7 @@ export class ContactItemComponent implements OnInit {
     // this.loc.go("/contact/edit")
     // location.href = "/contact/edit"
   }
+
   ngOnInit() {
   }
 

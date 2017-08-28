@@ -1,37 +1,50 @@
 import { Injectable } from '@angular/core';
 
-interface Account{
-  date:string,
-  name:string,
-  comment?:string,
-  budget?:number,
-  cost:number,
-  type: string,
-  random?:number
-}
+import { Observable } from "rxjs/Observable"
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/observable/of';
+
+
+
 @Injectable()
 export class BetsyAccountService {
-
   accounting:Array<Account>;
+  editObject:Account;
   constructor() {
    this.getAccountingList()
   }
+
+ 
+  getAccountByName(name):Observable<Account>{
+    let account = this.accounting.find(item=>item.event == name)
+    return Observable.of(account)
+  }
+
+  addAccount(newAccount){
+    this.accounting.push(newAccount)
+  }
+ 
+  
+  deleteByName(name){
+    this.accounting.forEach((item,index,arr)=>{
+      if(item.event == name){
+        arr.splice(index,1)
+      }
+    })
+  }
   getAccountingList(){
     this.accounting = [
-     {date:"2017/1/1" ,name:"Meal",cost:200,budget:500,type: "cost",random:20},
-     {date:"2017/1/1",name:"Traffic",type: "cost",cost:100,random:30},
-     {date:"2017/1/1",name:"Dress",cost:300,type: "cost", random:25},
-     {date:"2017/1/1",name:"cosmetics",cost:300,type: "cost",random:40},
-     {date:"2017/1/1",name:"Social",cost:500,type: "cost",random:15},
-     {date:"2017/1/1",name:"Electric Communication",type: "cost",cost:300},
+     {date:"2017/1/1" ,event:"Meal",cost:200,budget:500,type: "cost",random:20},
+     {date:"2017/1/1",event:"Traffic",type: "income",cost:100,random:30},
+     {date:"2017/1/1",event:"Dress",cost:300,type: "cost", random:25},
+     {date:"2017/1/1",event:"cosmetics",cost:300,type: "income",random:40},
+     {date:"2017/1/1",event:"Social",cost:500,type: "cost",random:15},
+     {date:"2017/1/1",event:"Electric Communication",type: "cost",cost:300},
    ]
  }
 
- addAccount(){
-   let rrr = Math.random()
-   let newAccount= {date:"2017/1/3",name:"Traffic",cost:100,type: "cost",random: rrr}
-   this.accounting.push(newAccount)
- }
+
+
 
  asc(){
    // 正序排列
