@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { BugService } from "../bug.service"
 
 @Component({
   selector: 'app-bug-detail-page',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BugDetailPageComponent implements OnInit {
 
-  constructor() { }
+  bug: Bug;
+  constructor(private route: ActivatedRoute, private bugService: BugService) {
+
+  }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      console.log(params);
+      let objectId = params.objectId;
+      this.bugService.getBug(objectId).subscribe(data => {
+        this.bug = data;
+      });
+    })
   }
 
 }

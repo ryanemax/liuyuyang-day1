@@ -13,7 +13,7 @@ import { BugService } from "./bug.service"
     CommonModule,
     RouterModule.forChild([
       { path: '', component: BugListPageComponent, pathMatch: 'full' },
-      { path: 'detail', component: BugDetailPageComponent, pathMatch: 'full' }
+      { path: 'detail/:objectId', component: BugDetailPageComponent, pathMatch: 'full' }
     ])
   ],
   providers: [BugService],

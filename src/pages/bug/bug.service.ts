@@ -31,6 +31,14 @@ export class BugService {
             .map(data => data.json().results)
     }
 
+    getBug(objectId: String): Observable<Bug> {
+        let url = this.host + "/classes/" + this.className
+        let options = {
+            headers: this.authHeaders
+        }
+        return this.http.get(url + '/' + objectId, options).map(data => data.json().results);
+    }
+
 
     add(bugs: Array<Bug>) {
         // let newBug = {
@@ -41,18 +49,7 @@ export class BugService {
         // bugs.push(newBug);
     }
 
-    delete(objectId: String, bugs: Array<Bug>): Observable<Array<Bug>> {
-        // let arrayIndex;
-        // for (let i = 0; i < bugs.length; i++) {
-        //     if (bugs[i].index == index) {
-        //         arrayIndex = i;
-        //         break;
-        //     }
-        // }
-        // // delete bugs[arrayIndex];
-        // bugs.splice(arrayIndex, 1);
-        // console.log(bugs);
-
+    delete(objectId: String): Observable<Bug> {
         let url = this.host + "/classes/" + this.className
         let options = {
             headers: this.authHeaders
