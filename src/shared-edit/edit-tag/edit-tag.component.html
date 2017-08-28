@@ -1,0 +1,5 @@
+<input [(ngModel)]="tag" type="text">
+<button (click)="addTag()">添加</button>
+<ul>
+  <li *ngFor="let t of tags">{{t}} <button (click)="deleteTag(t)">X</button></li>
+</ul>

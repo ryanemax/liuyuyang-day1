@@ -52,7 +52,6 @@ export class ContactService {
     return this.http
     .get(url,options)
     .map(data=>data.json().results)
-
   }
 
   addContact(contact){

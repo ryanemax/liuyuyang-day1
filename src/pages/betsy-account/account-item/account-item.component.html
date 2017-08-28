@@ -1,6 +1,6 @@
 <md-card class="example-card">
   <md-card-header>
-    <div md-card-avatar >{{account.name}}</div>
+    <div appaccountcard >{{account.event}}</div>
     <md-card-title>{{account.type}}</md-card-title>
     <md-card-subtitle>{{account.date}}</md-card-subtitle>
   </md-card-header>
@@ -11,8 +11,8 @@
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button routerLink="">编辑</button>
-    <button md-button >删除</button>
+    <button md-button routerLink="edit/{{account.event}}">编辑</button>
+    <button md-button (click)="delete(account)">删除</button>
   </md-card-actions>
 </md-card>
 
