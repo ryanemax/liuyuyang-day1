@@ -1,5 +1,5 @@
 interface Department{
-  id:string,
+  depId:string,
   createDate:Date,
   name:string,
   count:string
