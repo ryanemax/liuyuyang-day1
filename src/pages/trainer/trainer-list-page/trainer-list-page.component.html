@@ -1,38 +1,55 @@
-<h1>明星讲师名单列表</h1>
 <div>
-        <!-- <button (click)="asc()">按评分从低到高</button>
-        <button class="button1" (click)="desc()">按评分从高到低</button>
-        <button class="button2" (click)="random()">你猜</button> -->
-        <app-diy-button [title]="'按人气从低到高'" (click)="asc()"></app-diy-button>
-        <app-diy-button [title]="'按人气从高到低'" (click)="desc()"></app-diy-button>
-        <app-diy-button [title]="'你猜'" (click)="random()"></app-diy-button>
-        <app-diy-button [title]="'增加'" routerLink="edit/new"></app-diy-button>
-        <!-- <button routerLink="edit/new">增加</button> -->
-        
+<md-progress-bar mode="indeterminate"></md-progress-bar>
+  <md-toolbar color="primary">
+    <button md-button class='button' (click)="asc()" style='font-size:25px'>按人气从低到高</button>
+    <span class="example-spacer"></span>
+    <md-icon class="example-icon">favorite</md-icon>
+    <md-toolbar-row>
+      <button md-button class='button' (click)="desc()" style='font-size:25px'>按人气从高到低</button>
+      <span class="example-spacer"></span>
+      <md-icon class="example-icon">search</md-icon>
+    </md-toolbar-row>
+    <md-toolbar-row>
+      <button md-button class='button' (click)="random()" style='font-size:25px'>你猜</button>
+      <span class="example-spacer"></span>
+      <md-icon class="example-icon">verified_user</md-icon>
+    </md-toolbar-row>
+    <md-toolbar-row>
+      <span><app-diy-button [title]="'增加'" routerLink="edit/new"></app-diy-button></span>
+      <span class="example-spacer"></span>
+      <md-icon class="example-icon">add</md-icon>
+    </md-toolbar-row>
+  </md-toolbar>
+
+<md-progress-bar mode="indeterminate"></md-progress-bar>
 </div>
-
+<br/>
 <table class="gridtable">
-<tr>
-<th>序号</th>
-<th>讲师姓名</th>
-<th>讲师编号</th>
-<th>讲师人气</th>
-<th>所授课程</th>
-<th>图片</th>
-<th>操作</th>
-</tr>
-<tr  *ngFor="let trainer of list">
-<td>{{trainer.index}}</td>
-<td>{{trainer.name}}</td>
-<td>{{trainer.num}}</td>
-<td>{{trainer.score| toK}}</td>
-<td>{{trainer.subject}}</td>
-<th><img id = "trainer-img" src={{trainer.img}} alt="点了也没有因为我没放"/> </th>
-      <th>
-        <button md-button class = 'button' routerLink="edit/{{trainer.objectId}}">编辑</button>
-        <button (click)="delete(trainer)">删除</button>
-      </th>
-</tr>
+  <tr>
+    <!-- <th>序号</th> -->
+    <th>讲师姓名</th>
+    <th>教师编号</th>
+    <th>讲师人气</th>
+    <th>所授课程</th>
+    <th>图片</th>
+    <th>操作</th>
+  </tr>
+  <tr *ngFor="let trainer of list">
+    <!-- <td>{{trainer.index}}</td> -->
+    <td>{{trainer.name}}</td>
+    <td>{{trainer.num}}</td>
+    <td>{{trainer.score| toK}}</td>
+    <td>{{trainer.subject}}</td>
+    <th><span mdTooltip="放了也看不到，因为我没放!">鼠标放这看照片</span><md-icon class="example-icon">search</md-icon></th>
+    <th>
+      <!-- <button md-button class = 'button' routerLink="edit/{{trainer.objectId}}">编辑</button> -->
+      <md-icon class="icon" routerLink="edit/{{trainer.objectId}}" style="cursor:pointer">edit</md-icon>
+      <!-- <app-diy-button [title]="'删除'" (click)="delete(trainer)"></app-diy-button> -->
+      <md-icon class="icon" (click)="delete(trainer)" style="cursor:pointer">delete</md-icon>
+    </th>
+  </tr>
 </table>
-
-
+<md-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+</md-paginator>

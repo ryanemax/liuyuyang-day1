@@ -12,9 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AssetCurrencyPipe } from './asset-currency.pipe';
 import { AssetButtonDirective } from './asset-button.directive';
 import {MdDatepickerModule,MdNativeDateModule} from '@angular/material';
-
-
-
+import { AssetAnalysisPageComponent } from './asset-analysis-page/asset-analysis-page.component';
 
 @NgModule({
   imports: [
@@ -24,11 +22,14 @@ import {MdDatepickerModule,MdNativeDateModule} from '@angular/material';
     RouterModule.forChild([
        { path: 'edit/:id', component: AssetEditPageComponent, pathMatch: 'full' },
        { path: 'view/:id', component: AssetDetailPageComponent, pathMatch: 'full' },
+       { path: 'analysis', component: AssetAnalysisPageComponent, pathMatch: 'full' },
+      
     ])
   ],
   declarations: [
     AssetListPageComponent,
     AssetEditPageComponent,
+    AssetAnalysisPageComponent,    
     AssetDetailPageComponent,AssetCurrencyPipe,AssetButtonDirective],
   providers: [AssetService]
 })

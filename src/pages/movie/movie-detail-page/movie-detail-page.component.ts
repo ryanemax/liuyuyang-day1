@@ -25,13 +25,14 @@ export class MovieDetailPageComponent implements OnInit {
   ngOnInit() {
     // 根据ID显示信息
     this.route.params.subscribe(params => {
-      let name = params['name']
-      if ( name != "new") {
-        this.movieService.getMovieByName(name).subscribe(movie => {
+      let id = params['id']
+        this.movieService.getMovieById(id).subscribe(movie => {
+          console.log(movie)
           this.detailMovie = movie
+
         })
       }
-    })
+    )
   }
 
 }

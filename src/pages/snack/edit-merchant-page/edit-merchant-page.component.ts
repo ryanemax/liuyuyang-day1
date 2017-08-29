@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-
 import {SnackService} from '../snack.service'
-
 import {MdDialog, MdDialogRef} from '@angular/material';
 
 @Component({
@@ -21,7 +19,8 @@ export class EditMerchantPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private loc:Location,
-    private snackService:SnackService,) {
+    private snackService:SnackService,
+    public dialog: MdDialog) {
       if(snackService.editObject){
         this.object = snackService.editObject
       }
@@ -30,26 +29,37 @@ export class EditMerchantPageComponent implements OnInit {
   save(){
     if(this.object.name==""||this.object.mobile==""||this.object.local==""){
       alert("信息不完整，请检查")
-      // this.dialog.open(DialogResult);
+
       return
     }
     if(this.isNew){
-      this.snackService.addMessage(this.object)
+      this.snackService.saveMessage(this.object).subscribe(data=>{
+        this.back()
+      })
+    }else{
+      this.snackService.saveMessage(this.object).subscribe(data=>{
+        this.back()
+      })
     }
-    this.back()
   }
   back(){
     this.loc.back()
   }
 
+  // delete(message){
+  //   this.snackService.deleteById(message.objectId).subscribe(data=>{
+  //       location.href = "/message"
+  //   })
+  // }
+
   ngOnInit() {
     this.route.params.subscribe(params=>{
-      let name = params['name']
-      if(name=="new"){
+      let id = params['id']
+      if(id=="new"){
         this.isNew = true;
       }else{
-        this.snackService.getMessageByName(name).subscribe(contact=>{
-        this.object = contact
+        this.snackService.getMessageById(id).subscribe(message=>{
+        this.object = message
     })
   }
 

@@ -13,6 +13,7 @@ export class BugService {
     // HTTP Params
     authHeaders: Headers = new Headers();
     host = "http://47.92.145.25:2337/parse"
+    // host = "http://localhost:1337/parse"
     className = "Bug";
     url = this.host + "/classes/" + this.className
     options = {
@@ -45,15 +46,6 @@ export class BugService {
             return this.http.put(this.url + '/' + id, bug, this.options).map(data => data.json())
         }
         return this.http.post(this.url, bug, this.options).map(data => data.json())
-    }
-
-    add(bugs: Array<Bug>) {
-        // let newBug = {
-        //     index: "PPS10010",
-        //     level: "major",
-        //     status: "not started"
-        // }
-        // bugs.push(newBug);
     }
 
     delete(objectId: String): Observable<Bug> {

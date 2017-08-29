@@ -1,20 +1,31 @@
+<app-diy-button [title]="'正序'" (click)="asc()"></app-diy-button>
+<app-diy-button [title]="'逆序'" (click)="desc()"></app-diy-button>
+<app-diy-button [title]="'随机'" (click)="random()"></app-diy-button>
+<app-diy-button [title]="'添加商户'" routerLink="edit/new"></app-diy-button>
+<app-diy-button [title]="'about us'" routerLink="about" id="button1"></app-diy-button>
 
-<button (click)="asc()">按商户名称正序查看</button>
-<button (click)="desc()">按商户名称逆序查看</button>
-<button (click)="random()">按商户名称随机查看</button>
 <br>
+<br>
+<br>
+
 <table border="2">
-    <tr id="table1">
-        <th width="25%" align="center">商家名称</th>
-        <th width="25%" align="center">商家电话</th>
-        <th width="25%" align="center">商家地址</th>
-    </tr>
-    <tr *ngFor="let snack of message">
-        <td align="center">{{snack.name}}</td>
-        <td align="center">{{snack.mobile}}</td>
-        <td align="center">{{snack.local}}</td>
-        <td align="center"><button routerLink="edit/{{snack.name}}">编辑</button></td>
-        <td align="center"><button routerLink="edit/new">添加用户</button></td>
-        </tr>
-    
+  <tr id="table1">
+    <th width="5%" align="center">商家图片</th>
+    <th width="20%" align="center">商家名称</th>
+    <th width="15%" align="center">商家电话</th>
+    <th width="20%" align="center">商家地址</th>
+    <th colspan="2"> 编辑栏 </th>
+  </tr>
+  <tr *ngFor="let snack of message">
+    <td>
+      <img src="../../../assets/img/snack/liying.jpg" class="snack-img1"/>
+    </td>
+
+    <td align="center">{{snack.name}}</td>
+    <td align="center">{{snack.mobile}}</td>
+    <td align="center">{{snack.local}}</td>
+    <td align="center" class="cell-border1"><button md-button routerLink="edit/{{snack.objectId}}">编辑商户</button></td>
+    <td align="center" class="cell-border1"><button md-button (click)="delete(snack)">删除商户</button></td>
+  </tr>
+
 </table>

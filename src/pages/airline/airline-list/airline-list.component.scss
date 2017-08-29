@@ -12,9 +12,10 @@ button{
     border-radius: 3px !important;
     border: none;
     width: 117px !important;
+    margin-left:0.8em;
 }
 button:hover{
-    bacground:gray;
+    background:gray;
 }
 .flight-item{
     float: left;
@@ -22,12 +23,16 @@ button:hover{
 }
 
 h1{
-    font-size: 10;
-    color:#FFFFFF;
+    color:#006564;
+    margin-left:0.5em;
 }
 .mark{
     font-size: 50;
 }
 .flight-items{
     color:#ffffff;
+}
+img{
+    width:140px;
+    height:140px;
 }

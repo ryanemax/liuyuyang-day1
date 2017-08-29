@@ -1,25 +1,28 @@
-<md-input-container>
-    <input mdInput placeholder="员工ID" [(ngModel)]="employee.eid">
-  </md-input-container>
-<md-input-container>
-  <input mdInput placeholder="姓名" [(ngModel)]="employee.name">
-</md-input-container>
-<md-select placeholder="性别" [(ngModel)]="employee.sex">
-  <md-option [value]="'M'">
-    男
-  </md-option>
-  <md-option [value]="'Ｆ'">
-    女
-  </md-option>
-</md-select>
-<md-input-container>
-  <input mdInput placeholder="年龄" [(ngModel)]="employee.age">
-</md-input-container>
-<md-input-container>
-  <input mdInput placeholder="职位" [(ngModel)]="employee.position">
-</md-input-container>
-<br>
-<md-card-actions>
-  <button md-button (click)="back()">取消</button>
-  <button md-button (click)="save()">保存</button>
-</md-card-actions>
+<div class="edit-content">
+    <md-input-container>
+        <input mdInput placeholder="员工ID" [(ngModel)]="employee.eid">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput placeholder="姓名" [(ngModel)]="employee.name">
+    </md-input-container>
+    <md-select placeholder="性别" [(ngModel)]="employee.sex">
+      <md-option [value]="'M'">
+        男
+      </md-option>
+      <md-option [value]="'Ｆ'">
+        女
+      </md-option>
+    </md-select>
+    <br>
+    <md-input-container>
+      <input mdInput placeholder="年龄" [(ngModel)]="employee.age">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput placeholder="职位" [(ngModel)]="employee.position">
+    </md-input-container>
+    <br>
+    <md-card-actions>
+      <button md-button (click)="back()">取消</button>
+      <button md-button (click)="save()">保存</button>
+    </md-card-actions>
+</div>

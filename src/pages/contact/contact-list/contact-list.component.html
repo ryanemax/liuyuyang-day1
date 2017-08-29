@@ -1,8 +1,12 @@
+<md-toolbar color="light">
+    <span>联系人 > 列表</span>
+    <span class="toolbar-spacer"></span>
+    <button md-raised-button routerLink="edit/new">添加</button>
+    <button md-raised-button (click)="asc()">正序</button>
+    <button md-raised-button (click)="desc()">逆序</button>
+    <button md-raised-button (click)="random()">随机</button>
+</md-toolbar>
 
-<app-diy-button [title]="'添加'"  routerLink="edit/new"></app-diy-button>
-<app-diy-button [title]="'正序'" (click)="asc()"></app-diy-button>
-<app-diy-button [title]="'逆序'" (click)="desc()"></app-diy-button>
-<app-diy-button [title]="'随机'" (click)="random()"></app-diy-button>
 <div style="margin-top:14px;">
 <app-contact-item [user]="user" *ngFor="let user of contacts"></app-contact-item>
 </div>
