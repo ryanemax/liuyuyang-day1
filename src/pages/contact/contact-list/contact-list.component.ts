@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from "../contact.service"
 
+import {MdDialog, MdDialogRef} from '@angular/material';
+import { ContactEditDialogComponent } from '../contact-edit-dialog/contact-edit-dialog.component';
+
+
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
@@ -8,12 +12,21 @@ import { ContactService } from "../contact.service"
 })
 export class ContactListComponent implements OnInit {
   contacts:Array<any>;
-  constructor(private contactServ:ContactService) {
+  constructor(private contactServ:ContactService,
+   public dialog: MdDialog) {
     // this.list = this.contactServ.contacts
     this.contactServ.connect().subscribe(data=>{
       this.contacts = data
     })
   }
+showEditDialog(user?){
+  if(user){
+    this.contactServ.editObject = user
+  }else{
+    this.contactServ.editObject = undefined
+  }
+  this.dialog.open(ContactEditDialogComponent)
+}
 
   asc(){
     // 正序排列
@@ -26,7 +39,6 @@ export class ContactListComponent implements OnInit {
       }
     })
 }
-
 
   desc(){
     // 逆序排列   
