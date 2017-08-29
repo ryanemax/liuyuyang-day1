@@ -18,7 +18,7 @@ import { HanshengBookStoreEditComponent } from './hansheng-book-store-edit/hansh
     FormsModule,
     RouterModule.forChild([
       { path: '', component: HanshengBookStorePageComponent, pathMatch: 'full' },
-      { path: 'hansheng-edit/:name', component: HanshengBookStoreEditComponent, pathMatch: 'full' }
+      { path: 'hansheng-edit/:id', component: HanshengBookStoreEditComponent, pathMatch: 'full' }
     ])
   ],
   providers:[HanshengBookStoreService],

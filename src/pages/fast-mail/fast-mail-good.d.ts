@@ -3,5 +3,5 @@ interface Good {
     tel: string;
     addr: string;
     date: string;
-    objectId: string;
+    objectId?: string;
 }

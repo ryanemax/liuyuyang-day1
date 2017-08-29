@@ -28,17 +28,28 @@ export class CardEditComponent implements OnInit {
       return
     }
     if(this.isNew){
-      this.cardPreviewService.addCard(this.cardobject)
+      
+      this.cardPreviewService.addCard(this.cardobject).subscribe(data=>{
+
+      });
+    }else{
+      console.log(this.cardobject);
+      this.cardPreviewService.updateCard(this.cardobject).subscribe(data=>{
+        
+      });
     }
     this.back()
   }
   ngOnInit() {
     this.route.params.subscribe(params=>{
-      let name = params['name']
-      if(name=="new"){
+      let objectId = params['objectId']
+      if(objectId=="new"){
         this.isNew = true;
       }else{
-        this.cardPreviewService.getCardByName(name).subscribe(card=>{
+        console.log(objectId);
+        this.cardPreviewService.getCardById(objectId).subscribe(card=>{
+          console.log(card);
+          card.createdAt = new Date();
         this.cardobject = card;
     })
   }

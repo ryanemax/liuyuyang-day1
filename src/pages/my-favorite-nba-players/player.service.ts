@@ -1,18 +1,26 @@
 import { Injectable } from '@angular/core';
+import { Http, Headers } from '@angular/http';
 
 import { Observable } from "rxjs/Observable"
-import 'rxjs/add/observable/merge';
+
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PlayerService {
+  // HTTP Params
+  authHeaders: Headers = new Headers()
+  host = "http://localhost:1337/parse"
+  className = "NBAPlayer"
+
   players: Array<Player>;
   editObject: Player;
-  currentIndex: number;
+  currentIndex: number = 5;
 
-  constructor() {
-    this.fillPlayers();
-    this.currentIndex = this.players.length;
+  constructor(private http: Http) {
+    this.authHeaders.append("X-Parse-Application-Id", "dev")
+    this.authHeaders.append("X-Parse-Master-Key", "angulardev")
+    this.authHeaders.append("Content-Type", "application/json")
   }
 
   getPlayerByIndex(index): Observable<Player> {
@@ -20,58 +28,68 @@ export class PlayerService {
     return Observable.of(player)
   }
 
-  fillPlayers() {
-    this.players = [
-      { index: 1, name: "Kobe Bean Bryant", abilityScore: 99, salary: 9999 },
-      { index: 2, name: "Steve Nash", abilityScore: 95 },
-      { index: 3, name: "Allen Iverson", abilityScore: 90 },
-      { index: 4, name: "Jason Williams", abilityScore: 88 },
-      { index: 5, name: "Stephen Curry", abilityScore: 80 }
-    ]
+  fillPlayers(): Observable<Array<Player>> {
+    let url = this.host + "/classes/" + this.className
+    let options = {
+      headers: this.authHeaders
+    }
+
+    this.http
+      .get(url, options)
+      .map(data => data.json().results).subscribe(data => {
+        this.players = data
+      })
+
+    return this.http
+      .get(url, options)
+      .map(data => data.json().results)
   };
 
-  sortByASC() {
-    this.players.sort((a, b) => {
-      if (a.abilityScore < b.abilityScore) {
-        return -1;
-      } else if (a.abilityScore > b.abilityScore) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-  };
-
-  sortByDESC() {
-    this.players.sort((a, b) => {
-      if (a.abilityScore < b.abilityScore) {
-        return 1;
-      } else if (a.abilityScore > b.abilityScore) {
-        return -1;
-      } else {
-        return 0;
-      }
-    });
-  };
-
-  sortByRandom() {
-    this.players.sort((a, b) => {
-      return Math.random() > 0.5 ? -1 : 1;
-    });
-  };
-
-  addNewPlayer(player) {
+  addNewPlayer(player: Player) {
     player.index = this.currentIndex + 1;
-    this.players.push(player);
     this.currentIndex = player.index;
+
+    let url = this.host + "/classes/" + this.className
+    let options = {
+      headers: this.authHeaders
+    }
+    let body = {
+      "index": Number(player.index),
+      "name": player.name,
+      "abilityScore": Number(player.abilityScore),
+      "salary": Number(player.salary)
+    }
+
+    this.http.post(url, JSON.stringify(body), options).map(data => data.json()).subscribe(function (data) {
+      console.log(data)
+    })
+  }
+
+  updatePlayer(player: Player) {
+    let url = this.host + "/classes/" + this.className
+    let options = {
+      headers: this.authHeaders
+    }
+    let body = {
+      "index": Number(player.index),
+      "name": player.name,
+      "abilityScore": Number(player.abilityScore),
+      "salary": Number(player.salary)
+    }
+
+    return this.http
+      .put(url + "/" + player.objectId, JSON.stringify(body), options)
+      .map(data => data.json()).subscribe()
   }
 
   delete(player: Player) {
-    this.players.forEach((item, index, arr) => {
-      if (item.index == player.index) {
-        arr.splice(index, 1)
-      }
-    })
+    let url = this.host + "/classes/" + this.className + "/" + player.objectId
+    let options = {
+      headers: this.authHeaders
+    }
+
+    this.http.delete(url, options)
+      .map(data => data.json()).subscribe()
   }
 
 }

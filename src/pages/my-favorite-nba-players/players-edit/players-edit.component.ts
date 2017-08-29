@@ -44,11 +44,13 @@ export class PlayersEditComponent implements OnInit {
 
   save() {
     if (this.object.name == "" || this.object.abilityScore == 0 || this.object.salary == 0) {
-      alert("信息不完整，请检查");
+      alert("information incomplete, please double check");
       return;
     }
     if (this.isNew) {
       this.playerService.addNewPlayer(this.object)
+    }else{
+      this.playerService.updatePlayer(this.object)
     }
     this.back();
   }

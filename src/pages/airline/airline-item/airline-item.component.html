@@ -1,13 +1,14 @@
 <md-card class="example-card">
-  <div class="item-list"><img src={{user.image}}/></div>
+<img src="./assets/img/flight/{{flightdt.img}}.jpg" title="{{flightdt.img}}" width="100px" height="100px">
   <md-card-header>    
-    <md-card-title>Orign:{{user.from}}</md-card-title>
-    <md-card-subtitle>Destination:{{user.to}}</md-card-subtitle>
-    <md-card-subtitle>Price: {{user.price}}</md-card-subtitle>
+    <md-card-title>Orign:{{flightdt.from}}</md-card-title>
+    <md-card-subtitle>Destination:{{flightdt.to}}</md-card-subtitle>
+    <md-card-subtitle>FareClass: {{flightdt.fareClass}}</md-card-subtitle>
+    <md-card-subtitle>Price: {{flightdt.price}}</md-card-subtitle>
   </md-card-header>
 
   <md-card-actions>
-    <button md-button routerLink="edit/{{user.from}}">Book</button>
-    <button md-button (click)="delete(user)">Delete</button>
+    <button md-button routerLink="edit/{{flightdt.objectId}}">Edit</button>
+    <button md-button (click)="delete(flightdt)">Delete</button>
   </md-card-actions>
 </md-card>

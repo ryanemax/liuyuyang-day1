@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { TrainingCourseService } from '../training-course.service'
 
 import { Location } from '@angular/common';
@@ -13,6 +13,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
   styleUrls: ['./training-course-edit.component.scss']
 })
 export class TrainingCourseEditComponent implements OnInit {
+  
   record:CourseReload={
     stName:"",
     courseName:"",
@@ -32,10 +33,15 @@ export class TrainingCourseEditComponent implements OnInit {
       // this.dialog.open(DialogResult);
       return
     }
-    if(this.isNew){
-      this.service.addRecord(this.record)
-    }
-    this.back()
+    // if(this.isNew){
+    //   console.log(this.record)
+    //   this.service.addRecord(this.record)
+    // }
+    this.service.addRecord(this.record).subscribe(data=>{
+      location.href = "/trainingcourse"
+      // this.loc.path ( "trainingcourse")s
+    })
+    // this.back()
   }
   back(){
     this.loc.back()
@@ -43,11 +49,12 @@ export class TrainingCourseEditComponent implements OnInit {
   ngOnInit() {
 
     this.route.params.subscribe(params=>{
-      let name = params['name']
-      if( name == "new"){
+      let id = params['id']
+      if( id == "new"){
         this.isNew = true;
       }else{
-        this.service.getRecordByName(name).subscribe(item=>{
+        this.service.getRecordById(id).subscribe(item=>{
+          console.log(item)
         this.record = item
     })
   }

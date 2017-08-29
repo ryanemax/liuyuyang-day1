@@ -6,13 +6,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TypeSelectPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    let type = "cost"
-    if(args){
-      type = args
+    let type = ""
+    if(value){
+      type = value
     }
     let nameMap = {
-        "cost": "shoutu",
-        "income": "支出",
+        "Traffic": "traffic",
+        "Cosmetics":"cosmetics",
+        "Dress": "dress",
+        "Meal": "meal",
+        "Social": "social",
     }
       return nameMap[type]
   }

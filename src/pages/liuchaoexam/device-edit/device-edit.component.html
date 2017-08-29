@@ -3,7 +3,7 @@
 <md-card class="example-card">
   <md-card-header>
     <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>设备编号：{{object.id}}</md-card-title>
+    <md-card-title>设备编号：{{object.deviceId}}</md-card-title>
     <md-card-title>设备名称：{{object.name}}</md-card-title>
     <md-card-subtitle>设备类型：{{object.type}}</md-card-subtitle>
     <md-card-subtitle>生产厂商：{{object.factory}}</md-card-subtitle>
@@ -12,7 +12,7 @@
   <md-card-content>
     <p>
       <md-input-container>
-  <input [(ngModel)]="object.id" mdInput placeholder="设备编号" value="">
+  <input [(ngModel)]="object.deviceId" mdInput placeholder="设备编号" value="">
 </md-input-container>
 <md-input-container>
   <input [(ngModel)]="object.name" mdInput placeholder="设备名称" value="">
@@ -26,7 +26,7 @@
 </md-input-container>
 
 <md-input-container>
-  <input [(ngModel)]="object.price" mdInput placeholder="英语成绩单价" value="">
+  <input type="number" [(ngModel)]="object.price" mdInput placeholder="单价" >
 </md-input-container>
 
 
@@ -34,7 +34,7 @@
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button routerLink="/contact">取消</button>
+    <button md-button routerLink="/device">取消</button>
     <button md-button (click)="save()">保存</button>
   </md-card-actions>
 </md-card>

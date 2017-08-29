@@ -1,7 +1,9 @@
 interface Employee{
+    objectId?:string,
+    eid:string,
     name:string,
     sex:string,
-    age:number,
+    age:string,
     position:string,
     random?:number
   }
