@@ -34,8 +34,7 @@ export class ContactEditComponent implements OnInit {
   }
   save(){
     if(this.object.name==""||this.object.mobile==""||this.object.sex==""){
-      alert("信息不完整，请检查")
-      // this.dialog.open(DialogResult);
+      this.dialog.open(DialogResult);
       return
     }
 
@@ -63,12 +62,12 @@ export class ContactEditComponent implements OnInit {
 
 }
 
-// @Component({
-//   selector: 'dialog-result',
-//   template: `
-//   信息填写不完整，请检查
-//   `,
-// })
-// export class DialogResult {
-//   constructor(public dialogRef: MdDialogRef<DialogResult>) {}
-// }
+@Component({
+  selector: 'dialog-result',
+  template: `
+  信息填写不完整，请检查
+  `,
+})
+export class DialogResult {
+  constructor(public dialogRef: MdDialogRef<DialogResult>) {}
+}
