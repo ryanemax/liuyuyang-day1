@@ -1,23 +1,23 @@
-<form>
-  <div class="row">
-    <label for="index">index</label>
-    <input type="text" name="index" [(ngModel)]='bug.index'>
-  </div>
-  <div class="row">
-    <label for="level">level</label>
-    <input type="text" name="level" [(ngModel)]='bug.level'>
-  </div>
-  <div class="row">
-    <label for="status">status</label>
-    <input type="text" name="status" [(ngModel)]='bug.status'>
-  </div>
-  <div class="row">
-    <label for="assigneeName">assigneeName</label>
-    <input type="text" name="assigneeName" [(ngModel)]='bug.assigneeName'>
-  </div>
-  <div class="row">
-    <button (click)="save(bug)">Submit</button>
-    <button routerLink="/bug">Cancle</button>
+<form class="example-form">
+  <md-input-container class="example-full-width">
+    <input mdInput placeholder="bug index" name="index" [(ngModel)]='bug.index'>
+  </md-input-container>
+
+  <md-input-container class="example-full-width">
+    <input mdInput placeholder="bug level" name="level" [(ngModel)]='bug.level'>
+  </md-input-container>
+
+  <md-input-container class="example-full-width">
+    <input mdInput placeholder="bug status" name="status" [(ngModel)]='bug.status'>
+  </md-input-container>
+
+  <md-input-container class="example-full-width">
+    <input mdInput placeholder="bug assignee name" name="assigneeName" [(ngModel)]='bug.assigneeName'>
+  </md-input-container>
+
+  <div class="example-full-width">
+    <button md-raised-button (click)="save(bug)">Submit</button>
+    <button md-raised-button routerLink="/bug">Cancle</button>
   </div>
 
 </form>

@@ -1,8 +1,10 @@
-<h1>Bug管理系统</h1>
+<div>
+  <h1>Bug管理系统</h1>
 
-<button routerLink="/bug/detail" class="btn btn2">添加新Bug</button>
-<button (click)="sortList('up')" class="btn btn1">正序</button>
-<button (click)="sortList('down')" class="btn btn3">逆序</button>
-<button (click)="sortList('random')" class="btn btn5">随机</button>
+  <button md-raised-button routerLink="/bug/detail">添加新Bug</button>
+  <button md-raised-button (click)="sortList('up')">正序</button>
+  <button md-raised-button (click)="sortList('down')">逆序</button>
+  <button md-raised-button (click)="sortList('random')">随机</button>
 
-<app-bug-item [bugs]="bugs"></app-bug-item>
+  <app-bug-item [bugs]="bugs"></app-bug-item>
+</div>
