@@ -21,8 +21,10 @@ export class EmployeeListPageComponent implements OnInit {
   }
 
     delete(employee){
-      this.employeeServ.deleteById(employee.objectId).subscribe(data=>{
-        location.href = "/employee"
+      this.employeeServ.deleteById(employee.objectId).subscribe(()=>{
+        this.employeeServ.getEmployees().subscribe(data => {
+          this.employees = data
+        })
     })
     }
     edit(){

@@ -2,7 +2,7 @@
 
 <md-card class="example-card">
   <md-card-header>
-    <md-card-subtitle>作者：{{object.bookName}}</md-card-subtitle>
+    <md-card-subtitle>书名：{{object.bookName}}</md-card-subtitle>
     <md-card-subtitle>作者：{{object.author}}</md-card-subtitle>
     <md-card-subtitle>价格：{{object.price | currency:'USD'}}</md-card-subtitle>
     <md-card-subtitle>摘要：{{object.summary}}</md-card-subtitle>
@@ -10,7 +10,7 @@
   <md-card-content>
     <p>
 <md-input-container>
-  <input [(ngModel)]="object.bookName" mdInput placeholder="作者" value="">
+  <input [(ngModel)]="object.bookName" mdInput placeholder="书名" value="">
 </md-input-container>
 
 <md-input-container>
@@ -18,7 +18,7 @@
 </md-input-container>
 
 <md-input-container>
-  <input [(ngModel)]="object.price" mdInput placeholder="价格" value="">
+  <input [(ngModel)]="object.price" type="number" mdInput placeholder="价格">
 </md-input-container>
 
 <md-input-container>

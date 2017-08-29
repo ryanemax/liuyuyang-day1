@@ -10,7 +10,9 @@ import 'rxjs/add/operator/map';
 export class PlayerService {
   // HTTP Params
   authHeaders: Headers = new Headers()
-  host = "http://localhost:1337/parse"
+  // host = "http://localhost:1337/parse"
+  host = "http://47.92.145.25:2337/parse"
+
   className = "NBAPlayer"
 
   players: Array<Player>;
@@ -60,9 +62,11 @@ export class PlayerService {
       "salary": Number(player.salary)
     }
 
-    this.http.post(url, JSON.stringify(body), options).map(data => data.json()).subscribe(function (data) {
-      console.log(data)
-    })
+    this.http.post(url, JSON.stringify(body), options)
+      .map(data => data.json())
+      .subscribe(function (data) {
+        console.log(data)
+      })
   }
 
   updatePlayer(player: Player) {

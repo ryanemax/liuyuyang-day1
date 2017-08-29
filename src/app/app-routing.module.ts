@@ -23,6 +23,11 @@ const SSRroutes: Routes = [
     data: { title: "联系人" }
   },
   {
+    path: 'student',
+    loadChildren: '../pages/student/student.module#StudentModule',
+    data: { title: "学员管理" }
+  },
+  {
     path: 'movie',
     loadChildren: '../pages/movie/movie.module#MovieModule',
     data: { title: "电影" }

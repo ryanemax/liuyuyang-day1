@@ -1,39 +1,67 @@
-<h1>我的衣帽间</h1>
 <div>
+    <h1>我的衣帽间</h1>
+    <div class="assetContent">
 
-    <button appAssetButton routerLink="edit/new">新增宝贝</button>
-    <p>
-        <button appAssetButton (click)="random()">价格随机</button>
-        <button appAssetButton (click)="priceDesc()">价格倒序</button>
-        <button appAssetButton (click)="priceAsc()">价格正序</button>
-    </p>
+        <md-tab-group>
+            <md-tab label="宝贝列表">
+                <!-- <button appAssetButton routerLink="edit/new">新增宝贝</button> -->
+                <p>
+                    <a md-raised-button routerLink="edit/new">新增宝贝</a>
+                    <!-- <button appAssetButton (click)="random()">价格随机</button>
+                    <button appAssetButton (click)="priceDesc()">价格倒序</button>
+                    <button appAssetButton (click)="priceAsc()">价格正序</button> -->
+                    <button md-button [mdMenuTriggerFor]="menu">
+                            <md-icon>more_vert</md-icon>排序方式
+                          </button>
+                    <md-menu #menu="mdMenu">
+                        <button md-menu-item class="md-menu-item" (click)="priceAsc()">
+                              <span>价格正序</span>
+                            </button>
+                        <button md-menu-item (click)="priceDesc()">
+                              <span>价格倒序</span>
+                            </button>
+                        <button md-menu-item (click)="random()">
+                              <span>价格随机</span>
+                            </button>
+                    </md-menu>
+                </p>
 
-    <table cellspacing="0" cellpadding="0">
-        <thead>
-            <tr>
-                <th>编号</th>
-                <th>宝贝图片</th>
-                <th>宝贝名称</th>
-                <th>类别</th>
-                <th>品牌</th>
-                <th>价格</th>
-                <th>入手时间</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let asset of assets">
-                <td>{{asset.no}}</td>
-                <td><img src="{{asset.img}}"/></td>
-                <td>{{asset.name}}</td>
-                <td>{{asset.classification}}</td>
-                <td>{{asset.brand}}</td>
-                <td>{{asset.price | assetCurrency:"cn"}}</td>
-                <td><span *ngIf="asset.addTime">{{asset.addTime.iso | date:"y-MM-dd"}}</span></td>
-                <td><md-icon title="修改" routerLink="edit/{{asset.objectId}}">edit</md-icon>
-                    <md-icon title="查看" routerLink="view/{{asset.objectId}}">menu</md-icon>
-                    <md-icon title="删除" (click)="deleteById(asset.objectId)">delete</md-icon></td>
-            </tr>
-        </tbody>
-    </table>
+                <table cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>宝贝图片</th>
+                            <th>宝贝名称</th>
+                            <th>类别</th>
+                            <th>品牌</th>
+                            <th>价格</th>
+                            <th>入手时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let asset of assets">
+                            <td>{{asset.no}}</td>
+                            <td><img src="{{asset.img}}" /></td>
+                            <td>{{asset.name}}</td>
+                            <td>{{asset.classification}}</td>
+                            <td>{{asset.brand}}</td>
+                            <td>{{asset.price | assetCurrency:"cn"}}</td>
+                            <td><span *ngIf="asset.addTime">{{asset.addTime.iso | date:"y-MM-dd"}}</span></td>
+                            <td>
+                                <md-icon title="修改" routerLink="edit/{{asset.objectId}}">edit</md-icon>
+                                <md-icon title="查看" routerLink="view/{{asset.objectId}}">menu</md-icon>
+                                <md-icon title="删除" (click)="deleteById(asset.objectId)">delete</md-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-tab>
+            <md-tab label="统计分析">
+                <md-card>历年买买买对比</md-card>
+                <md-card>分类占比</md-card>
+            </md-tab>
+        </md-tab-group>
+
+    </div>
 </div>

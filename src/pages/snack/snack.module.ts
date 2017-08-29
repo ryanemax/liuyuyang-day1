@@ -14,7 +14,7 @@ import { EditMerchantPageComponent } from "./edit-merchant-page/edit-merchant-pa
     SharedModule,MaterialModule,
     RouterModule.forChild([
       { path: '', component: ListMerchantPageComponent, pathMatch: 'full' },
-      { path: 'edit/:name', component: EditMerchantPageComponent, pathMatch: 'full' },
+      { path: 'edit/:id', component: EditMerchantPageComponent, pathMatch: 'full' },
     ])
   ],
   providers:[SnackService],

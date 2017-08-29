@@ -9,25 +9,34 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./book-new.component.scss']
 })
 export class BookNewComponent implements OnInit {
-  object:JianglunBook = {
+  object : JianglunBook = {
     index : 0,
+    objectId : "",
     bookName : "",
     author : "",
     price : 0,
-    summary : "",
-    random : 0
-  };
+    summary : ""
+  } ;
   isNew:boolean;
-  constructor(private route: ActivatedRoute,private loc:Location,private bookServ:BookManagementService) { }
+  constructor(private route: ActivatedRoute,private loc:Location,private bookServ:BookManagementService) {
+    
+  }
 
   save(){
-    if(this.object.bookName==""||this.object.author==""||this.object.price==null){
+    if(this.object.bookName==""||this.object.author==""||this.object.price==0){
       alert("信息不完整，请检查")
       // this.dialog.open(DialogResult);
       return
     }
-    this.bookServ.addBook(this.object)
-    this.back()
+    if(this.isNew){
+      this.bookServ.saveBook(this.object).subscribe(data=>{
+        this.back()
+      })
+    }else{
+      this.bookServ.saveBook(this.object).subscribe(data=>{
+        this.back()
+      })
+    }
   }
 
   back(){
@@ -36,11 +45,11 @@ export class BookNewComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
-      let index = params['index']
-      if(index=="new"){
+      let id = params['id']
+      if(id=="new"){
         this.isNew = true;
       }else{
-        this.bookServ.getBookByBookIndex(index).subscribe(book=>{
+        this.bookServ.getBookById(id).subscribe(book=>{
         this.object = book
     })
   }
