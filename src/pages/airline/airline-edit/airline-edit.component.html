@@ -1,7 +1,7 @@
 <button md-raised-button (click)="back()">Back</button>
 
 <md-card class="example-card">
-  <div class="item-edit"><img src="./assets/img/flight/{{object.img | imagePipe}}.jpg"/></div>
+  <div class="item-edit"><img src="{{object.img | imagePipe}}"/></div>
   <md-card-header>
     <md-card-title >Origin:{{object.from}}</md-card-title>
     <md-card-subtitle>Destination：{{object.to}}</md-card-subtitle>
@@ -13,7 +13,7 @@
   <md-card-content>
     <p>
 <md-input-container>
-  <input [(ngModel)]="object.img" style="display:none" mdInput placeholder="Image" value="{{object.img | imagePipe}}">
+  <input [(ngModel)]="object.img" type="text" mdInput placeholder="Image">
 </md-input-container>
 <md-input-container>
   <input [(ngModel)]="object.from" mdInput placeholder="Origin" value="">
