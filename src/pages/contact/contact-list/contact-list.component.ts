@@ -10,7 +10,7 @@ export class ContactListComponent implements OnInit {
   contacts:Array<any>;
   constructor(private contactServ:ContactService) {
     // this.list = this.contactServ.contacts
-    this.contactServ.getContacts().subscribe(data=>{
+    this.contactServ.connect().subscribe(data=>{
       this.contacts = data
     })
   }
