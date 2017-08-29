@@ -1,9 +1,25 @@
+<md-toolbar>
+    
+        <div class="example-container">
+                
+                <div class="button-row">
+                  <button md-button (click)="asc()">正序</button>
+                  <button md-button (click)="desc()">逆序</button>
+                  <button md-button (click)="random()">倒序</button>
+                  <button md-button [title]="'添加'" routerLink="edit/new">添加</button>
+                </div>
+              </div>
+    
+</md-toolbar>    
 
-<div><button (click)="asc()">正序</button>
+
+
+
+<!-- <div><button (click)="asc()">正序</button>
 <button (click)="desc()">逆序</button>
 <button (click)="random()">倒序</button>
 <button [title]="'添加'" routerLink="edit/new">添加</button>
-</div>
+</div> -->
 
 
 

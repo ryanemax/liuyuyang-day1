@@ -12,7 +12,7 @@ export class AssetListPageComponent implements OnInit {
   assets: Array<any>;
   constructor(private assetService: AssetService, private location: Location) {
     // this.assets = this.assetService.assets
-    this.assetService.getAssets().subscribe(data => {
+    this.assetService.connect().subscribe(data => {
       this.assets = data
     })
     
@@ -20,11 +20,7 @@ export class AssetListPageComponent implements OnInit {
 
   // 删除
   deleteById(id) {
-      this.assetService.deleteById(id).subscribe(data=>{
-        this.assetService.getAssets().subscribe(newData => {
-          this.assets = newData
-        })
-      })
+      this.assetService.deleteById(id)
   }
 
   priceAsc() {

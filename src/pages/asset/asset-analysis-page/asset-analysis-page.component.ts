@@ -18,46 +18,46 @@ export class AssetAnalysisPageComponent implements OnInit {
     let myChart = echarts.init(el);
     // 设置echarts所需配置项option
 
+    let legendArr = ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+    let seriesDataArr = [
+      { value: 335, name: '直接访问' },
+      { value: 310, name: '邮件营销' },
+      { value: 234, name: '联盟广告' },
+      { value: 135, name: '视频广告' },
+      { value: 1548, name: '搜索引擎' }
+    ];
+
     let option = {
-      title : {
-          text: '某站点用户访问来源',
-          subtext: '纯属虚构',
-          x:'center'
+      title: {
+        text: '类别占比图表',
+        x: 'center'
       },
-      tooltip : {
-          trigger: 'item',
-          formatter: "{a} <br/>{b} : {c} ({d}%)"
+      tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
       },
       legend: {
-          orient: 'vertical',
-          left: 'left',
-          data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+        orient: 'vertical',
+        left: 'left',
+        data: legendArr
       },
-      series : [
-          {
-              name: '访问来源',
-              type: 'pie',
-              radius : '55%',
-              center: ['50%', '60%'],
-              data:[
-                  {value:335, name:'直接访问'},
-                  {value:310, name:'邮件营销'},
-                  {value:234, name:'联盟广告'},
-                  {value:135, name:'视频广告'},
-                  {value:1548, name:'搜索引擎'}
-              ],
-              itemStyle: {
-                  emphasis: {
-                      shadowBlur: 10,
-                      shadowOffsetX: 0,
-                      shadowColor: 'rgba(0, 0, 0, 0.5)'
-                  }
-              }
+      series: [
+        {
+          name: '类别占比',
+          type: 'pie',
+          radius: '55%',
+          center: ['50%', '60%'],
+          data: seriesDataArr,
+          itemStyle: {
+            emphasis: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
           }
+        }
       ]
-  };
-  
-
+    };
 
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
@@ -68,7 +68,7 @@ export class AssetAnalysisPageComponent implements OnInit {
     let el = document.getElementById("per-annual-compare");
     if (!el) { return }
     let myChart = echarts.init(el);
-
+    
     let option = {
       tooltip: {
         trigger: 'axis',
