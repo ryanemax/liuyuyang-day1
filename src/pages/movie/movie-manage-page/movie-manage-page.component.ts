@@ -23,33 +23,41 @@ export class MovieManagePageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private loc:Location,
-  private contactServ:MovieService,
+  private movieServe:MovieService,
   public dialog: MdDialog) { 
-    if(contactServ.editObject){
-      this.object = contactServ.editObject
+    if(movieServe.editObject){
+      this.object = movieServe.editObject
     }
   }
   
   save(){
-    if(this.isNew){
-      this.contactServ.addMovie(this.object)
+    if(this.object){
+      this.object.mark =  Number(this.object.mark)
     }
-    this.back()
+
+    if(this.isNew){
+      this.movieServe.saveMovie(this.object).subscribe(data=>{
+        this.back()
+      })
+    }else{
+      this.movieServe.saveMovie(this.object).subscribe(data=>{
+        this.back()
+      })
+    }
   }
   back(){
     this.loc.back()
   }
   ngOnInit() {
           this.route.params.subscribe(params=>{
-          let name = params['name']
-          if(name=="new"){
+          let id = params['id']
+          if(id=="new"){
             this.isNew = true;
           }else{
-            this.contactServ.getMovieByName(name).subscribe(movie=>{
+            this.movieServe.getMovieById(id).subscribe(movie=>{
             this.object = movie
         })
       }
-
     })
   }
 

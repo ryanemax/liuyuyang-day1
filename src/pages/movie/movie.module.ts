@@ -25,8 +25,8 @@ import { SharedModule } from "../../shared/shared.module";
     CommonModule,MdSelectModule,MdButtonModule,MaterialModule,MdInputModule,MdCardModule,FormsModule,
     RouterModule.forChild([
       { path: '', component: MovieListPageComponent, pathMatch: 'full' },
-      { path: 'detail/:name', component: MovieDetailPageComponent, pathMatch: 'full' },
-      { path: 'manage/:name', component: MovieManagePageComponent, pathMatch: 'full' }
+      { path: 'detail/:id', component: MovieDetailPageComponent, pathMatch: 'full' },
+      { path: 'manage/:id', component: MovieManagePageComponent, pathMatch: 'full' }
     ])
   ],
   providers:[MovieService],

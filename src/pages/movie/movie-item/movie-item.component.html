@@ -1,5 +1,10 @@
 <div class="movie-item">
     <img src="./assets/img/movie/{{movie.movieName}}.png" width="300px" height="420px" (click)=showDetail()> 
-    <p class = "movieTitle">{{movie.movieName}}  <span> 导演:{{movie.director}}  </span> <br><br>  <span class="mark">评分:{{movie.mark}} <button routerLink="detail/{{movie.movieName}}">详情</button> <button routerLink="manage/{{movie.movieName}}">编辑</button>   </span> </p>   
+    <p class = "movieTitle">{{movie.movieName}}  <span> 导演:{{movie.director}}  </span> <br><br>  
+    <span class="mark">评分:{{movie.mark}} 
+    <button routerLink="detail/{{movie.objectId}}">详情</button> 
+    <button routerLink="manage/{{movie.objectId}}">编辑</button>
+    <button (click)="delete(movie)">删除</button>   
+    </span> </p>   
 </div>
 
