@@ -8,11 +8,13 @@
   </div>
 
 <md-card-content>
-    <p>备注： {{account.comment}}</p>
+    <p>备注： {{account.comment}}{{account.objectId}}</p>
   </md-card-content>
   <md-card-actions style="float:right">
-    <button  routerLink="edit/{{account.event}}">✎</button>
+    <button  routerLink="edit/{{account.objectId}}">✎</button>
     <button  (click)="delete(account)">X</button>
   </md-card-actions>
-</md-card>
+</md-card> 
+
+
 

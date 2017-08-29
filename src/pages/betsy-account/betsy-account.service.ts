@@ -5,7 +5,7 @@ import { Http, Headers } from '@angular/http';
 import { Observable } from "rxjs/Observable"
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
-
+import 'rxjs/add/operator/finally';
 
 
 @Injectable()
@@ -19,19 +19,12 @@ export class BetsyAccountService {
     this.authHeaders.append("X-Parse-Application-Id","dev")
     this.authHeaders.append("X-Parse-Master-Key","angulardev")
     this.authHeaders.append("Content-Type","application/json")
-    this.getContactById("44VpzQwmbo").subscribe(data=>{
-      console.log(data)
-    })
+    // this.getAccountById("rZZuQmxpLk").subscribe(data=>{
+     // console.log(data)
+    // })
   }
 
- 
-  getAccountByName(name):Observable<Account>{
-    // let account = this.accounting.find(item=>item.event == name)
-    // return Observable.of(account)
-    return
-  }
-
-  getContactById(id):Observable<Account>{
+  getAccountById(id):Observable<Account>{
     // let contact = this.contacts.find(item=>item.name == name)
     // return Observable.of(contact)
 
@@ -60,10 +53,43 @@ export class BetsyAccountService {
       addAccount(newaccount){
         // this.http.post()
       }
-      updateAccount(newaccount){
-        // this.http.put()
+      saveAccount(newaccount){
+        let url = this.host+"/classes/" + this.className
+        let options = {
+          headers:this.authHeaders
+        }
+    
+       //  if(newaccount.birth&&!newaccount.birth.__type){
+        //  newaccount.birth = {
+        //    __type:"Date",
+          // iso: new Date(newaccount.birth)
+        //  }
+      //  }
+        
+        if(newaccount.objectId){
+          let id = newaccount.objectId
+          delete newaccount.createdAt
+          delete newaccount.updatedAt
+          delete newaccount.objectId
+          delete newaccount.ACL
+    
+          return this.http
+          .put(url+"/"+id,newaccount,options)
+          .map(data=>data.json())
+        }else{
+          return this.http
+          .post(url,newaccount,options)
+          .map(data=>data.json())
+        }
       }
       deleteById(id){
-        // this.http.delete()
+        let url = this.host+"/classes/" + this.className + "/" + id
+        let options = {
+          headers:this.authHeaders
+        }
+    
+        return this.http
+        .delete(url,options)
+        .map(data=>data.json())
       }
 }

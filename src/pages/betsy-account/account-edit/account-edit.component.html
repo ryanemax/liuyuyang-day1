@@ -1,35 +1,39 @@
-<button md-raised-button (click)="back()">返回</button>
+
 
 <md-card class="example-card">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>用户名：{{object.name}}</md-card-title>
-    <md-card-subtitle>手机号：{{object.mobile}}</md-card-subtitle>
-    <md-card-subtitle>性别：{{object.type}}</md-card-subtitle>
-  </md-card-header>
+  <button (click)="back()"> ← </button>
   <md-card-content>
-    <p>
-<md-input-container>
-  <input [(ngModel)]="object.event" mdInput placeholder="" value="">
-</md-input-container>
-
-<md-input-container>
-  <input [(ngModel)]="object.date" mdInput placeholder="" value="">
-</md-input-container>
-
-<md-select [(ngModel)]="object.type" placeholder="性别">
-  <md-option [value]="'M'">
-    支出
-  </md-option>
-  <md-option [value]="'Ｆ'">
-    收入
-  </md-option>
-</md-select>
-
-    </p>
+  <div style="margin-top:20px">
+    <md-select [(ngModel)]="object.type" placeholder={{object.type}}>
+        <md-option [value]="'income'">
+          income
+        </md-option>
+        <md-option [value]="'cost'">
+          cost
+        </md-option>
+      </md-select>
+        <md-select [(ngModel)]="object.event" placeholder={{object.event}}>
+            <md-option [value]="event.name" *ngFor="let event of eventlist">
+                {{event.name}}
+            </md-option>
+      </md-select>
+      
+      <md-input-container *ngIf="object.event == Other" >
+        <input [(ngModel)]="object.event" mdInput placeholder="* event" value="">
+      </md-input-container>
+  </div>
+  <md-input-container>
+   <input [(ngModel)]="object.date" mdInput placeholder="* date" value="">
+  </md-input-container>
+   <md-input-container>
+    <input [(ngModel)]="object.cost" mdInput placeholder="￥￥" value="">
+  </md-input-container>
+  <md-input-container>
+      <input [(ngModel)]="object.comment" mdInput placeholder="comment" value="">
+    </md-input-container>
   </md-card-content>
-  <md-card-actions>
-    <button md-button routerLink="/edit:{{object.event}}">取消</button>
-    <button md-button (click)="save()">保存</button>
+  <md-card-actions style="margin-right: 5px;position: absolute;bottom: 20px;right: 20px;">
+    <button  routerLink="/edit:{{object.event}}">X</button>
+    <button  (click)="save()">→</button>
   </md-card-actions>
 </md-card>
