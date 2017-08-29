@@ -25,7 +25,7 @@ export class AirlineListComponent implements OnInit {
       // 正序排列
       // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
       this.airlines.sort((a,b)=>{
-        if(a.Price>b.Price){
+        if(a.price>b.price){
           return 1
         }else{
           return -1
@@ -37,7 +37,7 @@ export class AirlineListComponent implements OnInit {
     desc(){
       // 逆序排列   
         this.airlines.sort((a,b)=>{
-        if(a.Price>b.Price){
+        if(a.price>b.price){
           return -1
         }else{
           return 1

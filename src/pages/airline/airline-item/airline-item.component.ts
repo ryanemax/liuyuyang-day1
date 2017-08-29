@@ -9,15 +9,17 @@ import { Location } from "@angular/common"
 })
 export class AirlineItemComponent implements OnInit {
 
-  @Input() user:any
+  @Input() flightdt:any
 
   constructor(private airlineServ:AirlineService,
   private loc:Location) { }
-  delete(user){
-    this.airlineServ.deleteByPrice(user.Price)
+  delete(flightdt){
+    this.airlineServ.deleteByPrice(flightdt.objectId).subscribe(data=>{
+    location.href = "/flight"
+    })
   }
   edit(){
-    this.airlineServ.editObject = this.user
+    this.airlineServ.editObject = this.flightdt
     // this.loc.go("/contact/edit")
     // location.href = "/contact/edit"
   }

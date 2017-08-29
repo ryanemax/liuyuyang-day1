@@ -12,7 +12,6 @@ export class GameService {
   authHeaders:Headers = new Headers()
   host = "http://47.92.145.25:2337/parse"
   className = "Game"
-  games: Array<Game>
   editObject: Game
   constructor(private loc: Location, private http: Http) {
     this.authHeaders.append("X-Parse-Application-Id","dev")
@@ -27,66 +26,57 @@ export class GameService {
     }
 
     return this.http
-    .get(url,options)
+    .get(url, options)
     .map(data=>data.json().results)
-  }
-
-  showFree(){
-    this.getGames().subscribe(data =>{
-      data.filter(item=>{
-        
-      })
-    })
-
-    let freeList =  this.games.filter((item)=>{
-      if(item.price == 0){
-        return item;
-      }
-    })
-    this.games = freeList;
-    return freeList
-  }
-
-  descByDownloads(){
-    this.games.sort((a,b)=>{
-      if(a.downloads>b.downloads){
-        return -1
-      }else{
-        return 1
-      }
-    })
-  }
-  descByDate(){
-    this.games.sort((a,b)=>{
-      if(a.lastReleaseDate>b.lastReleaseDate){
-        return -1
-      }else{
-        return 1
-      }
-    })
   }
 
   back(){
     this.loc.back();
   }
 
-  insertGame(game){
-    this.games.push(game);
-  }
-
   saveGame(game){
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
     
+    if(game.objectId){
+      let id = game.objectId
+      delete game.createdAt
+      delete game.updatedAt
+      delete game.objectId
+      delete game.ACL
+
+      return this.http
+      .put(url+"/"+id,game,options)
+      .map(data=>data.json())
+    }else{
+      return this.http
+      .post(url,game,options)
+      .map(data=>data.json())
+    }
   }
 
   delectById(id){
-   
+    let url = this.host+"/classes/" + this.className + '/' + id ;
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .delete(url, options)
+    .map(data=>data.json());
   }
 
   getGameById(id):Observable<Game>{
-    let game = this.games.find(item => item.type == id);
-    console.log(game.gameName);
-    return Observable.of(game);
+    console.log(id);
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
+    }
+    return this.http
+    .get(url, options)
+    .map(data=>data.json())
   }
 
-  save(){}
 }

@@ -3,7 +3,7 @@
     border: 1px solid #78b396;
     border-radius: 0.2em;
     width: calc((100% - 4px) / 4);
-    text-align: center; 
+    text-align: center;
 
     img{
         width: 203px;
@@ -16,9 +16,14 @@ a{
     display: inline-block;
     border-radius: 0.2em;
     border: 1px solid #5db5bf;
-    background: #6dc5bf;
+    background: #8dd2b0;
     text-decoration: none;
-    color: #fff;
+    color: black;
     margin: 1px;
     width: 99%;
+}
+
+a:hover{
+    color: #fff;
+    background: #55bcc2;
 }

@@ -13,6 +13,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 })
 export class ContactEditComponent implements OnInit {
   object:Contact = {
+    
     name:"",
     mobile:"",
     sex:"",

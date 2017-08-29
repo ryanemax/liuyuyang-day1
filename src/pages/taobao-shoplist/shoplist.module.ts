@@ -18,7 +18,7 @@ import { ShopService } from "./shop.service"
     SharedModule,MaterialModule,
     RouterModule.forChild([
       { path: '', component: TaobaoShoplistComponent, pathMatch: 'full' },
-      { path: 'edit/:name', component: TaobaoShopEditComponent, pathMatch: 'full' }
+      { path: 'edit/:id', component: TaobaoShopEditComponent, pathMatch: 'full' }
     ])
   ],
   providers:[ShopService],

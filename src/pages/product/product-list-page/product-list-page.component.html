@@ -1,7 +1,9 @@
 
 <div><button (click)="asc()">正序</button>
 <button (click)="desc()">逆序</button>
-<button (click)="random()">倒序</button></div>
+<button (click)="random()">倒序</button>
+<button [title]="'添加'" routerLink="edit/new">添加</button>
+</div>
 
 
 
@@ -18,7 +20,7 @@
         <td width="25%">{{Product.function}}</td>
         <td width="25%">{{Product.price}}</td>
     </tr> -->
-    <app-product-item [product]="product" *ngFor="let product of list"></app-product-item>
+    <app-product-item [product]="product" *ngFor="let product of products"></app-product-item>
     
    
     <!-- </tbody> -->

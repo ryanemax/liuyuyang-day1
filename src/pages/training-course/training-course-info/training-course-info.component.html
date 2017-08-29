@@ -26,11 +26,11 @@
       <th align="left">{{course.date}}</th>
       <th align="left">{{course.isOk | statusFinish:"en"}}</th>
       <th>
-        <button appCircleButton routerLink="detail/{{course.stName}}">详细</button>
+        <button appCircleButton routerLink="detail/{{course.objectId}}">详细</button>
         
-      <button appCircleButton (click)="doDel(course.stName)">删除</button>
+      <button appCircleButton (click)="doDel(course.objectId)">删除</button>
       <button  appCircleButton routerLink="edit/new">添加</button>
-      <button  appCircleButton routerLink="edit/{{course.stName}}">编辑</button>
+      <button  appCircleButton routerLink="edit/{{course.objectId}}">编辑</button>
     </th>
   </tr>
   </tbody>

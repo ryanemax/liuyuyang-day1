@@ -15,9 +15,10 @@ export class ProductShopCountComponent implements OnInit {
   private loc:Location) { }
 
   delete(product){
-    this.productServ.deleteByProductCode(product.product_code)
+    this.productServ.deleteById(product.objectId).subscribe(data=>{
+        location.href = "/product"
+    })
   }
-  
   edit(){
     this.productServ.editObject = this.product
   }

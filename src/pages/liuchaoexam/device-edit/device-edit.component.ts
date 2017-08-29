@@ -12,7 +12,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class DeviceEditComponent implements OnInit {
 
 object:DeviceInfo = {
-    id:"",
+    deviceId:"",
     type:"",
     name:"",
     factory:"",
@@ -32,7 +32,7 @@ object:DeviceInfo = {
           if(name=="new"){
             this.isNew = true;
           }else{
-            this.deviceSer.getContactByName(name).subscribe(device=>{
+            this.deviceSer.getDeviceInfoById(name).subscribe(device=>{
             this.object = device
         })
       }
@@ -41,14 +41,15 @@ object:DeviceInfo = {
   }
 
   save(){
-    if(this.object.name==""||this.object.id==""){
+    if(this.object.name==""||this.object.deviceId==""){
       alert("信息不完整，请检查")
       // this.dialog.open(DialogResult);
       return
     }
-    if(this.isNew){
-      this.deviceSer.addDeviceInfo(this.object)
-    }
+    this.deviceSer.addDeviceInfo(this.object).subscribe(data=>{
+      
+    });
+   
     this.back()
   }
  

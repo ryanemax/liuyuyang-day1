@@ -5,8 +5,12 @@
 .example-full-width {
     width: 100%;
 }
-
-div{padding: 40px 0px 0px 40px;width:600px;font-size: 13px;}
+div{padding: 40px 0px 0px 40px;width:600px;font-size: 13px;background-color: white;
+    filter: alpha(Opacity=80);
+    -moz-opacity: 0.5;
+    opacity: 0.7;height: 370px;}
+  
 md-select{margin-top: 10px;margin-bottom: 10px;}
 h3{width: 600px;}
-h3 button{float: right;}
+button{margin-left: 10px;float: right;}
+div>button{margin-top: 130px;}

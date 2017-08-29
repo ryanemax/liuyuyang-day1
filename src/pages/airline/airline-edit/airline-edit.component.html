@@ -1,37 +1,33 @@
-<button md-raised-button (click)="back()">返回</button>
+<button md-raised-button (click)="back()">Back</button>
 
 <md-card class="example-card">
-  <div class="item-edit"><img src={{object.image}}/></div>
+  <div class="item-edit" *ngIf="object.img"><img src="./assets/img/flight/{{object.img}}.jpg"/></div>
   <md-card-header>
-    <md-card-title>Origin:{{object.From}}</md-card-title>
-    <md-card-subtitle>Destination：{{object.To}}</md-card-subtitle>
-    <md-card-subtitle>Price:{{object.Price}}</md-card-subtitle>
+    <md-card-title >Origin:{{object.from}}</md-card-title>
+    <md-card-subtitle>Destination：{{object.to}}</md-card-subtitle>
+    <md-card-subtitle>Price:{{object.price}}</md-card-subtitle>
   </md-card-header>
   <md-card-content>
     <p>
 <md-input-container>
-  <input [(ngModel)]="object.From" mdInput placeholder="Origin" value="">
+  <input [(ngModel)]="object.from" mdInput placeholder="From" value="">
 </md-input-container>
 
 <md-input-container>
-  <input [(ngModel)]="object.To" mdInput placeholder="Destination" value="">
-</md-input-container>
-<md-input-container>
-
-  <input [(ngModel)]="object.FareClass" mdInput placeholder="FareClass" value="">
+  <input [(ngModel)]="object.to" mdInput placeholder="Destination" value="">
 </md-input-container>
 
-<md-select [(ngModel)]="object.Price" placeholder="Price">
-  <md-option [value]="'1200'">
-    1200-1400
+<md-select [(ngModel)]="object.fareClass" placeholder="FareClass">
+  <md-option [value]="'Economy'">
+    Economy
   </md-option>
-  <md-option [value]="'900'">
-    900-1000
-  </md-option>
-  <md-option [value]="'560'">
-    560-900
+  <md-option [value]="'Business'">
+    Business
   </md-option>
 </md-select>
+<md-input-container>
+  <input [(ngModel)]="object.price" mdInput placeholder="Price" value="">
+</md-input-container>
     </p>
   </md-card-content>
   <md-card-actions>

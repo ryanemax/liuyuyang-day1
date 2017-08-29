@@ -58,6 +58,13 @@ export class ContactService {
     let options = {
       headers:this.authHeaders
     }
+
+    if(contact.birth&&!contact.birth.__type){
+      contact.birth = {
+        __type:"Date",
+        iso: new Date(contact.birth)
+      }
+    }
     
     if(contact.objectId){
       let id = contact.objectId

@@ -2,18 +2,26 @@
   width: 300px;
   float:left;
   margin:10px;
+  height:200px;
 }
 .item-list{
   float:left; 
+}
+.mat-card-subtitle{
+  color:#4c4c4c;
 }
 .mat-card-actions{
   float:left;
   margin-left:2em;
 }
+.mat-card-header-text{
+  float:right;
+}
 .mat-card{
   border-radius:44px;
   img{
     border-radius:27px;
+    float:left;
   }
   button{
     background: #006564 !important;
@@ -23,5 +31,6 @@
     border: none;
     height: 32px;
     width: 20px;
+    margin-top:1em;
   }
 }
