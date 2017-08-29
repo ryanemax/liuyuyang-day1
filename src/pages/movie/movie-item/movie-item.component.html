@@ -1,5 +1,5 @@
 <div class="movie-item">
-    <img src="./assets/img/movie/{{movie.movieName}}.png" width="300px" height="420px" (click)=showDetail()> 
+    <img src="./assets/img/movie/{{movie.movieName}}.png" width="300px" height="420px" routerLink="detail/{{movie.objectId}}"> 
     <p class = "movieTitle">{{movie.movieName}}  <span> 导演:{{movie.director}}  </span> <br><br>  
     <span class="mark">评分:{{movie.mark}} 
     <button routerLink="detail/{{movie.objectId}}">详情</button> 
