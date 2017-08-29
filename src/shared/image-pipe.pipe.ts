@@ -4,15 +4,22 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'imagePipe'
 })
 export class ImagePipePipe implements PipeTransform {
-  transform(value: any, args?: any): any {
-     console.log(value);
-    let vancouver="vancouver"
-    if(typeof(value) !="undefined" && value !=""){
-      console.log("test");
-      return String(value)
-    }else{
-      return String(vancouver)
+  transform(value: string, args?: any): any {
+    // if(value.search(/./g)!=-1){      
+    //   return value;
+    // }
+    console.log(value)
+    if(typeof(value) =="undefined" || value ==""){
+      //  return `./assets/img/flight/${value}.jpg`;
+      return `./assets/img/flight/vancouver.jpg`;
     }
+    console.log(value.search(/[A-Z]/g)==-1)
+    if(value.search(/[A-Z]/g)==-1){
+      return `./assets/img/flight/${value}.jpg`;
+    }
+
+
+
   }
 
 }

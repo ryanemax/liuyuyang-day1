@@ -1,16 +1,20 @@
 <button md-raised-button (click)="back()">Back</button>
 
 <md-card class="example-card">
-  <div class="item-edit"><img src="./assets/img/flight/{{object.img | imagePipe}}.jpg"/></div>
+  <div class="item-edit"><img src="{{object.img | imagePipe}}"/></div>
   <md-card-header>
     <md-card-title >Origin:{{object.from}}</md-card-title>
     <md-card-subtitle>Destination：{{object.to}}</md-card-subtitle>
     <md-card-subtitle>FareClass:{{object.fareClass}}</md-card-subtitle>
     <md-card-subtitle>Price:{{object.price}}</md-card-subtitle>
     <md-card-subtitle>FlightDate:{{object.date.iso}}</md-card-subtitle>
+    <md-card-subtitle>Image:{{object.img}}</md-card-subtitle>
   </md-card-header>
   <md-card-content>
     <p>
+<md-input-container>
+  <input [(ngModel)]="object.img" type="text" mdInput placeholder="Image">
+</md-input-container>
 <md-input-container>
   <input [(ngModel)]="object.from" mdInput placeholder="Origin" value="">
 </md-input-container>
@@ -31,7 +35,7 @@
   <input [(ngModel)]="object.price" mdInput placeholder="Price" type="number">
 </md-input-container>
 <md-input-container>
-  <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="object.date.iso">
+  <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="object.date.iso" >
   <button mdSuffix [mdDatepickerToggle]="picker" ></button>
 </md-input-container>
 <md-datepicker #picker></md-datepicker>
