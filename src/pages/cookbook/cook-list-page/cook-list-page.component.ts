@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { CookbookService } from "../cookbook.service";
 import { Location } from "@angular/common"
 
@@ -8,15 +8,24 @@ import { Location } from "@angular/common"
   styleUrls: ['./cook-list-page.component.scss']
 })
 export class CookListPageComponent implements OnInit {
-   cookbook:Array<any>;
+   @Input() menu:any 
+  cookbook:Array<any>;
     
- constructor(private cookbookServ:CookbookService) {
+ constructor(private cookbookServ:CookbookService,
+  private loc:Location) {
     // this.list = this.contactServ.contacts  
     this.cookbookServ.getCookbook().subscribe(data=>{
       this.cookbook = data
     })
   }
 
+  delete(menu){
+    this.cookbookServ.deleteById(menu.objectId).subscribe(data=>{
+        location.href = "/cookbook"
+    })
+  }
+
+  
   asc(){
     // 正序排列
     // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array

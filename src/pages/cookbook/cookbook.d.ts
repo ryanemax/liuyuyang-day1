@@ -1,6 +1,6 @@
 interface Cookbook{
   id:string,
-  creatdate?:number,
+  createdate?:number,
   cookingname:string,
   material:string,
   condiment?:string,

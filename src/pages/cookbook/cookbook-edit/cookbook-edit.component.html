@@ -6,6 +6,7 @@
     <md-card-title>食谱菜名：{{object.cookingname}}</md-card-title>
     <md-card-subtitle>食材：{{object.material}}</md-card-subtitle>
     <md-card-subtitle>烹饪时间：{{object.cooktime}}</md-card-subtitle>
+    <md-card-subtitle>创建日期：{{object.createdate}}</md-card-subtitle>
   </md-card-header>
   <md-card-content>
     <p>
@@ -19,6 +20,10 @@
 
 <md-input-container>
   <input type="number" [(ngModel)]="object.cooktime" mdInput placeholder="烹饪时间" value="">
+</md-input-container>
+
+<md-input-container>
+  <input mdinput type="data" [(ngModel)]="object.createdate" mdInput placeholder="创建日期" value="">
 </md-input-container>
 
     </p>
