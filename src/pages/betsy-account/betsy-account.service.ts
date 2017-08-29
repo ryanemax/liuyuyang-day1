@@ -11,8 +11,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class BetsyAccountService {
   authHeaders:Headers = new Headers()
-  host = "http://localhost:1337/parse"
-  className = "accounting"
+  host = "http://47.92.145.25:2337/parse"
+  className = "Accounting"
 
   editObject:Account;
   constructor(private http:Http) {

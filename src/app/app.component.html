@@ -1,18 +1,32 @@
 <div class="header">
-<h1>Cloud Admin</h1>
+<h1><button color="light" md-mini-fab (click)="sidenav.toggle()">
+      <md-icon>menu</md-icon>
+    </button>Cloud Admin</h1>
 </div>
 
-<div class="row">
-<div class="col-3 col-m-3 menu">
-<ul>
-<li *ngFor="let route of getEnableNavitem()" routerLink="{{route.path}}">{{route.data.title}}</li>
-</ul>
-</div>
-<div class="col-9 col-m-9">
-<router-outlet></router-outlet>
-</div>
+<md-sidenav-container class="sidenav-fab-container">
+ 
+  <md-sidenav #sidenav mode="side" opened="true">
+    <button md-mini-fab class="example-fab" (click)="sidenav.toggle()">
+      <md-icon>add</md-icon>
+    </button>
+    <div class="scrolling-nav menu">
+    <ul>
+        <li *ngFor="let route of getEnableNavitem()" routerLink="{{route.path}}">{{route.data.title}}</li>
+    </ul>
+    </div>
+  </md-sidenav>
 
-</div>
+  <button md-mini-fab class="example-fab" (click)="sidenav.toggle()">
+    <md-icon>add</md-icon>
+  </button>
+
+  <div class="scrolling-content">
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-container>
+
+
 <div class="footer">
 <p>Resize the browser window to see how the content respond to the resizing.</p>
 </div>
