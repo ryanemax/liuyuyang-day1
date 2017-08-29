@@ -20,7 +20,7 @@
      <td>{{book.author}}</td>
      <td appHighlight>{{book.price | currency:'USD':true:'4.2-2'}}</td>
      <td>{{book.summary}}</td>
-     <td><button md-button routerLink="edit/{{book.index}}">编辑</button>
+     <td><button md-button routerLink="edit/{{book.objectId}}">编辑</button>
         <button md-button (click)="delete(book)">删除</button></td>
     </tr>
 </table>
