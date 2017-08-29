@@ -9,6 +9,7 @@ import { GoodsEditComponent } from './goods-edit/goods-edit.component';
 
 import { MaterialModule } from "@angular/material"
 import { SharedModule } from "../../shared/shared.module";
+import { SharedEditModule } from "../../shared-edit/shared-edit.module";
 
 import { GoodsShopService } from "./goods-shop.service"
 
@@ -16,6 +17,7 @@ import { GoodsShopService } from "./goods-shop.service"
   imports: [
     CommonModule,MaterialModule,
     FormsModule,SharedModule,
+    SharedEditModule,
     RouterModule.forChild([
       { path: '', component: GoodsInfoPageComponent, pathMatch: 'full' },
       { path: 'edit/:id', component: GoodsEditComponent, pathMatch: 'full' }

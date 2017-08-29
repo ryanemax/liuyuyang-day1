@@ -16,7 +16,7 @@ import { MaterialModule } from "@angular/material"
     SharedModule,MaterialModule,
     RouterModule.forChild([
       { path: '', component: BookListComponent, pathMatch: 'full' },
-      { path: 'edit/:index', component: BookNewComponent, pathMatch: 'full' }
+      { path: 'edit/:id', component: BookNewComponent, pathMatch: 'full' }
     ])
   ],
   providers:[BookManagementService],
