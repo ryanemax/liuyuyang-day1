@@ -33,7 +33,7 @@
     </md-input-container>
   </md-card-content>
   <md-card-actions style="margin-right: 5px;position: absolute;bottom: 20px;right: 20px;">
-    <button  routerLink="/edit:{{object.event}}">X</button>
+    <button  (click)="back()">X</button>
     <button  (click)="save()">→</button>
   </md-card-actions>
 </md-card>
