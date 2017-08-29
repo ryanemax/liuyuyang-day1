@@ -4,6 +4,7 @@ $secondary:  #00bcd4;
 .example-card {
     margin-top:10px;
     width: 100%;
+    background-color: lightblue;
 }
 
 .example-header-image {
@@ -12,11 +13,12 @@ $secondary:  #00bcd4;
 }
 
 button{
+    margin:14px;
     background:$secondary;
-    padding:7px;
-    font-size:20px;
-    color:white;
-    border-radius:34px;
+    // padding:7px;
+    // font-size:20px;
+    // color:white;
+    // border-radius:34px;
     border:none;
 }
 
