@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-
 import { SnackService } from '../snack.service';
 import { Location } from "@angular/common"
 
@@ -17,14 +16,14 @@ export class ListMerchantPageComponent implements OnInit {
       this.message = data
     })
   }
-  
+
     delete(message){
-      this.snackService.deleteById(message.objectId)
+      this.snackService.deleteById(message.objectId).subscribe(data=>{
+          location.href = "/snack"
+      })
     }
 
     asc(){
-      // 正序排列
-      // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
       this.message.sort((a,b)=>{
         if(a.name>b.name){
           return 1
@@ -46,12 +45,16 @@ export class ListMerchantPageComponent implements OnInit {
       }) 
     }
     random(){
-      // 随机排列
-      // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
       this.message.forEach(item=>{
         item.random = Math.random()
       })
-      this.asc()
+      this.message.sort((a,b)=>{
+        if(a.random>b.random){
+          return 1
+        }else{
+          return -1
+        }
+      })
   }
 
   ngOnInit() {
