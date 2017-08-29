@@ -33,7 +33,9 @@
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button routerLink="/pmj">Cancel</button>
-    <button md-button (click)="save()">Confirm</button>
+    <!--<button md-button routerLink="/pmj">Cancel</button>
+    <button md-button (click)="save()">Confirm</button>-->
+    <button md-mini-fab (click)="save()"><md-icon>check</md-icon></button>
+    <button md-mini-fab routerLink="/pmj" style="margin-left:5px"><md-icon>close</md-icon></button>
   </md-card-actions>
 </md-card>
