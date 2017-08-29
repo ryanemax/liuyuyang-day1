@@ -1,51 +1,58 @@
-<h3>
-  <a routerLink="/asset">我的衣帽间</a> > 修改宝贝  
-  <button appAssetButton (click)=returnList()>返回</button>  
-</h3> 
-<div>
-  <md-input-container class="example-full-width">
-    <input mdInput placeholder="名称" value="{{obj.name}}" [(ngModel)]="obj.name">
-  </md-input-container>
+<div class="assetContent">
+  <h3>
+    <a routerLink="/asset">我的衣帽间</a> > 修改宝贝
+    <button md-raised-button (click)=returnList()>返回</button>
+    <!-- <button appAssetButton (click)=returnList()>返回</button>   -->
+  </h3>
+  <div class="assetFormClass">
+    <md-input-container class="example-full-width">
+      <input mdInput placeholder="名称" value="{{obj.name}}" [(ngModel)]="obj.name">
+    </md-input-container>
 
-  <md-select [(ngModel)]="obj.classification" placeholder="分类">
-    <md-option [value]="'上衣'">
-      上衣
-    </md-option>
-    <md-option [value]="'裙装'">
-      裙装
-    </md-option>
-    <md-option [value]="'裤装'">
-      裤装
-    </md-option>
-    <md-option [value]="'鞋靴'">
-      鞋靴
-    </md-option>
-    <md-option [value]="'围巾'">
-      围巾
-    </md-option>
-    <md-option [value]="'包包'">
-      包包
-    </md-option>
-    <md-option [value]="'未知'">
-      未知
-    </md-option>
-  </md-select>
+    <md-select [(ngModel)]="obj.classification" placeholder="分类">
+      <md-option [value]="'上衣'">
+        上衣
+      </md-option>
+      <md-option [value]="'裙装'">
+        裙装
+      </md-option>
+      <md-option [value]="'裤装'">
+        裤装
+      </md-option>
+      <md-option [value]="'鞋靴'">
+        鞋靴
+      </md-option>
+      <md-option [value]="'围巾'">
+        围巾
+      </md-option>
+      <md-option [value]="'包包'">
+        包包
+      </md-option>
+      <md-option [value]="'未知'">
+        未知
+      </md-option>
+    </md-select>
 
-  <md-input-container class="example-full-width">
-    <input mdInput placeholder="品牌" value="{{obj.brand}}" [(ngModel)]="obj.brand">
-  </md-input-container>
+    <md-input-container class="example-full-width">
+      <input mdInput placeholder="品牌" value="{{obj.brand}}" [(ngModel)]="obj.brand">
+    </md-input-container>
 
-  <md-input-container class="example-full-width">
-    <input mdInput type="number" placeholder="价格" value="{{obj.price}}" [(ngModel)]="obj.price">
-  </md-input-container>
+    <md-input-container class="example-full-width">
+      <input mdInput type="number" placeholder="价格" value="{{obj.price}}" [(ngModel)]="obj.price">
+    </md-input-container>
 
-  <md-input-container>
+    <md-input-container>
       <input mdInput [mdDatepicker]="picker" placeholder="入手日期" [(ngModel)]="obj.addTime" value="{{obj.addTime}}">
       <button mdSuffix [mdDatepickerToggle]="picker"></button>
     </md-input-container>
     <md-datepicker #picker></md-datepicker>
 
-  <button appAssetButton (click)=returnList()>取消</button>
-  <button appAssetButton (click)=saveAsset()>提交</button>
+    <div>
+      <!-- <button appAssetButton (click)=returnList()>取消</button>
+  <button appAssetButton (click)=saveAsset()>提交</button> -->
+      <button md-raised-button (click)=returnList()>取消</button>
+      <button md-raised-button (click)=saveAsset()>提交</button>
+    </div>
 
+  </div>
 </div>

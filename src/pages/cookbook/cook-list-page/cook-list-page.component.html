@@ -1,33 +1,34 @@
 <div id="b">
-<div id="bt"><div id="a">第一个食谱是：{{this.cookbook[0].cookingname}}</div>
+<div id="bt">
 <button (click)="asc()" id="bt1">正序</button>
 <button (click)="desc()" id="bt2">逆序</button>
 <button (click)="random()" id="bt3">随机</button>
 </div>
 
-<button (click)="add()" id="bt4">添加</button>
+<button routerLink="edit/new" id="bt4">添加</button>
 
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tr>
-        <th id="h1">创建时间</th>
+        <th id="h1">创建日期</th>
         <th id="h2">菜名</th>
         <th id="h3">食材</th>
         <th id="h4">佐料</th>
-        <th id="h5">烹饪日期</th>
+        <th id="h5">烹饪时间</th>
         <th id="h6">单位</th>
         <th id="h7">操作</th>      
     </tr>
     <tr *ngFor="let menu of cookbook">
-       <td> {{menu.creatdate}} </td>
+      
+       <td> {{menu.createdate}} </td>
        <td> {{menu.cookingname}} </td>
        <td> {{menu.material}} </td>
        <td> {{menu.condiment}} </td>
        <td> {{menu.cooktime}} </td>
        <td> {{menu.units}} </td>
        <td> 
-           <button (click)="edit()" id="bt5">编辑</button>
-           <button (click)="delete()" id="bt6">删除</button>
+           <button routerLink="edit/{{menu.objectId}}" id="bt5">编辑</button>
+           <button (click)="delete(menu)" id="bt6">删除</button>
         </td>
        </tr>
 

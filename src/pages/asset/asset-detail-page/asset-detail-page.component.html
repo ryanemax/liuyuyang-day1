@@ -1,8 +1,9 @@
-<h3>
+
+<div class="assetContent"><h3>
   <a routerLink="/asset">我的衣帽间</a> > 查看宝贝
-  <button appAssetButton (click)=returnList()>返回</button>  
+  <!-- <button appAssetButton (click)=returnList()>返回</button>   -->
+  <button md-raised-button (click)=returnList()>返回</button>  
 </h3>
-<div>
   <md-card class="example-card">
     <md-card-header>
       <div md-card-avatar class="example-header-image"></div>
@@ -16,7 +17,7 @@
               <td>品牌：{{obj.brand}}</td>
           </tr>
           <tr>
-              <td class="t30">价格：{{obj.price | assetCurrency:"cn"}}</td>
+              <td class="t45">价格：{{obj.price | assetCurrency:"cn"}}</td>
               <td><span *ngIf="obj.addTime">入手时间：{{obj.addTime.iso | date:"y-MM-dd"}}</span></td>
             </tr>
         </table>

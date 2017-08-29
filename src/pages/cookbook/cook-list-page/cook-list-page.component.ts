@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit,Input } from '@angular/core';
+import { CookbookService } from "../cookbook.service";
+import { Location } from "@angular/common"
 
 @Component({
   selector: 'app-cook-list-page',
@@ -7,28 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cook-list-page.component.scss']
 })
 export class CookListPageComponent implements OnInit {
-
-  cookbook:Array<Cookbook>;
-
-  constructor() { 
-     this.getCookbook()
+   @Input() menu:any 
+  cookbook:Array<any>;
+    
+ constructor(private cookbookServ:CookbookService,
+  private loc:Location) {
+    // this.list = this.contactServ.contacts  
+    this.cookbookServ.getCookbook().subscribe(data=>{
+      this.cookbook = data
+    })
   }
 
-  getCookbook(){
-     this.cookbook = [
-      {creatdate:20150901,cookingname:"秘制红烧牛肉面",material:"面条和牛肉",condiment:"小葱和青菜",cooktime:30,units:"分钟"},
-      {creatdate:20160101,cookingname:"玉子烧",material:"鸡蛋和牛奶",condiment:"糖",cooktime:15,units:"分钟"},
-      {creatdate:20170620,cookingname:"椰蓉鲜奶冻",material:"淀粉和牛奶",condiment:"椰蓉和白糖",cooktime:100,units:"分钟"},
-      {creatdate:20170430,cookingname:"土豆沙拉",material:"土豆",condiment:"火腿",cooktime:100,units:"分钟"}
-      
-    ]
+  delete(menu){
+    this.cookbookServ.deleteById(menu.objectId).subscribe(data=>{
+        location.href = "/cookbook"
+    })
   }
 
+  
   asc(){
     // 正序排列
     // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
     this.cookbook.sort((a,b)=>{
-      if(a.creatdate>b.creatdate){
+      if(a.cookingname>b.cookingname){
         return 1
       }else{
         return -1
@@ -38,29 +40,30 @@ export class CookListPageComponent implements OnInit {
 
 
   desc(){
-    // 逆序排列 
-    this.cookbook.sort((a,b)=>{
-
-      if(a.creatdate<b.creatdate){
-        return 1
-      }else{
+    // 逆序排列   
+      this.cookbook.sort((a,b)=>{
+      if(a.cookingname>b.cookingname){
         return -1
+      }else{
+        return 1
       }
-
-
-    })   
+    }) 
   }
-
+  
   random(){
     // 随机排列
     // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-    this.cookbook.sort((a,b)=>{
-    return Math.random()-0.5
+    this.cookbook.forEach(item=>{
+      item.random = Math.random()
+    })
+    this.asc()
+}
 
-  })
-  }
+
+
 
   ngOnInit() {
+
   }
 
 }
