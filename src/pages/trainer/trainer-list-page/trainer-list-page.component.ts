@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainerService } from '../trainer.service'
-
+import {DomSanitizer} from '@angular/platform-browser';
+import {MdIconRegistry} from '@angular/material';
 
 
 @Component({
@@ -11,8 +12,11 @@ import { TrainerService } from '../trainer.service'
 export class TrainerListPageComponent implements OnInit {
   list:Array<any>;
   
-  constructor(private TrainerSe:TrainerService) { 
+  constructor(private TrainerSe:TrainerService,iconRegistry: MdIconRegistry, sanitizer: DomSanitizer) { 
    // this.list = this.TrainerSe.trainers;
+      iconRegistry.addSvgIcon(
+        'thumbs-up',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/img/examples/thumbup-icon.svg'));
    this.TrainerSe.getTrainers().subscribe(data=>{
       this.list = data
     })

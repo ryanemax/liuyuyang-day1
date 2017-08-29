@@ -1,7 +1,7 @@
 interface Contact{
   birth?:{
       __type:string,
-      iso: Date
+      iso: any
   },
   name:string,
   sex:string,

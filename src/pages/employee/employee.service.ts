@@ -19,9 +19,7 @@ export class EmployeeService {
     this.authHeaders.append("X-Parse-Application-Id","dev")
     this.authHeaders.append("X-Parse-Master-Key","angulardev")
     this.authHeaders.append("Content-Type","application/json")
-    this.getEmployeeById("3QWvJZok2P").subscribe(data=>{
-      console.log(data)
-    })
+    
     this.getEmployees();
   }
 
@@ -36,7 +34,7 @@ export class EmployeeService {
     .map(data=>data.json())
   }
 
-  getEmployees(){
+  getEmployees():Observable<Array<Employee>>{
     let url = this.host+"/classes/" + this.className
     let options = {
       headers:this.authHeaders
