@@ -17,7 +17,7 @@ import { BetsyAccountService } from "./betsy-account.service"
     MaterialModule,SharedModule,
     RouterModule.forChild([
       { path: '', component: AccountPageComponent, pathMatch: 'full' },
-      { path: 'edit/:name', component: AccountEditComponent, pathMatch: 'full' },
+      { path: 'edit/:id', component: AccountEditComponent, pathMatch: 'full' },
     ])
   ],
   providers:[BetsyAccountService],

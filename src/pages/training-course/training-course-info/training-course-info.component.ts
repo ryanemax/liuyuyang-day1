@@ -12,6 +12,8 @@ export class TrainingCourseInfoComponent implements OnInit {
   
   constructor(private service:TrainingCourseService ) { 
      this.service.getContent().subscribe(data => {this.courses = data
+      this.courses = this.service.courses
+      console.log("component building")
       console.log(this.courses)
     })
   }
@@ -24,6 +26,7 @@ export class TrainingCourseInfoComponent implements OnInit {
   }
   sortByRadom()
   {
+    
     this.service.sortByRadom()
   }
   doAsc(){

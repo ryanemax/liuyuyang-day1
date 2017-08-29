@@ -8,8 +8,8 @@ import { HttpModule,Headers,Http } from '@angular/http';
 
 const APPLICATION_ID:string = "dev"
 const MASTER_KEY = "angulardev"
-// const SERVER_URL="http://47.92.145.25:2337/parse/classes/";
-const SERVER_URL="http://localhost:1337/parse/classes/";
+ const SERVER_URL="http://47.92.145.25:2337/parse/classes/";
+//const SERVER_URL="http://localhost:1337/parse/classes/";
 
 const CONTENT_TYPE = "application/json"
 const CLASSNAME = "TrainingCourse"
@@ -81,9 +81,13 @@ getContent():Observable<Array<CourseReload>>{
   
   let url = SERVER_URL+CLASSNAME
   let temp = this.http.get(url,{headers:this.authHeader}).map(data=>data.json().results)
-  temp.subscribe(data=>this.courses =data)
-  console.log("service data")
-  console.log(this.courses)
+  temp.subscribe(data=>{
+    console.log("service subscribe")
+    this.courses =data
+    console.log("service data")
+    console.log(this.courses)
+  })
+  
   return temp
 }
 add(){
@@ -96,6 +100,7 @@ add(){
 
 sortByAsc2No(no){
   console.log(no);
+  console.log(this.courses)
   this.courses.sort((a:CourseReload,b:CourseReload)=>{
     console.log(no);
     var a1,b1;

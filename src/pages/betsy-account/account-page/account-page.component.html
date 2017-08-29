@@ -1,9 +1,9 @@
-<div class="contianer">
+<div class="contianer" >
   <div class="tool-bar">
-      <button (click)="addAccount()">添加新联系人</button>
       <button (click)="asc()">正序</button>
       <button (click)="desc()">逆序</button>
       <button (click)="random()">随机</button>
+      <button  routerLink="edit/new" style="float:right">+++</button>
   </div>
   <div class="content">
     <app-account-item [account]="account" *ngFor="let account of accounting"></app-account-item>
