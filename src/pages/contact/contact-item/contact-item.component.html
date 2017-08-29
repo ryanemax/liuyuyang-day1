@@ -8,7 +8,7 @@
   <md-card-content>
     <p>
       性别： {{user.sex | sexName:"cn"}}
-      生日： {{user.birth | date:"y-MM-dd"}}
+      <span *ngIf="user.birth&&user.birth.iso">生日： {{user.birth.iso | date:"y-MM-dd"}}</span>
     </p>
   </md-card-content>
   <md-card-actions>
