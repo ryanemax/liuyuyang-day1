@@ -38,15 +38,11 @@ export class ContactEditComponent implements OnInit {
       // this.dialog.open(DialogResult);
       return
     }
-    if(this.isNew){
+
       this.contactServ.saveContact(this.object).subscribe(data=>{
         this.back()
+        this.contactServ.refresh()
       })
-    }else{
-      this.contactServ.saveContact(this.object).subscribe(data=>{
-        this.back()
-      })
-    }
   }
   back(){
     this.loc.back()
