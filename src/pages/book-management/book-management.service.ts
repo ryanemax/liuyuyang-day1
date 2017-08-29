@@ -19,7 +19,7 @@ export class BookManagementService {
     this.authHeaders.append("Content-Type","application/json")
   }
 
-  getBookById(id):Observable<JianglunBook>{
+  getBookById(id) : Observable<JianglunBook>{
 
     let url = this.host+"/classes/" + this.className + "/" + id
     let options = {
@@ -41,7 +41,7 @@ export class BookManagementService {
     return this.http.get(url,options).map(data=>data.json().results)
   }
 
-  saveBook(book){
+  saveBook(book:any){
     // this.http.post()
     let url = this.host+"/classes/" + this.className
     let options = {
@@ -65,7 +65,7 @@ export class BookManagementService {
     }
   }
 
-  deleteById(id){
+  deleteById(id) : Observable<JianglunBook>{
     let url = this.host+"/classes/" + this.className + "/" + id
     let options = {
       headers:this.authHeaders
