@@ -29,8 +29,10 @@
                 <td>{{asset.classification}}</td>
                 <td>{{asset.brand}}</td>
                 <td>{{asset.price | assetCurrency:"cn"}}</td>
-                <td>{{asset.addTime | date:"y-MM-dd"}}</td>
-                <td><a routerLink="edit/{{asset.no}}">修改</a> <a routerLink="view/{{asset.no}}">查看</a></td>
+                <td><span *ngIf="asset.addTime">{{asset.addTime.iso | date:"y-MM-dd"}}</span></td>
+                <td><md-icon title="修改" routerLink="edit/{{asset.objectId}}">edit</md-icon>
+                    <md-icon title="查看" routerLink="view/{{asset.objectId}}">menu</md-icon>
+                    <md-icon title="删除" (click)="deleteById(asset.objectId)">delete</md-icon></td>
             </tr>
         </tbody>
     </table>

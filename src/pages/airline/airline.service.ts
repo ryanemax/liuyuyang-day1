@@ -27,11 +27,11 @@ export class AirlineService {
       // return Observable.of(contact)
       return
     }
-    getAirlineByPrice(Price):Observable<Airline>{
+    getAirlineByPrice(id):Observable<Airline>{
       // let contact = this.contacts.find(item=>item.name == name)
       // return Observable.of(contact)
 
-      let url = this.host+"/classes/" + this.className + "/"
+      let url = this.host+"/classes/" + this.className + "/" + id
       let options = {
         headers:this.authHeaders
       }
@@ -64,11 +64,38 @@ export class AirlineService {
       return this.http
       .post(url,airline,options)
     }
-    updateAirline(airline){
-      // this.http.put()
+    saveAirline(airline){
+      // this.http.post()
+      let url = this.host+"/classes/" + this.className
+      let options = {
+        headers:this.authHeaders
+      }
+    
+      if(airline.objectId){
+        let id = airline.objectId
+        delete airline.createdAt
+        delete airline.updatedAt
+        delete airline.objectId
+        delete airline.ACL
+
+        return this.http
+        .put(url+"/"+id,airline,options)
+        .map(data=>data.json())
+      }else{
+        return this.http
+        .post(url,airline,options)
+        .map(data=>data.json())
+      }
     }
     deleteByPrice(Price){
-      // this.http.delete()
+      let url = this.host+"/classes/" + this.className + "/" +Price
+      let options = {
+        headers:this.authHeaders
+      }
+
+      return this.http
+      .delete(url,options)
+      .map(data=>data.json())
     }
   // editObject:Airline;
   // constructor() { 

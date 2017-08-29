@@ -8,20 +8,48 @@ import { ProductShopCountService  } from "../product-shop-count.service"
 })
 export class ProductShopCountListComponent implements OnInit {
 
-list:Array<any>;
+products:Array<any>;
   constructor(private productServ:ProductShopCountService) {
-    this.list = this.productServ.products
+    this.productServ.getProducts().subscribe(data=>{
+      this.products = data
+    })
   }
 
-  asc(){
-    this.productServ.asc()
-  }
+asc(){
+    // 正序排列
+    // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+    this.products.sort((a,b)=>{
+      if(a.dataset_code>b.dataset_code){
+        return 1
+      }else{
+        return -1
+      }
+    })
+}
+
+
   desc(){
-    this.productServ.desc()
+    // 逆序排列    
+    this.products.sort((a,b)=>{
+      if(a.quantities<b.quantities){
+        return 1
+      }else{
+        return -1
+      }
+    })
+
   }
   random(){
-    this.productServ.random()
+    // 随机排列
+    // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+  
+    this.products.sort((a,b)=>{
+      return Math.random()
+  })
+
   }
   ngOnInit() {
   }
+
+
 }

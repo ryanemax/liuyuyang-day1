@@ -6,15 +6,15 @@ import { ShopService } from "../shop.service"
 
 import {MdDialog, MdDialogRef} from '@angular/material';
 
-interface Shop {
-  index?: number,
-  productName: string,
-  number: string,
-  prices: string,
-  born?: string,
-  random?: number,
+// interface Shop {
+//   index?: number,
+//   productName: string,
+//   number: string,
+//   prices: string,
+//   born?: string,
+//   random?: number,
 
-}
+// }
 
 @Component({
   selector: 'app-product-edit',
@@ -41,26 +41,27 @@ export class TaobaoShopEditComponent implements OnInit {
 
   
   save(){
-    if(this.object.productName==""||this.object.number==""||this.object.prices==""){
-      alert("信息不完整，请检查")
-      // this.dialog.open(DialogResult);
-      return
-    }
     if(this.isNew){
-      this.shopServ.addProduct(this.object);
+      this.shopServ.saveShop(this.object).subscribe(data=>{
+        this.back()
+      })
+    }else{
+      this.shopServ.saveShop(this.object).subscribe(data=>{
+        this.back()
+      })
     }
-    this.back()
   }
+  
   back(){
     this.loc.back()
   }
   ngOnInit() {
           this.route.params.subscribe(params=>{
-          let name = params['name']
-          if(name=="new"){
+          let id = params['id']
+          if(id=="new"){
             this.isNew = true;
           }else{
-            this.shopServ.getProductByName(name).subscribe(shop=>{
+            this.shopServ.getShopById(id).subscribe(shop=>{
             
             this.object = shop
         })

@@ -13,7 +13,12 @@ import {MdDialog, MdDialogRef} from '@angular/material';
   styleUrls: ['./training-course-item.component.scss']
 })
 export class TrainingCourseItemComponent implements OnInit {
-  record:CourseReload
+  record:CourseReload ={
+    stName:"",
+    courseName:"",
+    date:"",
+    isOk:""
+  }
   constructor( private service :TrainingCourseService,private route: ActivatedRoute,
     private loc:Location) {
 
@@ -25,8 +30,8 @@ export class TrainingCourseItemComponent implements OnInit {
   }
   ngOnInit() {
     this.route.params.subscribe(params=>{
-      let name = params['name']
-      this.service.getRecordByName(name).subscribe(item=>{
+      let id = params['id']
+      this.service.getRecordById(id).subscribe(item=>{
         this.record = item
      })
     })

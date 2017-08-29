@@ -17,8 +17,8 @@
           </tr>
           <tr>
               <td class="t30">价格：{{obj.price | assetCurrency:"cn"}}</td>
-              <td>入手时间：{{obj.addTime | date:"y-MM-dd"}}</td>
-          </tr>
+              <td><span *ngIf="obj.addTime">入手时间：{{obj.addTime.iso | date:"y-MM-dd"}}</span></td>
+            </tr>
         </table>
       </md-card-content>
   </md-card>

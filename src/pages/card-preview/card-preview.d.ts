@@ -5,5 +5,9 @@ interface Card{
     cost:number,
     vocation:string,
     img:string,
-    random?:number
+    random?:number,
+    objectId?:string,
+    updatedAt?:Date,
+    ACL?:string,
+    createdAt?:Date
   }

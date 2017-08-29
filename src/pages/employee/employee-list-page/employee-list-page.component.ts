@@ -21,23 +21,50 @@ export class EmployeeListPageComponent implements OnInit {
   }
 
     delete(employee){
-      this.employeeServ.deleteByName(employee.name)
+      this.employeeServ.deleteById(employee.objectId).subscribe(data=>{
+        location.href = "/employee"
+    })
     }
     edit(){
       this.employeeServ.editEmployee = this.employee
     }
 
-  asc(){
-    this.employeeServ.asc()
-  }
-  desc(){
-    this.employeeServ.desc()
-  }
-  random(){
-    this.employeeServ.random()
-  }
-
   ngOnInit() {
   }
-  
-}
+
+  asc(){
+    // 正序排列
+     this.employees.sort((a,b)=>{
+       if(a.age>b.age){
+         return 1
+       }else{
+         return -1
+       }
+     })
+  }
+   desc(){
+    //  逆序排列    
+     this.employees.sort((a,b)=>{
+       if(a.age<b.age){
+         return 1
+       }else{
+         return -1
+       }
+     })
+   }
+   random(){
+   // 随机排列
+     this.employees.forEach((employee)=>{
+       let randomNum = Math.random();
+       employee.random = randomNum;
+     });
+     
+     this.employees.sort((a,b)=>{
+       if(a.random<b.random){
+         return 1
+       }else{
+         return -1
+       }
+     })
+   }
+  }

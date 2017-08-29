@@ -7,64 +7,84 @@ import 'rxjs/add/operator/map'
 import { HttpModule,Headers,Http } from '@angular/http';
 
 const APPLICATION_ID:string = "dev"
-const SERVER_URL="";
+const MASTER_KEY = "angulardev"
+// const SERVER_URL="http://47.92.145.25:2337/parse/classes/";
+const SERVER_URL="http://localhost:1337/parse/classes/";
 
+const CONTENT_TYPE = "application/json"
+const CLASSNAME = "TrainingCourse"
 @Injectable()
 export class TrainingCourseService {
-
-  courses:Array<CourseReload> ;
+  authHeader:Headers = new Headers()
+  courses:Array<CourseReload> =[];
   constructor(private http:Http) {
+    this.authHeader.append("X-Parse-Application-Id",APPLICATION_ID)
+    this.authHeader.append("Content-Type",CONTENT_TYPE)
+    this.authHeader.append("X-Parse-Master-Key",MASTER_KEY)
+   // this.http.options(SERVER_URL,{headers:this.authHeader})
 
-    // this.getContent()
   }
 delete(name){
-  this.courses.forEach((item,index,arr)=>{
-    if(item.stName == name){
-      arr.splice(index,1)
-    }
-  })
+  let url = SERVER_URL+CLASSNAME
+  let options = {headers:this.authHeader}
+  return this.http.delete(url + "/" + name,options).map(data => data.json)
+
+  // this.courses.forEach((item,index,arr)=>{
+  //   if(item.stName == name){
+  //     arr.splice(index,1)
+  //   }
+  // })
 }
+
+getRecordById(id):Observable<CourseReload>{
+  let url = SERVER_URL+CLASSNAME
+  let options = {headers:this.authHeader}
+  return this.http.get(url + "/"+id,options).map(data=>data.json())
+
+  // let record = this.courses.find(item=>item.stName == name)
+  // return Observable.of(record)
+}
+
 getRecordByName(name):Observable<CourseReload>{
   let record = this.courses.find(item=>item.stName == name)
   return Observable.of(record)
 }
 
 
-addRecord(record){
-  this.courses.push(record)
+addRecord(record):Observable<CourseReload>{
+  let url = SERVER_URL+CLASSNAME
+  let options = {headers:this.authHeader}
+
+  if (record.objectId){
+ 
+
+    let id = record.objectId
+    delete record.createdAt
+    delete record.updatedAt
+    delete record.objectId
+    delete record.ACL
+
+    return this.http
+    .put(url+"/"+id,record,options)
+    .map(data=>data.json())
+  } else {
+    return this.http
+    .post(url,record,options)
+    .map(data=>data.json())
+  }
+
+
+  // return this.http.post(url,record,{headers:this.authHeader}).map(data => data)
+  // this.courses.push(record)
 }
 getContent():Observable<Array<CourseReload>>{
   
-  let header:Headers = new Headers()
-  header.append("X-Parse-Application-Id","dev")
-
-  let host = "";
-  let classes = ""
-  let url = `{{host}}{{classes}}`;
-  this.http.get(url,{}).map(item => item).subscribe(
-    item => item.json
-  )
-
-
-  let courses:Array<CourseReload> = 
-  [
-    {
-      stName: '小张',courseName:'日语', date: '2017/07/02',isOk:'Ok'
-    },{
-      stName: '小王',courseName:'法语', date: '2017/08/02',isOk:'Ok'
-    },{
-      stName: '小丽',courseName:'德语', date: '2017/07/12',isOk:'Ok'
-    },{
-      stName: '大宝',courseName:'英语', date: '2017/08/23',isOk:'Ng'
-    },{
-      stName: 'gene.wang',courseName:'angularjs2开发', date: '2017/07/18',isOk:'Ok'
-    },{
-      stName: 'jeff.li',courseName:'java基础', date: '2017/08/19',isOk:'Ok'
-    },{
-      stName: '小张',courseName:'日语', date: '2017/08/26',isOk:'Ng'
-    }
-  ];
-  return Observable.of(courses);
+  let url = SERVER_URL+CLASSNAME
+  let temp = this.http.get(url,{headers:this.authHeader}).map(data=>data.json().results)
+  temp.subscribe(data=>this.courses =data)
+  console.log("service data")
+  console.log(this.courses)
+  return temp
 }
 add(){
   this.courses.push(
@@ -73,8 +93,6 @@ add(){
     }
   );
 }
-
-
 
 sortByAsc2No(no){
   console.log(no);

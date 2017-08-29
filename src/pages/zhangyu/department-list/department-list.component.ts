@@ -11,13 +11,18 @@ export class DepartmentListComponent implements OnInit {
   departmentList: Array<any>;
 
   constructor(private zhangyuServ:ZhangyuService) {
-    this.departmentList = this.zhangyuServ.departments;
+    this.zhangyuServ.queryDepartments().subscribe(data=>{
+      this.departmentList = data;
+    })
   }
 
   ngOnInit() {
   }
   delDepartment(department){
-    this.zhangyuServ.delDepartmentById(department.id);
+    this.zhangyuServ.delDepartmentById(department.objectId).subscribe(data=>{
+        location.href = "/zhangyuDepartment"
+    })
+   
   }
 
 }

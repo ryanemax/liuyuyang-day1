@@ -12,20 +12,45 @@ export class TrainerListPageComponent implements OnInit {
   list:Array<any>;
   
   constructor(private TrainerSe:TrainerService) { 
-    this.list = this.TrainerSe.trainers;
+   // this.list = this.TrainerSe.trainers;
+   this.TrainerSe.getTrainers().subscribe(data=>{
+      this.list = data
+    })
   }
 
-  asc(){
-    this.TrainerSe.asc()
-  }
+ asc(){
+    // 正序排列
+    // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+    this.list.sort((a,b)=>{
+      if(a.score>b.score){
+        return 1
+      }else{
+        return -1
+      }
+    })
+}
+
   desc(){
-    this.TrainerSe.desc()
+    // 逆序排列 
+    this.list.sort((a,b)=>{
+      if(a.score<b.score){
+        return 1
+      }else{
+        return -1
+      }
+    })   
   }
   random(){
-    this.TrainerSe.random()
+    // 随机排列
+    // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+    this.list.sort((a, b) => {
+    return Math.random() > 0.3 ? -1 : 1;
+  });
   }
-    delete(trainer){
-    this.TrainerSe.delete(trainer)
+  delete(trainer){
+    this.TrainerSe.deleteById(trainer.objectId).subscribe(data=>{
+      location.href="/trainer"
+    })    
   }
   ngOnInit() {
   }
