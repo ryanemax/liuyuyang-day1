@@ -8,13 +8,13 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SnackService {
-  // HTTP Params
-  authHeaders:Headers = new Headers()
-  host = "http://47.92.145.25:2337/parse"
-  className = "Snack"
+    // HTTP Params
+    authHeaders:Headers = new Headers()
+    host = "http://47.92.145.25:2337/parse"
+    className = "Snack"
 
-  // message:Array<Message>;
-  editObject:Message;
+    // message:Array<Message>;
+    editObject:Message;
   
     constructor(private http:Http) {
       this.authHeaders.append("X-Parse-Application-Id","dev")
@@ -55,53 +55,45 @@ export class SnackService {
           .map(data=>data.json().results)
         }
     
-    // getMessage(){
-    //   this.message = [
-    //    {name:"黄焖鸡米饭",mobile:"1336666666",local:"小吃一条街1-001店铺"},
-    //    {name:"重庆鸡公煲",mobile:"1556666666",local:"小吃一条街1-002店铺"},
-    //    {name:"东北铁锅焖面",mobile:"1556666666",local:"小吃一条街1-003店铺"},
-    //   {name:"丽江斑鱼火锅",mobile:"1556666666",local:"小吃一条街1-004店铺"},
-    //  ]
-    // }
+        saveMessage(message){
+          let url = this.host+"/classes/" + this.className
+          let options = {
+            headers:this.authHeaders
+          }
+          
+          if(message.objectId){
+            let id = message.objectId
+            delete message.createdAt
+            delete message.updatedAt
+            delete message.objectId
+            delete message.ACL
+      
+            return this.http
+            .put(url+"/"+id,message,options)
+            .map(data=>data.json())
+          }else{
+            return this.http
+            .post(url,message,options)
+            .map(data=>data.json())
+          }
+        }
   
     addMessage(message){
       // this.message.push(message)
     }
+
     updateMessage(message){
       // this.http.put()
     }
-    deleteById(id){
-      // this.message.forEach((item,index,arr)=>{
-      // if(item.name == name){
-        //  arr.splice(index,1)
-       }
-   //
-   }
 
-  //  asc(){
-  //    this.message.sort((a,b)=>{
-   //     if(a.name>b.name){
-  //        return 1
-  //      }else{
-  //        return -1
-  //      }
-   //   })
- // }
+    deleteById(id){
+      let url = this.host+"/classes/" + this.className + "/" + id
+      let options = {
+        headers:this.authHeaders
+      }
   
-  
-  //  desc(){
-  //    this.message.sort((a,b)=>{
-  //      if(a.name<b.name){
-  //        return 1
-  //      }else{
-  //        return -1
-  //      }
-  //    })    
- //   }
- //   random(){
- //     this.message.sort((a,b)=>{
- //       return Math.random() > 0.5 ? 1 : -1;
- //     })    
-      
- //    }
-// }
+      return this.http
+      .delete(url,options)
+      .map(data=>data.json())
+    }
+}
