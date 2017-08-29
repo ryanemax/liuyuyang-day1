@@ -1,110 +1,96 @@
 import { Injectable } from '@angular/core';
 
+import { Http, Headers } from '@angular/http';
+
 import { Observable } from "rxjs/Observable"
 import 'rxjs/add/observable/merge';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
-
-interface Shop {
-  index?: number,
-  productName: string,
-  number: string,
-  prices: string,
-  born?: string,
-  random?: number,
-
-}
-
 
 @Injectable()
 export class ShopService {
-  shops:Array<Shop>;
+  // HTTP Params
+  authHeaders:Headers = new Headers()
+  host = "http://47.92.145.25:2337/parse"
+  className = "shoplist"
+  // shops:Array<Shop>;
   editObject:Shop;
-  constructor() { 
-    this.getProducts()
+  size=0;
+  constructor(private http:Http) { 
+    this.authHeaders.append("X-Parse-Application-Id","dev")
+    this.authHeaders.append("X-Parse-Master-Key","angulardev")
+    this.authHeaders.append("Content-Type","application/json")
+
+   this.getShops().subscribe(data=>{
+         this.size = data.length;
+       })
   }
-
-  getProductByName(productName):Observable<Shop>{
-    let shop;
-    this.shops.forEach((item,index,arr)=>{
-      if(item.productName == productName){
-        shop = item;
-      }
-    })
-
-    return Observable.of(shop)
+  getShopByName(productName):Observable<Shop>{
+    // let shop = this.shops.find(item=>item.productName == productName)
+    // return Observable.of(shop)
+    return
   }
+  getShopById(id):Observable<Shop>{
+    // let shop = this.shops.find(item=>item.productName == productName)
+    // return Observable.of(shop)
+    console.log("xxxx"+id);
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
+    }
 
-  getProducts() {
-    this.shops = [
+    return this.http
+    .get(url,options)
+    .map(data=>data.json())
+  }
+  getShops():Observable<Array<Shop>>{
 
-      { index: 1, productName: "吧台桌", number: "5", prices: "790", born: "shenyang", random: Math.random() },
-      { index: 2, productName: "DIY高脚椅子", number: "4", prices:"178", random: Math.random() },
-      { index: 3, productName: "联想Y510", number: "6", prices: "4999", random: Math.random() },
-      { index: 4, productName: "恒大冰泉", number: "7", prices:"2.5", random: Math.random() },
-      { index: 5, productName: "达芙妮女鞋", number: "8", prices: "540", born: "dalian", random: Math.random() },
-    ]
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .get(url,options)
+    .map(data=>data.json().results)
+  }
   
+  saveShop(shop){
+    // this.http.post()
+    let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
+    
+    if(shop.objectId){
+      let id = shop.objectId
+      delete shop.createdAt
+      delete shop.updatedAt
+      delete shop.objectId
+      delete shop.ACL
+
+      return this.http
+      .put(url+"/"+id,shop,options)
+      .map(data=>data.json())
+    }else{
+     
+      shop.index=this.size+1;
+      this.size = this.size+1;
+      return this.http
+      .post(url,shop,options)
+      .map(data=>data.json())
+    }
   }
 
-    addProduct(newProduct){
-      
-      newProduct.index=this.shops.length+1;
-      newProduct.random=Math.random();
-      this.shops.push(newProduct)
+  deleteById(id){
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .delete(url,options)
+    .map(data=>data.json())
   }
-
-  // addProduct() {
-  //   let newProduct = {
-  //     index: this.products.length + 1,
-  //     productName: "suger",
-  //     number: "100",
-  //     price: "10",
-  //     random: Math.random()
-  //   }
-  //   this.products.push(newProduct)
-  // }
-
-    deleteByName(name){
-    this.shops.forEach((item,index,arr)=>{
-      if(item.productName == name){
-        arr.splice(index,1)
-      }
-    })
-  }
-
-  desc() {
-
-    this.shops.sort((a, b) => {
-      if (a.index < b.index) {
-        return 1
-      } else {
-        return -1
-      }
-    })
-  }
-
-
-  asc() {
-    // 逆序排列 
-    this.shops.sort((a, b) => {
-      if (a.index > b.index) {
-        return 1
-      } else {
-        return -1
-      }
-    })
-
-  }
-
-  random() {
-    this.shops.sort((a, b) => {
-      if (a.random > b.random) {
-        return 1
-      } else {
-        return -1
-      }
-    })
-
-  }
-
 }
+

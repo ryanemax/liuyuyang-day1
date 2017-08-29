@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Location } from '@angular/common';
 import { BugService } from "../bug.service"
 
 @Component({
@@ -9,14 +10,20 @@ import { BugService } from "../bug.service"
 })
 export class BugDetailPageComponent implements OnInit {
 
-  bug: Bug;
-  constructor(private route: ActivatedRoute, private bugService: BugService) {
+  bug: Bug = { index: "", level: "", status: "", assigneeName: "" };
 
+  constructor(private route: ActivatedRoute, private loc: Location, private bugService: BugService) {
+
+  }
+
+  save(bug: Bug) {
+    this.bugService.saveBug(bug).subscribe(() => {
+      this.loc.back();
+    });
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      console.log(params);
       let objectId = params.objectId;
       this.bugService.getBug(objectId).subscribe(data => {
         this.bug = data;

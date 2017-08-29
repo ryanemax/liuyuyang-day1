@@ -10,7 +10,9 @@ import {DataSource} from '@angular/cdk';
 export class DeviceListPageComponent implements OnInit {
   list:Array<any>;
   constructor(private deviceSer:DeviceService) { 
-   this.list=this.deviceSer.devices;
+     this.deviceSer.getDevices().subscribe(
+     data=>{this.list=data}
+   );
   }
 
   ngOnInit() {
