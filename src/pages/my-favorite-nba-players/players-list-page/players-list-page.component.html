@@ -1,30 +1,32 @@
-<h1 style="text-align:center;">My Favorite NBA Players</h1>
+<h1 style="text-align: center; margin-bottom: 50px;" class="press">My Favorite NBA Players</h1>
+
+<div style="margin-bottom: 20px; padding-left: 135px;">
+  <span class="press">Sort By Ability Score</span>
+  <button md-raised-button (click)="sortList('up')">ASC</button>
+  <button md-raised-button (click)="sortList('down')">DESC</button>
+  <button md-raised-button (click)="sortList('random')">Randomly</button>
+  <button md-raised-button routerLink="edit/new">Create New Player</button>
+</div>
 
 <div>
-    <span>Sort By Ability Score</span>
-    <button (click)="sortList('up')">ASC</button>
-    <button (click)="sortList('down')">DESC</button>
-    <button (click)="sortList('random')">Randomly</button>
-    <button routerLink="edit/new">Create New Player</button>
-</div> 
-
-<div>
-    <table class="gridtable">
-        <tr>
-            <th>Index</th>
-            <th>Name</th>
-            <th>Ability Score</th>
-            <th>Salary</th>
-            <th></th>
-            <th></th>
-        </tr>
-        <tr *ngFor="let player of players">
-            <td>{{player.index}}</td>
-            <td>{{player.name}}</td>
-            <td>{{player.abilityScore}}</td>
-            <td appCurrencyHighlight>{{player.salary | currencyFormat}}</td>
-            <td><button routerLink="edit/{{player.index}}">Edit</button></td>
-            <td><button (click)="delete(player)">Delete</button></td>
-        </tr>
-    </table>
+  <table class="table3">
+    <thead>
+      <tr>
+        <th></th>
+        <th scope="col" abbr="Starter">Ability Score</th>
+        <th scope="col" abbr="Medium">Salary</th>
+        <th scope="col" abbr="Business">Edit Operation</th>
+        <th scope="col" abbr="Deluxe">Delete Operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <th scope="row">{{player.name}}</th>
+        <td>{{player.abilityScore}}</td>
+        <td appCurrencyHighlight>{{player.salary | currencyFormat}}</td>
+        <td><button md-raised-button routerLink="edit/{{player.index}}">Edit</button></td>
+        <td><button md-icon-button (click)="delete(player)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
