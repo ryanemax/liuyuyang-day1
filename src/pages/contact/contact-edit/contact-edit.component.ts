@@ -19,7 +19,7 @@ export class ContactEditComponent implements OnInit {
     sex:"",
     birth:{
       __type:"Date",
-      iso: new Date()
+      iso: ""
     }
   }
   isNew:boolean

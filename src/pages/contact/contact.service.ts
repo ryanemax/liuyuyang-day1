@@ -7,6 +7,8 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/finally';
 
+import { Parse } from '../../cloud/cloud';
+// Parse.initialize("dev","http://localhost:1337/parse")
 
 @Injectable()
 export class ContactService {
@@ -26,26 +28,13 @@ export class ContactService {
     // return Observable.of(contact)
     return
   }
-  getContactById(id):Observable<Contact>{
-    let url = this.host+"/classes/" + this.className + "/" + id
-    let options = {
-      headers:this.authHeaders
-    }
-
-    return this.http
-    .get(url,options)
-    .map(data=>data.json())
+  getContactById(id):Observable<any>{
+    let query = new Parse.Query("ContactUser",this.http)
+    return query.get(id)
   }
   getContacts():Observable<Array<Contact>>{
-
-    let url = this.host+"/classes/" + this.className
-    let options = {
-      headers:this.authHeaders
-    }
-
-    return this.http
-    .get(url,options)
-    .map(data=>data.json().results)
+    let query = new Parse.Query("ContactUser",this.http)
+    return query.find()
   }
 
   saveContact(contact){
