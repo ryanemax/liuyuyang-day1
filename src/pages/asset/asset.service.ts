@@ -5,6 +5,8 @@ import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/count';
+import { Parse } from '../../cloud/cloud';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 @Injectable()
@@ -19,22 +21,19 @@ export class AssetService {
   }
   url = this.host + "/classes/" + this.className
   assetCount: Observable<number>
-
+  dataChange: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   assets: Array<Asset>;
   constructor(private http: Http) {
     this.authHeaders.append("X-Parse-Application-Id", "dev")
     this.authHeaders.append("X-Parse-Master-Key", "angulardev")
     this.authHeaders.append("Content-Type", "application/json")
+
+    this.refresh()
   }
 
   getAssets(): Observable<Array<Asset>> {
-    let result = this.http
-      .get(this.url, this.options)
-      .map(data => data.json().results)
-
-    this.assetCount = result.count()
-
-    return result
+    let query = new Parse.Query(this.className, this.http)
+    return query.find()
   }
 
   // getAssets() {
@@ -74,9 +73,7 @@ export class AssetService {
   // }
 
   add(asset) {
-
     // 新增宝贝
-    asset.img = "../../../assets/img/asset/img.png"
     return this.http
       .post(this.url, asset, this.options)
   }
@@ -90,6 +87,13 @@ export class AssetService {
     delete asset.objectId
     delete asset.ACL
 
+    if (asset.addTime && !asset.addTime.__type) {
+      asset.addTime = {
+        __type: "Date",
+        iso: new Date(asset.addTime)
+      }
+    }
+
     return this.http
       .put(this.url + "/" + id, asset, this.options)
       .map(data => data.json())
@@ -100,24 +104,40 @@ export class AssetService {
   //   return Observable.of(asset)
   // }
 
-  getAssetById(id): Observable<Asset> {
-    return this.http
-      .get(this.url + "/" + id, this.options)
-      .map(data => data.json())
+  getAssetById(id): Observable<any> {
+    let query = new Parse.Query(this.className, this.http)
+    return query.get(id)
   }
 
   deleteById(id) {
     return this.http
       .delete(this.url + "/" + id, this.options)
       .map(data => data.json())
+      .subscribe(data => {
+        let assets = this.dataChange.value
+        assets.forEach((item, index, arr) => {
+          if (item.objectId == id) {
+            arr.splice(index, 1)
+          }
+        })
+        this.dataChange.next(assets)
+      })
   }
 
 
-  getAssetCount(): Observable<number>{    
-   return  this.http.get(this.url+"?count=1",this.options)
-    .map(data => data.json().count)
-   
+  getAssetCount(): Observable<number> {
+    return this.http.get(this.url + "?count=1", this.options)
+      .map(data => data.json().count)
+
   }
 
+  connect() {
+    return this.dataChange
+  }
+  refresh() {
+    this.getAssets().subscribe(data => {
+      this.dataChange.next(data);
+    })
+  }
 
 }
