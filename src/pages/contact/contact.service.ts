@@ -10,6 +10,8 @@ import 'rxjs/add/operator/finally';
 import { Parse } from '../../cloud/cloud';
 // Parse.initialize("dev","http://localhost:1337/parse")
 
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+
 @Injectable()
 export class ContactService {
   // HTTP Params
@@ -17,11 +19,14 @@ export class ContactService {
   host = "http://47.92.145.25:2337/parse"
   className = "ContactUser"
   // contacts:Array<Contact>;
+  dataChange: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   editObject:Contact;
   constructor(private http:Http) { 
     this.authHeaders.append("X-Parse-Application-Id","dev")
     this.authHeaders.append("X-Parse-Master-Key","angulardev")
     this.authHeaders.append("Content-Type","application/json")
+
+    this.refresh()
   }
   getContactByName(name):Observable<Contact>{
     // let contact = this.contacts.find(item=>item.name == name)
@@ -36,7 +41,15 @@ export class ContactService {
     let query = new Parse.Query("ContactUser",this.http)
     return query.find()
   }
-
+  connect(){
+    return this.dataChange
+  }
+  refresh(){
+      this.getContacts().subscribe(data=>{
+          console.log(data)
+          this.dataChange.next(data);
+      })
+  }
   saveContact(contact){
     // this.http.post()
     let url = this.host+"/classes/" + this.className
@@ -77,5 +90,14 @@ export class ContactService {
     return this.http
     .delete(url,options)
     .map(data=>data.json())
+    .subscribe(data=>{
+      let contacts = this.dataChange.value
+      contacts.forEach((item,index,arr)=>{
+        if(item.objectId == id){
+          arr.splice(index,1)
+        }
+      })
+      this.dataChange.next(contacts)
+    })
   }
 }

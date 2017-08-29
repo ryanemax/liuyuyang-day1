@@ -16,10 +16,6 @@ export class BugListPageComponent implements OnInit {
     })
   }
 
-  add() {
-    this.bugService.add(this.bugs);
-  }
-
   sortList(type: string) {
     this.bugService.sortList(type, this.bugs);
   }

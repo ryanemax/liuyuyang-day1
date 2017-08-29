@@ -1,29 +1,41 @@
 .example-card {
-    margin-top:10px;
-    width: 100%;
+    margin:10px 25px;
+    width: 50%;
 }
 .mat-card-subtitle{
   color:#4c4c4c;
 }
 .item-edit{
   img{
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     border-radius: 6px;
     float: left;
   }
 }
-  button{
-    background: #006564 !important;
-    font-size: 0.875em !important;
-    color: white;
+  .mat-card-actions{
+     button{
+      margin-left: 1em;
+      margin-bottom: 1em;
+      color: #ffffff;
+      background: #006465;
+      font-size: 0.875em;
+      border-radius: 3px !important;
+      border: none;
+      height: 32px;
+      width: 20px;
+     }
+  }
+  .mat-raised-button{
+    color: #ffffff;
+    background: #006465;
+    font-size: 0.875em;
     border-radius: 3px !important;
     border: none;
     height: 32px;
     width: 20px;
+    margin:25px;
   }
-  .mat-card-actions{
-    float: right;
-    margin-top: -79px;
-    margin-right: 2em;
+  .mat-card-header-text{
+    margin:0 16px;
   }

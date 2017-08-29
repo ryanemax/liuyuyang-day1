@@ -4,6 +4,7 @@ import { Http, Headers } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
+import { Parse } from '../../cloud/cloud';
 
 @Injectable()
 export class AirlineService {
@@ -41,15 +42,16 @@ export class AirlineService {
       .map(data=>data.json())
     }
     getAirlines():Observable<Array<any>>{
+      let query = new Parse.Query("FlightAirline",this.http)
+      return query.find()
+      // let url = this.host+"/classes/" + this.className
+      // let options = {
+      //   headers:this.authHeaders
+      // }
 
-      let url = this.host+"/classes/" + this.className
-      let options = {
-        headers:this.authHeaders
-      }
-
-      return this.http
-      .get(url,options)
-      .map(data=>data.json().results)
+      // return this.http
+      // .get(url,options)
+      // .map(data=>data.json().results)
     }
 
     addAirline(airline){
@@ -70,7 +72,12 @@ export class AirlineService {
       let options = {
         headers:this.authHeaders
       }
-    
+      if(airline.date&&!airline.date.__type){
+        airline.date = {
+          __type:"Date",
+          iso: new Date(airline.date)
+        }
+      }
       if(airline.objectId){
         let id = airline.objectId
         delete airline.createdAt

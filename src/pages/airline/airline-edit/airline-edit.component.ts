@@ -5,7 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import {AirlineService} from '../airline.service'
 
 import {MdDialog, MdDialogRef} from '@angular/material';
-import {MdDatepickerModule} from '@angular/material';
+
 @Component({
   selector: 'app-airline-edit',
   templateUrl: './airline-edit.component.html',
@@ -16,7 +16,9 @@ object:Airline = {
     from:"",
     to:"",
     price: 0, 
-    fareClass:""
+    fareClass:"",
+    date: new Date(),
+    img: "",
   }
   isNew:boolean
   constructor(
@@ -34,6 +36,7 @@ object:Airline = {
     // }
     if(this.isNew){
       this.airlineServ.saveAirline(this.object).subscribe(data=>{
+        console.log("====="+this.object.img)
         this.back()
       })
     }else{
@@ -53,12 +56,12 @@ object:Airline = {
           let id = params['id']
           if(id == "new"){
             this.isNew = true;
+            console.log("test");
           }else{
             this.airlineServ.getAirlineByPrice(id).subscribe(data=>{
             this.object = data
         })
       }
-
     })
   }
 

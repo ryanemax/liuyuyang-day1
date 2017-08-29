@@ -1,10 +1,21 @@
-table{
-    color:#FF5400;
-    font-size:120%;
- 
+table {
+  color: #FF5400;
+  font-size: 120%;
 }
 
+#table1 {
+  background-color: #5568F3;
+}
 
-#table1{
-    background-color: #5568F3;
+.cell-border1 {
+  border: double;
+  color: #006680;
+}
+
+img.snack-img1{
+  width: 97%;
+}
+
+#button1{
+  float: right;
 }

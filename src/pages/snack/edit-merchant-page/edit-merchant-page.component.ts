@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-
 import {SnackService} from '../snack.service'
-
 import {MdDialog, MdDialogRef} from '@angular/material';
 
 @Component({
@@ -47,6 +45,12 @@ export class EditMerchantPageComponent implements OnInit {
   back(){
     this.loc.back()
   }
+
+  // delete(message){
+  //   this.snackService.deleteById(message.objectId).subscribe(data=>{
+  //       location.href = "/message"
+  //   })
+  // }
 
   ngOnInit() {
     this.route.params.subscribe(params=>{

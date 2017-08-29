@@ -25,6 +25,9 @@ export class BugDetailPageComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       let objectId = params.objectId;
+      if (!objectId) {
+        return;
+      }
       this.bugService.getBug(objectId).subscribe(data => {
         this.bug = data;
       });
