@@ -1,32 +1,56 @@
 table {
-    border-collapse:collapse;
-    margin-bottom:15px;
-    width:90%;
-    }
-    table td,
-    table th {
-        padding:5px;
-        border:1px solid #fff;
-        border-width:0 1px 1px 0;
-        }
-        
-    thead th {
-        background:#91c5d4;
-        }
-            
-        thead th[colspan],
-        thead th[rowspan] {
-            background:#66a9bd;
-            }
-    tbody td {
-        text-align:center;
-        background:#d5eaf0;
-        }
-        
-    tbody th {
-        background:#b0cc7f;
-        }
-        
-    tbody tr.odd td { 
-        background:#00DD77;
-        }
+  border-collapse: collapse;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+table td,
+table th {
+  padding: 5px;
+  border: 1px solid #fff;
+  border-width: 0 1px 1px 0;
+}
+
+thead th {
+  background: #91c5d4;
+}
+
+thead th[colspan],
+thead th[rowspan] {
+  background: #66a9bd;
+}
+
+tbody td {
+  text-align: center;
+  background: #d5eaf0;
+}
+
+tbody th {
+  background: #b0cc7f;
+}
+
+tbody tr.odd td {
+  background: #00DD77;
+}
+
+example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}

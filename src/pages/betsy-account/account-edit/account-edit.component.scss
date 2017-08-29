@@ -1,9 +1,16 @@
 .example-card {
     margin-top:10px;
-    width: 100%;
+    width: 80%;
+    margin: auto;
+    border-radius: 15px;
 }
 
-.example-header-image {
-  background-image: url('../../../assets/img/cardpreview/wuyaowang.jpg');
-  background-size: cover;
+button{
+  width:40px!important;
+  height: 40px;
+  border-radius: 20px;
+  background-color:#FFC1C1;
+  font-size: 15px;
+  color: white;
+  border: none
 }

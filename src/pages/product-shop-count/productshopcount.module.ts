@@ -18,7 +18,7 @@ import { ProductShopCountService  } from "./product-shop-count.service";
     SharedModule,MaterialModule,
     RouterModule.forChild([
       { path: '', component: ProductShopCountListComponent, pathMatch: 'full' },
-      { path: 'edit/:product_code', component: ProductShopCountEditComponent, pathMatch: 'full' }
+      { path: 'edit/:id', component: ProductShopCountEditComponent, pathMatch: 'full' }
     ]),
   ],
  providers:[ProductShopCountService],
