@@ -13,6 +13,8 @@
     <md-input-container>
       <input [(ngModel)]="object.price" mdInput placeholder="价格" value="">
     </md-input-container>
+
+    <app-edit-tag [(tags)]="object.tag"></app-edit-tag>
     </p>
   </md-card-content>
   <md-card-actions>

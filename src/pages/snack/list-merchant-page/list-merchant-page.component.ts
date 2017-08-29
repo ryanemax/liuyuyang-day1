@@ -17,9 +17,42 @@ export class ListMerchantPageComponent implements OnInit {
       this.message = data
     })
   }
+  
     delete(message){
       this.snackService.deleteById(message.objectId)
     }
+
+    asc(){
+      // 正序排列
+      // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+      this.message.sort((a,b)=>{
+        if(a.name>b.name){
+          return 1
+        }else{
+          return -1
+        }
+      })
+  }
+  
+  
+    desc(){
+      // 逆序排列   
+        this.message.sort((a,b)=>{
+        if(a.name>b.name){
+          return -1
+        }else{
+          return 1
+        }
+      }) 
+    }
+    random(){
+      // 随机排列
+      // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+      this.message.forEach(item=>{
+        item.random = Math.random()
+      })
+      this.asc()
+  }
 
   ngOnInit() {
   }
