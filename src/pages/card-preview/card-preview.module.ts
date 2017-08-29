@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     RouterModule.forChild([
       { path: '', component: CardPreviewManagerComponent, pathMatch: 'full' },
-      { path: 'edit/:name', component: CardEditComponent, pathMatch: 'full' }
+      { path: 'edit/:objectId', component: CardEditComponent, pathMatch: 'full' }
     ])
   ],
   providers:[CardPreviewService],

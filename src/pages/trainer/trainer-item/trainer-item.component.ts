@@ -11,13 +11,17 @@ export class TrainerItemComponent implements OnInit {
   @Input() trainer: any
 
   trainers: Array<Trainer>
-  constructor(private trainServ:TrainerService,) { }
+  constructor(private trainServ:TrainerService) {
+    
+   }
 
   ngOnInit() {
   }
 
   delete(trainer){
-    this.trainServ.delete(trainer)
+    this.trainServ.deleteById(trainer.objectId).subscribe(data=>{
+        location.href = "/trainer"
+    })
   }
 
 }

@@ -15,9 +15,14 @@
     <md-input-container>
         <input [(ngModel)]="tmpGood.addr" mdInput placeholder="addr" value="">
     </md-input-container>
-    <md-input-container>
+    <!-- <md-input-container>
         <input [(ngModel)]="tmpGood.date" mdInput placeholder="date" value="">
+    </md-input-container> -->
+    <md-input-container>
+        <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="tmpGood.date">
+        <button mdSuffix [mdDatepickerToggle]="picker"></button>
     </md-input-container>
+    <md-datepicker #picker></md-datepicker>
 </md-card-content>
 <md-card-actions>
     <button appBtnFastMail (click)="onClickBack()">Cancel</button>

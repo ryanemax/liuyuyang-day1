@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { GameListPageComponent } from '../game/game-list-page/game-list-page.component';
-import { GameItemComponent } from '../game/game-item/game-item.component';
-import { GameInsertComponent } from './game-insert/game-insert.component';
-import { GameUpdateComponent } from './game-update/game-update.component';
+import { GameListPageComponent } from './game-list-page/game-list-page.component';
+import { GameInsertPageComponent } from './game-insert-page/game-insert-page.component';
+import { GameUpdatePageComponent } from './game-update-page/game-update-page.component';
+
 import { GameService } from './game.service';
+import { GameItemComponent } from './game-item/game-item.component';
+import { GameEditComponent } from './game-edit/game-edit.component';
 
 import { MaterialModule } from "@angular/material"
 
@@ -16,11 +18,11 @@ import { MaterialModule } from "@angular/material"
     CommonModule,MaterialModule,FormsModule,
     RouterModule.forChild([
       { path: '', component: GameListPageComponent, pathMatch: 'full' },
-      { path: 'insert', component: GameInsertComponent, pathMatch: 'full' },
-      { path: 'update/:id', component: GameUpdateComponent, pathMatch: 'full' }
+      { path: 'insert', component: GameInsertPageComponent, pathMatch: 'full' },
+      { path: 'update/:id', component: GameUpdatePageComponent, pathMatch: 'full' }
     ])
   ],
   providers:[GameService],
-  declarations: [GameListPageComponent,GameItemComponent,GameInsertComponent,GameUpdateComponent]
+  declarations: [GameListPageComponent,GameItemComponent,GameInsertPageComponent,GameUpdatePageComponent,GameEditComponent]
 })
 export class GameModule { }

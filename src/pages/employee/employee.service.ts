@@ -13,7 +13,7 @@ export class EmployeeService {
   host = "http://47.92.145.25:2337/parse"
   className = "Employee"
 
-  employees:Array<Employee>;
+  // employees:Array<Employee>;
   editEmployee:Employee;
   constructor(private http:Http) { 
     this.authHeaders.append("X-Parse-Application-Id","dev")
@@ -45,53 +45,40 @@ export class EmployeeService {
     return this.http
     .get(url,options)
     .map(data=>data.json().results)
- }
+  }
 
- addEmployee(employee:Employee){
-   this.employees.push(employee)
- }
-
- deleteByName(name){
-  this.employees.forEach((item,index,arr)=>{
-    if(item.name == name){
-      arr.splice(index,1)
+    saveEmployee(employee){
+      // this.http.post()
+      let url = this.host+"/classes/" + this.className
+      let options = {
+        headers:this.authHeaders
+      }
+      
+      if(employee.objectId){
+        let id = employee.objectId
+        delete employee.createdAt
+        delete employee.updatedAt
+        delete employee.objectId
+        delete employee.ACL
+  
+        return this.http
+        .put(url+"/"+id,employee,options)
+        .map(data=>data.json())
+      }else{
+        return this.http
+        .post(url,employee,options)
+        .map(data=>data.json())
+      }
     }
-  })
-}
 
- asc(){
-   this.employees.sort((a,b)=>{
-     if(a.age>b.age){
-       return 1
-     }else{
-       return -1
-     }
-   })
-}
- desc(){
-   // 逆序排列    
-   this.employees.sort((a,b)=>{
-     if(a.age<b.age){
-       return 1
-     }else{
-       return -1
-     }
-   })
- }
- random(){
-
-   this.employees.forEach((employee)=>{
-     let randomNum = Math.random();
-     employee.random = randomNum;
-   });
-   
-   this.employees.sort((a,b)=>{
-     if(a.random<b.random){
-       return 1
-     }else{
-       return -1
-     }
-   })
- }
-
-}
+    deleteById(id){
+      let url = this.host+"/classes/" + this.className + "/" + id
+      let options = {
+        headers:this.authHeaders
+      }
+  
+      return this.http
+      .delete(url,options)
+      .map(data=>data.json())
+    }
+  }

@@ -14,13 +14,19 @@ export class CardPreviewManagerComponent implements OnInit {
   sortTypeTmp:number = 0;
   
   constructor(private cardPreviewService:CardPreviewService) { 
-    this.cards = this.cardPreviewService.cards;
+    this.cardPreviewService.getCards().subscribe(data=>{
+      this.cards = data
+    })
   }
 
   ngOnInit() {
   }
   del(card){
-    this.cardPreviewService.del(card);
+    this.cardPreviewService.del(card).subscribe(data=>{
+      this.cardPreviewService.getCards().subscribe(data2=>{
+        this.cards = data2
+      })
+    });
   }
   sort(type) {
     if ( type !== this.sortTypeTmp) {

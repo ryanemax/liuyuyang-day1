@@ -42,6 +42,7 @@ import { DeviceRedMarkDirective } from './device-red-mark.directive';
     DeviceTypePipe,
     ToKPipe,
     DeviceRedMarkDirective,
+    AccoundCardDirective,
     JianglunBookButtonComponent
 
   ],
@@ -58,6 +59,7 @@ import { DeviceRedMarkDirective } from './device-red-mark.directive';
     DeviceTypePipe,
     ToKPipe,
     DeviceRedMarkDirective,
+    AccoundCardDirective,
     JianglunBookButtonComponent
   ]
 })

@@ -16,7 +16,7 @@ import { AirlineService } from "./airline.service"
     SharedModule,MaterialModule,
     RouterModule.forChild([
       { path: '', component: AirlineListComponent, pathMatch: 'full' },
-      { path: 'edit/:price', component: AirlineEditComponent, pathMatch: 'full' }
+      { path: 'edit/:id', component: AirlineEditComponent, pathMatch: 'full' }
     ])
   ],
   providers:[AirlineService],

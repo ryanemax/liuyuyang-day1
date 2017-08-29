@@ -1,35 +1,78 @@
 import { Injectable } from '@angular/core';
+
+import { Http, Headers } from '@angular/http';
 import { Observable } from "rxjs/Observable"
-import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 @Injectable()
 export class ZhangyuService {
   departments: Array<Department>;
   departmentVo: Department;
-  constructor() { 
-    this.queryDepartments();
+  // HTTP Params
+  authHeaders:Headers = new Headers();
+  host = "http://47.92.145.25:2337/parse";
+  className = "DepartmentCustm";
+  constructor(private http:Http) { 
+    this.authHeaders.append("X-Parse-Application-Id","dev")
+    this.authHeaders.append("X-Parse-Master-Key","angulardev")
+    this.authHeaders.append("Content-Type","application/json")
+ 
   }
-  queryDepartments(){
-    this.departments = [
-    {id: "1", name: '人事部', count: "4",createDate:new Date()},
-    {id: "2", name: '管理部', count: "5",createDate:new Date()}, 
-    {id: "3", name: '开发部', count: "50",createDate:new Date()},
-    {id: "4", name: '后勤部', count: "10",createDate:new Date()},
-    {id: "5", name: '总裁办公室', count: "6",createDate:new Date()}
-    ]
+  queryDepartments():Observable<Array<Department>>{
+   let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .get(url,options)
+    .map(data=>data.json().results);
+
   }
   addDepartment(department){
     this.departments.push(department);
   }
   getDepartmentById(id):Observable<Department>{
-    let department = this.departments.find(item=>item.id == id)
-    return Observable.of(department)
+    let url = this.host+"/classes/" + this.className + "/" + id
+    let options = {
+      headers:this.authHeaders
+    }
+
+    return this.http
+    .get(url,options)
+    .map(data=>data.json())
+   
   }
-  delDepartmentById(id){
-    this.departments.forEach((item,index,arr)=>{
-      if(item.id == id){
-        arr.splice(index,1)
-      }
-    })
+  delDepartmentById(objectId){
+    let url = this.host+"/classes/" + this.className + "/" + objectId
+    let options = {
+      headers:this.authHeaders
+    }
+    return this.http
+    .delete(url,options)
+    .map(data=>data.json());
+
+  }
+  saveDepartment(department){
+     let url = this.host+"/classes/" + this.className
+    let options = {
+      headers:this.authHeaders
+    }
+
+    if(department.objectId){
+      let id = department.objectId
+      delete department.createdAt
+      delete department.updatedAt
+      delete department.objectId
+      delete department.ACL
+
+      return this.http
+      .put(url+"/"+id,department,options)
+      .map(data=>data.json())
+    }else{
+      return this.http
+      .post(url,department,options)
+      .map(data=>data.json())
+    }
   }
 }
