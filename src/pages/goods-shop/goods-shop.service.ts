@@ -58,7 +58,8 @@ export class GoodsShopService {
 
     let date = {
       "name":item.name,
-      "price":item.price
+      "price":item.price,
+      "tag":item.tag
     }
 
     return this.http

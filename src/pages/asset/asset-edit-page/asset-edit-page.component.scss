@@ -1,16 +1,24 @@
 .example-form {
     width: 500px;
 }
-  
+.assetContent{
+    margin-left: 30px;
+    margin-top:10px;
+  }
 .example-full-width {
     width: 100%;
 }
-div{padding: 40px 0px 0px 40px;width:600px;font-size: 13px;background-color: white;
+.assetFormClass{padding: 40px 40px 0px 40px;width:600px;font-size: 13px;background-color: white;
     filter: alpha(Opacity=80);
     -moz-opacity: 0.5;
-    opacity: 0.7;height: 370px;}
+    opacity: 0.7;height: 390px;    
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12)!important;    
+}
   
 md-select{margin-top: 10px;margin-bottom: 10px;}
-h3{width: 600px;}
-button{margin-left: 10px;float: right;}
-div>button{margin-top: 130px;}
+.assetContent h3{width: 600px;margin-bottom: 25px;}
+.assetContent button{margin-left: 10px;float: right;margin-right: 20px;}
+.assetFormClass>div{
+    margin-top: 20px;
+    margin-bottom: 30px;width: 560px;
+}

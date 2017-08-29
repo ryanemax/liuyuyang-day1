@@ -17,7 +17,7 @@ export class AssetDetailPageComponent implements OnInit {
     brand: "",
     price: 0,
     addTime: new Date(),
-    img: ""
+    img: "../../../assets/img/asset/img.png"
   }
 
   constructor(private route: ActivatedRoute, private assetService: AssetService, private location: Location) { }

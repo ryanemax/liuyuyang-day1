@@ -20,6 +20,7 @@ export class EditTagComponent implements OnInit {
         this.tags = []
       }
       this.tags.push(this.tag)
+      this.tag = ""
     }
     this.tagsChange.emit(this.tags)
   }

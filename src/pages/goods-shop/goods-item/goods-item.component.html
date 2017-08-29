@@ -1,6 +1,10 @@
 <div class="items">
   <div class="info"><img src="./assets/img/goods/{{item.name}}.jpg" width="200px" height="200px">
-    <div><span class="name" HighlightDirective>{{item.name}}</span>  <span class="price">价格:{{item.price}}</span></div>
+    <div>
+      <span class="name" HighlightDirective>{{item.name}}</span>
+      <span class="price">价格:{{item.price}}</span>
+      <span *ngIf="item.tag" class="tag">类别:<span style="background:black;color:white;margin-left:5px;padding:3px;" *ngFor="let t of item.tag">{{t}}</span></span>
+    </div>
   </div>
   <div class="buttons">
     <button routerLink="edit/{{item.objectId}}">编辑</button>
