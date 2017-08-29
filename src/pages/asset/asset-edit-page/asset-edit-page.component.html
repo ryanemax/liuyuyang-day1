@@ -39,10 +39,11 @@
     <input mdInput type="number" placeholder="价格" value="{{obj.price}}" [(ngModel)]="obj.price">
   </md-input-container>
 
-  <br/>
-  <br/>
-  <br/>
-  <br/>
+  <md-input-container>
+      <input mdInput [mdDatepicker]="picker" placeholder="入手日期" [(ngModel)]="obj.addTime" value="{{obj.addTime}}">
+      <button mdSuffix [mdDatepickerToggle]="picker"></button>
+    </md-input-container>
+    <md-datepicker #picker></md-datepicker>
 
   <button appAssetButton (click)=returnList()>取消</button>
   <button appAssetButton (click)=saveAsset()>提交</button>

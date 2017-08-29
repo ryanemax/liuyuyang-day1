@@ -1,6 +1,6 @@
 interface Airline{
   from:string,
   to:string,
-  price:string, 
+  price:number, 
   fareClass:string
 }

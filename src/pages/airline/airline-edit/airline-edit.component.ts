@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import {AirlineService} from '../airline.service'
 
 import {MdDialog, MdDialogRef} from '@angular/material';
+import {MdDatepickerModule} from '@angular/material';
 @Component({
   selector: 'app-airline-edit',
   templateUrl: './airline-edit.component.html',
@@ -14,7 +15,7 @@ export class AirlineEditComponent implements OnInit {
 object:Airline = {
     from:"",
     to:"",
-    price:"", 
+    price: 0, 
     fareClass:""
   }
   isNew:boolean
@@ -23,17 +24,14 @@ object:Airline = {
     private loc:Location,
     private airlineServ:AirlineService,
     public dialog: MdDialog) { 
-    if(airlineServ.editObject){
-      this.object = airlineServ.editObject
-    }
   }
   
   save(){
-    if(this.object.from==""||this.object.price=="" ||this.object.to==""){
-      alert("信息不完整，请检查")
-      // this.dialog.open(DialogResult);
-      return
-    }
+    // if(this.object.from==""||this.object.to==""){
+    //   alert("信息不完整，请检查")
+    //   // this.dialog.open(DialogResult);
+    //   return
+    // }
     if(this.isNew){
       this.airlineServ.saveAirline(this.object).subscribe(data=>{
         this.back()
@@ -53,13 +51,10 @@ object:Airline = {
   ngOnInit() {
           this.route.params.subscribe(params=>{
           let id = params['id']
-          console.log(id)
-          if(id ===""){
+          if(id == "new"){
             this.isNew = true;
-               console.log("test")
           }else{
             this.airlineServ.getAirlineByPrice(id).subscribe(data=>{
-              console.log(data)
             this.object = data
         })
       }
