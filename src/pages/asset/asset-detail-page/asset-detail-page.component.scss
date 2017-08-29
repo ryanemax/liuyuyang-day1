@@ -1,9 +1,16 @@
 .example-card {
     width: 600px;
   }
-
+  .assetContent{
+    margin-left: 30px;
+    margin-top:10px;
+  }
+  md-card{margin: 30px 0px 50px 50px;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12)!important;    
+  }
   .mat-card-subtitle {font-size: 20px;
-    font-weight: bold;}
+    font-weight: bold;
+  }
 
   .mat-card-image{  
     margin: 10px 30px;
@@ -12,6 +19,6 @@
     text-align: center;
   }
   .t45{width: 45%;}
-  h3{width: 600px;}
+  h3{width: 650px;}
   h3 button{float: right;}
   table{margin-left: 40px;width: 520px;}

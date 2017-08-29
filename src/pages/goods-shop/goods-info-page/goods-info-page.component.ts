@@ -11,7 +11,6 @@ export class GoodsInfoPageComponent implements OnInit {
   constructor(private goodsServ: GoodsShopService) {
     // this.goods = this.goodsServ.goods
     this.goodsServ.getGoods().subscribe(data=>{
-      console.log(data)
       this.goods = data
     })
   }

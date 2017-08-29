@@ -9,6 +9,7 @@ import { SexNamePipe } from './sex-name.pipe';
 import { CurrencyFormatPipe } from './currency/currency-format/currency-format.pipe';
 import { TypeSelectPipe } from './account-card/type-select.pipe';
 import { ToKPipe } from './to-k.pipe';
+import { ImagePipePipe } from './image-pipe.pipe';
 
 // 引入指令
 import { HighlightDirective } from './highlight.directive';
@@ -41,6 +42,7 @@ import { DeviceRedMarkDirective } from './device-red-mark.directive';
     LiucDeviceButtonComponent,
     DeviceTypePipe,
     ToKPipe,
+    ImagePipePipe,
     DeviceRedMarkDirective,
     AccoundCardDirective,
     JianglunBookButtonComponent
@@ -58,6 +60,7 @@ import { DeviceRedMarkDirective } from './device-red-mark.directive';
     LiucDeviceButtonComponent,
     DeviceTypePipe,
     ToKPipe,
+    ImagePipePipe,
     DeviceRedMarkDirective,
     AccoundCardDirective,
     JianglunBookButtonComponent

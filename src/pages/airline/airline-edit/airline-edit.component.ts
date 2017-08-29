@@ -5,7 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import {AirlineService} from '../airline.service'
 
 import {MdDialog, MdDialogRef} from '@angular/material';
-import {MdDatepickerModule} from '@angular/material';
+
 @Component({
   selector: 'app-airline-edit',
   templateUrl: './airline-edit.component.html',
@@ -16,7 +16,8 @@ object:Airline = {
     from:"",
     to:"",
     price: 0, 
-    fareClass:""
+    fareClass:"",
+    date: new Date()
   }
   isNew:boolean
   constructor(
@@ -58,7 +59,6 @@ object:Airline = {
             this.object = data
         })
       }
-
     })
   }
 

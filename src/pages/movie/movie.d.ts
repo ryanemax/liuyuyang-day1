@@ -3,6 +3,6 @@ interface Movie{
     movieName:string,
     mark:number,
     director:string,
-    year?:number
+    year?:number,
     random?:number
   }

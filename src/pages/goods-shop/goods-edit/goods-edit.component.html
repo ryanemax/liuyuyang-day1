@@ -5,17 +5,15 @@
   <md-card-header>
   </md-card-header>
   <md-card-content>
-    <p>
     <md-input-container>
       <input [(ngModel)]="object.name" mdInput placeholder="商品名称" value="">
     </md-input-container>
 
     <md-input-container>
-      <input [(ngModel)]="object.price" mdInput placeholder="价格" value="">
+      <input type="number" [(ngModel)]="object.price" mdInput placeholder="价格">
     </md-input-container>
 
-    <app-edit-tag [(tags)]="object.tag"></app-edit-tag>
-    </p>
+    <div><app-edit-tag [(tags)]="object.tag"></app-edit-tag></div>
   </md-card-content>
   <md-card-actions>
     <button md-button routerLink="/goods-shop">取消</button>

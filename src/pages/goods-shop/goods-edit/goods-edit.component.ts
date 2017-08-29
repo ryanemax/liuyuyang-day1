@@ -11,7 +11,7 @@ import { GoodsShopService } from "../goods-shop.service"
 export class GoodsEditComponent implements OnInit {
   object: Item = {
     name:"",
-    price: ""
+    price: 0
   }
   isNew:boolean
   constructor(private route: ActivatedRoute,
@@ -22,7 +22,7 @@ export class GoodsEditComponent implements OnInit {
   }
 
   save(){
-    if(this.object.name==""||this.object.price==""){
+    if(this.object.name==""||this.object.price==null){
       alert("信息不完整，请检查")
       // this.dialog.open(DialogResult);
       return
@@ -45,8 +45,8 @@ export class GoodsEditComponent implements OnInit {
       if(id=="new"){
         this.isNew = true;
       }else{
-        this.goodsServ.getContactById(id).subscribe(item=>{
-          this.object = item;
+        this.goodsServ.getContactById(id).subscribe(data=>{
+          this.object = data;
         })
       }
     })
