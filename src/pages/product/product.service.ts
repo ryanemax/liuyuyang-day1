@@ -4,6 +4,9 @@ import { Observable } from "rxjs/Observable"
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 
+import { Parse } from '../../cloud/cloud';
+Parse.initialize("dev","http://localhost:1337/parse")
+
 @Injectable()
 export class ProductService {
    // HTTP Params
@@ -25,29 +28,34 @@ export class ProductService {
   //let product = this.products.find(item=>item.brand == brand)
   //return Observable.of(product)
 //}
-getProductById(id):Observable<Product>{
+getProductById(id):Observable<any>{
   // let contact = this.contacts.find(item=>item.name == name)
   // return Observable.of(contact)
 
-  let url = this.host+"/classes/" + this.className + "/" + id
-  let options = {
-    headers:this.authHeaders
-  }
+  // let url = this.host+"/classes/" + this.className + "/" + id
+  // let options = {
+  //   headers:this.authHeaders
+  // }
 
-  return this.http
-  .get(url,options)
-  .map(data=>data.json())
+  // return this.http
+  // .get(url,options)
+  // .map(data=>data.json())
+  let query = new Parse.Query("Product",this.http)
+  return query.get(id)
+
 }
 getProducts():Observable<Array<Product>>{
   
-      let url = this.host+"/classes/" + this.className
-      let options = {
-        headers:this.authHeaders
-      }
+      // let url = this.host+"/classes/" + this.className
+      // let options = {
+      //   headers:this.authHeaders
+      // }
   
-      return this.http
-      .get(url,options)
-      .map(data=>data.json().results)
+      // return this.http
+      // .get(url,options)
+      // .map(data=>data.json().results)
+      let query = new Parse.Query("Product",this.http)
+      return query.find()
     }
 
     saveProduct(jumeiProduct){

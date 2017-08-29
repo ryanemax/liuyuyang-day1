@@ -53,9 +53,18 @@ export class TrainerListPageComponent implements OnInit {
   }
   delete(trainer){
     this.TrainerSe.deleteById(trainer.objectId).subscribe(data=>{
-      location.href="/trainer"
+      // location.href="/trainer"
+      this.refresh();
     })    
   }
+
+  refresh(){
+    this.TrainerSe.fillTrainers().subscribe(data => {
+      this.list = data
+     
+    })
+  }
+  
   ngOnInit() {
   }
 }
