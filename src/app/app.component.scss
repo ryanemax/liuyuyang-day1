@@ -1,0 +1,67 @@
+
+$primary:    #2196f3;
+$secondary:  #00bcd4;
+$danger:     #f53d3d;
+$light:      #f4f4f4;
+$dark:       #222;
+$favorite:   #69BB7B;
+$twitter:    #1da1f4;
+$google:     #dc4a38;
+$vimeo:      #23b6ea;
+$facebook:   #2196f3;
+
+.header {
+    background-color: $facebook;
+    color: #ffffff;
+    padding-left: 15px;
+    padding-top: 5px;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12)!important;
+    height:77px;
+}
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color :$secondary;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.menu li:hover {
+    background-color: $primary;
+}
+
+.sidenav-fab-container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.sidenav-fab-container md-sidenav {
+  max-width: 200px;
+}
+
+.sidenav-fab-container .mat-sidenav-content,
+.sidenav-fab-container md-sidenav {
+  display: flex;
+  overflow: visible;
+}
+
+.scrolling-nav {
+  overflow: auto;
+  padding:7px;
+}
+
+.scrolling-content {
+  overflow: auto;
+  padding:7px;
+}
+
+.example-fab {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}

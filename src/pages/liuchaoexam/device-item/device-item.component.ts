@@ -15,11 +15,12 @@ export class DeviceItemComponent implements OnInit {
   }
 
    delete(device){
-    this.deviceSer.deleteByName(device.name)
+    this.deviceSer.deleteById(this.device.objectId).subscribe(data=>{
+      
+    });
   }
   edit(){
-    this.deviceSer.editObject = this.device
-    // this.loc.go("/contact/edit")
-    // location.href = "/contact/edit"
+    this.deviceSer.editObject=this.device;
+    this.deviceSer.getDeviceInfoById(this.device.objectId);
   }
 }

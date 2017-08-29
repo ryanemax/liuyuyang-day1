@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import {AirlineService} from '../airline.service'
 
 import {MdDialog, MdDialogRef} from '@angular/material';
+import {MdDatepickerModule} from '@angular/material';
 @Component({
   selector: 'app-airline-edit',
   templateUrl: './airline-edit.component.html',
