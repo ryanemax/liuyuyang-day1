@@ -1,13 +1,16 @@
 <div class="items">
-  <div class="info"><img src="./assets/img/goods/{{item.name}}.jpg" width="200px" height="200px">
-    <div>
-      <span class="name" HighlightDirective>{{item.name}}</span>
-      <span class="price">价格:{{item.price}}</span>
-      <span *ngIf="item.tag" class="tag">类别:<span style="background:black;color:white;margin-left:5px;padding:3px;" *ngFor="let t of item.tag">{{t}}</span></span>
+  <div class="details">
+    <div class="image">
+      <img src="./assets/img/goods/{{item.image}}" width="160px" height="160px">
+    </div>
+    <div class="info">
+      <h3 class="name">{{item.name}}</h3>
+      <div class="price">价格: {{item.price}}</div>
+      <div *ngIf="item.tag" class="tag">标签: <span class="tagDetail" *ngFor="let t of item.tag">{{t}}</span></div>
     </div>
   </div>
   <div class="buttons">
-    <button routerLink="edit/{{item.objectId}}">编辑</button>
-    <button md-button (click)="delete(item)">删除</button>
+    <button routerLink="edit/{{item.objectId}}" appCommonButton>编辑</button>
+    <button (click)="delete(item)" appCommonButton>删除</button>
   </div>
 </div>

@@ -1,12 +1,35 @@
 .items {
     display: inline-block;
-    width: 33%;
+    width: 30%;
+    background: rgba(0, 188, 212, 0.14);
+    margin: 5px 10px 5px 0;
+    padding: 10px 0 0 10px;
+}
+
+.details {
+    display: flex;
+}
+
+.info {
+    padding-left: 20px;
 }
 
 .name {
-    color: red;
+    color: #2196f3;
 }
 
 .price{
     font-weight: 300;
+    padding-bottom: 5px; 
+}
+
+.tagDetail {
+    background: #2196f3;
+    color: #fff;
+    margin: 0 3px;
+}
+
+.buttons {
+    float: right;
+    padding:10px 25px 10px 0;
 }

@@ -1,4 +1,5 @@
 interface Item{
   name:string,
-  price:number
+  price:number,
+  image:string
 }

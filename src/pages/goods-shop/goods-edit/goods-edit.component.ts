@@ -11,7 +11,8 @@ import { GoodsShopService } from "../goods-shop.service"
 export class GoodsEditComponent implements OnInit {
   object: Item = {
     name:"",
-    price: 0
+    price: 0,
+    image: "默认.jpg"
   }
   isNew:boolean
   constructor(private route: ActivatedRoute,
@@ -33,6 +34,7 @@ export class GoodsEditComponent implements OnInit {
       this.goodsServ.updateContact(this.object).subscribe()
     }
     this.back()
+    this.goodsServ.refresh() // 调用第三方
   }
 
   back(){

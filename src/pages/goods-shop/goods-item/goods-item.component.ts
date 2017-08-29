@@ -12,9 +12,7 @@ export class GoodsItemComponent implements OnInit {
   constructor(private goodsServ: GoodsShopService) { }
 
   delete(item){
-    this.goodsServ.deleteById(item.objectId).subscribe(data=>{
-        location.href = "/goods-shop"
-    })
+    this.goodsServ.deleteById(item.objectId)
   }
 
   edit(){

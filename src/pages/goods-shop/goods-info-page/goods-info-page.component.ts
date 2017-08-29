@@ -9,8 +9,7 @@ import { GoodsShopService } from "../goods-shop.service"
 export class GoodsInfoPageComponent implements OnInit {
   goods:Array<any>;
   constructor(private goodsServ: GoodsShopService) {
-    // this.goods = this.goodsServ.goods
-    this.goodsServ.getGoods().subscribe(data=>{
+    this.goodsServ.connect().subscribe(data=>{  //.getGoods() 直接调用数据库的function
       this.goods = data
     })
   }

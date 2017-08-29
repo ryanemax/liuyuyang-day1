@@ -13,6 +13,8 @@ import { SharedEditModule } from "../../shared-edit/shared-edit.module";
 
 import { GoodsShopService } from "./goods-shop.service"
 
+import { CommonButtonDirective } from './common-button.directive';
+
 @NgModule({
   imports: [
     CommonModule,MaterialModule,
@@ -24,6 +26,6 @@ import { GoodsShopService } from "./goods-shop.service"
     ])
   ], 
   providers:[GoodsShopService],
-  declarations: [GoodsInfoPageComponent,GoodsItemComponent,GoodsEditComponent]
+  declarations: [GoodsInfoPageComponent,GoodsItemComponent,GoodsEditComponent,CommonButtonDirective]
 })
 export class GoodsShopModule { }
