@@ -21,7 +21,7 @@ export class EmployeeListPageComponent implements OnInit {
   }
 
     delete(employee){
-      this.employeeServ.deleteById(employee.objectId).subscribe(data=>{
+      this.employeeServ.deleteById(employee.objectId).subscribe(()=>{
         this.employeeServ.getEmployees().subscribe(data => {
           this.employees = data
         })
