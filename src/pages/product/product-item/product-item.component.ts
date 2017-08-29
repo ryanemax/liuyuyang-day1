@@ -13,7 +13,10 @@ export class ProductItemComponent implements OnInit {
   constructor(private productserv:ProductService,
   private loc:Location) { }
   delete(product){
-    this.productserv.deleteByName(product.brand)
+    this.productserv.deleteById(product.objectId).subscribe(data=>{
+      location.href = "/product"
+  })
+
   }
   ngOnInit() {
   }

@@ -39,21 +39,26 @@ export class ProductEditComponent implements OnInit {
       return
     }
     if(this.isNew){
-      this.contactServ.addProduct(this.object)
+      this.contactServ.saveProduct(this.object).subscribe(data=>{
+        this.back()
+      })
+    }else{
+      this.contactServ.saveProduct(this.object).subscribe(data=>{
+        this.back()
+      })
     }
-    this.back()
   }
   back(){
     this.loc.back()
   }
   ngOnInit() {
             this.route.params.subscribe(params=>{
-          let brand = params['brand']
-          if(brand=="new"){
+          let id = params['id']
+          if(id=="new"){
             this.isNew = true;
           }else{
-            this.contactServ.getProductByBrand(brand).subscribe(contact=>{
-            this.object = contact
+            this.contactServ.getProductById(id).subscribe(Product=>{
+            this.object = Product
         })
       }
 

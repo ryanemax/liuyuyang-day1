@@ -18,7 +18,7 @@ export class ProductShopCountEditComponent implements OnInit {
     shop_code:"",
     dataset_code:"",
     quantities:0 ,
-    addDate:new Date()
+    // addDate:new Date()
   
   }
 
@@ -34,25 +34,34 @@ export class ProductShopCountEditComponent implements OnInit {
    }
 
   save(){
-    if(this.object.product_code==""||this.object.product_description==""||this.object.dataset_code==""||this.object.shop_code==""||this.object.quantities==0){
+    if(this.object.product_code==""||this.object.product_description==""||this.object.dataset_code==""
+      ||this.object.shop_code==""||this.object.quantities==0){
       alert("信息不完整，请检查")
       return
     }
       if(this.isNew){
-        this.productServ.addProduct(this.object)
+        this.productServ.saveProductShop(this.object).subscribe(date=>{
+          this.back()
+        })
       }
-      this.back()
-  }
-      back(){
-        this.loc.back()
-      }
+      else{
+         this.productServ.saveProductShop(this.object).subscribe(date=>{
+          this.back()
+      })
+     }
+   }
+
+    back(){
+       this.loc.back()
+    }
+
   ngOnInit() {
             this.route.params.subscribe(params=>{
-          let product_code = params['product_code']
-          if(product_code=="new"){
+          let id = params['id']
+          if(id=="new"){
             this.isNew = true;
           }else{
-            this.productServ.getProductByProductCode(product_code).subscribe(product=>{
+            this.productServ.getProductShopById(id).subscribe(product=>{
             this.object = product
         })
       }

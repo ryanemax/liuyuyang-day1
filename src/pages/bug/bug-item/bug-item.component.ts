@@ -11,7 +11,7 @@ export class BugItemComponent implements OnInit {
   constructor(private bugService: BugService) { }
 
   delete(objectId: string) {
-    this.bugService.delete(objectId, this.bugs).subscribe(data => {
+    this.bugService.delete(objectId).subscribe(() => {
       this.bugService.getBugs().subscribe(data => {
         this.bugs = data
       })

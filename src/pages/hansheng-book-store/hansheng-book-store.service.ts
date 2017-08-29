@@ -17,7 +17,7 @@ export class HanshengBookStoreService {
 
   // HTTP Params
   authHeaders:Headers = new Headers()
-  host = "http://localhost:1337/parse"
+  host = "http://47.92.145.25:2337/parse"
   className = "HanshengBookStore"
 
   editObject:Book;

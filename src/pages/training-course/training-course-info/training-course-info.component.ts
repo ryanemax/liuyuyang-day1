@@ -11,10 +11,16 @@ export class TrainingCourseInfoComponent implements OnInit {
   courses:Array<any>;
   
   constructor(private service:TrainingCourseService ) { 
-    this.courses = this.service.courses;
+     this.service.getContent().subscribe(data => {this.courses = data
+      console.log(this.courses)
+    })
   }
+  
   doDel(name){
-    this.service.delete(name)
+   
+    this.service.delete(name).subscribe(data=>{
+      location.href = "/trainingcourse"
+    })
   }
   sortByRadom()
   {

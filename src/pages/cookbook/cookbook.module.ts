@@ -3,6 +3,8 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CookListPageComponent } from './cook-list-page/cook-list-page.component';
+import { CookbookEditComponent } from './cookbook-edit/cookbook-edit.component';
+import { CookbookItemComponent } from './cookbook-item/cookbook-item.component';
 // 引入第三方共享模块
 import { SharedModule } from "../../shared/shared.module";
 import { MaterialModule } from "@angular/material";
@@ -22,8 +24,12 @@ import { CookbookService } from "./cookbook.service"
      
     ])
   ],
+<<<<<<< HEAD
   providers:[CookbookService],
   declarations: [CookListPageComponent,CookbookEditComponent]
+=======
+  declarations: [CookListPageComponent,CookbookEditComponent,CookbookItemComponent]
+>>>>>>> ce73e2af3bea6a9d03b6a82046fdbd284823fcb6
  
 })
 export class CookbookModule { }
