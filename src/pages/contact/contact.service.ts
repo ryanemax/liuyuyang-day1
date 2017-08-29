@@ -20,10 +20,6 @@ export class ContactService {
     this.authHeaders.append("X-Parse-Application-Id","dev")
     this.authHeaders.append("X-Parse-Master-Key","angulardev")
     this.authHeaders.append("Content-Type","application/json")
-
-    this.getContactById("SvsaxHrECT").subscribe(data=>{
-      console.log(data)
-    })
   }
   getContactByName(name):Observable<Contact>{
     // let contact = this.contacts.find(item=>item.name == name)

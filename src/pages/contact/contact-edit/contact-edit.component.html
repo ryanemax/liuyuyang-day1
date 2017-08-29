@@ -1,4 +1,10 @@
-<button md-raised-button (click)="back()">返回</button>
+
+<md-toolbar color="light">
+    <span>联系人 > {{isNew?"新增":"编辑["+object.name+"]"}}</span>
+    <span class="toolbar-spacer"></span>
+    <button md-raised-button (click)="back()">返回</button>
+
+</md-toolbar>
 
 <md-card class="example-card">
   <md-card-header>

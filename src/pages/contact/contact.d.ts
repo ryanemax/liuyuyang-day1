@@ -1,5 +1,8 @@
 interface Contact{
-  birth?:Date,
+  birth?:{
+      __type:string,
+      iso: Date
+  },
   name:string,
   sex:string,
   mobile:string,
