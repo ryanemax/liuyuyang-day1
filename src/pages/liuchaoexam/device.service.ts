@@ -66,34 +66,53 @@ getDevices():Observable<Array<DeviceInfo>>{
     // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
   }
 
-  deleteByName(name){
-    this.devices.forEach((item,index,arr)=>{
-      if(item.name == name){
-        arr.splice(index,1)
-      }
-    })
+  deleteById(id){
+    let options = {
+      headers:this.deviceH
+    }
+    let urlDel=this.url+"/"+id;
+    return this.http.delete(urlDel,options)
+    .map(data=>data.json());
   }
 
 addDeviceInfo(dev){
   let options = {
       headers:this.deviceH
     }
-  let urlNew=this.url+"/"+dev.objectId;
+  
+ let urlNew="http://47.92.145.25:2337/parse/classes/DeviceInfo"
+
   if(dev.objectId){
-    console.log(dev.objectId);
+      let id = dev.objectId
+      delete dev.createdAt
+      delete dev.updatedAt
+      delete dev.objectId
+      delete dev.ACL
+      
       return this.http
-     .put(this.url,dev,options);
+     .put(urlNew+"/"+id,dev,options)
+     .map(data=>data.json())
   }else{
       return this.http
-      .post(this.url,dev,options);
-      
+      .post(urlNew,dev,options)
+      .map(data=>data.json())
   }
   
 }
 
-getContactByName(name):Observable<DeviceInfo>{
-    let dev = this.devices.find(item=>item.name == name)
-    return Observable.of(dev)
-  }
+// getDeviceInfoByName(name):Observable<DeviceInfo>{
+//     let dev = this.devices.find(item=>item.name == name)
+//     return Observable.of(dev)
+// }
+
+getDeviceInfoById(id):Observable<DeviceInfo>{
+    let options = {
+      headers:this.deviceH
+    }
+  let url=this.url+"/"+id;
+    return this.http
+    .get(url,options)
+    .map(data=>data.json());
+}
 
 }

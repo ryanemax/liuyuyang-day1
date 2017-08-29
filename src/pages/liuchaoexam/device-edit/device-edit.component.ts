@@ -32,7 +32,7 @@ object:DeviceInfo = {
           if(name=="new"){
             this.isNew = true;
           }else{
-            this.deviceSer.getContactByName(name).subscribe(device=>{
+            this.deviceSer.getDeviceInfoById(name).subscribe(device=>{
             this.object = device
         })
       }
@@ -46,7 +46,9 @@ object:DeviceInfo = {
       // this.dialog.open(DialogResult);
       return
     }
-    this.deviceSer.addDeviceInfo(this.object);
+    this.deviceSer.addDeviceInfo(this.object).subscribe(data=>{
+      
+    });
    
     this.back()
   }

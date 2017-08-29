@@ -26,7 +26,7 @@
 </md-input-container>
 
 <md-input-container>
-  <input [(ngModel)]="object.price" mdInput placeholder="英语成绩单价" value="">
+  <input type="number" [(ngModel)]="object.price" mdInput placeholder="单价" >
 </md-input-container>
 
 
@@ -34,7 +34,7 @@
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button routerLink="/contact">取消</button>
+    <button md-button routerLink="/device">取消</button>
     <button md-button (click)="save()">保存</button>
   </md-card-actions>
 </md-card>
