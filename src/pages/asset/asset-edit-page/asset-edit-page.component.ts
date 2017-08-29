@@ -18,7 +18,7 @@ export class AssetEditPageComponent implements OnInit {
     brand: "",
     price: 1,
     addTime: null,
-    img: ""
+    img: "../../../assets/img/asset/img.png"
   }
 
   currentMaxNo: number
