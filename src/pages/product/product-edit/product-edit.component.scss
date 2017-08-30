@@ -1,9 +1,27 @@
+
+$primary:    #2196f3;
+$secondary:  #00bcd4;
 .example-card {
     margin-top:10px;
     width: 100%;
+    background-color: lightblue;
 }
 
 .example-header-image {
-  background-image: url('../../../assets/img/cardpreview/wuyaowang.jpg');
+  background-image: url('../../../assets/img/jumei/jumei.jpg');
   background-size: cover;
+}
+
+button{
+    margin:14px;
+    background:$secondary;
+    // padding:7px;
+    // font-size:20px;
+    // color:white;
+    // border-radius:34px;
+    border:none;
+}
+
+button:hover{
+    background:$primary;
 }

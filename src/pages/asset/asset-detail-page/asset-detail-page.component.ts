@@ -16,7 +16,10 @@ export class AssetDetailPageComponent implements OnInit {
     classification: "",
     brand: "",
     price: 0,
-    addTime: new Date(),
+    addTime:{
+      __type:"Date",
+      iso: ""
+    },
     img: "../../../assets/img/asset/img.png"
   }
 

@@ -9,9 +9,19 @@ import { Location } from "@angular/common"
 })
 export class AccountItemComponent implements OnInit {
   @Input() account:any
-  constructor(private contactServ:BetsyAccountService,
+  constructor(private accountServ:BetsyAccountService,
     private loc:Location) { }
+ 
+    delete(account){
+      this.accountServ.deleteById(account.objectId).subscribe(data=>{
+          location.href = "/betsy-account"
+      })
+    }
+    edit(){
+      this.accountServ.editObject = this.account
+    }
 
+    
   ngOnInit() {
   }
 

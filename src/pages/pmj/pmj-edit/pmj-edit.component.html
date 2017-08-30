@@ -1,39 +1,46 @@
-<button appPmjButton (click)="back()">Back</button>
-
-<md-card class="example-card">
+<md-card class="example-card" style="background-color: #bbdefb">
   <md-card-header>
     <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>Brand: {{object.name}}</md-card-title>
-    <md-card-subtitle>ConsumerAccount: {{object.consumerAccount}}</md-card-subtitle>
-    <md-card-subtitle>CampaignAccount: {{object.campaignAccount}}</md-card-subtitle>
-    <md-card-subtitle>TaegetAudience: {{object.taegetAudience}}</md-card-subtitle>
-    <md-card-subtitle>AveragePrize: {{object.averagePrize}}</md-card-subtitle>
+    <md-card-title style="font-size:22px">Brand Spec</md-card-title>
+    <br />
+    <br />
+    <md-card-subtitle style="margin-left:18px">Brand Name: {{object.name}}</md-card-subtitle>
+    <md-card-subtitle style="margin-left:18px">Consumer Account: {{object.consumerAccount}}</md-card-subtitle>
+    <md-card-subtitle style="margin-left:18px">Campaign Account: {{object.campaignAccount}}</md-card-subtitle>
+    <md-card-subtitle style="margin-left:18px">Taeget Audience: {{object.taegetAudience}}</md-card-subtitle>
+    <md-card-subtitle style="margin-left:18px">Average Prize: {{object.averagePrize}}</md-card-subtitle>
   </md-card-header>
   <md-card-content>
     <p>
       <md-input-container>
-        <input [(ngModel)]="object.name" mdInput placeholder="Brand" value="">
+        <input [(ngModel)]="object.name" mdInput placeholder="Brand Name" value="">
       </md-input-container>
 
       <md-input-container>
-        <input [(ngModel)]="object.consumerAccount" mdInput placeholder="ConsumerAccount" value="">
+        <input [(ngModel)]="object.consumerAccount" mdInput placeholder="Consumer Account" value="">
       </md-input-container>
 
       <md-input-container>
-        <input [(ngModel)]="object.campaignAccount" mdInput placeholder="CampaignAccount" value="">
+        <input [(ngModel)]="object.campaignAccount" mdInput placeholder="Campaign Account" value="">
       </md-input-container>
 
       <md-input-container>
-        <input [(ngModel)]="object.taegetAudience" mdInput placeholder="TaegetAudience" value="">
+        <input [(ngModel)]="object.taegetAudience" mdInput placeholder="Taeget Audience" value="">
       </md-input-container>
 
       <md-input-container>
-        <input [(ngModel)]="object.averagePrize" mdInput placeholder="AveragePrize" value="">
+        <input [(ngModel)]="object.averagePrize" mdInput placeholder="Average Prize" value="">
       </md-input-container>
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button routerLink="/pmj">Cancel</button>
-    <button md-button (click)="save()">Confirm</button>
+    <!--<button md-button routerLink="/pmj">Cancel</button>
+    <button md-button (click)="save()">Confirm</button>-->
+    <div style="float:right">
+      <button md-mini-fab (click)="save()"><md-icon>check</md-icon></button>
+      <button md-mini-fab routerLink="/pmj" style="margin-left:5px"><md-icon>close</md-icon></button>
+    </div>
+    <!--<button style="float:right" appPmjButton (click)="back()">Back</button>-->
+    <button md-mini-fab (click)="back()"><md-icon>chevron_left</md-icon></button>
   </md-card-actions>
 </md-card>

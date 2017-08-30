@@ -39,7 +39,7 @@ export class AccountEditComponent implements OnInit {
       { name:"Social",},
       { name:"Cosmetics",},
       { name:"Dress",},
-      { name: "Other"},
+      { name:"Other"}
     ] 
   }
   save(){
@@ -48,10 +48,16 @@ export class AccountEditComponent implements OnInit {
       // this.dialog.open(DialogResult);
       return
     }
+    
     if(this.isNew){
-      this.accountServ.saveAccount(this.object)
+      this.accountServ.saveAccount(this.object).subscribe(data=>{
+        this.back()
+      })
+    }else{
+      this.accountServ.saveAccount(this.object).subscribe(data=>{
+        this.back()
+      })
     }
-    this.back()
   }
   back(){
     this.loc.back()

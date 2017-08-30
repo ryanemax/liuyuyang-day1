@@ -17,7 +17,8 @@ object:Airline = {
     to:"",
     price: 0, 
     fareClass:"",
-    date: new Date()
+    date: new Date(),
+    img: "",
   }
   isNew:boolean
   constructor(
@@ -35,6 +36,7 @@ object:Airline = {
     // }
     if(this.isNew){
       this.airlineServ.saveAirline(this.object).subscribe(data=>{
+        console.log("====="+this.object.img)
         this.back()
       })
     }else{
@@ -54,6 +56,7 @@ object:Airline = {
           let id = params['id']
           if(id == "new"){
             this.isNew = true;
+            console.log("test");
           }else{
             this.airlineServ.getAirlineByPrice(id).subscribe(data=>{
             this.object = data

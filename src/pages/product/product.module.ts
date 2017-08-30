@@ -6,11 +6,12 @@ import { ProductListPageComponent } from './product-list-page/product-list-page.
 import { ProductService } from "./product.service"
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { SharedProductModule } from "../../shared-product/shared-product.module";
 
 import { MaterialModule } from "@angular/material";
 @NgModule({
   imports: [
-    CommonModule,MaterialModule,FormsModule,
+    CommonModule,MaterialModule,FormsModule,SharedProductModule,
     RouterModule.forChild([
       { path: '', component: ProductListPageComponent, pathMatch: 'full' },
       { path: 'edit/:id', component: ProductEditComponent, pathMatch: 'full' }

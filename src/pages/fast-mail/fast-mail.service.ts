@@ -6,14 +6,16 @@ import { Observable } from "rxjs/Observable"
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 
+import { Parse } from '../../cloud/cloud';
+
 @Injectable()
 export class FastMailService {
   goodList: Array<Good>;
 
   // HTTP Params
-  authHeaders: Headers = new Headers()
-  host = "http://47.92.145.25:2337/parse"
-  className = "FastMail"
+  authHeaders: Headers = new Headers();
+  host = "http://47.92.145.25:2337/parse";
+  className = "FastMail";
 
   constructor(private http: Http) {
     this.authHeaders.append("X-Parse-Application-Id","dev");
@@ -21,25 +23,17 @@ export class FastMailService {
     this.authHeaders.append("Content-Type","application/json");
    }
 
-  // initGoodData() {
-  //   this.goodList = [
-  //     {name: 'Lily', tel: '152-XXXX-8861', addr: 'DaLian Soft Park', date: '2017-3-23', index: 0},
-  //     {name: 'Elizabeth', tel: '156-XXXX-7623', addr: 'DaLian Soft Park', date: '2017-6-15', index: 1},
-  //     {name: 'Camille', tel: '189-XXXX-0959', addr: 'DaLian Soft Park', date: '2017-1-28', index: 2},
-  //     {name: 'Christina', tel: '189-XXXX-8735', addr: 'DaLian Soft Park', date: '2017-8-6', index: 3},
-  //     {name: 'Darcy', tel: '139-XXXX-9484', addr: 'DaLian Soft Park', date: '2017-9-26', index: 4}
-  //   ];
-  // }
-
   getGoods(): Observable<Array<Good>>{
-    let url = this.host+"/classes/" + this.className;
-    let options = {
-      headers:this.authHeaders
-    };
+    // let url = this.host+"/classes/" + this.className;
+    // let options = {
+    //   headers:this.authHeaders
+    // };
 
-    return this.http
-    .get(url, options)
-    .map(data=>data.json().results);
+    // return this.http
+    // .get(url, options)
+    // .map(data=>data.json().results);
+    let query = new Parse.Query(this.className, this.http);
+    return query.find();
   }
 
   addGoods(good: Good): Observable<any> {
@@ -64,15 +58,17 @@ export class FastMailService {
     .map(data => data.json);
   }
 
-  getGoodsById(id: string): Observable<Good> {
-    let url = this.host + "/classes/" + this.className + "/" + id;
-    let options = {
-      headers: this.authHeaders
-    };
+  getGoodsById(id: string): Observable<any> {
+    // let url = this.host + "/classes/" + this.className + "/" + id;
+    // let options = {
+    //   headers: this.authHeaders
+    // };
     
-    return this.http
-    .get(url, options)
-    .map(data => data.json());
+    // return this.http
+    // .get(url, options)
+    // .map(data => data.json());
+    let query = new Parse.Query(this.className, this.http);
+    return query.get(id);
   }
 
   updateGoods(good: Good): Observable<any> {
