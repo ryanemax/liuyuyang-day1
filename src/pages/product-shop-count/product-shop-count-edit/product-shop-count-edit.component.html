@@ -2,7 +2,8 @@
 
 <md-card class="example-card">
   <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
+    <div md-card-avatar class="example-header-image">
+      <img src="./assets/img/product-shop-count/{{object.imgfiles}}.jpg" title="{{object.imgfiles}}" width=100% height=100%></div>
     <md-card-title>Product Code：{{object.product_ode}}</md-card-title>
     <md-card-subtitle>Product Description：{{object.product_description}}</md-card-subtitle>
     <md-card-subtitle>Shop code： {{object.shop_code}}</md-card-subtitle>
@@ -31,6 +32,10 @@
 
       <md-input-container>
         <input type="number" [(ngModel)]="object.quantities" mdInput placeholder="Quantities" value="">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="number" [(ngModel)]="object.imgfiles" mdInput placeholder="Image" value="">
       </md-input-container>
 
       <!-- <md-input-container>

@@ -4,10 +4,17 @@ import { Http, Headers } from '@angular/http';
 import { Observable } from "rxjs/Observable"
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
+import {MdDialog} from '@angular/material';
+import {MdDialogRef} from '@angular/material';
+import {MdDialogConfig} from '@angular/material';
+import {DataSource} from '@angular/cdk';
+import {MdSort} from '@angular/material';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 @Injectable()
 
 export class CardPreviewService {
   cards:Array<Card>;
+  card:Card;
   authHeaders:Headers = new Headers()
   // host = " http://localhost:1337/parse";
   host = "http://47.92.145.25:2337/parse";
@@ -163,4 +170,69 @@ export class CardPreviewService {
             return -1;
           }});
         }
+}
+export class CardDatabase {
+  cards:Array<Card>;
+  /** Stream that emits whenever the data has been modified. */
+  dataChange: BehaviorSubject<Card[]> = new BehaviorSubject<Card[]>([]);
+  get data(): Card[] { return this.dataChange.value; }
+
+  constructor(private cardPreviewService:CardPreviewService) {
+    this.refresh();
+  }
+  refresh(){
+    this.cardPreviewService.getCards().subscribe(data=>{
+      this.dataChange.next(data);
+    })
+}
+  del(card){
+    this.cardPreviewService.del(card).subscribe(data=>{
+      this.refresh();
+    });
+  }
+}
+export class CardDataSource extends DataSource<any> {
+  constructor(private _carDatabase: CardDatabase, private _sort: MdSort) {
+    super();
+  }
+
+  /** Connect function called by the table to retrieve one stream containing the data to render. */
+  connect(): Observable<Card[]> {
+    const displayDataChanges = [
+      this._carDatabase.dataChange,
+      this._sort.mdSortChange,
+    ];
+
+    return Observable.merge(...displayDataChanges).map(() => {
+      return this.getSortedData();
+    });
+  }
+  refresh(){
+    this._carDatabase.refresh()
+  }
+  disconnect() {}
+
+  /** Returns a sorted copy of the database data. */
+  getSortedData(): Card[] {
+    const data = this._carDatabase.data.slice();
+    if (!this._sort.active || this._sort.direction == '') { return data; }
+
+    return data.sort((a, b) => {
+      let propertyA: number|string = '';
+      let propertyB: number|string = '';
+
+      switch (this._sort.active) {
+        case 'name': [propertyA, propertyB] = [a.name, b.name]; break;
+        case 'cost': [propertyA, propertyB] = [a.cost, b.cost]; break;
+        case 'type': [propertyA, propertyB] = [a.type, b.type]; break;
+        case 'vocation': [propertyA, propertyB] = [a.vocation, b.vocation]; break;
+        case 'img': [propertyA, propertyB] = [a.img, b.img]; break;
+      }
+
+      let valueA = isNaN(+propertyA) ? propertyA : +propertyA;
+      let valueB = isNaN(+propertyB) ? propertyB : +propertyB;
+
+      return (valueA < valueB ? -1 : 1) * (this._sort.direction == 'asc' ? 1 : -1);
+    });
+  }
 }

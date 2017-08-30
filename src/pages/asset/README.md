@@ -5,3 +5,10 @@
 # 作者信息
 - Name 彭蕾(l.peng)
 - Github PengLei1992
+
+
+# 遗留信息
+修改日期时
+修改图片
+@Input的使用（参edit/tag）
+图表是mock的

@@ -8,6 +8,8 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/finally';
 
+import { Parse } from '../../cloud/cloud';
+
 
 @Injectable()
 export class PmjService {
@@ -20,36 +22,42 @@ export class PmjService {
 
   constructor(private http:Http) { 
     this.setBrands();
-
+    Parse.initialize("dev","http://localhost:1337/parse")
     this.authHeaders.append("X-Parse-Application-Id","dev")
     this.authHeaders.append("X-Parse-Master-Key","angulardev")
     this.authHeaders.append("Content-Type","application/json")
   }
 
-  getBrandById(id):Observable<Brand>{
+  getBrandById(id):Observable<any>{
     // let contact = this.contacts.find(item=>item.name == name)
     // return Observable.of(contact)
 
-    let url = this.host+"/classes/" + this.className + "/" + id
-    let options = {
-      headers:this.authHeaders
-    }
+    // let url = this.host+"/classes/" + this.className + "/" + id
+    // let options = {
+    //   headers:this.authHeaders
+    // }
 
-    return this.http
-      .get(url,options)
-      .map(data=>data.json());
+    // return this.http
+    //   .get(url,options)
+    //   .map(data=>data.json());
+
+    let query = new Parse.Query("Pmj",this.http);
+    return query.get(id);
   }
 
   getBrands():Observable<Array<Brand>>{
 
-    let url = this.host+"/classes/" + this.className
-    let options = {
-      headers:this.authHeaders
-    }
+    // let url = this.host+"/classes/" + this.className
+    // let options = {
+    //   headers:this.authHeaders
+    // }
 
-    return this.http
-    .get(url,options)
-    .map(data=>data.json().results)
+    // return this.http
+    // .get(url,options)
+    // .map(data=>data.json().results)
+
+    let query = new Parse.Query("Pmj",this.http)
+    return query.find()
   }
 
   setBrands(){

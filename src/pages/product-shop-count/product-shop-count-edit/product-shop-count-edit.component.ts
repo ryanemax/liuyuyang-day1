@@ -18,6 +18,7 @@ export class ProductShopCountEditComponent implements OnInit {
     shop_code:"",
     dataset_code:"",
     quantities:0 ,
+    imgfiles:""
     // addDate:new Date()
   
   }
@@ -35,7 +36,7 @@ export class ProductShopCountEditComponent implements OnInit {
 
   save(){
     if(this.object.product_code==""||this.object.product_description==""||this.object.dataset_code==""
-      ||this.object.shop_code==""||this.object.quantities==0){
+      ||this.object.shop_code==""||this.object.quantities==0||this.object.imgfiles==""){
       alert("信息不完整，请检查")
       return
     }

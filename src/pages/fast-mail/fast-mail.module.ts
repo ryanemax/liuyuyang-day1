@@ -5,11 +5,13 @@ import { MaterialModule, MdNativeDateModule } from "@angular/material"
 import { FormsModule } from '@angular/forms';
 
 import { FastMailHomeComponent } from './fast-mail-home/fast-mail-home.component';
+import { FastMailItemComponent } from './fast-mail-item/fast-mail-item.component';
+import { FastMailEditComponent } from './fast-mail-edit/fast-mail-edit.component';
+import { FastMailAnalysisComponent } from './fast-mail-analysis/fast-mail-analysis.component';
 
 import { BtnFastMailDirective } from './btn-fast-mail.directive';
-import { FastMailItemComponent } from './fast-mail-item/fast-mail-item.component';
+
 import { FastMailService } from './fast-mail.service';
-import { FastMailEditComponent } from './fast-mail-edit/fast-mail-edit.component';
 
 @NgModule({
   imports: [
@@ -19,7 +21,8 @@ import { FastMailEditComponent } from './fast-mail-edit/fast-mail-edit.component
     FormsModule,
     RouterModule.forChild([
       { path: '', component: FastMailHomeComponent, pathMatch: 'full' },
-      { path: 'edit/:id', component: FastMailEditComponent, pathMatch: 'full'}
+      { path: 'edit/:id', component: FastMailEditComponent, pathMatch: 'full'},
+      { path: 'analysis', component: FastMailAnalysisComponent, pathMatch: 'full'},
     ])
   ],
   declarations: [
@@ -27,6 +30,7 @@ import { FastMailEditComponent } from './fast-mail-edit/fast-mail-edit.component
     BtnFastMailDirective,
     FastMailItemComponent,
     FastMailEditComponent,
+    FastMailAnalysisComponent,
   ],
   providers: [FastMailService]
 })

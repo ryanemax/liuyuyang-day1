@@ -62,6 +62,22 @@ export class TrainerService {
     return Observable.of(trainer)
   }
 
+  fillTrainers(): Observable<Array<Trainer>> {
+    let url = this.host + "/classes/" + this.className
+    let options = {
+      headers: this.authHeaders
+    }
+
+    this.http
+      .get(url, options)
+      .map(data => data.json().results).subscribe(data => {
+        this.trainers = data
+      })
+
+    return this.http
+      .get(url, options)
+      .map(data => data.json().results)
+  };
 
   deleteById(id){
     let url = this.host+"/classes/" + this.className + "/" + id

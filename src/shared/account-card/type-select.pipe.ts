@@ -16,9 +16,8 @@ export class TypeSelectPipe implements PipeTransform {
         "Dress": "dress",
         "Meal": "meal",
         "Social": "social",
-        "Other": "other"
     }
-      return nameMap[type]
+      return nameMap[type]?nameMap[type]:"other"
   }
   
 }
