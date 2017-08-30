@@ -1,0 +1,15 @@
+ 
+ 
+ Name:<input [(ngModel)]="cardobject.name" value="{{cardobject.name}}"/>
+ <br/>
+ Type:<input  [(ngModel)]="cardobject.type" value="{{cardobject.type}}"/>
+ <br/>
+ Cost:<input type = "number" [(ngModel)]="cardobject.cost" value="{{cardobject.cost}}"/>
+ <br/>
+ Vocation<input [(ngModel)]="cardobject.vocation" value="{{cardobject.vocation}}"/>
+ <br/>
+ ImageUrl:<input [(ngModel)]="cardobject.img" value="{{cardobject.img}}"/>
+ <br/>
+<img src = {{cardobject.img}} alt = "url错误！！"/><br/>
+<button md-button class = 'button' (click)= save()>save</button>
+<button md-button class = 'button1' (click)= back()>cannel</button>
