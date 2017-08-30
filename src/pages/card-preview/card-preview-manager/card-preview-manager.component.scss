@@ -4,10 +4,8 @@
 #header{
     background-color: rgb(112, 169, 207);
 }
-#header :hover{
-    background-color: #6767E2;
-}
-#card-img{
+
+.card-img{
     width: 30px;
     height:40px;
 }
@@ -25,11 +23,31 @@
     background-color: rgb(247, 38, 8);
 }
 .button2{
+    margin:10px;
     background-color: rgb(67, 169, 81);
 }
 .button2:hover{
     background-color: #32D20E;
 }
+/* Structure */
+.example-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 300px;
+  }
+  
+  .example-header {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    font-size: 20px;
+  }
+  
+  .mat-table {
+    overflow: auto;
+  }
 // #card-img:hover{
 //     width: 60px;
 //     height:80px;

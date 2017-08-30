@@ -1,23 +1,51 @@
-<table id = "table" border="0.5">
-  <tr id = "header">
-    <th (click)= sort(0)>Name</th>
-    <th (click)= sort(1)>Type</th>
-    <th (click)= sort(2)>Cost</th>
-    <th (click)= sort(3)>Vocation</th>
-    <th >Image</th>
-    <th >Manage</th>
-  </tr>
-  <tr  *ngFor="let card of cards">
-      <th>{{card.name}}</th>
-      <th>{{card.type}}</th>
-      <th>{{card.cost}}</th>
-      <th>{{card.vocation}}</th>
-      <th><img id = "card-img" src={{card.img}} alt="no image"/> </th>
-      <th>
-        <button md-button class = 'button'routerLink ="edit/{{card.objectId}}" >编辑</button>
-        <button md-button class = 'button1' (click)= del(card)>删除</button>
-      </th>
-      
-  </tr>
-</table>
-<button md-button class = 'button2' routerLink ="edit/new">新建</button>
+
+
+<div class="example-container mat-elevation-z8" style="padding:10px">
+  <md-table #table [dataSource]="dataSource" mdSort>
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container cdkColumnDef="Name">
+      <md-header-cell *cdkHeaderCellDef md-sort-header> Name </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
+    </ng-container>
+    <ng-container cdkColumnDef="Type">
+      <md-header-cell *cdkHeaderCellDef md-sort-header> Type </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.type}} </md-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="Cost">
+      <md-header-cell *cdkHeaderCellDef md-sort-header> Cost </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.cost}} </md-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="Vocation">
+      <md-header-cell *cdkHeaderCellDef md-sort-header> Vocation </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.vocation}} </md-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="Img">
+      <md-header-cell *cdkHeaderCellDef md-sort-header> Img </md-header-cell>
+      <md-cell *cdkCellDef="let row">
+        <span mdTooltip="点击查看大图"><img style=" width: 30px;
+          height:40px;" src={{row.img}} alt="no image" (click)="openDialogImg(row)"/>
+        </span>
+      </md-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="operator">
+      <md-header-cell *cdkHeaderCellDef > operator </md-header-cell>
+      <md-cell *cdkCellDef="let row">
+          <button md-button class = 'button' (click)="openDialog(row)" >编辑</button>
+          <button md-button class = 'button1' (click)= del(row)>删除</button>
+      </md-cell>
+    </ng-container>
+
+    <md-header-row id = "header" *cdkHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row  *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+</div>
+
+<button md-button class = 'button2' (click)="openDialog()">新建</button>
