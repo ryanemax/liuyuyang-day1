@@ -1,0 +1,38 @@
+
+
+<md-card class="example-card">
+    <md-card-content>
+    <div style="margin-top:20px">
+      <md-select [(ngModel)]="object.type" placeholder={{object.type}}>
+          <md-option [value]="'income'">
+            income
+          </md-option>
+          <md-option [value]="'cost'">
+            cost
+          </md-option>
+        </md-select>
+          <md-select [(ngModel)]="object.event" placeholder={{object.event}}>
+              <md-option [value]="event.name" *ngFor="let event of eventlist">
+                  {{event.name}}
+              </md-option>
+        </md-select>
+        
+        <md-input-container *ngIf="object.event == Other" >
+          <input [(ngModel)]="object.event" mdInput placeholder="* event" value="">
+        </md-input-container>
+    </div>
+    <md-input-container>
+     <input [(ngModel)]="object.date" mdInput placeholder="* date" value="">
+    </md-input-container>
+     <md-input-container>
+      <input [(ngModel)]="object.cost" mdInput placeholder="￥￥" value="" type="Number">
+    </md-input-container>
+    <md-input-container>
+        <input [(ngModel)]="object.comment" mdInput placeholder="comment" value="">
+      </md-input-container>
+    </md-card-content>
+    <md-card-actions style="margin-right: 5px;position: absolute;bottom: 20px;right: 20px;">
+      <button  (click)="back()">X</button>
+      <button  (click)="save()">→</button>
+    </md-card-actions>
+  </md-card>
