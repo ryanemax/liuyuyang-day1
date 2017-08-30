@@ -10,7 +10,7 @@
       Shop code：{{product.shop_code}}<br>
       Dataset: {{product.dataset_code}}<br>
       Quantities: {{product.quantities}}<br>
-      Add Date: {{product.addDate}}
+      <span *ngIf="product.addDate&&product.addDate.iso">Add Date: {{product.addDate.iso | date:"y-MM-dd"}}</span>
     </p>
   </md-card-content>
   <md-card-actions>

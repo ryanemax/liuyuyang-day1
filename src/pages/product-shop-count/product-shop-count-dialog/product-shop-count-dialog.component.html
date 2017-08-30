@@ -1,7 +1,7 @@
 <md-toolbar color="light">
    <span>Product > {{isNew?"新增":"编辑["+object.name+"]"}}</span>
     <span class="toolbar-spacer"></span>
-   <button md-raised-button (click)="back()">Back</button>
+   <button md-raised-button (click)="close()">Back</button>
 </md-toolbar>
 
 <md-card class="example-card">
@@ -49,7 +49,7 @@
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button routerLink="/product-shop-count">Cancel</button>
+    <button md-button routerLink="close()">Cancel</button>
     <button md-button (click)="save()">Save</button>
   </md-card-actions>
 </md-card>
