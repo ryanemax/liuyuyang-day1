@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CardPreviewService } from '../card-preview.service';
-import {MdDialogRef} from '@angular/material';
+import {MdDialogRef , MD_DIALOG_DATA} from '@angular/material';
+import { MaterialModule ,MdInputModule} from '@angular/material';
+import { CardPreviewService,CardDatabase ,CardDataSource} from '../card-preview.service';
 @Component({
   selector: 'app-add-card-dailog',
   templateUrl: './add-card-dailog.component.html',
@@ -8,6 +9,7 @@ import {MdDialogRef} from '@angular/material';
 })
 export class AddCardDailogComponent implements OnInit {
   isNew:boolean;
+  cardDatabase:CardDatabase
   cardobject:Card = {
     name:"",
     type:"",
@@ -16,10 +18,12 @@ export class AddCardDailogComponent implements OnInit {
     img:""
   }
   constructor(private cardPreviewService:CardPreviewService,public dialogRef: MdDialogRef<AddCardDailogComponent>) {
+    this.cardDatabase = new CardDatabase(cardPreviewService);
+
     if(cardPreviewService.card){
       this.cardobject = cardPreviewService.card;
     }else{
-      this.isNew = true;   
+      this.isNew = true;
     }
    }
    back(){
@@ -32,19 +36,15 @@ export class AddCardDailogComponent implements OnInit {
       return
     }
     if(this.isNew){
-      
-      this.cardPreviewService.addCard(this.cardobject).subscribe(data=>{
-          this.back();
-      });
+      this.cardDatabase.add(this.cardobject);
+      this.back();
     }else{
-      console.log(this.cardobject);
-      this.cardPreviewService.updateCard(this.cardobject).subscribe(data=>{
-        this.back();
-      });
+      this.cardDatabase.update(this.cardobject);
+      this.back();
     }
   }
   ngOnInit() {
-  
+
   }
 
 }
