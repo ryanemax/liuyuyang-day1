@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductShopCountService  } from "../product-shop-count.service"
 
+import {MdDialog, MdDialogRef} from '@angular/material';
+import { ProductShopCountDialogComponent } from '../product-shop-count-dialog/product-shop-count-dialog.component';
+
+
 @Component({
   selector: 'app-product-shop-count-list',
   templateUrl: './product-shop-count-list.component.html',
@@ -9,11 +13,21 @@ import { ProductShopCountService  } from "../product-shop-count.service"
 export class ProductShopCountListComponent implements OnInit {
 
 products:Array<any>;
-  constructor(private productServ:ProductShopCountService) {
-    this.productServ.getProducts().subscribe(data=>{
+  constructor(private productServ:ProductShopCountService,
+              public dialog: MdDialog) {
+    this.productServ.connect().subscribe(data=>{
       this.products = data
     })
   }
+
+  showEditDialog(product?){
+  if(product){
+    this.productServ.editObject = product
+  }else{
+    this.productServ.editObject = undefined
+  }
+  this.dialog.open(ProductShopCountDialogComponent)
+}
 
 asc(){
     // 正序排列

@@ -16,10 +16,12 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 export class CookbookEditComponent implements OnInit {
 
     object:Cookbook = {
-    id:"",
+    condiment:"",
+    createdate:new Date(),
     cookingname:"",
     material:"",
     cooktime: 0,
+    units:""
   }
 
  isNew:boolean
