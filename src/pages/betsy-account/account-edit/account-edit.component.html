@@ -1,7 +1,6 @@
 
 
 <md-card class="example-card">
-  <button (click)="back()"> ← </button>
   <md-card-content>
   <div style="margin-top:20px">
     <md-select [(ngModel)]="object.type" placeholder={{object.type}}>
@@ -26,7 +25,7 @@
    <input [(ngModel)]="object.date" mdInput placeholder="* date" value="">
   </md-input-container>
    <md-input-container>
-    <input [(ngModel)]="object.cost" mdInput placeholder="￥￥" value="">
+    <input [(ngModel)]="object.cost" mdInput placeholder="￥￥" value="" type="Number">
   </md-input-container>
   <md-input-container>
       <input [(ngModel)]="object.comment" mdInput placeholder="comment" value="">

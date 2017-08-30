@@ -2,7 +2,7 @@
 <md-toolbar color="light">
     <span>联系人 > {{isNew?"新增":"编辑["+object.name+"]"}}</span>
     <span class="toolbar-spacer"></span>
-    <button md-raised-button (click)="back()">返回</button>
+    <button md-raised-button (click)="close()">返回</button>
 
 </md-toolbar>
 
@@ -15,6 +15,7 @@
     <md-card-subtitle>性别：{{object.sex | sexName}}</md-card-subtitle>
   </md-card-header>
   <md-card-content>
+
 
 <app-edit-tag [(tags)]="object.tag"></app-edit-tag>
 
@@ -45,7 +46,7 @@
 
   </md-card-content>
   <md-card-actions>
-    <button md-button routerLink="/contact">取消</button>
+    <button md-button routerLink="close()">取消</button>
     <button md-button (click)="save()">保存</button>
   </md-card-actions>
 </md-card>

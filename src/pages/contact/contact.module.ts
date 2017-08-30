@@ -9,10 +9,11 @@ import { MaterialModule } from "@angular/material";
 import { SharedEditModule } from "../../shared-edit/shared-edit.module";
 
 import { ContactItemComponent } from './contact-item/contact-item.component';
-import { ContactEditComponent } from './contact-edit/contact-edit.component';
+import { ContactEditComponent,DialogResult } from './contact-edit/contact-edit.component';
+
+import { ContactEditDialogComponent } from './contact-edit-dialog/contact-edit-dialog.component';
 
 import { ContactService } from "./contact.service"
-
 
 @NgModule({
   imports: [
@@ -25,6 +26,10 @@ import { ContactService } from "./contact.service"
     ])
   ],
   providers:[ContactService],
-  declarations: [ContactListComponent,ContactItemComponent,ContactEditComponent]
+  declarations: [ContactListComponent,ContactItemComponent,
+  ContactEditComponent,
+  DialogResult,
+  ContactEditDialogComponent],
+  entryComponents:[DialogResult,ContactEditDialogComponent]
 })
 export class ContactModule { }

@@ -1,10 +1,15 @@
-<div>
-     <button (click)=returnList()>返回</button>  
-</div>
 
-<br>
 
-<div>
-     <img src="./assets/img/movie/{{detailMovie.movieName}}.png" alt="111">
-     <p class = "movieTitle">{{detailMovie.movieName}}  <span> 导演:{{detailMovie.director}}  </span> <span class="mark">评分:{{detailMovie.mark}}  </span> </p>  
+<div class="detail">
+
+    
+    <button md-button (click)=returnList()>返回</button>  
+    
+    <br>
+    <br>
+    
+    <div>
+         <img src="./assets/img/movie/{{detailMovie.movieName}}.png" alt="111">
+         <p class = "movieTitle">{{detailMovie.movieName}}  <span> 导演:{{detailMovie.director}}  </span> <span class="mark">评分:{{detailMovie.mark}}  </span> </p>  
+    </div>
 </div>

@@ -1,49 +1,67 @@
-import { Component, OnInit ,Input} from '@angular/core';
-import { CardPreviewService } from '../card-preview.service';
-
+import {Component, ViewChild,Input,OnInit} from '@angular/core';
+import { CardPreviewService,CardDatabase ,CardDataSource} from '../card-preview.service';
+import {DataSource} from '@angular/cdk';
+import {MdSort} from '@angular/material';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/operator/map';
+import {MdDialog} from '@angular/material';
+import {MdDialogRef} from '@angular/material';
+import {MdDialogConfig} from '@angular/material';
+import { AddCardDailogComponent } from '../add-card-dailog/add-card-dailog.component';
 
 @Component({
   selector: 'app-card-preview-manager',
   templateUrl: './card-preview-manager.component.html',
   styleUrls: ['./card-preview-manager.component.scss']
 })
+
+
 export class CardPreviewManagerComponent implements OnInit {
   @Input() card:Card
   cards:Array<Card>;
   clickCount:number = 0;
   sortTypeTmp:number = 0;
-  
-  constructor(private cardPreviewService:CardPreviewService) { 
-    this.cardPreviewService.getCards().subscribe(data=>{
-      this.cards = data
-    })
+  cardDatabase:CardDatabase
+  dataSource: CardDataSource | null;
+  @ViewChild(MdSort) sort: MdSort;
+  displayedColumns = ['Name', 'Type', 'Cost', 'Vocation', 'Img','operator'];
+  constructor(private cardPreviewService:CardPreviewService ,public dialog:MdDialog) { 
+    // this.cardPreviewService.getCards().subscribe(data=>{
+    //   this.cards = data
+    // })
+    this.cardDatabase = new CardDatabase(cardPreviewService);
+   
   }
-
+  openDialogImg(card) {
+    this.cardPreviewService.card = card;
+    this.dialog.open(AlertComponent);
+  }
+  del(card:Card){
+    this.cardDatabase.del(card);
+ 
+  }
+  openDialog(card) {
+    this.cardPreviewService.card = card;
+    this.dialog.open(AddCardDailogComponent);
+  }
   ngOnInit() {
-  }
-  del(card){
-    this.cardPreviewService.del(card).subscribe(data=>{
-      this.cardPreviewService.getCards().subscribe(data2=>{
-        this.cards = data2
-      })
-    });
-  }
-  sort(type) {
-    if ( type !== this.sortTypeTmp) {
-       this.clickCount = 0;
-       this.sortTypeTmp = type;
+      this.dataSource = new CardDataSource(this.cardDatabase, this.sort);
+      console.log(this.dataSource);
     }
-    if (this.clickCount === 0) {
-      this.cardPreviewService.asc(type);
-      this.clickCount++;
-    }else if (this.clickCount === 1) {
-      this.cardPreviewService.desc(type);
-      this.clickCount++;
-    }else if (this.clickCount === 2) {
-      this.cardPreviewService.random();
-      this.clickCount = 0;
-    }
+    
   }
-}
-
+  @Component({
+    template : `<img src = "{{card.img}}">`
+    })
+    export class AlertComponent {
+      
+      card :Card;
+      
+      constructor(private cardPreviewService:CardPreviewService){
+      this.card = this.cardPreviewService.card;
+      }      
+     }
 

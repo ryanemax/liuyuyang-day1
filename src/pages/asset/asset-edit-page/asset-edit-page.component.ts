@@ -17,7 +17,10 @@ export class AssetEditPageComponent implements OnInit {
     classification: "",
     brand: "",
     price: 1,
-    addTime: null,
+    addTime:{
+      __type:"Date",
+      iso: ""
+    },
     img: "../../../assets/img/asset/img.png"
   }
 
@@ -40,25 +43,20 @@ export class AssetEditPageComponent implements OnInit {
       alert("信息不完整，请检查")
       return
     }
-    console.log(this.obj.addTime)
-    delete this.obj.addTime
-
     if (this.obj.no == 0) {// 编号为空，代表新增
-      // 第一次输出为0，第二次输出正确？
-      // this.assetService.getAssetCount().subscribe(data => {
-      //   this.obj.no =  data+1
-      //   console.log(this.obj.no)
-      //  })
-      //  console.log(this.obj.no)
       this.obj.no = this.currentMaxNo + 1
+      // delete this.obj.addTime
       this.assetService.add(this.obj).subscribe(data => {
         this.returnList()
+        this.assetService.refresh()        
       })
     } else {
       this.assetService.update(this.obj).subscribe(data => {
         this.returnList()
+        this.assetService.refresh()
       })
     }
+    
   }
 
   ngOnInit() {
