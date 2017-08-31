@@ -49,14 +49,17 @@ export class TaobaoShoplistComponent implements OnInit {
       }
     }) 
   }
-  random(){
-    // 随机排列
-    // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-     this.shops.forEach(item=>{
-       item.random = Math.random()
-     })
-     this.asc()
-}
+
+  random() {
+    this.shops.sort((a, b) => {
+      if (a.random > b.random) {
+        return 1
+      } else {
+        return -1
+      }
+    })
+
+  }
   ngOnInit() {
   }
 
