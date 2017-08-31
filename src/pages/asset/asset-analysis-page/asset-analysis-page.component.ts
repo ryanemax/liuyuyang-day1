@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AssetService} from '../asset.service'
 
 @Component({
   selector: 'app-asset-analysis-page',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssetAnalysisPageComponent implements OnInit {
 
-  constructor() { }
+  assets:Array<Asset>
+  constructor(private assetService:AssetService) { 
+    this.assetService.connect().subscribe(data => {
+      this.assets = data
+    })
+  }
 
   // 分类占比图表显示
   showPercentOfClassification() {
@@ -18,13 +24,19 @@ export class AssetAnalysisPageComponent implements OnInit {
     let myChart = echarts.init(el);
     // 设置echarts所需配置项option
 
-    let legendArr = ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+    console.log(this.assetService.assets)
+    for (let entry of this.assets) {
+        console.log(entry);
+    }
+    
+    let legendArr = ['围巾', '包包', '鞋靴', '裙装', '上衣', '裤装']
     let seriesDataArr = [
-      { value: 335, name: '直接访问' },
-      { value: 310, name: '邮件营销' },
-      { value: 234, name: '联盟广告' },
-      { value: 135, name: '视频广告' },
-      { value: 1548, name: '搜索引擎' }
+      { value: 1, name: '围巾' },
+      { value: 2, name: '包包' },
+      { value: 3, name: '鞋靴' },
+      { value: 4, name: '裙装' },
+      { value: 5, name: '上衣' },
+      { value: 6, name: '裤装' }
     ];
 
     let option = {

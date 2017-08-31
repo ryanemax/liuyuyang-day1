@@ -6,7 +6,7 @@
       <button  routerLink="edit/new" style="float:right">+++</button>
   </div>
   <div class="content">
-    <app-account-item [account]="account" *ngFor="let account of accounting"></app-account-item>
+    <app-account-item (click)="showEditDialog(account)" [account]="account" *ngFor="let account of accounting"></app-account-item>
    
   </div>
 

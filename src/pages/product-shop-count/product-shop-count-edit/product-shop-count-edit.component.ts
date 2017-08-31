@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+
 import { ProductShopCountService  } from "../product-shop-count.service";
 
 import {MdDialog, MdDialogRef} from '@angular/material';
@@ -18,8 +19,11 @@ export class ProductShopCountEditComponent implements OnInit {
     shop_code:"",
     dataset_code:"",
     quantities:0 ,
-    imgfiles:""
-    // addDate:new Date()
+    imgfiles:"",
+    addDate:{
+      __type:"Date",
+      iso: ""
+    }
   
   }
 
@@ -37,19 +41,15 @@ export class ProductShopCountEditComponent implements OnInit {
   save(){
     if(this.object.product_code==""||this.object.product_description==""||this.object.dataset_code==""
       ||this.object.shop_code==""||this.object.quantities==0||this.object.imgfiles==""){
-      alert("信息不完整，请检查")
+      this.dialog.open(DialogResult);
       return
     }
-      if(this.isNew){
-        this.productServ.saveProductShop(this.object).subscribe(date=>{
-          this.back()
-        })
-      }
-      else{
-         this.productServ.saveProductShop(this.object).subscribe(date=>{
-          this.back()
-      })
-     }
+
+    this.productServ.saveProductShop(this.object).subscribe(data=>{
+      this.back()
+        this.productServ.refresh()
+      
+    })
    }
 
     back(){
@@ -57,7 +57,7 @@ export class ProductShopCountEditComponent implements OnInit {
     }
 
   ngOnInit() {
-            this.route.params.subscribe(params=>{
+          this.route.params.subscribe(params=>{
           let id = params['id']
           if(id=="new"){
             this.isNew = true;
@@ -70,5 +70,15 @@ export class ProductShopCountEditComponent implements OnInit {
     })
   }
 
+}
+
+@Component({
+  selector: 'dialog-result',
+  template: `
+  信息填写不完整，请检查
+  `,
+})
+export class DialogResult {
+  constructor(public dialogRef: MdDialogRef<DialogResult>) {}
 }
 

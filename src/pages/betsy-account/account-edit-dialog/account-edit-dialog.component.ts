@@ -9,10 +9,10 @@ import {MdDialog, MdDialogRef} from '@angular/material';
   
 @Component({
   selector: 'app-account-edit',
-  templateUrl: './account-edit.component.html',
-  styleUrls: ['./account-edit.component.scss']
-})
-export class AccountEditComponent implements OnInit {
+  templateUrl: './account-edit-dialog.component.html',
+  styleUrls: ['./account-edit-dialog.component.scss']
+}) 
+export class AccountEditDialogComponent implements OnInit {
   eventlist :Array<any>;
   
   object: Account = {
@@ -22,11 +22,10 @@ export class AccountEditComponent implements OnInit {
   } 
   isNew:boolean
   constructor(
-   
     private route: ActivatedRoute,
     private loc:Location,
    private accountServ:BetsyAccountService,
-   public dialog: MdDialog) { 
+   public dialogRef: MdDialogRef<AccountEditDialogComponent>) { 
     if(accountServ.editObject){
       this.object = accountServ.editObject
     }
@@ -60,31 +59,11 @@ export class AccountEditComponent implements OnInit {
     }
   }
   back(){
-    this.loc.back()
+    this.dialogRef.close()
   }
   ngOnInit() {
-          this.route.params.subscribe(params=>{
-          let id = params['id']
-          console.log(id)
-          if(id=="new"){
-            this.isNew = true;
-          }else{
-            this.accountServ.getAccountById(id).subscribe(account=>{
-            this.object = account
-        })
-      }
-
-    })
+         
   }
 
 }
 
-@Component({
-  selector: 'dialog-result',
-  template: `
-  信息填写不完整，请检查
-  `,
-})
-export class DialogResult {
-  constructor(public dialogRef: MdDialogRef<DialogResult>) {}
-}

@@ -8,7 +8,6 @@
 
 
 # 遗留信息
-修改日期时
 修改图片
-@Input的使用（参edit/tag）
-图表是mock的
+@Input的练习（参edit/tag） 
+图表mock

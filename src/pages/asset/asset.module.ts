@@ -13,6 +13,7 @@ import { AssetCurrencyPipe } from './asset-currency.pipe';
 import { AssetButtonDirective } from './asset-button.directive';
 import {MdDatepickerModule,MdNativeDateModule} from '@angular/material';
 import { AssetAnalysisPageComponent } from './asset-analysis-page/asset-analysis-page.component';
+import { AssetEditDialogComponent,DialogResult } from './asset-edit-dialog/asset-edit-dialog.component';
 
 @NgModule({
   imports: [
@@ -30,8 +31,10 @@ import { AssetAnalysisPageComponent } from './asset-analysis-page/asset-analysis
     AssetListPageComponent,
     AssetEditPageComponent,
     AssetAnalysisPageComponent,    
+    AssetEditDialogComponent,DialogResult,
     AssetDetailPageComponent,AssetCurrencyPipe,AssetButtonDirective],
-  providers: [AssetService]
+  providers: [AssetService],
+  entryComponents:[DialogResult,AssetEditDialogComponent]  
 })
 
 export class AssetModule { 
