@@ -3,6 +3,13 @@
 <app-liuc-device-button [title]="'正序'" (click)="asc()"></app-liuc-device-button>
 <app-liuc-device-button [title]="'逆序'" (click)="desc()"></app-liuc-device-button>
 <app-liuc-device-button [title]="'随机'" (click)="random()"></app-liuc-device-button>
-<div style="margin-top:14px;">
-<app-device-item [device]="device" *ngFor="let device of list"></app-device-item>
+<div style="margin-top:14px;padding-left:10px;">
+<md-tab-group >
+    <md-tab label="物资列表">
+        <app-device-datagrid></app-device-datagrid>
+    </md-tab>
+    <md-tab label="物资卡片">
+        <app-device-item [device]="device" *ngFor="let device of list"></app-device-item>
+    </md-tab>
+</md-tab-group>
 </div>

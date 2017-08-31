@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceService } from '../device.service';
-import {DataSource} from '@angular/cdk';
+
+import {
+  Meta,
+  Title
+} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-device-list-page',
@@ -9,10 +13,12 @@ import {DataSource} from '@angular/cdk';
 })
 export class DeviceListPageComponent implements OnInit {
   list:Array<any>;
-  constructor(private deviceSer:DeviceService) { 
-     this.deviceSer.getDevices().subscribe(
-     data=>{this.list=data}
-   );
+  constructor(title:Title,private deviceSer:DeviceService) { 
+     title.setTitle("物资管理系统");
+     this.deviceSer.getSubject().subscribe(data=>{
+       this.list=data;
+      });
+    
   }
 
   ngOnInit() {
