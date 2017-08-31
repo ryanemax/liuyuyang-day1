@@ -1,0 +1,50 @@
+<md-toolbar color="light">
+  <span>{{isNew?"新增":"编辑["+obj.name+"]"}}</span>
+  <span class="toolbar-spacer"></span>
+  <button md-raised-button (click)="close()">返回</button>
+</md-toolbar>
+<md-card class="example-card">
+  <md-card-content>
+    <md-input-container class="example-full-width">
+      <input mdInput placeholder="名称" value="{{obj.name}}" [(ngModel)]="obj.name">
+    </md-input-container>
+    <br/>
+    <md-select [(ngModel)]="obj.classification" placeholder="分类">
+      <md-option [value]="'上衣'">
+        上衣
+      </md-option>
+      <md-option [value]="'裙装'">
+        裙装
+      </md-option>
+      <md-option [value]="'裤装'">
+        裤装
+      </md-option>
+      <md-option [value]="'鞋靴'">
+        鞋靴
+      </md-option>
+      <md-option [value]="'围巾'">
+        围巾
+      </md-option>
+      <md-option [value]="'包包'">
+        包包
+      </md-option>
+      <md-option [value]="'未知'">
+        未知
+      </md-option>
+    </md-select><br/>
+    <md-input-container class="example-full-width">
+      <input mdInput placeholder="品牌" value="{{obj.brand}}" [(ngModel)]="obj.brand">
+    </md-input-container><br/>
+    <md-input-container>
+      <input mdInput type="date" [(ngModel)]="obj.addTime" mdInput placeholder="入手日期" value="{{obj.addTime}}">
+    </md-input-container>
+    <br/>
+    <md-input-container class="example-full-width">
+      <input mdInput type="number" placeholder="价格" value="{{obj.price}}" [(ngModel)]="obj.price" >
+    </md-input-container><br/>
+  </md-card-content>
+  <md-card-actions>
+    <div><button md-raised-button (click)=close()>取消</button>
+      <button md-raised-button (click)=saveAsset()>提交</button></div>
+  </md-card-actions>
+</md-card>

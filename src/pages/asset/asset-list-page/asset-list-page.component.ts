@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AssetService } from '../asset.service'
 import { Location } from '@angular/common';
 
+import { MdDialog, MdDialogRef } from '@angular/material';
+import { AssetEditDialogComponent } from '../asset-edit-dialog/asset-edit-dialog.component';
+
 @Component({
   selector: 'app-asset-list-page',
   templateUrl: './asset-list-page.component.html',
@@ -10,17 +13,28 @@ import { Location } from '@angular/common';
 
 export class AssetListPageComponent implements OnInit {
   assets: Array<any>;
-  constructor(private assetService: AssetService, private location: Location) {
+  constructor(private assetService: AssetService, private location: Location,
+    public dialog: MdDialog) {
     // this.assets = this.assetService.assets
     this.assetService.connect().subscribe(data => {
       this.assets = data
     })
-    
+
+  }
+
+  // 打开修改弹框
+  showEditAssetDailog(asset?) {
+    if (asset) {
+      this.assetService.editObject = asset
+    } else {
+      this.assetService.editObject = undefined
+    }
+    this.dialog.open(AssetEditDialogComponent)
   }
 
   // 删除
   deleteById(id) {
-      this.assetService.deleteById(id)
+    this.assetService.deleteById(id)
   }
 
   priceAsc() {
