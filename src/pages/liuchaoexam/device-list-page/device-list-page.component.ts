@@ -24,15 +24,38 @@ export class DeviceListPageComponent implements OnInit {
   ngOnInit() {
   }
 
+
   asc(){
-    this.deviceSer.asc()
-  }
+    // 正序排列
+    // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+    this.list.sort((a,b) => {
+        if(a.name>b.name){
+              return 1;
+        }else{
+            return -1
+        }
+    }
+  )
+}
+
+
   desc(){
-    this.deviceSer.desc()
+     this.list.sort((a,b) => {
+        if(a.name<b.name){
+              return 1;
+        }else{
+            return -1
+        }
+    }
+  )
   }
   random(){
-    this.deviceSer.random()
+    this.list.sort((a,b) => {
+         return Math.random();
+       
+    })
+    // 随机排列
+    // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
   }
-
 
 }

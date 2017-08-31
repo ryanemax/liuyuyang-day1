@@ -32,39 +32,6 @@ getDevices():Observable<Array<DeviceInfo>>{
     
   }
 
-  asc(){
-    // 正序排列
-    // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-    this.devices.sort((a,b) => {
-        if(a.name>b.name){
-              return 1;
-        }else{
-            return -1
-        }
-    }
-  )
-}
-
-
-  desc(){
-     this.devices.sort((a,b) => {
-        if(a.name<b.name){
-              return 1;
-        }else{
-            return -1
-        }
-    }
-  )
-  }
-  random(){
-    this.devices.sort((a,b) => {
-         return Math.random();
-       
-    })
-    // 随机排列
-    // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-  }
-
   deleteById(id){
     let options = {
       headers:this.deviceH
