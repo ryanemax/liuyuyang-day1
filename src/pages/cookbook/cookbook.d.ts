@@ -1,9 +1,13 @@
 interface Cookbook{
-  createdate?:Date,
+  createdate?:{
+    __type: string,
+    iso: any
+  },
   cookingname:string,
   material:string,
   condiment?:string,
   cooktime:number,
-  units?:string
+  units?:string,
+  level?:number
   
 }

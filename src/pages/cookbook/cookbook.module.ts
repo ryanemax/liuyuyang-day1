@@ -12,6 +12,7 @@ import { MaterialModule } from "@angular/material";
 import { SharedEditModule } from "../../shared-edit/shared-edit.module";
 
 import { CookbookService } from "./cookbook.service"
+import { TimeunitPipe } from './timeunit.pipe';
 
 @NgModule({
   imports: [
@@ -20,12 +21,13 @@ import { CookbookService } from "./cookbook.service"
     RouterModule.forChild([
       { path: '', component: CookListPageComponent, pathMatch: 'full' }, // 页面/：参数
       { path: 'edit/:id', component: CookbookEditComponent, pathMatch: 'full' },
-      { path: 'analysis/:id', component: CookbookEditComponent, pathMatch: 'full' }
+      { path: 'analysis', component: CookbookAnalysisComponent, pathMatch: 'full' }
      
     ])
   ],
   providers:[CookbookService],
-  declarations: [CookListPageComponent,CookbookEditComponent,CookbookAnalysisComponent]
+  declarations: [CookListPageComponent,CookbookEditComponent,CookbookAnalysisComponent,TimeunitPipe],
+  exports:[TimeunitPipe]
  
 })
 export class CookbookModule { }

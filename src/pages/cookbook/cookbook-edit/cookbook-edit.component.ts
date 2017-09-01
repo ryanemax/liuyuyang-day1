@@ -17,11 +17,15 @@ export class CookbookEditComponent implements OnInit {
 
     object:Cookbook = {
     condiment:"",
-    createdate:new Date(),
+    createdate:{
+      __type:"Date",
+      iso: ""
+    },
     cookingname:"",
     material:"",
     cooktime: 0,
-    units:""
+    units:"",
+    level:0
   }
 
  isNew:boolean

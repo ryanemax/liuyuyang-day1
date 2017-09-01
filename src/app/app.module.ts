@@ -8,12 +8,14 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
+
 // 当打包部署静态包时，需要加载本Module，当使用服务端渲染时，请注释
 // import { SPAModule } from '../pages/spa.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    
    
   ],
   imports: [
