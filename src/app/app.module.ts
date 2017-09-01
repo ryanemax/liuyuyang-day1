@@ -14,9 +14,13 @@ import { MaterialModule } from '@angular/material';
 
 @NgModule({
   declarations: [
+<<<<<<< HEAD
     AppComponent,
     
    
+=======
+    AppComponent,   
+>>>>>>> 5387272fb65dcf6d46db7474125d600b20445008
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-lazyload-starter' }),

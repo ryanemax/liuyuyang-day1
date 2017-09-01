@@ -6,7 +6,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BetsyAccountService } from "../betsy-account.service"
 
 import {MdDialog, MdDialogRef} from '@angular/material';
- 
+  
 @Component({
   selector: 'app-account-edit',
   templateUrl: './account-edit.component.html',
@@ -19,7 +19,7 @@ export class AccountEditComponent implements OnInit {
     event:"",
     type:"",
     date: "",
-  }
+  } 
   isNew:boolean
   constructor(
    
@@ -77,4 +77,14 @@ export class AccountEditComponent implements OnInit {
     })
   }
 
+}
+
+@Component({
+  selector: 'dialog-result',
+  template: `
+  信息填写不完整，请检查
+  `,
+})
+export class DialogResult {
+  constructor(public dialogRef: MdDialogRef<DialogResult>) {}
 }

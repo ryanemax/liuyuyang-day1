@@ -11,8 +11,9 @@
                  </a>
         </nav>
         <p>
-            <a md-raised-button routerLink="edit/new">新增宝贝</a>
-            <button md-button [mdMenuTriggerFor]="menu">
+            <!-- <a md-raised-button routerLink="edit/new">新增宝贝</a> -->
+            <button class="addBtn" md-raised-button (click)=showEditAssetDailog()>新增宝贝</button>
+            <button class="sortBtn" md-button [mdMenuTriggerFor]="menu">
                             <md-icon>more_vert</md-icon>排序方式
                           </button>
             <md-menu #menu="mdMenu">
@@ -51,7 +52,8 @@
                     <td>{{asset.price | assetCurrency:"cn"}}</td>
                     <td><span *ngIf="asset.addTime">{{asset.addTime.iso | date:"y-MM-dd"}}</span></td>
                     <td>
-                        <md-icon title="修改" routerLink="edit/{{asset.objectId}}">edit</md-icon>
+                        <md-icon title="修改" (click)=showEditAssetDailog(asset)>edit</md-icon>
+                        <!-- <md-icon title="修改" routerLink="edit/{{asset.objectId}}">edit</md-icon> -->
                         <md-icon title="查看" routerLink="view/{{asset.objectId}}">menu</md-icon>
                         <md-icon title="删除" (click)="deleteById(asset.objectId)">delete</md-icon>
                     </td>

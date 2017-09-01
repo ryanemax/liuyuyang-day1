@@ -23,6 +23,10 @@ export class AssetService {
   assetCount: Observable<number>
   dataChange: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   assets: Array<Asset>;
+
+  // 修改时的编辑对象
+  editObject:Asset;
+
   constructor(private http: Http) {
     this.authHeaders.append("X-Parse-Application-Id", "dev")
     this.authHeaders.append("X-Parse-Master-Key", "angulardev")
@@ -74,6 +78,13 @@ export class AssetService {
 
   add(asset) {
     // 新增宝贝
+
+    if (asset.addTime && !asset.addTime.__type) {
+      asset.addTime = {
+        __type: "Date",
+        iso: new Date(asset.addTime)
+      }
+    }
     return this.http
       .post(this.url, asset, this.options)
   }

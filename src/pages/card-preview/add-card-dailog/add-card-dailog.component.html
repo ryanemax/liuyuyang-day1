@@ -1,15 +1,27 @@
- 
- 
- Name:<input [(ngModel)]="cardobject.name" value="{{cardobject.name}}"/>
- <br/>
- Type:<input  [(ngModel)]="cardobject.type" value="{{cardobject.type}}"/>
- <br/>
- Cost:<input type = "number" [(ngModel)]="cardobject.cost" value="{{cardobject.cost}}"/>
- <br/>
- Vocation<input [(ngModel)]="cardobject.vocation" value="{{cardobject.vocation}}"/>
- <br/>
- ImageUrl:<input [(ngModel)]="cardobject.img" value="{{cardobject.img}}"/>
- <br/>
+
+
+<div id = "parent">
+  <md-input-container>
+  <input [(ngModel)]="cardobject.name" mdInput placeholder="Name" value="">
+</md-input-container>
+<br/>
+<md-input-container>
+  <input [(ngModel)]="cardobject.type" mdInput placeholder="Type" value="">
+</md-input-container>
+<br/>
+<md-input-container>
+  <input type="number" [(ngModel)]="cardobject.cost" mdInput placeholder="Cost" value="">
+</md-input-container>
+<br/>
+<md-input-container>
+  <input [(ngModel)]="cardobject.vocation" mdInput placeholder="Vocation" value="">
+</md-input-container>
+<br/>
+<md-input-container>
+  <input [(ngModel)]="cardobject.img" mdInput placeholder="ImageUrl" value="">
+</md-input-container>
+<br/>
 <img src = {{cardobject.img}} alt = "url错误！！"/><br/>
-<button md-button class = 'button' (click)= save()>save</button>
-<button md-button class = 'button1' (click)= back()>cannel</button>
+<button  (click)= save()>save</button>
+<button  (click)= back()>cannel</button>
+</div>

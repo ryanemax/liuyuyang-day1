@@ -1,4 +1,8 @@
-<button md-raised-button (click)="back()">Back</button>
+<md-toolbar color="light">
+   <span>Product > {{isNew?"新增":"编辑["+object.name+"]"}}</span>
+    <span class="toolbar-spacer"></span>
+   <button md-raised-button (click)="back()">Back</button>
+</md-toolbar>
 
 <md-card class="example-card">
   <md-card-header>
@@ -38,9 +42,9 @@
         <input type="number" [(ngModel)]="object.imgfiles" mdInput placeholder="Image" value="">
       </md-input-container>
 
-      <!-- <md-input-container>
+      <md-input-container>
         <input [(ngModel)]="object.addDate" mdInput placeholder="Add Date" value="">
-      </md-input-container> -->
+      </md-input-container> 
 
     </p>
   </md-card-content>

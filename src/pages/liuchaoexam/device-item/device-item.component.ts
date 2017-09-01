@@ -21,6 +21,5 @@ export class DeviceItemComponent implements OnInit {
   }
   edit(){
     this.deviceSer.editObject=this.device;
-    this.deviceSer.getDeviceInfoById(this.device.objectId);
   }
 }
