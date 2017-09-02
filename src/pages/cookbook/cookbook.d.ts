@@ -5,9 +5,9 @@ interface Cookbook{
   },
   cookingname:string,
   material:string,
-  condiment?:string,
   cooktime:number,
   units?:string,
-  level?:number
+  level?:number,
+  link?:string
   
 }

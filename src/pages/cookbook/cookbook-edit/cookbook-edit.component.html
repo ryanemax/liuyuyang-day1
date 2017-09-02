@@ -19,12 +19,9 @@
 </md-input-container>
 
 <md-input-container>
-  <input [(ngModel)]="object.material" mdInput placeholder="食材" value="">
+  <input [(ngModel)]="object.material" mdInput placeholder="主要食材" value="">
 </md-input-container>
 
-<md-input-container>
-  <input [(ngModel)]="object.condiment" mdInput placeholder="佐料" value="">
-</md-input-container>
 
 <md-input-container>
   <input mdInput type="number" [(ngModel)]="object.cooktime" mdInput placeholder="烹饪时间" value="">
@@ -41,6 +38,10 @@
 
 <md-input-container>
   <input type="date" [(ngModel)]="object.createdate" mdInput placeholder="创建日期" value="">
+</md-input-container>
+
+<md-input-container>
+  <input [(ngModel)]="object.link" mdInput placeholder="烹饪方法链接" value="">
 </md-input-container>
 
     </p>

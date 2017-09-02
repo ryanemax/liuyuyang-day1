@@ -35,11 +35,11 @@
      
         <th id="h1">创建日期</th>
         <th id="h2">菜名</th>
-        <th id="h3">食材</th>
-        <th id="h4">佐料</th>
+        <th id="h3">主要食材</th>
         <th id="h5">烹饪时间</th>
         <th id="h6">单位</th>
         <th id="h7">难度系数</th>
+        <th id="h9">烹饪方法链接</th>  
         <th id="h8">操作</th>  
        
     </tr>
@@ -50,10 +50,10 @@
        <td> {{menu.createdate.iso | date:"yyyy-MM-dd"}} </td>
        <td> {{menu.cookingname}} </td>
        <td> {{menu.material}} </td>
-       <td> {{menu.condiment}} </td>
        <td> {{menu.cooktime}} </td>
        <td> {{menu.units | timeunit:"cn"}} </td>
        <td> {{menu.level}} </td>
+       <td> <a href={{menu.link}}  target="_blank">{{menu.link}}</a> </td>
    
       
   <td>

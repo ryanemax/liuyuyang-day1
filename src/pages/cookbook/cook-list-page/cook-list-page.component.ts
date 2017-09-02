@@ -56,13 +56,10 @@ export class CookListPageComponent implements OnInit {
   random(){
     // 随机排列
     // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-    this.cookbook.forEach(item=>{
-      item.random = Math.random()
-    })
-    this.asc()
+   this.cookbook.sort((a,b)=>{
+        return Math.random()-0.5
+   })
 }
-
-
 
 
   ngOnInit() {
