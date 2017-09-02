@@ -13,6 +13,7 @@ import { SharedEditModule } from "../../shared-edit/shared-edit.module";
 
 import { CookbookService } from "./cookbook.service"
 import { TimeunitPipe } from './timeunit.pipe';
+import { JenniferFontDirective } from './jennifer-font.directive';
 
 @NgModule({
   imports: [
@@ -26,8 +27,8 @@ import { TimeunitPipe } from './timeunit.pipe';
     ])
   ],
   providers:[CookbookService],
-  declarations: [CookListPageComponent,CookbookEditComponent,CookbookAnalysisComponent,TimeunitPipe],
-  exports:[TimeunitPipe]
+  declarations: [CookListPageComponent,CookbookEditComponent,CookbookAnalysisComponent,TimeunitPipe,JenniferFontDirective],
+  exports:[TimeunitPipe, JenniferFontDirective]
  
 })
 export class CookbookModule { }

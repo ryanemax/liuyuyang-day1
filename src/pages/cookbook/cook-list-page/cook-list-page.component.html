@@ -6,7 +6,7 @@
 <button (click)="desc()" id="bt2">逆序</button>
 <button (click)="random()" id="bt3">随机</button>
 -->
-<h1>烹饪食谱管理</h1>
+<h1 appJenniferFont>烹饪食谱管理</h1>
 
 <button md-mini-fab color="primary" routerLink="edit/new" id="bt4">添加</button>
 <button md-button color="accent" routerLink="/cookbook/analysis">统计分析</button>
@@ -47,7 +47,7 @@
     
     <tr *ngFor="let menu of cookbook">
      
-       <td> {{menu.createdate}} </td>
+       <td> {{menu.createdate.iso | date:"yyyy-MM-dd"}} </td>
        <td> {{menu.cookingname}} </td>
        <td> {{menu.material}} </td>
        <td> {{menu.condiment}} </td>

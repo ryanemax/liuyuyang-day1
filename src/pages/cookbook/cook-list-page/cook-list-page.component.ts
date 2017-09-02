@@ -16,7 +16,8 @@ export class CookListPageComponent implements OnInit {
  constructor(private cookbookServ:CookbookService,
   private loc:Location) {
     // this.list = this.contactServ.contacts  
-    this.cookbookServ.getCookbook().subscribe(data=>{
+    this.cookbookServ.connect().subscribe(data=>{
+      console.log(data)
       this.cookbook = data
     })
   }
@@ -24,7 +25,9 @@ export class CookListPageComponent implements OnInit {
    delete(menu){
     this.cookbookServ.deleteById(menu.objectId)
   }
-
+ edit(){
+    this.cookbookServ.editObject = this.menu
+  }
   
   asc(){
     // 正序排列

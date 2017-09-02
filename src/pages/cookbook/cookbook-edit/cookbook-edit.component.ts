@@ -45,15 +45,10 @@ export class CookbookEditComponent implements OnInit {
       // this.dialog.open(DialogResult);
       return
     }
-    if(this.isNew){
+ 
       this.cookbookServ.saveCookbook(this.object).subscribe(data=>{
-        this.back()
+        this.cookbookServ.refresh()
       })
-    }else{
-      this.cookbookServ.saveCookbook(this.object).subscribe(data=>{
-        this.back()
-      })
-    }
   }
   back(){
     this.loc.back()
