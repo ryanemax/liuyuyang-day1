@@ -6,9 +6,9 @@ interface Asset {
   classification?: string,// ?表示非必填，可为空
   brand: string
   price: number
-  addTime?: {
+  addTime: {
     __type: string,
     iso: any
   },
-  img: String
+  img: string
 }

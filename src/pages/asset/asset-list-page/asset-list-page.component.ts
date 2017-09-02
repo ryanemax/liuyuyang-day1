@@ -13,9 +13,10 @@ import { AssetEditDialogComponent } from '../asset-edit-dialog/asset-edit-dialog
 
 export class AssetListPageComponent implements OnInit {
   assets: Array<any>;
+  searchText: string = "";
+  searchType: string = "name";
   constructor(private assetService: AssetService, private location: Location,
     public dialog: MdDialog) {
-    // this.assets = this.assetService.assets
     this.assetService.connect().subscribe(data => {
       this.assets = data
     })
@@ -68,6 +69,18 @@ export class AssetListPageComponent implements OnInit {
       return randomVal
     }
     )
+  }
+
+  search() {
+    if(this.searchText==""){
+      this.assetService.getAssets()
+    }else{
+      this.assetService.search(this.searchType,this.searchText)
+    }
+  }
+
+  refresh(){
+    this.search()
   }
 
   ngOnInit() {

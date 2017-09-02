@@ -145,10 +145,21 @@ export class AssetService {
   connect() {
     return this.dataChange
   }
+  
   refresh() {
     this.getAssets().subscribe(data => {
       this.dataChange.next(data);
     })
+  }
+
+  search(type, value) {
+    let query = new Parse.Query(this.className, this.http)
+    query.equalTo(type, value)
+    query.find().subscribe(data => {
+      this.assets = data
+      this.dataChange.next(data);
+    })
+    
   }
 
 }

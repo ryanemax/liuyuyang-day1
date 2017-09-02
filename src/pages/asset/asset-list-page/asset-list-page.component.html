@@ -10,10 +10,25 @@
                     统计分析
                  </a>
         </nav>
-        <p>
+        <div class="tabMenu">
+
+            <div class="md-table-controls">
+                <md-select placeholder="搜索范围" [(ngModel)]="searchType" name="searchType">
+                    <md-option value="name">名称</md-option>
+                    <md-option value="classification">分类</md-option>
+                </md-select>
+                <md-input-container>
+                    <input [(ngModel)]="searchText" mdInput placeholder="请输入要搜索的内容">
+                </md-input-container>
+                <button style="float:right;" color="light" md-mini-fab (click)="refresh()"><md-icon>sync</md-icon></button>
+                <button style="float:right;" color="light" md-mini-fab (click)="search(searchType,searchText)"><md-icon>search</md-icon></button>
+
+            </div>
+
             <!-- <a md-raised-button routerLink="edit/new">新增宝贝</a> -->
-            <button class="addBtn" md-raised-button (click)=showEditAssetDailog()>新增宝贝</button>
-            <button class="sortBtn" md-button [mdMenuTriggerFor]="menu">
+            <button class="addBtn" md-raised-button (click)=showEditAssetDailog()><md-icon>add</md-icon>
+                新增宝贝</button>
+            <button class="sortBtn" md-raised-button [mdMenuTriggerFor]="menu">
                             <md-icon>more_vert</md-icon>排序方式
                           </button>
             <md-menu #menu="mdMenu">
@@ -27,7 +42,7 @@
                               <span>价格随机</span>
                             </button>
             </md-menu>
-        </p>
+        </div>
 
         <table cellspacing="0" cellpadding="0">
             <thead>

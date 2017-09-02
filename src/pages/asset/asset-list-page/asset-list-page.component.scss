@@ -1,5 +1,5 @@
-.addBtn{float: left;margin-bottom: 15px;}
-.sortBtn{float: right;margin-bottom: 15px;}
+// .addBtn{float: left;margin-bottom: 15px;}
+.sortBtn,.addBtn{float: right;margin:15px 0px 20px 10px;}
 .assetContent{margin: 0px 10px;}
 h1{margin-left: 10px;}
 table{width:100%;background-color: #f9f5f5;margin-bottom: 10px;}
@@ -13,3 +13,7 @@ md-icon{cursor: pointer;margin: 0px 5px}
 .mat-menu-item{background-color:#fbfbfb;}
 .mat-menu-item:hover{background-color: #dedbdb;}
 .example-button-row {display: flex;align-items: center;justify-content: space-around;}
+.md-table-controls{float: left;margin-left: 10px;margin-top: 5px;}
+.tabMenu{margin: 10px 0px;}
+.md-table-controls md-input-container{width: 400px;}
+.md-table-controls button{margin-right: 5px;}
