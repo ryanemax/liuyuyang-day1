@@ -1,23 +1,18 @@
 <div style="margin: 20px">
     <div class="title">
-        <button appBtnFastMail routerLink="analysis">Analysis</button>
-        <button style="float:right; margin-right:20px;" appBtnFastMail [mdMenuTriggerFor]="menu">Sort Menu</button>
-        <md-menu #menu="mdMenu">
-            <button md-menu-item (click)="onAscSortClick()">Asc</button>
-            <button md-menu-item (click)="onDescSortClick()">Desc</button>
-            <button md-menu-item (click)="onRandomSortClick()">Random</button>
-        </md-menu>
-        <button style="float:right; margin-right:10px;" routerLink="edit/-1" appBtnFastMail>Add</button>
+        <button [title]="'Asc'" (click)="ascPrice()">{{Price}}</button>
+        <button [title]="'Desc'" (click)="ascVisitor()">{{Visitor}}</button>
+        <button [title]="'Random'" (click)="random()">{{Random}}</button>
     </div>
       
-            <table cellpadding="0" cellspacing="0" border="1"><tbody>
-                <tr>
-                    <th width="15%">from</th>
-                    <th width="15%">to</th>
-                    <th width="15%">fareclass</th>
-                    <th width="15%">price</th>
-                    <th width="15%">date</th>
-                    <th width="15%">visitor</th>
+            <table appTableStyle cellpadding="0" cellspacing="0" border="1"><tbody>
+                <tr class="tabel-th">
+                    <th width="15%">From</th>
+                    <th width="15%">To</th>
+                    <th width="15%">FareClass</th>
+                    <th width="15%">Price</th>
+                    <th width="15%">Date</th>
+                    <th width="15%">Visitor</th>
                 </tr>
                 <tr *ngFor="let flight of flightList">
                     <td width="15%">{{flight.from}}</td>
