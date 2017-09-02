@@ -204,7 +204,7 @@ sortYear(yearArr:string[]){
     }
   }
 
-  // 历年总消费趋势
+  // 历年消费趋势
   showPernnualTotalConsum() {
     let el = document.getElementById("per-annual-total-consum");
     if (!el) { return }
@@ -232,7 +232,8 @@ sortYear(yearArr:string[]){
           type: 'line',
           stack: '总量',
           data: [],
-          assetArr: []
+          assetArr: [],
+          areaStyle: {normal: {}}
         }
         let assetArr = []
         for (let asset of this.assets) {
@@ -263,11 +264,17 @@ sortYear(yearArr:string[]){
 
       let option = {
         title: {
-          text: '历年总消费趋势'
+          text: '历年消费趋势'
         },
-        tooltip: {
-          trigger: 'axis'
-        },
+        tooltip : {
+          trigger: 'axis',
+          axisPointer: {
+              type: 'cross',
+              label: {
+                  backgroundColor: '#6a7985'
+              }
+          }
+      },
         legend: {
           data: legendArr
         },

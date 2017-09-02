@@ -139,7 +139,11 @@ export class AssetService {
   getAssetCount(): Observable<number> {
     return this.http.get(this.url + "?count=1", this.options)
       .map(data => data.json().count)
+  }
 
+  getAssetByPage(): Observable<number> {
+    return this.http.get(this.url + "?limit=1&skip=3", this.options)
+      .map(data => data.json().count)
   }
 
   connect() {
