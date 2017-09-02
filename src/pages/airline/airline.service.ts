@@ -8,6 +8,7 @@ import { Parse } from '../../cloud/cloud';
 
 @Injectable()
 export class AirlineService {
+  flightList: Array<Airline>;
   // HTTP Params
   authHeaders:Headers = new Headers()
   host = "http://47.92.145.25:2337/parse"

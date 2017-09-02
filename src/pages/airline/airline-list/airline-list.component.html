@@ -1,9 +1,15 @@
 <h1>{{title}}</h1>
 
-<button routerLink="edit/new">{{add}}</button>
-<button [title]="'Asc'" (click)="asc()">{{Asc}}</button>
-<button [title]="'Desc'" (click)="desc()">{{Desc}}</button>
-<button [title]="'Random'" (click)="random()">{{Random}}</button>
 <div style="margin-top:14px;">
-<app-airline-item [flightdt]="flight" *ngFor="let flight of airlines"></app-airline-item>
+<md-tab-group>
+  <md-tab label="Airline List">
+    <button routerLink="edit/new">{{add}}</button>
+    <button [title]="'Asc'" (click)="asc()">{{Asc}}</button>
+    <button [title]="'Desc'" (click)="desc()">{{Desc}}</button>
+    <button [title]="'Random'" (click)="random()">{{Random}}</button>
+    <app-airline-item style="display:inherit;" [flightdt]="flight" *ngFor="let flight of airlines"></app-airline-item>
+  </md-tab>
+  <md-tab label="Visit List"><app-airline-visit ></app-airline-visit></md-tab>
+</md-tab-group>
+
 </div>

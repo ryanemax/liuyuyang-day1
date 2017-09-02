@@ -19,6 +19,7 @@ object:Airline = {
     fareClass:"",
     date: new Date(),
     img: "",
+    visitNumber: 0
   }
   isNew:boolean
   constructor(

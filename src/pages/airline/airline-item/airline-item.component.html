@@ -1,3 +1,4 @@
+
 <md-card class="example-card">
 <img src="./assets/img/flight/{{flightdt.img}}.jpg" title="{{flightdt.img}}" width="100px" height="100px">
   <md-card-header>    
@@ -6,10 +7,11 @@
     <md-card-subtitle>FareClass: {{flightdt.fareClass}}</md-card-subtitle>
     <md-card-subtitle>Price: {{flightdt.price}}</md-card-subtitle>
     <md-card-subtitle>FlightDate: {{flightdt.date.iso | date:"y-MM-dd"}}</md-card-subtitle>
+    <md-card-subtitle>Visitor: {{flightdt.visitNumber}}</md-card-subtitle>
   </md-card-header>
 
   <md-card-actions>
-    <button md-button routerLink="edit/{{flightdt.objectId}}">Edit</button>
+    <button md-button routerLink="edit/{{flightdt.objectId}}" (click)="edit(flightdt)">Edit</button>
     <button md-button (click)="delete(flightdt)">Delete</button>
   </md-card-actions>
 </md-card>
