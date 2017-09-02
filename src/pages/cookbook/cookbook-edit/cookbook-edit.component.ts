@@ -16,7 +16,6 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 export class CookbookEditComponent implements OnInit {
 
     object:Cookbook = {
-    condiment:"",
     createdate:{
       __type:"Date",
       iso: ""
@@ -25,7 +24,8 @@ export class CookbookEditComponent implements OnInit {
     material:"",
     cooktime: 0,
     units:"",
-    level:0
+    level:0,
+    link:""
   }
 
  isNew:boolean
@@ -47,6 +47,7 @@ export class CookbookEditComponent implements OnInit {
     }
  
       this.cookbookServ.saveCookbook(this.object).subscribe(data=>{
+        this.back()
         this.cookbookServ.refresh()
       })
   }
