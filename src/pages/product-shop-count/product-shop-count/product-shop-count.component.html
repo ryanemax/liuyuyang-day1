@@ -1,16 +1,16 @@
 <md-card class="example-card">
-  <img src="./assets/img/product-shop-count/{{object.imgfiles}}.jpg" title="{{object.imgfiles}}" width="100px" height="100px">
+  <img src="./assets/img/product-shop-count/{{product.imgfiles}}.jpg" title="{{product.imgfiles}}" width="100px" height="100px">
   <md-card-header>
      <!-- <div md-card-avatar class="example-header-image"></div>  -->
-    <md-card-title>{{product.product_description}}</md-card-title>
-    <md-card-subtitle>{{product.product_code}}</md-card-subtitle>
+    <md-card-title>{{product.product_description}}</md-card-title><br>
+    <md-card-subtitle>{{product.product_code}}</md-card-subtitle><br>
   </md-card-header>
   <md-card-content>
     <p>
-      Shop code： {{product.shop_code}}
-      Dataset: {{product.dataset_code}}
-      Quantities: {{product.quantities}}
-      Add Date: {{product.addDate}}
+      Shop code：{{product.shop_code}}<br>
+      Dataset: {{product.dataset_code}}<br>
+      Quantities: {{product.quantities}}<br>
+      <span *ngIf="product.addDate&&product.addDate.iso">Add Date: {{product.addDate.iso | date:"y-MM-dd"}}</span>
     </p>
   </md-card-content>
   <md-card-actions>

@@ -4,5 +4,6 @@ interface Airline{
   price:number, 
   fareClass:string,
   date:Date,
-  img:string
+  img:string,
+  visitNumber:number
 }

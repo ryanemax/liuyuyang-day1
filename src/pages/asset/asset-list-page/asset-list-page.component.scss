@@ -1,11 +1,8 @@
-.assetContent{
-    margin: 0px 10px;
-}
+// .addBtn{float: left;margin-bottom: 15px;}
+.sortBtn,.addBtn{float: right;margin:15px 0px 20px 10px;}
+.assetContent{margin: 0px 10px;}
 h1{margin-left: 10px;}
-table{width:100%;background-color: #f9f5f5;}
-button {float: left;}
-p button {float: right;}
-table{margin-bottom: 10px;}
+table{width:100%;background-color: #f9f5f5;margin-bottom: 10px;}
 thead tr{font-weight: bold;}
 td,th{border:1px solid rgba(198, 183, 183, 0.75);padding: 10px;}
 .center{text-align: center;}
@@ -14,12 +11,9 @@ td{text-align: center;}
 table img{width: 80px;height: 80px;}
 md-icon{cursor: pointer;margin: 0px 5px}
 .mat-menu-item{background-color:#fbfbfb;}
-.mat-menu-item:hover{
-    background-color: #dedbdb;
-    }
-    .example-button-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-      }
-   
+.mat-menu-item:hover{background-color: #dedbdb;}
+.example-button-row {display: flex;align-items: center;justify-content: space-around;}
+.md-table-controls{float: left;margin-left: 10px;margin-top: 5px;}
+.tabMenu{margin: 10px 0px;}
+.md-table-controls md-input-container{width: 400px;}
+.md-table-controls button{margin-right: 5px;}

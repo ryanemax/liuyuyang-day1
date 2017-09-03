@@ -5,7 +5,8 @@ import { CommonModule } from '@angular/common';
 
 import { AccountPageComponent } from './account-page/account-page.component';
 import { AccountItemComponent } from './account-item/account-item.component';
-import { AccountEditComponent } from './account-edit/account-edit.component';
+import { AccountEditComponent,DialogResult } from './account-edit/account-edit.component';
+import { AccountEditDialogComponent } from './account-edit-dialog/account-edit-dialog.component';
 import { MaterialModule } from "@angular/material"
 import { SharedModule } from "../../shared/shared.module";
 
@@ -21,6 +22,10 @@ import { BetsyAccountService } from "./betsy-account.service"
     ])
   ],
   providers:[BetsyAccountService],
-  declarations: [AccountPageComponent,AccountItemComponent,AccountEditComponent]
+  declarations: [AccountPageComponent,AccountItemComponent,AccountEditComponent,
+    AccountEditDialogComponent,
+    DialogResult,],
+  entryComponents:[DialogResult,AccountEditDialogComponent]
+
 })
 export class BetsyAccountModule { }

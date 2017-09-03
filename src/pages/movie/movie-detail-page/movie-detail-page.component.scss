@@ -12,8 +12,7 @@ span{
     color: black;
 }
 button{
-
-    background-color:bisque
+    background-color:bisque;
 }
 .movie-item{
     float: left;
@@ -25,11 +24,14 @@ h1{
 }
 
 p{
-    width: 80%;
-    float: left;
+    width: 100%;
 }
 .mark{
     color: red;
     font-size: 100;
+}
+
+.detail{
+    padding: 10px;
 }
 

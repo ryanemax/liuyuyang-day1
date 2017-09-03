@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceService } from '../device.service';
-import {DataSource} from '@angular/cdk';
+
+import {
+  Meta,
+  Title
+} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-device-list-page',
@@ -9,24 +13,49 @@ import {DataSource} from '@angular/cdk';
 })
 export class DeviceListPageComponent implements OnInit {
   list:Array<any>;
-  constructor(private deviceSer:DeviceService) { 
-     this.deviceSer.getDevices().subscribe(
-     data=>{this.list=data}
-   );
+  constructor(title:Title,private deviceSer:DeviceService) { 
+     title.setTitle("物资管理系统");
+     this.deviceSer.getSubject().subscribe(data=>{
+       this.list=data;
+      });
+    
   }
 
   ngOnInit() {
   }
 
+
   asc(){
-    this.deviceSer.asc()
-  }
+    // 正序排列
+    // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+    this.list.sort((a,b) => {
+        if(a.name>b.name){
+              return 1;
+        }else{
+            return -1
+        }
+    }
+  )
+}
+
+
   desc(){
-    this.deviceSer.desc()
+     this.list.sort((a,b) => {
+        if(a.name<b.name){
+              return 1;
+        }else{
+            return -1
+        }
+    }
+  )
   }
   random(){
-    this.deviceSer.random()
+    this.list.sort((a,b) => {
+         return Math.random();
+       
+    })
+    // 随机排列
+    // 常用数学计算API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
   }
-
 
 }

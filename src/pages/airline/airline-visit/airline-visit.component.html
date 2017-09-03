@@ -1,0 +1,26 @@
+<div style="margin: 20px">
+    <div class="title">
+        <button [title]="'Asc'" (click)="ascPrice()">{{Price}}</button>
+        <button [title]="'Desc'" (click)="ascVisitor()">{{Visitor}}</button>
+        <button [title]="'Random'" (click)="random()">{{Random}}</button>
+    </div>
+      
+            <table appTableStyle cellpadding="0" cellspacing="0" border="1"><tbody>
+                <tr class="tabel-th">
+                    <th width="15%">From</th>
+                    <th width="15%">To</th>
+                    <th width="15%">FareClass</th>
+                    <th width="15%">Price</th>
+                    <th width="15%">Date</th>
+                    <th width="15%">Visitor</th>
+                </tr>
+                <tr *ngFor="let flight of flightList">
+                    <td width="15%">{{flight.from}}</td>
+                    <td width="15%">{{flight.to}}</td>
+                    <td width="15%">{{flight.fareClass}}</td>
+                    <td width="15%">{{flight.price}}</td>
+                    <td width="15%">{{flight.date.iso | date:"y-MM-dd"}}</td>
+                    <td width="15%">{{flight.visitNumber}}</td>
+                </tr>
+            </tbody></table>
+</div>

@@ -1,0 +1,47 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <md-input-container floatPlaceholder="never">
+      <input mdInput #filter placeholder="Filter devices">
+    </md-input-container>
+  </div>
+
+  <md-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    <!-- DeviceId Column -->
+    <ng-container cdkColumnDef="deviceId">
+      <md-header-cell *cdkHeaderCellDef> DeviceId </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.deviceId}} </md-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container cdkColumnDef="name">
+      <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container cdkColumnDef="type">
+      <md-header-cell *cdkHeaderCellDef> Type </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.type}} </md-cell>
+    </ng-container>
+
+    <!-- Factory Column -->
+    <ng-container cdkColumnDef="factory">
+      <md-header-cell *cdkHeaderCellDef> Factory </md-header-cell>
+      <md-cell *cdkCellDef="let row" > {{row.factory}} </md-cell>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container cdkColumnDef="price">
+      <md-header-cell *cdkHeaderCellDef> Price </md-header-cell>
+      <md-cell *cdkCellDef="let row" > {{row.price}} </md-cell>
+    </ng-container>
+
+    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+
+   
+  </md-table>
+</div>

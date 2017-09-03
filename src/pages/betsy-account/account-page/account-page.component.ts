@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MaterialModule } from "@angular/material"
 
 import { BetsyAccountService } from "../betsy-account.service"
+import {MdDialog, MdDialogRef} from '@angular/material';
+import { AccountEditDialogComponent } from '../account-edit-dialog/account-edit-dialog.component';
 
 @Component({
   selector: 'app-account-page',
@@ -11,13 +13,20 @@ import { BetsyAccountService } from "../betsy-account.service"
 export class AccountPageComponent implements OnInit {
   accounting:Array<any>;
   
-    constructor(private accountServ:BetsyAccountService) {
+    constructor(private accountServ:BetsyAccountService, public dialog: MdDialog) {
       this.accountServ.getAccountingList().subscribe(data =>{
         this.accounting = data
       })
     }
 
-    
+    showEditDialog(account?){
+      if(account){
+        this.accountServ.editObject = account
+      }else{
+        this.accountServ.editObject = undefined
+      }
+      this.dialog.open(AccountEditDialogComponent)
+    }
     asc(){
       // 正序排列
       // 数组操作API，https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array

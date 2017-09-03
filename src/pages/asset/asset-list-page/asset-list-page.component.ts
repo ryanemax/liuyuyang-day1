@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AssetService } from '../asset.service'
 import { Location } from '@angular/common';
 
+import { MdDialog, MdDialogRef } from '@angular/material';
+import { AssetEditDialogComponent } from '../asset-edit-dialog/asset-edit-dialog.component';
+
 @Component({
   selector: 'app-asset-list-page',
   templateUrl: './asset-list-page.component.html',
@@ -10,21 +13,29 @@ import { Location } from '@angular/common';
 
 export class AssetListPageComponent implements OnInit {
   assets: Array<any>;
-  constructor(private assetService: AssetService, private location: Location) {
-    // this.assets = this.assetService.assets
-    this.assetService.getAssets().subscribe(data => {
+  searchText: string = "";
+  searchType: string = "name";
+  constructor(private assetService: AssetService, private location: Location,
+    public dialog: MdDialog) {
+    this.assetService.connect().subscribe(data => {
       this.assets = data
     })
-    
+
+  }
+
+  // 打开修改弹框
+  showEditAssetDailog(asset?) {
+    if (asset) {
+      this.assetService.editObject = asset
+    } else {
+      this.assetService.editObject = undefined
+    }
+    this.dialog.open(AssetEditDialogComponent)
   }
 
   // 删除
   deleteById(id) {
-      this.assetService.deleteById(id).subscribe(data=>{
-        this.assetService.getAssets().subscribe(newData => {
-          this.assets = newData
-        })
-      })
+    this.assetService.deleteById(id)
   }
 
   priceAsc() {
@@ -58,6 +69,18 @@ export class AssetListPageComponent implements OnInit {
       return randomVal
     }
     )
+  }
+
+  search() {
+    if(this.searchText==""){
+      this.assetService.getAssets()
+    }else{
+      this.assetService.search(this.searchType,this.searchText)
+    }
+  }
+
+  refresh(){
+    this.search()
   }
 
   ngOnInit() {

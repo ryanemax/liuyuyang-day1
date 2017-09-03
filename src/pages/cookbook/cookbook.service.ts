@@ -7,6 +7,10 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/finally';
 
+import { Parse } from '../../cloud/cloud';
+// Parse.initialize("dev","http://localhost:1337/parse")
+
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class CookbookService {
@@ -14,55 +18,46 @@ export class CookbookService {
   authHeaders:Headers = new Headers()
   host = "http://47.92.145.25:2337/parse"
   className = "Cookbook"
-  // contacts:Array<Contact>; cookbooks: Array<Cookbook>;
+  // contacts:Array<Contact>;
+  dataChange: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   editObject:Cookbook;
   constructor(private http:Http) { 
     this.authHeaders.append("X-Parse-Application-Id","dev")
     this.authHeaders.append("X-Parse-Master-Key","angulardev")
     this.authHeaders.append("Content-Type","application/json")
 
-    this.getCookbookById("").subscribe(data=>{
-      console.log(data)
-    })
+    this.refresh()
   }
-  /*
-  getContactByName(name):Observable<Contact>{
-    // let contact = this.contacts.find(item=>item.name == name)
-    // return Observable.of(contact)
-    return
+ 
+  getCookbookById(id):Observable<any>{
+    let query = new Parse.Query("Cookbook",this.http)
+    return query.get(id)
   }
-  */
-  getCookbookById(id):Observable<Cookbook>{
-    // let contact = this.contacts.find(item=>item.name == name)
-    // return Observable.of(contact)
-
-    let url = this.host+"/classes/" + this.className + "/" + id
-    let options = {
-      headers:this.authHeaders
-    }
-
-    return this.http
-    .get(url,options)
-    .map(data=>data.json())
-  }
-
   getCookbook():Observable<Array<Cookbook>>{
-
-    let url = this.host+"/classes/" + this.className
-    let options = {
-      headers:this.authHeaders
-    }
-
-    return this.http
-    .get(url,options)
-    .map(data=>data.json().results) 
+    let query = new Parse.Query("Cookbook",this.http)
+    return query.find()
   }
-  
-saveCookbook(cookbook){
+  connect(){
+    return this.dataChange
+  }
+  refresh(){
+      this.getCookbook().subscribe(data=>{
+          console.log(data)
+          this.dataChange.next(data);
+      })
+  }
+  saveCookbook(cookbook){
     // this.http.post()
     let url = this.host+"/classes/" + this.className
     let options = {
       headers:this.authHeaders
+    }
+
+    if(cookbook.createdate&&!cookbook.createdate.__type){
+      cookbook.createdate = {
+        __type:"Date",
+        iso: new Date(cookbook.createdate)
+      }
     }
     
     if(cookbook.objectId){
@@ -71,18 +66,14 @@ saveCookbook(cookbook){
       delete cookbook.updatedAt
       delete cookbook.objectId
       delete cookbook.ACL
-      // 删除掉没用的字段
 
       return this.http
       .put(url+"/"+id,cookbook,options)
       .map(data=>data.json())
-      // 更新
-    
     }else{
       return this.http
       .post(url,cookbook,options)
       .map(data=>data.json())
-      // 添加
     }
   }
 
@@ -95,48 +86,14 @@ saveCookbook(cookbook){
     return this.http
     .delete(url,options)
     .map(data=>data.json())
+    .subscribe(data=>{
+      let cookbook = this.dataChange.value
+      cookbook.forEach((item,index,arr)=>{
+        if(item.objectId == id){
+          arr.splice(index,1)
+        }
+      })
+      this.dataChange.next(cookbook)
+    })
   }
-
-
-/*
-  addCookbook(cookbook){
-
-    let url = this.host+"/classes/" + this.className
-    let options = {
-      headers:this.authHeaders
-    }
-
-    return this.http
-    .post(url,options)
-    .map(data=>data.json().results) 
-
-    // this.http.post()
-  }
-  updateContact(contact){
-    let url = this.host+"/classes/" + this.className
-    let options = {
-      headers:this.authHeaders
-    }
-
-    return this.http
-    .put(url,options)
-    .map(data=>data.json().results) 
-
-    // this.http.put()
-  }
-  deleteById(id){
-    let url = this.host+"/classes/" + this.className
-    let options = {
-      headers:this.authHeaders
-    }
-
-    return this.http
-    .delete(url,options)
-    .map(data=>data.json().results) 
-
-    // this.http.delete()
-  }
-
-  */
-
 }

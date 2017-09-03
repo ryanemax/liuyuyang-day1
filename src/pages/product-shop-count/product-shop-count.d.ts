@@ -1,5 +1,8 @@
 interface ProductShop{
-  addDate?:Date
+  addDate?:{
+      __type:string,
+      iso: any
+  },
   product_code:string,
   product_description:string,
   shop_code:string,

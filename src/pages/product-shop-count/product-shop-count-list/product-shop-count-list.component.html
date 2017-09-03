@@ -1,7 +1,21 @@
-<app-diy-button [title]="'添加'"  routerLink="edit/new"></app-diy-button>
+<!-- <app-diy-button [title]="'添加'"  routerLink="edit/new"></app-diy-button>
 <app-diy-button [title]="'正序'" (click)="asc()"></app-diy-button>
 <app-diy-button [title]="'逆序'" (click)="desc()"></app-diy-button>
 <app-diy-button [title]="'随机'" (click)="random()"></app-diy-button>
 <div style="margin-top:14px;">
 <app-product-shop-count [product]="product" *ngFor="let product of products"></app-product-shop-count>
+</div>   -->
+
+<md-toolbar color="light">
+    <span>Product > List</span>
+    <span class="toolbar-spacer"></span>
+    <button md-raised-button (click)="showEditDialog()">ADD（PopUp）</button> 
+    <button md-raised-button routerLink="edit/new">ADD（Page）</button>
+    <button md-raised-button (click)="asc()">正序</button>
+    <button md-raised-button (click)="desc()">逆序</button>
+    <button md-raised-button (click)="random()">随机</button>
+</md-toolbar>
+
+<div style="margin-top:14px;">
+<app-product-shop-count (click)="showEditDialog(product)" [product]="product" *ngFor="let product of products"></app-product-shop-count>
 </div>

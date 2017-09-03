@@ -10,7 +10,6 @@ import { Location } from "@angular/common"
 export class AirlineItemComponent implements OnInit {
 
   @Input() flightdt:any
-
   constructor(private airlineServ:AirlineService,
   private loc:Location) { }
   delete(flightdt){
@@ -20,6 +19,10 @@ export class AirlineItemComponent implements OnInit {
   }
   edit(){
     this.airlineServ.editObject = this.flightdt
+    this.flightdt.visitNumber++;
+    this.airlineServ.saveAirline(this.flightdt).subscribe(data=>{
+    })
+    console.log("vistor:" + this.flightdt.visitNumber)
     // this.loc.go("/contact/edit")
     // location.href = "/contact/edit"
   }

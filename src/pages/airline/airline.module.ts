@@ -9,7 +9,10 @@ import { SharedModule } from "../../shared/shared.module";
 import {MdDatepickerModule,MdNativeDateModule} from '@angular/material';
 import { AirlineItemComponent } from './airline-item/airline-item.component';
 import { AirlineEditComponent } from './airline-edit/airline-edit.component';
+import { AirlineVisitComponent } from './airline-visit/airline-visit.component';
 import { AirlineService } from "./airline.service"
+import { TableStyleDirective } from "./table-style.directive"
+
 @NgModule({
   imports: [
     CommonModule,FormsModule,
@@ -21,6 +24,11 @@ import { AirlineService } from "./airline.service"
     ])
   ],
   providers:[AirlineService],
-  declarations: [AirlineListComponent,AirlineItemComponent,AirlineEditComponent]
+  declarations: [
+    AirlineListComponent,
+    AirlineItemComponent,
+    AirlineEditComponent,
+    AirlineVisitComponent,
+    TableStyleDirective]
 })
 export class AirlineModule { }

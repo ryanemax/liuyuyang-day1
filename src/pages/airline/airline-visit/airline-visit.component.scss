@@ -1,0 +1,47 @@
+/* Structure */
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  font-size: 20px;
+}
+
+.example-header {
+  min-height: 64px;
+  display: flex;
+  align-items: baseline;
+  padding: 8px 24px 0;
+  font-size: 20px;
+  justify-content: space-between;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  flex-grow: 1;
+  margin-left: 32px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+button{
+    background: #006564 !important;
+    padding: 7px;
+    font-size: 1em !important;
+    color: white;
+    border-radius: 3px !important;
+    border: none;
+    width: 117px !important;
+    margin:2em 0.8em;
+}
+.tabel-th{
+  text-align: left;
+}

@@ -1,34 +1,65 @@
 <div id="b">
-<div id="bt">
+
+
+<!--
 <button (click)="asc()" id="bt1">正序</button>
 <button (click)="desc()" id="bt2">逆序</button>
 <button (click)="random()" id="bt3">随机</button>
-</div>
+-->
+<h1 appJenniferFont>烹饪食谱管理</h1>
 
-<button routerLink="edit/new" id="bt4">添加</button>
+<button md-mini-fab color="primary" routerLink="edit/new" id="bt4">添加</button>
+<button md-button color="accent" routerLink="/cookbook/analysis">统计分析</button>
+<button md-raised-button [mdMenuTriggerFor]="menu">
+    <span>食谱排序</span>
+</button>
+<md-menu #menu="mdMenu">
+  <button md-menu-item (click)="asc()"> 
+    <span>烹饪难度从低到高</span>
+  </button>
+  <button md-menu-item (click)="desc()">  
+    <span>烹饪难度从高到低</span>
+  </button>
+  <button md-menu-item (click)="random()">
+    <span>随机排序</span>
+  </button>
+</md-menu>
 
+<div class="example-head">
+ 
+  </div>
 
-<table border="1" cellspacing="0" cellpadding="0">
-    <tr>
+<table >
+
+    <tr id="t">
+     
         <th id="h1">创建日期</th>
         <th id="h2">菜名</th>
-        <th id="h3">食材</th>
-        <th id="h4">佐料</th>
+        <th id="h3">主要食材</th>
         <th id="h5">烹饪时间</th>
         <th id="h6">单位</th>
-        <th id="h7">操作</th>      
+        <th id="h7">难度系数</th>
+        <th id="h9">烹饪方法链接</th>  
+        <th id="h8">操作</th>  
+       
     </tr>
+
+    
     <tr *ngFor="let menu of cookbook">
-      
-       <td> {{menu.createdate}} </td>
+     
+       <td> {{menu.createdate.iso | date:"yyyy-MM-dd"}} </td>
        <td> {{menu.cookingname}} </td>
        <td> {{menu.material}} </td>
-       <td> {{menu.condiment}} </td>
        <td> {{menu.cooktime}} </td>
-       <td> {{menu.units}} </td>
-       <td> 
-           <button routerLink="edit/{{menu.objectId}}" id="bt5">编辑</button>
-           <button (click)="delete(menu)" id="bt6">删除</button>
+       <td> {{menu.units | timeunit:"cn"}} </td>
+       <td> {{menu.level}} </td>
+       <td> <a href={{menu.link}}  target="_blank">{{menu.link}}</a> </td>
+   
+      
+  <td>
+           <button md-raised-button routerLink="edit/{{menu.objectId}}" id="bt5">编辑</button>
+           <button md-raised-button (click)="delete(menu)" id="bt6">删除</button>
+           
         </td>
        </tr>
 

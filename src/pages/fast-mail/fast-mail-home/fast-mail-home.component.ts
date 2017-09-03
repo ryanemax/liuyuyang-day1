@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FastMailService } from '../fast-mail.service'
+import { FastMailService } from '../fast-mail.service';
 
 @Component({
   selector: 'app-fast-mail-home',
