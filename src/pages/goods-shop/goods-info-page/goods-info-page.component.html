@@ -7,6 +7,7 @@
       <button (click)="asc()" appCommonButton>按价格从低到高</button>
       <button (click)="desc()" appCommonButton>按价格从高到低</button>
       <button routerLink="edit/new" appCommonButton>添加商品</button>
+      <button routerLink="analysis" appCommonButton>按价格分布分析</button>
     </div>
     <app-goods-item [item]="item" *ngFor="let item of goods"></app-goods-item>
   </md-tab>
