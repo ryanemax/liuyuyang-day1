@@ -1,11 +1,17 @@
-<h1>商品列表</h1>
-<div>
-  <button (click)="random()">默认排序</button>
-  <button (click)="asc()">按价格从低到高</button>
-  <button (click)="desc()">按价格从高到低</button>
-  <button routerLink="edit/new">添加商品</button>
-</div>
+<h1 class="title">7-12 网上商城</h1>
 
-<br/>
-
-<app-goods-item [item]="item" *ngFor="let item of goods"></app-goods-item>
+<md-tab-group class="tab-container">
+  <md-tab label="商品列表">
+    <div class="goods-info-container">
+      <button (click)="random()" appCommonButton>默认排序</button>
+      <button (click)="asc()" appCommonButton>按价格从低到高</button>
+      <button (click)="desc()" appCommonButton>按价格从高到低</button>
+      <button routerLink="edit/new" appCommonButton>添加商品</button>
+      <button routerLink="analysis" appCommonButton>按价格分布分析</button>
+    </div>
+    <app-goods-item [item]="item" *ngFor="let item of goods"></app-goods-item>
+  </md-tab>
+  <md-tab label="商城简介">
+    Content 2
+  </md-tab>
+</md-tab-group>
