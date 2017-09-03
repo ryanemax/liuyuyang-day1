@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GoodsShopService } from "../goods-shop.service"
+import { GoodsShopService } from "../goods-shop.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-goods-analysis',
@@ -9,7 +10,7 @@ import { GoodsShopService } from "../goods-shop.service"
 export class GoodsAnalysisComponent implements OnInit {
   goods:Array<any>;
 
-  constructor(private goodsServ: GoodsShopService) {
+  constructor(private goodsServ: GoodsShopService,private loc:Location) {
     this.goodsServ.connect().subscribe(data => {
       this.goods = data
       console.log(data)
@@ -87,6 +88,10 @@ export class GoodsAnalysisComponent implements OnInit {
       myChart.setOption(option);
     }
 
+  }
+
+  back(){
+    this.loc.back()
   }
 
   ngOnInit() {

@@ -1,1 +1,8 @@
-<div id="percent-chart"></div>
+<div class="analysis">
+  <button md-raised-button (click)="back()" appCommonButton>返回</button>
+  <md-card style="width:100%;">
+      <md-card-content>
+        <div id="percent-chart" style="height:500px" (window:resize)="initPie()"></div>
+      </md-card-content>
+    </md-card>
+</div>
