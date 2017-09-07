@@ -27,6 +27,25 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/student/student.module#StudentModule',
     data: { title: "学员管理" }
   },
+  { path: 'asset', loadChildren: '../pages/asset/asset.module#AssetModule' ,data:{title:"我的衣帽间"}},
+  { path: 'device', 
+    loadChildren: '../pages/liuchaoexam/device.module#DeviceModule',
+    data: { title: "物资管理系统" }
+  },
+  {
+    path: 'fast-mail',
+    loadChildren: '../pages/fast-mail/fast-mail.module#FastMailModule',
+    data: { title: "FastMail快递" }
+  },
+  { path: 'betsy-account', 
+  loadChildren: '../pages/betsy-account/betsy-account.module#BetsyAccountModule',
+  data:{title:"天天记账" },
+},
+  {
+    path: 'game', 
+    loadChildren: '../pages/game/game.module#GameModule',
+    data:{title:"游戏排行榜" }
+  },
   {
     path: 'movie',
     loadChildren: '../pages/movie/movie.module#MovieModule',
@@ -51,17 +70,11 @@ const SSRroutes: Routes = [
     data:{title:"7-12 网上商城"}
   },
   {
-    path: 'fast-mail',
-    loadChildren: '../pages/fast-mail/fast-mail.module#FastMailModule',
-    data: { title: "FastMail快递" }
-  },
-  {
     path: 'snack',
     loadChildren: '../pages/snack/snack.module#SnackModule',
     data: { title: "snack street" }
   },
   { path: 'bug', loadChildren: '../pages/bug/bug.module#BugModule', data: { title: "Bug 管理系统" } },
-  { path: 'asset', loadChildren: '../pages/asset/asset.module#AssetModule' ,data:{title:"我的衣帽间"}},
   {
     path: 'zhangyuexam',
     loadChildren: '../pages/zhangyuexam/zhangyuexam.module#ZhangyuexamModule',
@@ -72,10 +85,6 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/airline/airline.module#AirlineModule' ,
     data:{title:"Flight航空"}
   },
-  { path: 'device', 
-    loadChildren: '../pages/liuchaoexam/device.module#DeviceModule',
-    data: { title: "物资管理系统" }
-  },
   { path: 'employee', 
   loadChildren: '../pages/employee/employee.module#EmployeeModule',
   data:{title:"员工管理" }
@@ -84,10 +93,6 @@ const SSRroutes: Routes = [
   loadChildren: '../pages/product-shop-count/productshopcount.module#ProductshopcountModule',
   data:{title:"Annotation 工具" }
  },
-  { path: 'betsy-account', 
-  loadChildren: '../pages/betsy-account/betsy-account.module#BetsyAccountModule',
-  data:{title:"天天记账" },
-},
   { path: 'trainingcourse', 
   loadChildren: '../pages/training-course/training-course.module#TrainingCourseModule',
   data:{title:"培训课程" }
@@ -123,12 +128,6 @@ data: { title: "球员数据排行" }
   loadChildren: '../pages/taobao-shoplist/shoplist.module#ShoplistModule',
   data:{title:"淘宝购物车商品管理" }
 },
-  {
-    path: 'game', 
-    loadChildren: '../pages/game/game.module#GameModule',
-    data:{title:"游戏排行榜" }
-  },
-
   {
     path: 'cookbook', 
     loadChildren: '../pages/cookbook/cookbook.module#CookbookModule',

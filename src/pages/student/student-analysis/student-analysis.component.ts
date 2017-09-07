@@ -46,10 +46,10 @@ export class StudentAnalysisComponent implements OnInit {
 
     getGradeList(type){
         let weight = {
-            exam1:0.2,
+            exam1:0.3,
             exam2:0.1,
             exam3:0.1,
-            exam4:0.6,
+            exam4:0.5,
         }
        return this.students.map(item=>item[type]*weight[type])
    }
@@ -170,9 +170,7 @@ export class StudentAnalysisComponent implements OnInit {
             center: ['50%', '60%'],
             data:[
                 {value:20, name:'大连'},
-                {value:8, name:'上海'},
-                {value:2, name:'广州'},
-
+                {value:6, name:'上海'},
             ],
             itemStyle: {
                 emphasis: {

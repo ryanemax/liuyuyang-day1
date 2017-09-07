@@ -46,29 +46,29 @@ function makeStudents(){
      'github':'zhangyu',
      'desc':'',
      'exam1': 60, // fireyu1980/zhangyu-exam
-     'exam2': 0, //
-     'exam3': 0, //
-     'exam4': 0 //
+     'exam2': 65, //
+     'exam3': 60, //
+     'exam4': 60 //
     },
     {
-     'name':'Haolong.guo',
+     'name':'GuoHaolong',
      'sex':'M',
      'github':'longerZ',
      'desc':'',
      'exam1': 70, // longerZ/test_day1
-     'exam2': 0, //
-     'exam3': 0, //
-     'exam4': 0 //
+     'exam2': 75, //
+     'exam3': 70, //
+     'exam4': 65 //
     },
     {
-     'name':'geneqiang',
+     'name':'qiang.chang',
      'sex':'M',
      'github':'geneqiang',
      'desc':'',
      'exam1': 75, // geneqiang/cq-day1
-     'exam2': 0, //
-     'exam3': 0, //
-     'exam4': 0 //
+     'exam2': 65, //
+     'exam3': 65, //
+     'exam4': 60 //
     },
     {
      'name':'石文强',
@@ -76,16 +76,16 @@ function makeStudents(){
      'github':'shiwenqiang456',
      'desc':'',
      'exam1': 60, //
-     'exam2': 0, //
-     'exam3': 0, //
-     'exam4': 0 //
+     'exam2': 70, //
+     'exam3': 60, //
+     'exam4': 65 //
     },
     {
      'name':'王佳音',
      'sex':'F',
      'github':'qianjinjiayin',
      'desc':'',
-     'exam1': 40, //
+     'exam1': 45, //
      'exam2': 65, //
      'exam3': 65, //
      'exam4': 70 //
@@ -96,9 +96,9 @@ function makeStudents(){
      'github':'zs2love',
      'desc':'',
      'exam1': 90, //
-     'exam2': 0, //
-     'exam3': 0, //
-     'exam4': 0 //
+     'exam2': 75, //
+     'exam3': 70, //
+     'exam4': 70 //
     },
     {
      'name':'hansheng',
@@ -131,34 +131,24 @@ function makeStudents(){
      'exam4': 90 //
     },
     {
-     'name':'Haoling0520',
-     'sex':'M',
+     'name':'郝玲',
+     'sex':'F',
      'github':'Haoling0520',
      'desc':'',
      'exam1': 60, //
-     'exam2': 0, //
-     'exam3': 0, //
-     'exam4': 0 //
+     'exam2': 70, //
+     'exam3': 65, //
+     'exam4': 70 //
     },
     {
-     'name':'yangkaizhe',
+     'name':'杨凯喆',
      'sex':'M',
      'github':'buffoonMen',
      'desc':'',
-     'exam1': 40, //
-     'exam2': 0, //
-     'exam3': 0, //
-     'exam4': 0 //
-    },
-    {
-     'name':'WuXiaoxu',
-     'sex':'M',
-     'github':'xiaoxu555',
-     'desc':'',
-     'exam1': 60, //
-     'exam2': 0, //
-     'exam3': 0, //
-     'exam4': 0 //
+     'exam1': 50, //
+     'exam2': 70, //
+     'exam3': 60, //
+     'exam4': 68 //
     },
     {
      'name':'刘超', //device
@@ -211,16 +201,6 @@ function makeStudents(){
      'exam4': 85 //
     },
     {
-     'name':'姜胜',
-     'sex':'M',
-     'github':'ubqubq',
-     'desc':'',
-     'exam1': 70, //
-     'exam2': 0, //
-     'exam3': 0, //
-     'exam4': 0 //
-    },
-    {
      'name':'李萍萍', // mark
      'sex':'F',
      'github':'lpppoppy',
@@ -249,6 +229,36 @@ function makeStudents(){
      'exam2': 75, //
      'exam3': 65, //
      'exam4': 65 //
+    },
+    {
+     'name':'李颖',
+     'sex':'F',
+     'github':'Liying0923',
+     'desc':'',
+     'exam1': 65, //
+     'exam2': 70, //
+     'exam3': 65, //
+     'exam4': 60 //
+    },
+    {
+     'name':'吴晓旭',
+     'sex':'M',
+     'github':'xiaoxu555',
+     'desc':'',
+     'exam1': 65, //
+     'exam2': 75, //
+     'exam3': 65, //
+     'exam4': 60 //
+    },
+    {
+     'name':'张晓东',
+     'sex':'M',
+     'github':'Gyouto',
+     'desc':'',
+     'exam1': 0, //
+     'exam2': 0, //
+     'exam3': 0, //
+     'exam4': 0 //
     }
   ];
 }
