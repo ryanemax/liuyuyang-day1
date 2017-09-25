@@ -1,21 +1,31 @@
-<button  routerLink="edit/new">添加</button>
-<table>
-  <tr>
-    <th>部门编号</th>
-    <th>部门名称</th>
-    <th>员工数</th>
-    <th>创建时间</th>
-    <th>操作</th>
-  </tr>
-  <tr *ngFor="let department of departmentList">
-    <td >{{department.depId}}</td>
-    <td >{{department.name}}</td>
-    <td >{{department.count}}</td>
-    <td >{{department.createDate}}</td>
-    <td >
-      <button  routerLink="edit/{{department.objectId}}">修改</button>
-      <button  (click)="delDepartment(department)">删除</button>
-    </td>
-    <td ></td>
-  </tr>
-</table>
+<md-toolbar class="shadowbar" color="secondary">
+  <span>部门管理 > 部门信息一览</span> <!-- <button md-raised-button routerLink="/zhangyuDepartment">部门管理</button> -->
+</md-toolbar>
+<md-tab-group>
+  <md-tab label="一览">
+      <button md-raised-button routerLink="edit/new">添加</button>
+      <button md-raised-button routerLink="departmentAnalysis">统计</button>
+      <table>
+        <tr>
+          <th>部门编号</th>
+          <th>部门名称</th>
+          <th>员工数</th>
+          <th>创建时间</th>
+          <th>操作</th>
+        </tr>
+        <tr *ngFor="let department of departmentList">
+          <td >{{department.depId}}</td>
+          <td >{{department.name}}</td>
+          <td >{{department.count}}</td>
+          <td >{{department.createDate}}</td>
+          <td >
+            <button md-button routerLink="edit/{{department.objectId}}">修改</button>
+            <button md-button (click)="delDepartment(department)">删除</button>
+          </td>
+          <td ></td>
+        </tr>
+      </table>
+  </md-tab>
+  <md-tab label="统计">
+  </md-tab>
+</md-tab-group>

@@ -18,6 +18,28 @@ export class ZhangyuService {
     this.authHeaders.append("Content-Type","application/json")
  
   }
+departments1: Array<any>= [
+    {depId: 1, name: '管理部', createDate: new Date(),  count: '50'},
+    {depId: 3, name: '事业部', createDate: new Date(), count: '60'},
+    {depId: 2, name: '后勤部', createDate: new Date(),  count: '70'},
+    {depId: 5, name: '开发部', createDate: new Date(),  count: '80'},
+    {depId: 4, name: '倒霉不', createDate: new Date(),  count: '80'}
+  ];
+
+queryDepartments1():Array<Department>{
+  return this.departments1;
+}
+// getCountList():
+getDepartmentNameList1(): Array<any>{
+ let departmentNameList = [];
+ this.departments1.forEach(item=>{
+  departmentNameList.push(item.name);
+ });
+
+ return departmentNameList;
+}
+
+
   queryDepartments():Observable<Array<Department>>{
    let url = this.host+"/classes/" + this.className
     let options = {
