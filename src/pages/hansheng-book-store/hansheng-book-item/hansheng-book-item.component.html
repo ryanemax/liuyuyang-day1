@@ -1,18 +1,18 @@
-<md-card class="example-card">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>{{book.name}}</md-card-title>
-    <md-card-subtitle>{{book.author}}</md-card-subtitle>
-  </md-card-header>
-  <img md-card-image src="assets/img/examples/shiba2.jpg">
-  <md-card-content>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{book.name}}</mat-card-title>
+    <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="assets/img/examples/shiba2.jpg">
+  <mat-card-content>
     <p style="overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">
       简介： {{book.introduce}}
       <!-- 字数： {{book.wordsNum}} -->
     </p>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button routerLink="hansheng-edit/{{book.objectId}}">编辑</button>
-    <button md-button (click)="delete(book)">删除</button>
-  </md-card-actions>
-</md-card>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="hansheng-edit/{{book.objectId}}">编辑</button>
+    <button mat-button (click)="delete(book)">删除</button>
+  </mat-card-actions>
+</mat-card>

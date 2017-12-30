@@ -10,7 +10,7 @@ import { PmjService } from "./pmj.service"
 // 引入第三方共享模块
 import { SharedModule } from "../../shared/shared.module";
 import { SharedPmjModule } from "../../shared-pmj/shared-pmj.module";
-import { MaterialModule } from "@angular/material";
+import { MatButtonModule } from "@angular/material";
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ import { MaterialModule } from "@angular/material";
     FormsModule,
     SharedModule,
     SharedPmjModule,
-    MaterialModule,
+    MatButtonModule,
     RouterModule.forChild([
       { path: '', component: PmjPageComponent, pathMatch: 'full' },
       { path: 'edit/:id', component: PmjEditComponent, pathMatch: 'full' }

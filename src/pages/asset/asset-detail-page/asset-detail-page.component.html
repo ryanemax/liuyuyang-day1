@@ -2,15 +2,15 @@
   <h3>
     <a routerLink="/asset">我的衣帽间</a> > 查看宝贝
     <!-- <button appAssetButton (click)=returnList()>返回</button>   -->
-    <button md-raised-button (click)=returnList()>返回</button>
+    <button mat-raised-button (click)=returnList()>返回</button>
   </h3>
-  <md-card class="example-card">
-    <md-card-header>
-      <div md-card-avatar class="example-header-image"></div>
-      <md-card-subtitle>{{obj.name}}</md-card-subtitle>
-    </md-card-header>
-    <img md-card-image src="{{obj.img}}">
-    <md-card-content>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-subtitle>{{obj.name}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{obj.img}}">
+    <mat-card-content>
       <table>
         <tr>
           <td class="t45">分类：{{obj.classification}}</td>
@@ -21,6 +21,6 @@
           <td><span *ngIf="obj.addTime">入手时间：{{obj.addTime.iso | date:"y-MM-dd"}}</span></td>
         </tr>
       </table>
-    </md-card-content>
-  </md-card>
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -8,7 +8,7 @@ import { CookbookAnalysisComponent } from './cookbook-analysis/cookbook-analysis
 
 // 引入第三方共享模块
 import { SharedModule } from "../../shared/shared.module";
-import { MaterialModule } from "@angular/material";
+import { MatButtonModule } from "@angular/material";
 import { SharedEditModule } from "../../shared-edit/shared-edit.module";
 
 import { CookbookService } from "./cookbook.service"
@@ -18,7 +18,7 @@ import { JenniferFontDirective } from './jennifer-font.directive';
 @NgModule({
   imports: [
     CommonModule,FormsModule,
-    SharedModule,MaterialModule,
+    SharedModule,MatButtonModule,
     RouterModule.forChild([
       { path: '', component: CookListPageComponent, pathMatch: 'full' }, // 页面/：参数
       { path: 'edit/:id', component: CookbookEditComponent, pathMatch: 'full' },

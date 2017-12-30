@@ -5,7 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { BetsyAccountService } from "../betsy-account.service"
 
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
   
 @Component({
   selector: 'app-account-edit',
@@ -26,7 +26,7 @@ export class AccountEditComponent implements OnInit {
     private route: ActivatedRoute,
     private loc:Location,
    private accountServ:BetsyAccountService,
-   public dialog: MdDialog) { 
+   public dialog: MatDialog) { 
     if(accountServ.editObject){
       this.object = accountServ.editObject
     }
@@ -86,5 +86,5 @@ export class AccountEditComponent implements OnInit {
   `,
 })
 export class DialogResult {
-  constructor(public dialogRef: MdDialogRef<DialogResult>) {}
+  constructor(public dialogRef: MatDialogRef<DialogResult>) {}
 }

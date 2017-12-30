@@ -9,12 +9,12 @@ import { ZhangyuService } from "./zhangyu.service";
 
 // 引入第三方共享模块
 import { SharedModule } from "../../shared/shared.module";
-import { MaterialModule } from "@angular/material";
+import { MatButtonModule } from "@angular/material";
 
 @NgModule({
   imports: [
     CommonModule,FormsModule,
-    SharedModule,MaterialModule,
+    SharedModule,MatButtonModule,
     RouterModule.forChild([
       { path: '', component: DepartmentListComponent, pathMatch: 'full' },
       { path: 'edit/:id', component: DepartmentEditComponent, pathMatch: 'full' },

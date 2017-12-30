@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import {SnackService} from '../snack.service'
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-about-page',
@@ -15,7 +15,7 @@ export class AboutPageComponent implements OnInit {
     private route: ActivatedRoute,
     private loc:Location,
     private snackService:SnackService,
-    public dialog: MdDialog) {}
+    public dialog: MatDialog) {}
 
   back(){
     this.loc.back()

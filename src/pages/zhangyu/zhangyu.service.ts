@@ -10,7 +10,7 @@ export class ZhangyuService {
   departmentVo: Department;
   // HTTP Params
   authHeaders:Headers = new Headers();
-  host = "http://47.92.145.25:2337/parse";
+  host = "http://dev.futurestack.cn:80/parse";
   className = "DepartmentCustm";
   constructor(private http:Http) { 
     this.authHeaders.append("X-Parse-Application-Id","dev")

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 var ParseConfig = {
     applicationId:"dev",
-    serverURL: "http://47.92.145.25:2337/parse",
+    serverURL: "http://dev.futurestack.cn:80/parse",
     headers:new Headers({
         "X-Parse-Application-Id":"dev",
         "X-Parse-Master-Key":"angulardev",

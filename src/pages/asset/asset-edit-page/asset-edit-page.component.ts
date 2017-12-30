@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MdInputModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AssetService } from '../asset.service'
 import { Location } from '@angular/common';

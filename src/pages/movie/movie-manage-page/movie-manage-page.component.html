@@ -1,24 +1,24 @@
 
 <div class="main">
-    <md-input-container>
+    <mat-input-container>
         <input [(ngModel)]="object.movieName" mdInput placeholder="电影名" value="">
-    </md-input-container>
+    </mat-input-container>
 
     <br>
-    <md-input-container>
+    <mat-input-container>
         <input [(ngModel)]="object.mark" mdInput placeholder="评分" value="">
-    </md-input-container>
+    </mat-input-container>
 
     <br>
 
-<md-input-container>
+<mat-input-container>
     <input [(ngModel)]="object.director" mdInput placeholder="导演" value="">
-</md-input-container>
+</mat-input-container>
   
 
     <br>
 
-  <button md-button routerLink="/movie">取消</button>
-  <button md-button (click)="save()">保存</button>
+  <button mat-button routerLink="/movie">取消</button>
+  <button mat-button (click)="save()">保存</button>
 
 </div>

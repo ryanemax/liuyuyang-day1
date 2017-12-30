@@ -2,17 +2,17 @@
 <button class="button" (click)="asc()" style="width:10%;">正序</button>
 <button class="button" (click)="desc()" style="width:10%;">逆序</button>
 <button class="button" (click)="random()" style="width:10%;">随机</button> -->
-<md-toolbar color="primary">
-  <span><app-diy-button md-button [title]="'添加新商品'"  routerLink="edit/new"></app-diy-button></span>
+<mat-toolbar color="primary">
+  <span><app-diy-button mat-button [title]="'添加新商品'"  routerLink="edit/new"></app-diy-button></span>
  
-  <!-- <span><button md-raised-button class="button" (click)="asc()" style="width:120%;margin-left:10px;">正序</button></span>
-  <span><button md-raised-button class="button" (click)="desc()" style="width:100%;margin-left:30px;">逆序</button></span>
-  <span><button md-raised-button class="button" (click)="random()" style="width:80%;margin-left:40px;">随机</button></span> -->
-  <span><app-diy-button md-raised-button [title]="'正序'" (click)="asc()" style="width:120%;margin-left:10px;color:red"></app-diy-button></span>
-  <span><app-diy-button md-raised-button [title]="'逆序'" (click)="desc()" style="width:100%;margin-left:10px;"></app-diy-button></span>
-  <span><app-diy-button md-raised-button [title]="'随机'" (click)="random()" style="width:100%;margin-left:10px;"></app-diy-button></span>
+  <!-- <span><button mat-raised-button class="button" (click)="asc()" style="width:120%;margin-left:10px;">正序</button></span>
+  <span><button mat-raised-button class="button" (click)="desc()" style="width:100%;margin-left:30px;">逆序</button></span>
+  <span><button mat-raised-button class="button" (click)="random()" style="width:80%;margin-left:40px;">随机</button></span> -->
+  <span><app-diy-button mat-raised-button [title]="'正序'" (click)="asc()" style="width:120%;margin-left:10px;color:red"></app-diy-button></span>
+  <span><app-diy-button mat-raised-button [title]="'逆序'" (click)="desc()" style="width:100%;margin-left:10px;"></app-diy-button></span>
+  <span><app-diy-button mat-raised-button [title]="'随机'" (click)="random()" style="width:100%;margin-left:10px;"></app-diy-button></span>
 
-</md-toolbar>
+</mat-toolbar>
 
 
     <table class="gridtable" style="width:100%;" border="1px solid #F00" cellspacing="0" cellpadding="0">

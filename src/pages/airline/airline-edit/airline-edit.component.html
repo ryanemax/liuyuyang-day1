@@ -1,50 +1,50 @@
-<button md-raised-button (click)="back()">Back</button>
+<button mat-raised-button (click)="back()">Back</button>
 
-<md-card class="example-card">
+<mat-card class="example-card">
   <div class="item-edit"><img src="{{object.img | imagePipe}}"/></div>
-  <md-card-header>
-    <md-card-title >Origin:{{object.from}}</md-card-title>
-    <md-card-subtitle>Destination：{{object.to}}</md-card-subtitle>
-    <md-card-subtitle>FareClass:{{object.fareClass}}</md-card-subtitle>
-    <md-card-subtitle>Price:{{object.price}}</md-card-subtitle>
-    <md-card-subtitle>FlightDate:{{object.date.iso | date:"y-MM-dd"}}</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
+  <mat-card-header>
+    <mat-card-title >Origin:{{object.from}}</mat-card-title>
+    <mat-card-subtitle>Destination：{{object.to}}</mat-card-subtitle>
+    <mat-card-subtitle>FareClass:{{object.fareClass}}</mat-card-subtitle>
+    <mat-card-subtitle>Price:{{object.price}}</mat-card-subtitle>
+    <mat-card-subtitle>FlightDate:{{object.date.iso | date:"y-MM-dd"}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <p>
-<md-input-container>
+<mat-input-container>
   <input [(ngModel)]="object.img" type="text" mdInput placeholder="Image">
-</md-input-container>
-<md-input-container>
+</mat-input-container>
+<mat-input-container>
   <input [(ngModel)]="object.from" mdInput placeholder="Origin" value="">
-</md-input-container>
+</mat-input-container>
 
-<md-input-container>
+<mat-input-container>
   <input [(ngModel)]="object.to" mdInput placeholder="Destination" value="">
-</md-input-container>
+</mat-input-container>
 
-<md-select [(ngModel)]="object.fareClass" placeholder="FareClass">
-  <md-option [value]="'Economy'">
+<mat-select [(ngModel)]="object.fareClass" placeholder="FareClass">
+  <mat-option [value]="'Economy'">
     Economy
-  </md-option>
-  <md-option [value]="'Business'">
+  </mat-option>
+  <mat-option [value]="'Business'">
     Business
-  </md-option>
-</md-select>
-<md-input-container>
+  </mat-option>
+</mat-select>
+<mat-input-container>
   <input [(ngModel)]="object.price" mdInput placeholder="Price" type="number">
-</md-input-container>
-<md-input-container>
+</mat-input-container>
+<mat-input-container>
   <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="object.date.iso" >
   <button mdSuffix [mdDatepickerToggle]="picker" ></button>
-</md-input-container>
-<md-datepicker #picker></md-datepicker>
-<md-input-container>
+</mat-input-container>
+<mat-datepicker #picker></mat-datepicker>
+<mat-input-container>
   <input [(ngModel)]="object.visitNumber" mdInput placeholder="Vistor" type="number">
-</md-input-container>
+</mat-input-container>
     </p>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button (click)="cacel()">Cancel</button>
-    <button md-button (click)="save()">Save</button>
-  </md-card-actions>
-</md-card>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="cacel()">Cancel</button>
+    <button mat-button (click)="save()">Save</button>
+  </mat-card-actions>
+</mat-card>

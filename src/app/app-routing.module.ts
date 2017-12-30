@@ -27,11 +27,11 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/student/student.module#StudentModule',
     data: { title: "学员管理" }
   },
-  { path: 'asset', loadChildren: '../pages/asset/asset.module#AssetModule' ,data:{title:"我的衣帽间"}},
-  { path: 'device', 
-    loadChildren: '../pages/liuchaoexam/device.module#DeviceModule',
-    data: { title: "物资管理系统" }
-  },
+  // { path: 'asset', loadChildren: '../pages/asset/asset.module#AssetModule' ,data:{title:"我的衣帽间"}},
+  // { path: 'device', 
+  //   loadChildren: '../pages/liuchaoexam/device.module#DeviceModule',
+  //   data: { title: "物资管理系统" }
+  // },
   {
     path: 'fast-mail',
     loadChildren: '../pages/fast-mail/fast-mail.module#FastMailModule',
@@ -60,11 +60,11 @@ const SSRroutes: Routes = [
     loadChildren: '../pages/my-favorite-nba-players/my-favorite-nba-players.module#MyFavoriteNbaPlayersModule',
     data:{title:"My Favorite NBA Players"}
  },
-  {
-    path: 'cardpreview',
-    loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule',
-    data: { title: "卡牌预览" }
-  },
+  // {
+  //   path: 'cardpreview',
+  //   loadChildren: '../pages/card-preview/card-preview.module#CardPreviewModule',
+  //   data: { title: "卡牌预览" }
+  // },
   { path: 'goods-shop',
     loadChildren: '../pages/goods-shop/goods-shop.module#GoodsShopModule' ,
     data:{title:"7-12 网上商城"}

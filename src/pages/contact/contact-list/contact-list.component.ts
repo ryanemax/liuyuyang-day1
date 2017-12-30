@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from "../contact.service"
 
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 import { ContactEditDialogComponent } from '../contact-edit-dialog/contact-edit-dialog.component';
 
 
@@ -13,7 +13,7 @@ import { ContactEditDialogComponent } from '../contact-edit-dialog/contact-edit-
 export class ContactListComponent implements OnInit {
   contacts:Array<any>;
   constructor(private contactServ:ContactService,
-   public dialog: MdDialog) {
+   public dialog: MatDialog) {
     // this.list = this.contactServ.contacts
     this.contactServ.connect().subscribe(data=>{
       this.contacts = data

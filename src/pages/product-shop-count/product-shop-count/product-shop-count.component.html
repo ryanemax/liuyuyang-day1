@@ -1,23 +1,23 @@
-<md-card class="example-card">
+<mat-card class="example-card">
   <img src="./assets/img/product-shop-count/{{product.imgfiles}}.jpg" title="{{product.imgfiles}}" width="100px" height="100px">
-  <md-card-header>
-     <!-- <div md-card-avatar class="example-header-image"></div>  -->
-    <md-card-title>{{product.product_description}}</md-card-title><br>
-    <md-card-subtitle>{{product.product_code}}</md-card-subtitle><br>
-  </md-card-header>
-  <md-card-content>
+  <mat-card-header>
+     <!-- <div mat-card-avatar class="example-header-image"></div>  -->
+    <mat-card-title>{{product.product_description}}</mat-card-title><br>
+    <mat-card-subtitle>{{product.product_code}}</mat-card-subtitle><br>
+  </mat-card-header>
+  <mat-card-content>
     <p>
       Shop code：{{product.shop_code}}<br>
       Dataset: {{product.dataset_code}}<br>
       Quantities: {{product.quantities}}<br>
       <span *ngIf="product.addDate&&product.addDate.iso">Add Date: {{product.addDate.iso | date:"y-MM-dd"}}</span>
     </p>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button routerLink="edit/{{product.objectId}}">EDIT</button>
-    <button md-button (click)="delete(product)">DELETE</button>
-  </md-card-actions>
-</md-card>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="edit/{{product.objectId}}">EDIT</button>
+    <button mat-button (click)="delete(product)">DELETE</button>
+  </mat-card-actions>
+</mat-card>
 
 
 

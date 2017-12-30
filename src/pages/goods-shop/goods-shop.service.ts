@@ -12,7 +12,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 export class GoodsShopService {
   // HTTP Params
   authHeaders:Headers = new Headers()
-  host = "http://47.92.145.25:2337/parse"
+  host = "http://dev.futurestack.cn:80/parse"
   className = "GoodsInfo"
   dataChange: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   editObject:Item;

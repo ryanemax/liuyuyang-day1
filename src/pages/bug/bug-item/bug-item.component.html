@@ -11,7 +11,7 @@
     <td>{{bug.level}}</td>
     <td>{{bug.status}}</td>
     <td>{{bug.assigneeName}}</td>
-    <td><button md-raised-button routerLink="/bug/detail/{{bug.objectId}}">Edit</button></td>
-    <td><button md-raised-button (click)="delete(bug.objectId)">DELETE</button></td>
+    <td><button mat-raised-button routerLink="/bug/detail/{{bug.objectId}}">Edit</button></td>
+    <td><button mat-raised-button (click)="delete(bug.objectId)">DELETE</button></td>
   </tr>
 </table>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 import {AssetService} from '../asset.service'
 
 @Component({
@@ -26,7 +26,7 @@ export class AssetEditDialogComponent implements OnInit {
 
   currentMaxNo: number
   
-  constructor(private assetService:AssetService,public dialogRef: MdDialogRef<AssetEditDialogComponent>) {
+  constructor(private assetService:AssetService,public dialogRef: MatDialogRef<AssetEditDialogComponent>) {
     this.assetService.getAssetCount().subscribe(data => {
       this.currentMaxNo = data
     })
@@ -74,5 +74,5 @@ export class AssetEditDialogComponent implements OnInit {
   `,
 })
 export class DialogResult {
-  constructor(public dialogRef: MdDialogRef<DialogResult>) {}
+  constructor(public dialogRef: MatDialogRef<DialogResult>) {}
 }

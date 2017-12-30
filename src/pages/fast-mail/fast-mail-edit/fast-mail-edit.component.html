@@ -1,30 +1,30 @@
 <div class="all">
     <button (click)="onClickBack()" appBtnFastMail>Back</button>
-    <md-card class="example-card">
-    <md-card-header>
-        <div md-card-avatar class="example-header-image"></div>
-        <md-card-title>{{tmpGood.name}}</md-card-title>
-        <md-card-subtitle>{{tmpGood.tel}}</md-card-subtitle>
-    </md-card-header>
-    <md-card-content>
-        <md-input-container>
+    <mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{tmpGood.name}}</mat-card-title>
+        <mat-card-subtitle>{{tmpGood.tel}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-input-container>
             <input [(ngModel)]="tmpGood.name" mdInput placeholder="name" value="">
-        </md-input-container>
-        <md-input-container>
+        </mat-input-container>
+        <mat-input-container>
             <input [(ngModel)]="tmpGood.tel" mdInput placeholder="tel" value="">
-        </md-input-container>
-        <md-input-container>
+        </mat-input-container>
+        <mat-input-container>
             <input [(ngModel)]="tmpGood.addr" mdInput placeholder="addr" value="">
-        </md-input-container>
-        <md-input-container>
+        </mat-input-container>
+        <mat-input-container>
             <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="tmpGood.date">
             <button mdSuffix [mdDatepickerToggle]="picker"></button>
-        </md-input-container>
-        <md-datepicker #picker></md-datepicker>
-    </md-card-content>
-    <md-card-actions>
+        </mat-input-container>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-card-content>
+    <mat-card-actions>
         <button appBtnFastMail (click)="onClickBack()">Cancel</button>
         <button appBtnFastMail (click)="onClickSave()">Save</button>
-    </md-card-actions>
-    </md-card>
+    </mat-card-actions>
+    </mat-card>
 </div>

@@ -7,7 +7,7 @@ import { AccountPageComponent } from './account-page/account-page.component';
 import { AccountItemComponent } from './account-item/account-item.component';
 import { AccountEditComponent,DialogResult } from './account-edit/account-edit.component';
 import { AccountEditDialogComponent } from './account-edit-dialog/account-edit-dialog.component';
-import { MaterialModule } from "@angular/material"
+import { MatButtonModule } from "@angular/material"
 import { SharedModule } from "../../shared/shared.module";
 
 import { BetsyAccountService } from "./betsy-account.service"
@@ -15,7 +15,7 @@ import { BetsyAccountService } from "./betsy-account.service"
 @NgModule({
   imports: [
     CommonModule,FormsModule,
-    MaterialModule,SharedModule,
+    MatButtonModule,SharedModule,
     RouterModule.forChild([
       { path: '', component: AccountPageComponent, pathMatch: 'full' },
       { path: 'edit/:id', component: AccountEditComponent, pathMatch: 'full' },

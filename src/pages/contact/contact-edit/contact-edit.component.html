@@ -1,51 +1,51 @@
 
-<md-toolbar color="light">
+<mat-toolbar color="light">
     <span>联系人 > {{isNew?"新增":"编辑["+object.name+"]"}}</span>
     <span class="toolbar-spacer"></span>
-    <button md-raised-button (click)="back()">返回</button>
+    <button mat-raised-button (click)="back()">返回</button>
 
-</md-toolbar>
+</mat-toolbar>
 
-<md-card class="example-card">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>用户名：{{object.name}}</md-card-title>
-    <md-card-subtitle *ngIf="object.tag">标签：<span style="background:black;color:white;margin-left:5px;padding:3px;" *ngFor="let t of object.tag">{{t}}</span></md-card-subtitle>
-    <md-card-subtitle>手机号：{{object.mobile}}</md-card-subtitle>
-    <md-card-subtitle>性别：{{object.sex | sexName}}</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>用户名：{{object.name}}</mat-card-title>
+    <mat-card-subtitle *ngIf="object.tag">标签：<span style="background:black;color:white;margin-left:5px;padding:3px;" *ngFor="let t of object.tag">{{t}}</span></mat-card-subtitle>
+    <mat-card-subtitle>手机号：{{object.mobile}}</mat-card-subtitle>
+    <mat-card-subtitle>性别：{{object.sex | sexName}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
 
 <app-edit-tag [(tags)]="object.tag"></app-edit-tag>
 
-<md-input-container>
+<mat-input-container>
   <input [(ngModel)]="object.name" mdInput placeholder="姓名" value="">
-</md-input-container>
+</mat-input-container>
 
-<md-input-container>
+<mat-input-container>
   <input [(ngModel)]="object.mobile" mdInput placeholder="手机" value="">
-</md-input-container>
+</mat-input-container>
 
-<md-select [(ngModel)]="object.sex" placeholder="性别">
-  <md-option [value]="'M'">
+<mat-select [(ngModel)]="object.sex" placeholder="性别">
+  <mat-option [value]="'M'">
     男
-  </md-option>
-  <md-option [value]="'F'">
+  </mat-option>
+  <mat-option [value]="'F'">
     女
-  </md-option>
-</md-select>
+  </mat-option>
+</mat-select>
 
-<md-input-container>
+<mat-input-container>
   <input mdInput type="date" [(ngModel)]="object.birth" mdInput placeholder="生日">
-</md-input-container>
+</mat-input-container>
 
-<md-input-container>
+<mat-input-container>
   <input type="number" [(ngModel)]="object.likeCount" mdInput placeholder="粉丝数">
-</md-input-container>
+</mat-input-container>
 
-  </md-card-content>
-  <md-card-actions>
-    <button md-button routerLink="/contact">取消</button>
-    <button md-button (click)="save()">保存</button>
-  </md-card-actions>
-</md-card>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="/contact">取消</button>
+    <button mat-button (click)="save()">保存</button>
+  </mat-card-actions>
+</mat-card>

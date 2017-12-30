@@ -8,7 +8,7 @@ import { GoodsItemComponent } from './goods-item/goods-item.component';
 import { GoodsEditComponent } from './goods-edit/goods-edit.component';
 import { GoodsAnalysisComponent } from './goods-analysis/goods-analysis.component';
 
-import { MaterialModule } from "@angular/material"
+import { MatButtonModule } from "@angular/material"
 import { SharedModule } from "../../shared/shared.module";
 import { SharedEditModule } from "../../shared-edit/shared-edit.module";
 
@@ -18,7 +18,7 @@ import { CommonButtonDirective } from './common-button.directive';
 
 @NgModule({
   imports: [
-    CommonModule,MaterialModule,
+    CommonModule,MatButtonModule,
     FormsModule,SharedModule,
     SharedEditModule,
     RouterModule.forChild([

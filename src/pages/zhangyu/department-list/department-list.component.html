@@ -1,10 +1,10 @@
-<md-toolbar class="shadowbar" color="secondary">
-  <span>部门管理 > 部门信息一览</span> <!-- <button md-raised-button routerLink="/zhangyuDepartment">部门管理</button> -->
-</md-toolbar>
-<md-tab-group>
-  <md-tab label="一览">
-      <button md-raised-button routerLink="edit/new">添加</button>
-      <button md-raised-button routerLink="departmentAnalysis">统计</button>
+<mat-toolbar class="shadowbar" color="secondary">
+  <span>部门管理 > 部门信息一览</span> <!-- <button mat-raised-button routerLink="/zhangyuDepartment">部门管理</button> -->
+</mat-toolbar>
+<mat-tab-group>
+  <mat-tab label="一览">
+      <button mat-raised-button routerLink="edit/new">添加</button>
+      <button mat-raised-button routerLink="departmentAnalysis">统计</button>
       <table>
         <tr>
           <th>部门编号</th>
@@ -19,13 +19,13 @@
           <td >{{department.count}}</td>
           <td >{{department.createDate}}</td>
           <td >
-            <button md-button routerLink="edit/{{department.objectId}}">修改</button>
-            <button md-button (click)="delDepartment(department)">删除</button>
+            <button mat-button routerLink="edit/{{department.objectId}}">修改</button>
+            <button mat-button (click)="delDepartment(department)">删除</button>
           </td>
           <td ></td>
         </tr>
       </table>
-  </md-tab>
-  <md-tab label="统计">
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+  <mat-tab label="统计">
+  </mat-tab>
+</mat-tab-group>

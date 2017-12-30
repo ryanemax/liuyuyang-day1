@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { ProductShopCountService } from "../product-shop-count.service"
 // import { Location } from "@angular/common"
 
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-product-shop-count-dialog',
@@ -26,7 +26,7 @@ export class ProductShopCountDialogComponent implements OnInit {
 
   isNew:boolean
   constructor(private productServ:ProductShopCountService,
-             public dialogRef: MdDialogRef<ProductShopCountDialogComponent>) {
+             public dialogRef: MatDialogRef<ProductShopCountDialogComponent>) {
     if(productServ.editObject){
       this.object = productServ.editObject
     }else{

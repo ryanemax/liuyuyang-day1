@@ -1,12 +1,12 @@
-<md-toolbar color="light">
+<mat-toolbar color="light">
     <span>联系人 > 列表</span>
     <span class="toolbar-spacer"></span>
-    <button md-raised-button (click)="showEditDialog()">添加（Dialog）</button>
-    <button md-raised-button routerLink="edit/new">添加（页面）</button>
-    <button md-raised-button (click)="asc()">正序</button>
-    <button md-raised-button (click)="desc()">逆序</button>
-    <button md-raised-button (click)="random()">随机</button>
-</md-toolbar>
+    <button mat-raised-button (click)="showEditDialog()">添加（Dialog）</button>
+    <button mat-raised-button routerLink="edit/new">添加（页面）</button>
+    <button mat-raised-button (click)="asc()">正序</button>
+    <button mat-raised-button (click)="desc()">逆序</button>
+    <button mat-raised-button (click)="random()">随机</button>
+</mat-toolbar>
 
 <div style="margin-top:14px;">
 <app-contact-item (click)="showEditDialog(user)" [user]="user" *ngFor="let user of contacts"></app-contact-item>

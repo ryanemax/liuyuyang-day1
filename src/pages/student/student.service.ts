@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/startWith';
 
 // DataTable
-import {DataSource} from '@angular/cdk';
+import { MatTableDataSource } from '@angular/material';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/from';
 // End of DataTable
@@ -186,7 +186,7 @@ export class ParseDatabase {
   get data(): Student[] { return this.dataChange.value; }
   http:Http;
   mockData:any = StudentData
-  sourceType:string = "mock" // 设置数据源方式，mock本地本地模拟数据，parse微服务接口数据
+  sourceType:string = "parse" // 设置数据源方式，mock本地本地模拟数据，parse微服务接口数据
   searchType:string
   searchText:string
   constructor(http:Http) {
@@ -237,13 +237,14 @@ export class ParseDatabase {
  * the underlying data. Instead, it only needs to take the data and send the table exactly what
  * should be rendered.
  */
-export class ParseDataSource extends DataSource<any> {
+export class ParseDataSource extends MatTableDataSource<any> {
   constructor(private _parseDatabase: ParseDatabase) {
     super();
   }
 
   /** Connect function called by the table to retrieve one stream containing the data to render. */
-  connect(): Observable<Student[]> {
+//   connect(): Observable<Student> {
+  connect(): any {
     return this._parseDatabase.dataChange;
   }
   refresh(){

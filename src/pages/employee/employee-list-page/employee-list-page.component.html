@@ -1,10 +1,10 @@
 
-<md-toolbar>
-        <button md-button (click)="asc()">按年龄正序排列</button>
-        <button md-button (click)="desc()">按年龄逆序排列</button>
-        <button md-button (click)="random()">按年龄随机排列</button>
-        <button md-button routerLink="edit/new">添加新员工信息</button>
-</md-toolbar>
+<mat-toolbar>
+        <button mat-button (click)="asc()">按年龄正序排列</button>
+        <button mat-button (click)="desc()">按年龄逆序排列</button>
+        <button mat-button (click)="random()">按年龄随机排列</button>
+        <button mat-button routerLink="edit/new">添加新员工信息</button>
+</mat-toolbar>
 <h2 class="tittle">员工信息列表</h2>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
    <tr class="tb-header">
@@ -22,8 +22,8 @@
     <td class="tb-cell">{{employee.age}}</td>
     <td class="tb-cell">{{employee.position}}</td>
     <td class="tb-cell">
-        <button md-button routerLink="edit/{{employee.objectId}}">编辑</button>
-        <button md-button (click)="delete(employee)">删除</button>
+        <button mat-button routerLink="edit/{{employee.objectId}}">编辑</button>
+        <button mat-button (click)="delete(employee)">删除</button>
     </td>
    </tr>
 </table>

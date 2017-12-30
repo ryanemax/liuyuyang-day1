@@ -6,7 +6,7 @@ import { EmployeeListPageComponent } from './employee-list-page/employee-list-pa
 import { EmployeeEditPageComponent } from './employee-edit-page/employee-edit-page.component';
 
 // 引入第三方共享模块
-import { MaterialModule } from "@angular/material";
+import { MatButtonModule } from "@angular/material";
 import { EmployeeService } from "./employee.service";
 import { SharedModule } from "../../shared/shared.module";
 
@@ -14,7 +14,7 @@ import { SharedModule } from "../../shared/shared.module";
   imports: [
     CommonModule,
     FormsModule,
-    MaterialModule,
+    MatButtonModule,
     SharedModule,
     RouterModule.forChild([
     {path:'',component:EmployeeListPageComponent,pathMatch:'full'},

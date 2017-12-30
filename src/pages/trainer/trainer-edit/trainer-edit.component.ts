@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TrainerService } from '../trainer.service'
 import { Location } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-trainer-edit',
@@ -22,7 +22,7 @@ export class TrainerEditComponent implements OnInit {
     private route: ActivatedRoute,
     private loc: Location,
     private trainServ: TrainerService,
-    public dialog: MdDialog) {
+    public dialog: MatDialog) {
     if (trainServ.editObject) {
       this.object = trainServ.editObject
     }

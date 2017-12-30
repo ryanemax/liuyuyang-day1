@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from "@angular/material";
+import { MatButtonModule } from "@angular/material";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {MdTableModule} from '@angular/material';
-import { CdkTableModule } from '@angular/cdk';
-import {MdTabsModule} from '@angular/material';
+import {MatTableModule} from '@angular/material';
+import {MatTabsModule} from '@angular/material';
 // 引入第三方共享模块
 import { SharedModule } from "../../shared/shared.module";
 import { DeviceItemComponent } from './device-item/device-item.component';
@@ -17,9 +16,9 @@ import { DeviceService } from './device.service';
 @NgModule({
   imports: [
     CommonModule,FormsModule,
-    SharedModule,MaterialModule,
-    MdTableModule,CdkTableModule,
-    MdTabsModule,
+    SharedModule,MatButtonModule,
+    MatTableModule,
+    MatTabsModule,
     RouterModule.forChild([
       { path: '', component: DeviceListPageComponent, pathMatch: 'full' },
        { path: 'edit/:name', component: DeviceEditComponent, pathMatch: 'full' }

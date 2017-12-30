@@ -1,9 +1,9 @@
-<button md-mini-fab (click)="addTag()">+</button>
+<button mat-mini-fab (click)="addTag()">+</button>
 
-<md-input-container>
+<mat-input-container>
 <input mdInput [(ngModel)]="tag" type="text" placeholder="请输入标签名称">
-</md-input-container>
+</mat-input-container>
 
-<md-chip-list>
-<md-chip *ngFor="let t of tags">{{t}}<button class="btn-delete" (click)="deleteTag(t)">X</button></md-chip>
-</md-chip-list>
+<mat-chip-list>
+<mat-chip *ngFor="let t of tags">{{t}}<button class="btn-delete" (click)="deleteTag(t)">X</button></mat-chip>
+</mat-chip-list>

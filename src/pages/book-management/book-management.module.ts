@@ -7,13 +7,13 @@ import { BookNewComponent } from './book-new/book-new.component';
 import { BookManagementService } from './book-management.service';
 
 import { SharedModule } from "../../shared/shared.module";
-import { MaterialModule } from "@angular/material"
+import { MatButtonModule } from "@angular/material"
 
 
 @NgModule({
   imports: [
     CommonModule,FormsModule,
-    SharedModule,MaterialModule,
+    SharedModule,MatButtonModule,
     RouterModule.forChild([
       { path: '', component: BookListComponent, pathMatch: 'full' },
       { path: 'edit/:id', component: BookNewComponent, pathMatch: 'full' }

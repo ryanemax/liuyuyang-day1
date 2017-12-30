@@ -1,22 +1,22 @@
 <div class="editContainer">
-  <button md-raised-button (click)="back()" appCommonButton>返回</button>
-  <md-card class="card">
-    <md-card-header>
-    </md-card-header>
-    <md-card-content>
-      <md-input-container>
+  <button mat-raised-button (click)="back()" appCommonButton>返回</button>
+  <mat-card class="card">
+    <mat-card-header>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-input-container>
         <input [(ngModel)]="object.name" mdInput placeholder="商品名称" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input type="number" [(ngModel)]="object.price" mdInput placeholder="价格">
-      </md-input-container>
+      </mat-input-container>
 
       <div><app-edit-tag [(tags)]="object.tag"></app-edit-tag></div>
-    </md-card-content>
-    <md-card-actions>
-      <button md-button routerLink="/goods-shop" appCommonButton>取消</button>
-      <button md-button (click)="save()" appCommonButton>保存</button>
-    </md-card-actions>
-  </md-card>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button routerLink="/goods-shop" appCommonButton>取消</button>
+      <button mat-button (click)="save()" appCommonButton>保存</button>
+    </mat-card-actions>
+  </mat-card>
 </div>

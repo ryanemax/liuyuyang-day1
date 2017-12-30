@@ -1,30 +1,30 @@
 <div class="header">
-<h1><button color="light" md-mini-fab (click)="sidenav.toggle()">
-      <md-icon>menu</md-icon>
+<h1><button color="light" mat-mini-fab (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
     </button>Cloud Admin</h1>
 </div>
 
-<md-sidenav-container class="sidenav-fab-container">
+<mat-sidenav-container class="sidenav-fab-container">
  
-  <md-sidenav #sidenav mode="side" opened="true">
-    <button md-mini-fab class="example-fab" (click)="sidenav.toggle()">
-      <md-icon>menu</md-icon>
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <button mat-mini-fab class="example-fab" (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
     </button>
     <div class="scrolling-nav menu">
     <ul>
         <li *ngFor="let route of getEnableNavitem()" routerLink="{{route.path}}">{{route.data.title}}</li>
     </ul>
     </div>
-  </md-sidenav>
+  </mat-sidenav>
 
-  <button md-mini-fab class="example-fab" (click)="sidenav.toggle()">
-    <md-icon>menu</md-icon>
+  <button mat-mini-fab class="example-fab" (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
   </button>
 
   <div class="scrolling-content">
     <router-outlet></router-outlet>
   </div>
-</md-sidenav-container>
+</mat-sidenav-container>
 
 
 <div class="footer">

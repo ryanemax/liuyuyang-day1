@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
+import { MatButtonModule, MatInputModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -17,8 +17,16 @@ import { SharedModule } from '../../shared/shared.module'
 import { StudentService } from './student.service'
 
 // DataTable Depand CDK Table
-import {CdkTableModule} from '@angular/cdk';
-import {MdTableModule} from '@angular/material';
+import { MatTableDataSource } from '@angular/material';
+import {MatTableModule} from '@angular/material';
+import {MatOptionModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material';
+import {MatToolbarModule} from '@angular/material';
+import {MatIconModule} from '@angular/material';
+import {MatCardModule} from '@angular/material';
+import {MatTabsModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material';
+import {MatSortModule} from '@angular/material';
 // End of DataTable
 
 @NgModule({
@@ -26,10 +34,18 @@ import {MdTableModule} from '@angular/material';
      // Import Official Shared Module
     CommonModule,
     FormsModule,
-    MaterialModule,
+    MatButtonModule,
+    MatCardModule,
     // DataTable
-    CdkTableModule,
-    MdTableModule,
+    MatTableModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSortModule,
     // Import Custom Shared Module
     SharedModule,
     // Config Router

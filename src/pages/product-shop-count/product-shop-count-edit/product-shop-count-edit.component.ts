@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ProductShopCountService  } from "../product-shop-count.service";
 
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 
 @Component({
@@ -32,7 +32,7 @@ export class ProductShopCountEditComponent implements OnInit {
     private route: ActivatedRoute,
     private loc:Location,
   private productServ:ProductShopCountService,
-  public dialog: MdDialog)  {
+  public dialog: MatDialog)  {
     if(productServ.editObject){
       this.object = productServ.editObject
     }
@@ -79,6 +79,6 @@ export class ProductShopCountEditComponent implements OnInit {
   `,
 })
 export class DialogResult {
-  constructor(public dialogRef: MdDialogRef<DialogResult>) {}
+  constructor(public dialogRef: MatDialogRef<DialogResult>) {}
 }
 

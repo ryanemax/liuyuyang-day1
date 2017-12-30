@@ -1,6 +1,7 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  ViewChild
 } from '@angular/core';
 import {
   Meta,
@@ -11,6 +12,8 @@ import { Http } from '@angular/http'
 
 import {StudentService, ParseDataSource} from "../student.service";
 
+import {MatSort} from "@angular/material";
+
 import {Parse} from "../../../cloud/cloud";
 
 @Component({
@@ -19,6 +22,7 @@ import {Parse} from "../../../cloud/cloud";
   styleUrls: ['./student-list.component.scss']
 })
 export class StudentListComponent implements OnInit {
+  @ViewChild(MatSort) sort: MatSort;
   searchText: string = "";
   searchType: string = "name";
   selectStudent:any={
@@ -93,5 +97,6 @@ export class StudentListComponent implements OnInit {
     this.studentServ.deleteChecked()
   }
   ngOnInit() {
+    this.dataSource.sort = this.sort;
   }
 }

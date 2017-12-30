@@ -12,19 +12,17 @@ import {
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import {
-  MdDialog
+  MatDialog
 } from '@angular/material';
 import {
-  MdDialogRef
+  MatDialogRef
 } from '@angular/material';
 import {
-  MdDialogConfig
+  MatDialogConfig
 } from '@angular/material';
+import { MatTableDataSource } from '@angular/material';
 import {
-  DataSource
-} from '@angular/cdk';
-import {
-  MdSort
+  MatSort
 } from '@angular/material';
 import {
   BehaviorSubject
@@ -36,7 +34,7 @@ export class CardPreviewService {
   card: Card;
   authHeaders: Headers = new Headers()
   // host = " http://localhost:1337/parse";
-  host = "http://47.92.145.25:2337/parse";
+  host = "http://dev.futurestack.cn:80/parse";
   className = "CardPreview"
   constructor(private http: Http) {
     this.authHeaders.append("X-Parse-Application-Id", "dev")
@@ -231,20 +229,22 @@ export class CardDatabase {
     });
   }
 }
-export class CardDataSource extends DataSource < any > {
-  constructor(private _carDatabase: CardDatabase, private _sort: MdSort) {
+export class CardDataSource extends MatTableDataSource < any > {
+  
+  // constructor(private _carDatabase: CardDatabase, private _sort: MatSort) {
+  constructor(private _carDatabase: CardDatabase) {
     super();
   }
-
   /** Connect function called by the table to retrieve one stream containing the data to render. */
-  connect(): Observable < Card[] > {
+  // connect(): Observable < Card[] > {
+  connect(): any {
     const displayDataChanges = [
       this._carDatabase.dataChange,
-      this._sort.mdSortChange,
+      // this._sort.sortChange,
     ];
 
     return Observable.merge(...displayDataChanges).map(() => {
-      return this.getSortedData();
+      // return this.getSortedData();
     });
   }
   refresh() {
@@ -253,38 +253,38 @@ export class CardDataSource extends DataSource < any > {
   disconnect() {}
 
   /** Returns a sorted copy of the database data. */
-  getSortedData(): Card[] {
-    const data = this._carDatabase.data.slice();
-    if (!this._sort.active || this._sort.direction == '') {
-      return data;
-    }
+  // getSortedData(): Card[] {
+  //   const data = this._carDatabase.data.slice();
+  //   if (!this._sort.active || this._sort.direction == '') {
+  //     return data;
+  //   }
 
-    return data.sort((a, b) => {
-      let propertyA: number | string = '';
-      let propertyB: number | string = '';
+  //   return data.sort((a, b) => {
+  //     let propertyA: number | string = '';
+  //     let propertyB: number | string = '';
 
-      switch (this._sort.active) {
-        case 'name':
-          [propertyA, propertyB] = [a.name, b.name];
-          break;
-        case 'cost':
-          [propertyA, propertyB] = [a.cost, b.cost];
-          break;
-        case 'type':
-          [propertyA, propertyB] = [a.type, b.type];
-          break;
-        case 'vocation':
-          [propertyA, propertyB] = [a.vocation, b.vocation];
-          break;
-        case 'img':
-          [propertyA, propertyB] = [a.img, b.img];
-          break;
-      }
+  //     switch (this._sort.active) {
+  //       case 'name':
+  //         [propertyA, propertyB] = [a.name, b.name];
+  //         break;
+  //       case 'cost':
+  //         [propertyA, propertyB] = [a.cost, b.cost];
+  //         break;
+  //       case 'type':
+  //         [propertyA, propertyB] = [a.type, b.type];
+  //         break;
+  //       case 'vocation':
+  //         [propertyA, propertyB] = [a.vocation, b.vocation];
+  //         break;
+  //       case 'img':
+  //         [propertyA, propertyB] = [a.img, b.img];
+  //         break;
+  //     }
 
-      let valueA = isNaN(+propertyA) ? propertyA : +propertyA;
-      let valueB = isNaN(+propertyB) ? propertyB : +propertyB;
+  //     let valueA = isNaN(+propertyA) ? propertyA : +propertyA;
+  //     let valueB = isNaN(+propertyB) ? propertyB : +propertyB;
 
-      return (valueA < valueB ? -1 : 1) * (this._sort.direction == 'asc' ? 1 : -1);
-    });
-  }
+  //     return (valueA < valueB ? -1 : 1) * (this._sort.direction == 'asc' ? 1 : -1);
+  //   });
+  // }
 }

@@ -11,11 +11,11 @@ import { GameService } from './game.service';
 import { GameItemComponent } from './game-item/game-item.component';
 import { GameEditComponent } from './game-edit/game-edit.component';
 
-import { MaterialModule } from "@angular/material"
+import { MatButtonModule } from "@angular/material"
 
 @NgModule({
   imports: [
-    CommonModule,MaterialModule,FormsModule,
+    CommonModule,MatButtonModule,FormsModule,
     RouterModule.forChild([
       { path: '', component: GameListPageComponent, pathMatch: 'full' },
       { path: 'insert', component: GameInsertPageComponent, pathMatch: 'full' },

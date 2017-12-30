@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ShopService } from "../shop.service"
 
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 // interface Shop {
 //   index?: number,
@@ -32,7 +32,7 @@ export class TaobaoShopEditComponent implements OnInit {
     private route: ActivatedRoute,
     private loc:Location,
     private shopServ:ShopService,
-    public dialog: MdDialog) { 
+    public dialog: MatDialog) { 
     if(shopServ.editObject){
       this.object = shopServ.editObject
     }

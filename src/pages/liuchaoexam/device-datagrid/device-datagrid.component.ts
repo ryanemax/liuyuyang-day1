@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
-import {DataSource} from '@angular/cdk';
+import { MatTableDataSource } from '@angular/material';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
@@ -41,7 +41,7 @@ export class DeviceDatagridComponent implements OnInit {
 
 }
 
-export class ExampleDataSource extends DataSource<any> {
+export class ExampleDataSource extends MatTableDataSource<any> {
   _filterChange = new BehaviorSubject('');
   get filter(): string { return this._filterChange.value; }
   set filter(filter: string) { this._filterChange.next(filter); }
@@ -50,11 +50,11 @@ export class ExampleDataSource extends DataSource<any> {
 
   constructor(private devSer:DeviceService) {
     super();
-    
   }
 
   /** Connect function called by the table to retrieve one stream containing the data to render. */
-  connect(): Observable<DeviceInfo[]> {
+  // connect(): Observable<DeviceInfo[]> {
+  connect(): any {
         // return this.devSer.getDevices();
      this.dataChange=this.devSer.getSubject();
     const displayDataChanges=[this.dataChange,this._filterChange];

@@ -8,7 +8,7 @@ import { HttpModule,Headers,Http } from '@angular/http';
 
 const APPLICATION_ID:string = "dev"
 const MASTER_KEY = "angulardev"
- const SERVER_URL="http://47.92.145.25:2337/parse/classes/";
+ const SERVER_URL="http://dev.futurestack.cn:80/parse/classes/";
 //const SERVER_URL="http://localhost:1337/parse/classes/";
 
 const CONTENT_TYPE = "application/json"

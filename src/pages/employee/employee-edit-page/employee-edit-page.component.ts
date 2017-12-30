@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import {EmployeeService} from '../employee.service'
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-employee-edit-page',
@@ -23,7 +23,7 @@ export class EmployeeEditPageComponent implements OnInit {
     private route: ActivatedRoute,
     private loc:Location,
   private employeetServ:EmployeeService,
-  public dialog: MdDialog) { 
+  public dialog: MatDialog) { 
     if(employeetServ.editEmployee){
       this.employee = employeetServ.editEmployee
     }

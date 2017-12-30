@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import {PlayerService} from '../player.service'
 
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 @Component({
   selector: 'app-player-edit-page',
   templateUrl: './player-edit-page.component.html',
@@ -23,7 +23,7 @@ export class PlayerEditPageComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private loc:Location,
   private playerServ:PlayerService,
-  public dialog: MdDialog) {
+  public dialog: MatDialog) {
     if(playerServ.editObject){
       this.object = playerServ.editObject
     }

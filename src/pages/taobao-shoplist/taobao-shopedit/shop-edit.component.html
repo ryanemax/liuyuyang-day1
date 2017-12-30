@@ -1,23 +1,23 @@
 <button class="button2" (click)="back()">返回</button>
 
-<md-card class="example-card">
-  <md-card-content>
+<mat-card class="example-card">
+  <mat-card-content>
     <p>
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.productName" mdInput placeholder="商品名" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.number" mdInput placeholder="商品售出数量" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.prices" mdInput placeholder="商品价格" value="">
-      </md-input-container>
+      </mat-input-container>
     </p>
-  </md-card-content>
-  <md-card-actions>
+  </mat-card-content>
+  <mat-card-actions>
     <button class="button2" routerLink="/shoplist">取消</button>
     <button class="button2" (click)="save()">保存</button>
-  </md-card-actions>
-</md-card>
+  </mat-card-actions>
+</mat-card>

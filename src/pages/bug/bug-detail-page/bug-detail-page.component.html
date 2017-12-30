@@ -1,23 +1,23 @@
 <form class="example-form">
-  <md-input-container class="example-full-width">
+  <mat-input-container class="example-full-width">
     <input mdInput placeholder="bug index" name="index" [(ngModel)]='bug.index'>
-  </md-input-container>
+  </mat-input-container>
 
-  <md-input-container class="example-full-width">
+  <mat-input-container class="example-full-width">
     <input mdInput placeholder="bug level" name="level" [(ngModel)]='bug.level'>
-  </md-input-container>
+  </mat-input-container>
 
-  <md-input-container class="example-full-width">
+  <mat-input-container class="example-full-width">
     <input mdInput placeholder="bug status" name="status" [(ngModel)]='bug.status'>
-  </md-input-container>
+  </mat-input-container>
 
-  <md-input-container class="example-full-width">
+  <mat-input-container class="example-full-width">
     <input mdInput placeholder="bug assignee name" name="assigneeName" [(ngModel)]='bug.assigneeName'>
-  </md-input-container>
+  </mat-input-container>
 
   <div class="example-full-width">
-    <button md-raised-button (click)="save(bug)">Submit</button>
-    <button md-raised-button routerLink="/bug">Cancle</button>
+    <button mat-raised-button (click)="save(bug)">Submit</button>
+    <button mat-raised-button routerLink="/bug">Cancle</button>
   </div>
 
 </form>

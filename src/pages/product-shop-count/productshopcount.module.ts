@@ -9,14 +9,14 @@ import { ProductShopCountEditComponent, DialogResult } from './product-shop-coun
 import { ProductShopCountDialogComponent } from './product-shop-count-dialog/product-shop-count-dialog.component';
 // 引入第三方共享模块
 import { SharedModule } from "../../shared/shared.module";
-import { MaterialModule } from "@angular/material"
+import { MatButtonModule } from "@angular/material"
 import { SharedEditModule } from "../../shared-edit/shared-edit.module";
 import { ProductShopCountService  } from "./product-shop-count.service";
 
 @NgModule({
   imports: [
     CommonModule,FormsModule,
-    SharedModule,MaterialModule,
+    SharedModule,MatButtonModule,
     SharedEditModule,
     RouterModule.forChild([
       { path: '', component: ProductShopCountListComponent, pathMatch: 'full' },

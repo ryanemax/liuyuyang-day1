@@ -4,10 +4,10 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ZhangyuExamPageComponent } from './zhangyu-exam-page/zhangyu-exam-page.component';
 import { SharedModule } from "../../shared/shared.module";
-import { MaterialModule } from "@angular/material"
+import { MatButtonModule } from "@angular/material"
 @NgModule({
   imports: [
-    CommonModule,SharedModule,MaterialModule,
+    CommonModule,SharedModule,MatButtonModule,
     RouterModule.forChild([
       { path: '', component: ZhangyuExamPageComponent, pathMatch: 'full' }
     ])

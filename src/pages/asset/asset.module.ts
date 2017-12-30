@@ -5,19 +5,18 @@ import { AssetListPageComponent } from './asset-list-page/asset-list-page.compon
 import { AssetEditPageComponent } from './asset-edit-page/asset-edit-page.component';
 import { AssetDetailPageComponent } from './asset-detail-page/asset-detail-page.component';
 import { AssetService } from './asset.service'
-import { MaterialModule } from "@angular/material"
-import {MdSelectModule} from '@angular/material';
-import {MdButtonModule} from '@angular/material';
+import { MatButtonModule } from "@angular/material"
+import {MatSelectModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { AssetCurrencyPipe } from './asset-currency.pipe';
 import { AssetButtonDirective } from './asset-button.directive';
-import {MdDatepickerModule,MdNativeDateModule} from '@angular/material';
+import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
 import { AssetAnalysisPageComponent } from './asset-analysis-page/asset-analysis-page.component';
 import { AssetEditDialogComponent,DialogResult } from './asset-edit-dialog/asset-edit-dialog.component';
 
 @NgModule({
   imports: [
-    CommonModule,MaterialModule,MdDatepickerModule,MdNativeDateModule,MdSelectModule,MdButtonModule,FormsModule,RouterModule.forChild([
+    CommonModule,MatButtonModule,MatDatepickerModule,MatNativeDateModule,MatSelectModule,MatButtonModule,FormsModule,RouterModule.forChild([
        { path: '', component: AssetListPageComponent, pathMatch: 'full' }
     ]),
     RouterModule.forChild([

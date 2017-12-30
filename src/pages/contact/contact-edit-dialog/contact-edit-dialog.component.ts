@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ContactService} from '../contact.service'
 
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-contact-edit-dialog',
@@ -20,7 +20,7 @@ export class ContactEditDialogComponent implements OnInit {
     }
   }
   isNew:boolean
-  constructor(private contactServ:ContactService,public dialogRef: MdDialogRef<ContactEditDialogComponent>) {
+  constructor(private contactServ:ContactService,public dialogRef: MatDialogRef<ContactEditDialogComponent>) {
     if(contactServ.editObject){
       this.object = contactServ.editObject
     }else{

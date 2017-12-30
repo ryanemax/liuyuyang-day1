@@ -2,46 +2,46 @@
     <h1>我的衣帽间</h1>
     <div class="assetContent">
 
-        <nav md-tab-nav-bar>
-            <a md-tab-link active="true">
+        <nav mat-tab-nav-bar>
+            <a mat-tab-link active="true">
                     宝贝列表
                     </a>
-            <a md-tab-link routerLink="analysis">
+            <a mat-tab-link routerLink="analysis">
                     统计分析
                  </a>
         </nav>
         <div class="tabMenu">
 
-            <div class="md-table-controls">
-                <md-select placeholder="搜索范围" [(ngModel)]="searchType" name="searchType">
-                    <md-option value="name">名称</md-option>
-                    <md-option value="classification">分类</md-option>
-                </md-select>
-                <md-input-container>
+            <div class="mat-table-controls">
+                <mat-select placeholder="搜索范围" [(ngModel)]="searchType" name="searchType">
+                    <mat-option value="name">名称</mat-option>
+                    <mat-option value="classification">分类</mat-option>
+                </mat-select>
+                <mat-input-container>
                     <input [(ngModel)]="searchText" mdInput placeholder="请输入要搜索的内容">
-                </md-input-container>
-                <button style="float:right;" color="light" md-mini-fab (click)="refresh()"><md-icon>sync</md-icon></button>
-                <button style="float:right;" color="light" md-mini-fab (click)="search(searchType,searchText)"><md-icon>search</md-icon></button>
+                </mat-input-container>
+                <button style="float:right;" color="light" mat-mini-fab (click)="refresh()"><mat-icon>sync</mat-icon></button>
+                <button style="float:right;" color="light" mat-mini-fab (click)="search(searchType,searchText)"><mat-icon>search</mat-icon></button>
 
             </div>
 
-            <!-- <a md-raised-button routerLink="edit/new">新增宝贝</a> -->
-            <button class="addBtn" md-raised-button (click)=showEditAssetDailog()><md-icon>add</md-icon>
+            <!-- <a mat-raised-button routerLink="edit/new">新增宝贝</a> -->
+            <button class="addBtn" mat-raised-button (click)=showEditAssetDailog()><mat-icon>add</mat-icon>
                 新增宝贝</button>
-            <button class="sortBtn" md-raised-button [mdMenuTriggerFor]="menu">
-                            <md-icon>more_vert</md-icon>排序方式
+            <button class="sortBtn" mat-raised-button [mdMenuTriggerFor]="menu">
+                            <mat-icon>more_vert</mat-icon>排序方式
                           </button>
-            <md-menu #menu="mdMenu">
-                <button md-menu-item class="md-menu-item" (click)="priceAsc()">
+            <mat-menu #menu="mdMenu">
+                <button mat-menu-item class="mat-menu-item" (click)="priceAsc()">
                               <span>价格正序</span>
                             </button>
-                <button md-menu-item (click)="priceDesc()">
+                <button mat-menu-item (click)="priceDesc()">
                               <span>价格倒序</span>
                             </button>
-                <button md-menu-item (click)="random()">
+                <button mat-menu-item (click)="random()">
                               <span>价格随机</span>
                             </button>
-            </md-menu>
+            </mat-menu>
         </div>
 
         <table cellspacing="0" cellpadding="0">
@@ -67,10 +67,10 @@
                     <td>{{asset.price | assetCurrency:"cn"}}</td>
                     <td><span *ngIf="asset.addTime">{{asset.addTime.iso | date:"y-MM-dd"}}</span></td>
                     <td>
-                        <md-icon title="修改" (click)=showEditAssetDailog(asset)>edit</md-icon>
-                        <!-- <md-icon title="修改" routerLink="edit/{{asset.objectId}}">edit</md-icon> -->
-                        <md-icon title="查看" routerLink="view/{{asset.objectId}}">menu</md-icon>
-                        <md-icon title="删除" (click)="deleteById(asset.objectId)">delete</md-icon>
+                        <mat-icon title="修改" (click)=showEditAssetDailog(asset)>edit</mat-icon>
+                        <!-- <mat-icon title="修改" routerLink="edit/{{asset.objectId}}">edit</mat-icon> -->
+                        <mat-icon title="查看" routerLink="view/{{asset.objectId}}">menu</mat-icon>
+                        <mat-icon title="删除" (click)="deleteById(asset.objectId)">delete</mat-icon>
                     </td>
                 </tr>
             </tbody>

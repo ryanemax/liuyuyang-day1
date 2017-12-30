@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MaterialModule, MdNativeDateModule } from "@angular/material"
+import { MatButtonModule, MatNativeDateModule } from "@angular/material"
 import { FormsModule } from '@angular/forms';
 
 import { FastMailHomeComponent } from './fast-mail-home/fast-mail-home.component';
@@ -16,8 +16,8 @@ import { FastMailService } from './fast-mail.service';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
-    MdNativeDateModule,
+    MatButtonModule,
+    MatNativeDateModule,
     FormsModule,
     RouterModule.forChild([
       { path: '', component: FastMailHomeComponent, pathMatch: 'full' },

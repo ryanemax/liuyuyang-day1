@@ -8,22 +8,22 @@
 -->
 <h1 appJenniferFont>烹饪食谱管理</h1>
 
-<button md-mini-fab color="primary" routerLink="edit/new" id="bt4">添加</button>
-<button md-button color="accent" routerLink="/cookbook/analysis">统计分析</button>
-<button md-raised-button [mdMenuTriggerFor]="menu">
+<button mat-mini-fab color="primary" routerLink="edit/new" id="bt4">添加</button>
+<button mat-button color="accent" routerLink="/cookbook/analysis">统计分析</button>
+<button mat-raised-button [mdMenuTriggerFor]="menu">
     <span>食谱排序</span>
 </button>
-<md-menu #menu="mdMenu">
-  <button md-menu-item (click)="asc()"> 
+<mat-menu #menu="mdMenu">
+  <button mat-menu-item (click)="asc()"> 
     <span>烹饪难度从低到高</span>
   </button>
-  <button md-menu-item (click)="desc()">  
+  <button mat-menu-item (click)="desc()">  
     <span>烹饪难度从高到低</span>
   </button>
-  <button md-menu-item (click)="random()">
+  <button mat-menu-item (click)="random()">
     <span>随机排序</span>
   </button>
-</md-menu>
+</mat-menu>
 
 <div class="example-head">
  
@@ -57,8 +57,8 @@
    
       
   <td>
-           <button md-raised-button routerLink="edit/{{menu.objectId}}" id="bt5">编辑</button>
-           <button md-raised-button (click)="delete(menu)" id="bt6">删除</button>
+           <button mat-raised-button routerLink="edit/{{menu.objectId}}" id="bt5">编辑</button>
+           <button mat-raised-button (click)="delete(menu)" id="bt6">删除</button>
            
         </td>
        </tr>

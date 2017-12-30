@@ -1,18 +1,18 @@
-<md-card class="example-card">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>{{user.name}}</md-card-title>
-    <md-card-subtitle>{{user.mobile}}</md-card-subtitle>
-    <md-card-subtitle>粉丝数：{{user.likeCount | toK}}</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{user.name}}</mat-card-title>
+    <mat-card-subtitle>{{user.mobile}}</mat-card-subtitle>
+    <mat-card-subtitle>粉丝数：{{user.likeCount | toK}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <p>
       性别： {{user.sex | sexName:"cn"}}
       <span *ngIf="user.birth&&user.birth.iso">生日： {{user.birth.iso | date:"y-MM-dd"}}</span>
     </p>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button routerLink="edit/{{user.objectId}}">编辑</button>
-    <button md-button (click)="delete(user)">删除</button>
-  </md-card-actions>
-</md-card>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="edit/{{user.objectId}}">编辑</button>
+    <button mat-button (click)="delete(user)">删除</button>
+  </mat-card-actions>
+</mat-card>

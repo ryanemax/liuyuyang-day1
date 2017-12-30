@@ -5,7 +5,7 @@
     - 学员管理模块，主要功能是对学员数据进行增删查改操作
     - 基于Student特性模块，对学生数据进行筛选分析
 - NG及TS依赖
-    - MaterialModule官方提供MD组件库 
+    - MatButtonModule官方提供MD组件库 
     - PipesModule 本项目的自定义管道
     - DirectivesModule 本项目的自定义指令
     - Parse 后端数据访问库，cloud/cloud.ts

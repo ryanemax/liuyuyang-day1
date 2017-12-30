@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import {ContactService} from '../contact.service'
 
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-contact-edit',
@@ -27,7 +27,7 @@ export class ContactEditComponent implements OnInit {
     private route: ActivatedRoute,
     private loc:Location,
   private contactServ:ContactService,
-  public dialog: MdDialog) { 
+  public dialog: MatDialog) { 
     if(contactServ.editObject){
       this.object = contactServ.editObject
     }
@@ -69,5 +69,5 @@ export class ContactEditComponent implements OnInit {
   `,
 })
 export class DialogResult {
-  constructor(public dialogRef: MdDialogRef<DialogResult>) {}
+  constructor(public dialogRef: MatDialogRef<DialogResult>) {}
 }

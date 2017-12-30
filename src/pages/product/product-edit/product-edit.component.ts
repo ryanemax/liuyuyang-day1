@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import {ProductService} from '../product.service'
 
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 
 @Component({
@@ -26,7 +26,7 @@ export class ProductEditComponent implements OnInit {
     private route: ActivatedRoute,
     private loc:Location,
   private contactServ:ProductService,
-  public dialog: MdDialog) { 
+  public dialog: MatDialog) { 
     if(contactServ.editObject){
       this.object = contactServ.editObject
     }
@@ -74,5 +74,5 @@ export class ProductEditComponent implements OnInit {
 //   `,
 // })
 // export class DialogResult {
-//   constructor(public dialogRef: MdDialogRef<DialogResult>) {}
+//   constructor(public dialogRef: MatDialogRef<DialogResult>) {}
 // }

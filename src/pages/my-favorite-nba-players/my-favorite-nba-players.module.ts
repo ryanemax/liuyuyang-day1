@@ -8,7 +8,7 @@ import { PlayersEditComponent } from './players-edit/players-edit.component'
 
 // 引入第三方共享模块
 import { SharedModule } from "../../shared/shared.module";
-import { MaterialModule } from "@angular/material"
+import { MatButtonModule } from "@angular/material"
 
 import { PlayerService } from "./player.service"
 
@@ -17,7 +17,7 @@ import { PlayerService } from "./player.service"
     CommonModule,
     FormsModule,
     SharedModule,
-    MaterialModule,
+    MatButtonModule,
     RouterModule.forChild([
       { path: '', component: PlayersListPageComponent, pathMatch: 'full' },
       { path: 'edit/:index', component: PlayersEditComponent, pathMatch: 'full' }

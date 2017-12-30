@@ -6,7 +6,7 @@ import { ZsButtonComponent } from './zs-button/zs-button.component';
 import { PlayerEditPageComponent } from './player-edit-page/player-edit-page.component';
 import { PlayerInfoComponent } from './player-info/player-info.component';
 import { PlayerService } from "./player.service"
-import { MaterialModule } from "@angular/material"
+import { MatButtonModule } from "@angular/material"
 import { SharedModule } from "../../shared/shared.module";
 import { FormsModule } from '@angular/forms';
 
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule, FormsModule,
-    SharedModule,MaterialModule,
+    SharedModule,MatButtonModule,
     RouterModule.forChild([
       { path: '', component: PlayerRankingPageComponent, pathMatch: 'full' },
       { path: 'edit/:id', component: PlayerEditPageComponent, pathMatch: 'full' }

@@ -1,16 +1,16 @@
 import {Component, ViewChild,Input, OnInit} from '@angular/core';
 import { CardPreviewService,CardDatabase ,CardDataSource} from '../card-preview.service';
-import {DataSource} from '@angular/cdk';
-import {MdSort} from '@angular/material';
+import { MatTableDataSource } from '@angular/material';
+import {MatSort} from '@angular/material';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
-import {MdDialog} from '@angular/material';
-import {MdDialogRef} from '@angular/material';
-import {MdDialogConfig} from '@angular/material';
+import {MatDialog} from '@angular/material';
+import {MatDialogRef} from '@angular/material';
+import {MatDialogConfig} from '@angular/material';
 import { AddCardDailogComponent } from '../add-card-dailog/add-card-dailog.component';
 
 @Component({
@@ -27,9 +27,9 @@ export class CardPreviewManagerComponent implements   OnInit {
   sortTypeTmp:number = 0;
   cardDatabase:CardDatabase
   dataSource: CardDataSource | null;
-  @ViewChild(MdSort) sort: MdSort;
+  // @ViewChild(MatSort) sort: MatSort;
   displayedColumns = ['Name', 'Type', 'Cost', 'Vocation', 'Img','operator'];
-  constructor(private cardPreviewService:CardPreviewService ,public dialog:MdDialog) {
+  constructor(private cardPreviewService:CardPreviewService ,public dialog:MatDialog) {
     // this.cardPreviewService.getCards().subscribe(data=>{
     //   this.cards = data
     // })
@@ -58,7 +58,8 @@ export class CardPreviewManagerComponent implements   OnInit {
     });
   }
   ngOnInit() {
-      this.dataSource = new CardDataSource(this.cardDatabase, this.sort);
+      // this.dataSource = new CardDataSource(this.cardDatabase, this.sort);
+     this.dataSource = new CardDataSource(this.cardDatabase);
 
     }
 

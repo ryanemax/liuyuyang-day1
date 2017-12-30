@@ -9,20 +9,14 @@ import { MovieManagePageComponent } from './movie-manage-page/movie-manage-page.
 
 import { MovieService } from './movie.service';
 
-import {MdSelectModule,MdButtonModule,MdInputModule,MdCardModule} from '@angular/material';
-import { MaterialModule } from "@angular/material";
-
-
-
+import {MatSelectModule,MatButtonModule,MatInputModule,MatCardModule} from '@angular/material';
 
 // 引入第三方共享模块
 import { SharedModule } from "../../shared/shared.module";
 
-
-
 @NgModule({
   imports: [
-    CommonModule,MdSelectModule,MdButtonModule,MaterialModule,MdInputModule,MdCardModule,FormsModule,
+    CommonModule,MatSelectModule,MatButtonModule,MatButtonModule,MatInputModule,MatCardModule,FormsModule,
     RouterModule.forChild([
       { path: '', component: MovieListPageComponent, pathMatch: 'full' },
       { path: 'detail/:id', component: MovieDetailPageComponent, pathMatch: 'full' },

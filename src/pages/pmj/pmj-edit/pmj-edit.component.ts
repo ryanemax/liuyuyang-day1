@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import {PmjService} from '../pmj.service'
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-pmj-edit',
@@ -25,7 +25,7 @@ export class PmjEditComponent implements OnInit {
     private route: ActivatedRoute,
     private loc:Location,
     private pmjServ:PmjService,
-    public dialog: MdDialog
+    public dialog: MatDialog
   ) { 
     if(pmjServ.editObject){
       this.object = pmjServ.editObject

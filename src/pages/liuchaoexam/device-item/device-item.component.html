@@ -1,19 +1,19 @@
 
- <md-card class="example-card">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title appDeviceRedMark>{{device.deviceId}}</md-card-title>
-    <md-card-subtitle>{{device.name}}</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
+ <mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title appDeviceRedMark>{{device.deviceId}}</mat-card-title>
+    <mat-card-subtitle>{{device.name}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <p>
       设备类型：{{device.type | deviceType}}<br>
       生产厂商：{{device.factory}}<br>
       单价：{{device.price}}<br>
     </p>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button routerLink="edit/{{device.objectId}}">编辑</button>
-    <button md-button (click)="delete(device)">删除</button>
-  </md-card-actions>
-</md-card> 
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="edit/{{device.objectId}}">编辑</button>
+    <button mat-button (click)="delete(device)">删除</button>
+  </mat-card-actions>
+</mat-card> 

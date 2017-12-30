@@ -11,7 +11,7 @@ import 'rxjs/add/observable/of';
 export class ShopService {
   // HTTP Params
   authHeaders:Headers = new Headers()
-  host = "http://47.92.145.25:2337/parse"
+  host = "http://dev.futurestack.cn:80/parse"
   className = "shoplist"
   // shops:Array<Shop>;
   editObject:Shop;

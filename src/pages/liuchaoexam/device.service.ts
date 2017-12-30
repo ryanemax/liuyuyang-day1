@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 export class DeviceService {
  devices:Array<DeviceInfo>;
  editObject:DeviceInfo;
- url="http://47.92.145.25:2337/parse/classes/DeviceInfo";
+ url="http://dev.futurestack.cn:80/parse/classes/DeviceInfo";
  deviceH:Headers =new Headers();
  datachange:BehaviorSubject<DeviceInfo[]> = new BehaviorSubject<any[]>([]);
  constructor(private http:Http) {
@@ -46,7 +46,7 @@ addDeviceInfo(dev){
       headers:this.deviceH
     }
   
- let urlNew="http://47.92.145.25:2337/parse/classes/DeviceInfo"
+ let urlNew="http://dev.futurestack.cn:80/parse/classes/DeviceInfo"
 
   if(dev.objectId){
       let id = dev.objectId

@@ -1,31 +1,31 @@
-<button md-raised-button (click)="back()">返回</button>
+<button mat-raised-button (click)="back()">返回</button>
 
-<md-card class="example-card">
-  <md-card-header>
-    <div md-card-avatar></div>
-    <md-card-title>部门编号：{{editDepartment.depId}}</md-card-title>
-    <md-card-subtitle>部门名称：{{editDepartment.name}}</md-card-subtitle>
-    <md-card-subtitle>员工数量：{{editDepartment.count}}</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>部门编号：{{editDepartment.depId}}</mat-card-title>
+    <mat-card-subtitle>部门名称：{{editDepartment.name}}</mat-card-subtitle>
+    <mat-card-subtitle>员工数量：{{editDepartment.count}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <p>
-<md-input-container>
+<mat-input-container>
   <input [(ngModel)]="editDepartment.depId" mdInput placeholder="部门编号" value="">
-</md-input-container>
+</mat-input-container>
 
-<md-input-container>
+<mat-input-container>
   <input [(ngModel)]="editDepartment.name" mdInput placeholder="部门名称" value="">
-</md-input-container>
-<md-input-container>
+</mat-input-container>
+<mat-input-container>
   <input [(ngModel)]="editDepartment.count" mdInput placeholder="员工数量" value="">
-</md-input-container>
-<md-input-container>
+</mat-input-container>
+<mat-input-container>
   <input mdInput type="date" [(ngModel)]="editDepartment.createDate" placeholder="创建日期">
-</md-input-container>
+</mat-input-container>
     </p>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button routerLink="/zhangyuDepartment">取消</button>
-    <button md-button (click)="saveDepartment()">保存</button>
-  </md-card-actions>
-</md-card>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="/zhangyuDepartment">取消</button>
+    <button mat-button (click)="saveDepartment()">保存</button>
+  </mat-card-actions>
+</mat-card>

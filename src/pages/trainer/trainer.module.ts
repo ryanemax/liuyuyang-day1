@@ -8,7 +8,7 @@ import {TrainerService} from './trainer.service';
 import { TrainerEditComponent } from './trainer-edit/trainer-edit.component';
 
 import { SharedModule } from "../../shared/shared.module";
-import { MaterialModule } from "@angular/material"
+import { MatButtonModule } from "@angular/material"
 import { TrainerItemComponent } from './trainer-item/trainer-item.component';
 
 
@@ -16,7 +16,7 @@ import { TrainerItemComponent } from './trainer-item/trainer-item.component';
 @NgModule({
   imports: [
     CommonModule,FormsModule,
-    SharedModule,MaterialModule,
+    SharedModule,MatButtonModule,
     RouterModule.forChild([
       { path: '', component: TrainerListPageComponent, pathMatch: 'full' },
       { path: 'edit/:id', component: TrainerEditComponent, pathMatch: 'full' }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule,MdDatepickerModule,MdNativeDateModule } from "@angular/material";
+import { MatButtonModule,MatDatepickerModule,MatNativeDateModule } from "@angular/material";
 
 import { TrainingCourseInfoComponent } from './training-course-info/training-course-info.component';
 import { TrainingCourseService } from './training-course.service'
@@ -14,8 +14,8 @@ import { StatusFinishPipe } from './status-finish.pipe'
 @NgModule({
   imports: [
     CommonModule,FormsModule,
-    MaterialModule,
-    MdDatepickerModule, MdNativeDateModule,
+    MatButtonModule,
+    MatDatepickerModule, MatNativeDateModule,
     RouterModule.forChild([
       { path: '', component: TrainingCourseInfoComponent, pathMatch: 'full' },
       { path: 'edit/:id', component: TrainingCourseEditComponent, pathMatch: 'full' },

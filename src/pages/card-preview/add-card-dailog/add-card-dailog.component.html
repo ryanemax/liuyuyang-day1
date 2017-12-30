@@ -1,25 +1,25 @@
 
 
 <div id = "parent">
-  <md-input-container>
+  <mat-input-container>
   <input [(ngModel)]="cardobject.name" mdInput placeholder="Name" value="">
-</md-input-container>
+</mat-input-container>
 <br/>
-<md-input-container>
+<mat-input-container>
   <input [(ngModel)]="cardobject.type" mdInput placeholder="Type" value="">
-</md-input-container>
+</mat-input-container>
 <br/>
-<md-input-container>
+<mat-input-container>
   <input type="number" [(ngModel)]="cardobject.cost" mdInput placeholder="Cost" value="">
-</md-input-container>
+</mat-input-container>
 <br/>
-<md-input-container>
+<mat-input-container>
   <input [(ngModel)]="cardobject.vocation" mdInput placeholder="Vocation" value="">
-</md-input-container>
+</mat-input-container>
 <br/>
-<md-input-container>
+<mat-input-container>
   <input [(ngModel)]="cardobject.img" mdInput placeholder="ImageUrl" value="">
-</md-input-container>
+</mat-input-container>
 <br/>
 <img src = {{cardobject.img}} alt = "url错误！！"/><br/>
 <button  (click)= save()>save</button>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainerService } from '../trainer.service'
 import {DomSanitizer} from '@angular/platform-browser';
-import {MdIconRegistry} from '@angular/material';
+import {MatIconRegistry} from '@angular/material';
 
 
 @Component({
@@ -12,7 +12,7 @@ import {MdIconRegistry} from '@angular/material';
 export class TrainerListPageComponent implements OnInit {
   list:Array<any>;
   
-  constructor(private TrainerSe:TrainerService,iconRegistry: MdIconRegistry, sanitizer: DomSanitizer) { 
+  constructor(private TrainerSe:TrainerService,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) { 
    // this.list = this.TrainerSe.trainers;
       iconRegistry.addSvgIcon(
         'thumbs-up',

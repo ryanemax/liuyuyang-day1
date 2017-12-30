@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MaterialModule } from "@angular/material"
+import { MatButtonModule } from "@angular/material"
 
 import { BetsyAccountService } from "../betsy-account.service"
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 import { AccountEditDialogComponent } from '../account-edit-dialog/account-edit-dialog.component';
 
 @Component({
@@ -13,7 +13,7 @@ import { AccountEditDialogComponent } from '../account-edit-dialog/account-edit-
 export class AccountPageComponent implements OnInit {
   accounting:Array<any>;
   
-    constructor(private accountServ:BetsyAccountService, public dialog: MdDialog) {
+    constructor(private accountServ:BetsyAccountService, public dialog: MatDialog) {
       this.accountServ.getAccountingList().subscribe(data =>{
         this.accounting = data
       })

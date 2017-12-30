@@ -9,7 +9,7 @@ import { BugItemComponent } from './bug-item/bug-item.component';
 
 import { BugService } from "./bug.service"
 
-import {MdButtonModule, MdInputModule} from '@angular/material';
+import {MatButtonModule, MatInputModule} from '@angular/material';
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import {MdButtonModule, MdInputModule} from '@angular/material';
       { path: 'detail', component: BugDetailPageComponent, pathMatch: 'full' },
       { path: 'detail/:objectId', component: BugDetailPageComponent, pathMatch: 'full' }
     ]),
-    [MdButtonModule, MdInputModule]
+    [MatButtonModule, MatInputModule]
   ],
   providers: [BugService],
   declarations: [BugListPageComponent, BugDetailPageComponent, BugItemComponent]

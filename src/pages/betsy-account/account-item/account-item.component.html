@@ -1,20 +1,20 @@
-<md-card class="example-card">
+<mat-card class="example-card">
     <div appaccountcard ><img src="./assets/img/account/{{account.type}}.png" class="title-avta"></div>
     <img src="./assets/img/account/{{account.event | typeSelect}}.png" class="event-avta">
     <div class="title-content">
       <p><strong>$$$</strong>： {{account.cost}}</p>
-     <md-card-subtitle>{{account.date}}</md-card-subtitle>
+     <mat-card-subtitle>{{account.date}}</mat-card-subtitle>
 
   </div>
 
-<md-card-content>
+<mat-card-content>
     <p>备注： {{account.comment}}{{account.objectId}}</p>
-  </md-card-content>
-  <md-card-actions style="float:right">
+  </mat-card-content>
+  <mat-card-actions style="float:right">
     <button  routerLink="edit/{{account.objectId}}">✎</button>
     <button  (click)="delete(account)">X</button>
-  </md-card-actions>
-</md-card> 
+  </mat-card-actions>
+</mat-card> 
 
 
 

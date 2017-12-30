@@ -1,14 +1,14 @@
-<md-toolbar class="shadowbar" color="secondary">
-  <span>食谱管理 > 数据统计 <button md-raised-button routerLink="/cookbook">食谱列表</button></span>
-</md-toolbar>
+<mat-toolbar class="shadowbar" color="secondary">
+  <span>食谱管理 > 数据统计 <button mat-raised-button routerLink="/cookbook">食谱列表</button></span>
+</mat-toolbar>
 
-<md-card style="width:100%;">
-  <md-card-header>
-    <md-card-title>食谱</md-card-title>
-    <md-card-subtitle>数量 {{cookbook.length}}</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
+<mat-card style="width:100%;">
+  <mat-card-header>
+    <mat-card-title>食谱</mat-card-title>
+    <mat-card-subtitle>数量 {{cookbook.length}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <div id="cookbookBar" style="height:700px" (window:resize)="showBar()"></div>
-  </md-card-content>
-</md-card>
+  </mat-card-content>
+</mat-card>
 

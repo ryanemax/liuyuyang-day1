@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductShopCountService  } from "../product-shop-count.service"
 
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 import { ProductShopCountDialogComponent } from '../product-shop-count-dialog/product-shop-count-dialog.component';
 
 
@@ -14,7 +14,7 @@ export class ProductShopCountListComponent implements OnInit {
 
 products:Array<any>;
   constructor(private productServ:ProductShopCountService,
-              public dialog: MdDialog) {
+              public dialog: MatDialog) {
     this.productServ.connect().subscribe(data=>{
       this.products = data
     })

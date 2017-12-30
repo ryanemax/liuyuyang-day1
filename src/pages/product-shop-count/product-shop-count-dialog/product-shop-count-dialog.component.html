@@ -1,55 +1,55 @@
-<md-toolbar color="light">
+<mat-toolbar color="light">
    <span>Product > {{isNew?"新增":"编辑["+object.name+"]"}}</span>
     <span class="toolbar-spacer"></span>
-   <button md-raised-button (click)="close()">Back</button>
-</md-toolbar>
+   <button mat-raised-button (click)="close()">Back</button>
+</mat-toolbar>
 
-<md-card class="example-card">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image">
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
       <img src="./assets/img/product-shop-count/{{object.imgfiles}}.jpg" title="{{object.imgfiles}}" width=100% height=100%></div>
-    <md-card-title>Product Code：{{object.product_ode}}</md-card-title>
-    <md-card-subtitle>Product Description：{{object.product_description}}</md-card-subtitle>
-    <md-card-subtitle>Shop code： {{object.shop_code}}</md-card-subtitle>
-    <md-card-subtitle>Dataset: {{object.dataset_code}}</md-card-subtitle>
-    <md-card-subtitle>Quantities: {{object.quantities}}</md-card-subtitle>
-    <md-card-subtitle>Add Date: {{object.addDate}}</md-card-subtitle>
-  </md-card-header>
+    <mat-card-title>Product Code：{{object.product_ode}}</mat-card-title>
+    <mat-card-subtitle>Product Description：{{object.product_description}}</mat-card-subtitle>
+    <mat-card-subtitle>Shop code： {{object.shop_code}}</mat-card-subtitle>
+    <mat-card-subtitle>Dataset: {{object.dataset_code}}</mat-card-subtitle>
+    <mat-card-subtitle>Quantities: {{object.quantities}}</mat-card-subtitle>
+    <mat-card-subtitle>Add Date: {{object.addDate}}</mat-card-subtitle>
+  </mat-card-header>
 
-  <md-card-content>
+  <mat-card-content>
     <p>
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.product_code" mdInput placeholder="Product Code" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.product_description" mdInput placeholder="Product Description" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.shop_code" mdInput placeholder="Shop code" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.dataset_code" mdInput placeholder="Dataset" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input type="number" [(ngModel)]="object.quantities" mdInput placeholder="Quantities" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input type="number" [(ngModel)]="object.imgfiles" mdInput placeholder="Image" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.addDate" mdInput placeholder="Add Date" value="">
-      </md-input-container> 
+      </mat-input-container> 
 
     </p>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button routerLink="close()">Cancel</button>
-    <button md-button (click)="save()">Save</button>
-  </md-card-actions>
-</md-card>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="close()">Cancel</button>
+    <button mat-button (click)="save()">Save</button>
+  </mat-card-actions>
+</mat-card>

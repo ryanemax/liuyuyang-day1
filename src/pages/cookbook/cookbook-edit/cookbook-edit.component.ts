@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import {CookbookService} from '../cookbook.service'
 
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 // 在项目里面找到八个构造块
 
@@ -33,7 +33,7 @@ export class CookbookEditComponent implements OnInit {
     private route: ActivatedRoute,
     private loc:Location,
   private cookbookServ:CookbookService,
-  public dialog: MdDialog) { 
+  public dialog: MatDialog) { 
     if(cookbookServ.editObject){
       this.object = cookbookServ.editObject
     }

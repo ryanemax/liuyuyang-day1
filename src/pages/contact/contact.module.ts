@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ContactListComponent } from './contact-list/contact-list.component';
 // 引入第三方共享模块
 import { SharedModule } from "../../shared/shared.module";
-import { MaterialModule } from "@angular/material";
+import { MatButtonModule } from "@angular/material";
 import { SharedEditModule } from "../../shared-edit/shared-edit.module";
 
 import { ContactItemComponent } from './contact-item/contact-item.component';
@@ -19,7 +19,7 @@ import { ContactService } from "./contact.service"
   imports: [
     CommonModule,FormsModule,
     SharedModule,SharedEditModule,
-    MaterialModule,
+    MatButtonModule,
     RouterModule.forChild([
       { path: '', component: ContactListComponent, pathMatch: 'full' },
       { path: 'edit/:id', component: ContactEditComponent, pathMatch: 'full' }

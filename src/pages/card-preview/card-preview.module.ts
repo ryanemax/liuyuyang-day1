@@ -4,22 +4,20 @@ import { CardPreviewManagerComponent,AlertComponent } from './card-preview-manag
 import { RouterModule } from '@angular/router';
 import { CardPreviewService } from './card-preview.service';
 import { FormsModule } from '@angular/forms';
-import {DataSource} from '@angular/cdk';
-import { MaterialModule ,MdInputModule} from '@angular/material';
+import { MatTableDataSource } from '@angular/material';
+import { MatButtonModule ,MatInputModule} from '@angular/material';
 // DataTable Depand CDK Table
-import {CdkTableModule} from '@angular/cdk';
-import {MdTableModule} from '@angular/material';
+import {MatTableModule} from '@angular/material';
 import { AddCardDailogComponent } from './add-card-dailog/add-card-dailog.component';
 
 @NgModule({
   imports: [
     FormsModule,
     CommonModule,
-    MaterialModule,
+    MatButtonModule,
     // DataTable
-    MdInputModule,
-    CdkTableModule,
-    MdTableModule,
+    MatInputModule,
+    MatTableModule,
     RouterModule.forChild([
       { path: '', component: CardPreviewManagerComponent, pathMatch: 'full' },
     ])

@@ -8,14 +8,14 @@ import { TaobaoShopEditComponent } from './taobao-shopedit/shop-edit.component'
 
 // 引入第三方共享模块
 import { SharedModule } from "../../shared/shared.module";
-import { MaterialModule } from "@angular/material"
+import { MatButtonModule } from "@angular/material"
 
 import { ShopService } from "./shop.service"
 
 @NgModule({
   imports: [
     CommonModule,FormsModule,
-    SharedModule,MaterialModule,
+    SharedModule,MatButtonModule,
     RouterModule.forChild([
       { path: '', component: TaobaoShoplistComponent, pathMatch: 'full' },
       { path: 'edit/:id', component: TaobaoShopEditComponent, pathMatch: 'full' }

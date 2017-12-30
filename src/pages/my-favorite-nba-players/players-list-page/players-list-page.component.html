@@ -2,10 +2,10 @@
 
 <div style="margin-bottom: 20px; padding-left: 135px;">
   <span class="press">Sort By Ability Score</span>
-  <button md-raised-button (click)="sortList('up')">ASC</button>
-  <button md-raised-button (click)="sortList('down')">DESC</button>
-  <button md-raised-button (click)="sortList('random')">Randomly</button>
-  <button md-raised-button routerLink="edit/new">Create New Player</button>
+  <button mat-raised-button (click)="sortList('up')">ASC</button>
+  <button mat-raised-button (click)="sortList('down')">DESC</button>
+  <button mat-raised-button (click)="sortList('random')">Randomly</button>
+  <button mat-raised-button routerLink="edit/new">Create New Player</button>
 </div>
 
 <div>
@@ -24,8 +24,8 @@
         <th scope="row">{{player.name}}</th>
         <td>{{player.abilityScore}}</td>
         <td appCurrencyHighlight>{{player.salary | currencyFormat}}</td>
-        <td><button md-raised-button routerLink="edit/{{player.index}}">Edit</button></td>
-        <td><button md-icon-button (click)="delete(player)">Delete</button></td>
+        <td><button mat-raised-button routerLink="edit/{{player.index}}">Edit</button></td>
+        <td><button mat-icon-button (click)="delete(player)">Delete</button></td>
       </tr>
     </tbody>
   </table>

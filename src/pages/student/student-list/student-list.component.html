@@ -1,68 +1,68 @@
-<md-toolbar class="shadowbar" color="secondary">
-  <span>学员管理 > 学员列表 <button md-raised-button routerLink="/student/analysis">统计分析</button></span>
+<mat-toolbar class="shadowbar" color="secondary">
+  <span>学员管理 > 学员列表 <button mat-raised-button routerLink="/student/analysis">统计分析</button></span>
   <span style="width:10px;"></span>
-  <!--<md-icon class="example-icon">favorite</md-icon>-->
-  <!--<md-icon class="example-icon">delete</md-icon>-->
-    <!-- <button md-raised-button routerLink="/student/edit/new">新增学员</button> -->
-    <!-- <button md-raised-button (click)="deleteChecked()">批量删除</button> -->
+  <!--<mat-icon class="example-icon">favorite</mat-icon>-->
+  <!--<mat-icon class="example-icon">delete</mat-icon>-->
+    <!-- <button mat-raised-button routerLink="/student/edit/new">新增学员</button> -->
+    <!-- <button mat-raised-button (click)="deleteChecked()">批量删除</button> -->
   <span style="width:10px;"></span>
     
-  <div class="md-table-controls">
-    <md-select placeholder="搜索范围" [(ngModel)]="searchType" name="searchType">
-      <md-option value="name">姓名</md-option>
-      <md-option value="github">Github</md-option>
-    </md-select>
-    <md-input-container>
-      <input [(ngModel)]="searchText" mdInput placeholder="请输入要搜索的内容">
-    </md-input-container>
-    <button style="float:right;" color="light" md-mini-fab (click)="refresh()"><md-icon>sync</md-icon></button>
-    <button style="float:right;" color="light" md-mini-fab (click)="search(searchType,searchText)"><md-icon>search</md-icon></button>
+    <mat-form-field>
+      <mat-select placeholder="搜索范围" [(ngModel)]="searchType">
+        <mat-option value="name">姓名</mat-option>
+        <mat-option value="github">Github</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="searchText" matInput placeholder="请输入要搜索的内容">
+    </mat-form-field>
+    <button style="float:right;" color="light" mat-mini-fab (click)="refresh()"><mat-icon>sync</mat-icon></button>
+    <button style="float:right;" color="light" mat-mini-fab (click)="search(searchType,searchText)"><mat-icon>search</mat-icon></button>
     
     <!-- <button (click)="sortByAsccending()">正序</button>
     <button (click)="sortByDesccending()">倒序</button>
     <button (click)="sortByRadom()">随机</button> -->
-  </div>
-</md-toolbar>
+</mat-toolbar>
 
 <div class="datatable-container">
-  <md-table #table [dataSource]="dataSource">
+  <mat-table #table [dataSource]="dataSource" matSort>
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
-    <ng-container cdkColumnDef="name">
-      <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef > Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="sex">
-      <md-header-cell *cdkHeaderCellDef> Sex </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.sex | sexName}} </md-cell>
+    <ng-container matColumnDef="sex">
+      <mat-header-cell *matHeaderCellDef > Sex </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.sex | sexName}} </mat-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="github">
-      <md-header-cell *cdkHeaderCellDef> Project </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.github}} </md-cell>
+    <ng-container matColumnDef="github">
+      <mat-header-cell *matHeaderCellDef > Project </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.github}} </mat-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="exam1">
-      <md-header-cell *cdkHeaderCellDef>Exam1</md-header-cell>
-      <md-cell *cdkCellDef="let row" [style.color]="row.exam1>=80?'red':'black'"> {{row.exam1}} </md-cell>
+    <ng-container matColumnDef="exam1">
+      <mat-header-cell *matHeaderCellDef >Exam1</mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.exam1>=80?'red':'black'"> {{row.exam1}} </mat-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="exam2">
-      <md-header-cell *cdkHeaderCellDef>Exam2</md-header-cell>
-      <md-cell *cdkCellDef="let row" [style.color]="row.exam2>=80?'red':'black'"> {{row.exam2}} </md-cell>
+    <ng-container matColumnDef="exam2">
+      <mat-header-cell *matHeaderCellDef >Exam2</mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.exam2>=80?'red':'black'"> {{row.exam2}} </mat-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="exam3">
-      <md-header-cell *cdkHeaderCellDef>Exam3</md-header-cell>
-      <md-cell *cdkCellDef="let row" [style.color]="row.exam3>=80?'red':'black'"> {{row.exam3}} </md-cell>
+    <ng-container matColumnDef="exam3">
+      <mat-header-cell *matHeaderCellDef >Exam3</mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.exam3>=80?'red':'black'"> {{row.exam3}} </mat-cell>
     </ng-container>
 
-    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
-  </md-table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
 </div>
 
 

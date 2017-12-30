@@ -1,46 +1,46 @@
-<md-card class="example-card" style="background-color: #bbdefb">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title style="font-size:22px">Brand Spec</md-card-title>
+<mat-card class="example-card" style="background-color: #bbdefb">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title style="font-size:22px">Brand Spec</mat-card-title>
     <br />
     <br />
-    <md-card-subtitle style="margin-left:18px">Brand Name: {{object.name}}</md-card-subtitle>
-    <md-card-subtitle style="margin-left:18px">Consumer Account: {{object.consumerAccount}}</md-card-subtitle>
-    <md-card-subtitle style="margin-left:18px">Campaign Account: {{object.campaignAccount}}</md-card-subtitle>
-    <md-card-subtitle style="margin-left:18px">Taeget Audience: {{object.taegetAudience}}</md-card-subtitle>
-    <md-card-subtitle style="margin-left:18px">Average Prize: {{object.averagePrize}}</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
+    <mat-card-subtitle style="margin-left:18px">Brand Name: {{object.name}}</mat-card-subtitle>
+    <mat-card-subtitle style="margin-left:18px">Consumer Account: {{object.consumerAccount}}</mat-card-subtitle>
+    <mat-card-subtitle style="margin-left:18px">Campaign Account: {{object.campaignAccount}}</mat-card-subtitle>
+    <mat-card-subtitle style="margin-left:18px">Taeget Audience: {{object.taegetAudience}}</mat-card-subtitle>
+    <mat-card-subtitle style="margin-left:18px">Average Prize: {{object.averagePrize}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <p>
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.name" mdInput placeholder="Brand Name" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.consumerAccount" mdInput placeholder="Consumer Account" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.campaignAccount" mdInput placeholder="Campaign Account" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.taegetAudience" mdInput placeholder="Taeget Audience" value="">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
+      <mat-input-container>
         <input [(ngModel)]="object.averagePrize" mdInput placeholder="Average Prize" value="">
-      </md-input-container>
+      </mat-input-container>
     </p>
-  </md-card-content>
-  <md-card-actions>
-    <!--<button md-button routerLink="/pmj">Cancel</button>
-    <button md-button (click)="save()">Confirm</button>-->
+  </mat-card-content>
+  <mat-card-actions>
+    <!--<button mat-button routerLink="/pmj">Cancel</button>
+    <button mat-button (click)="save()">Confirm</button>-->
     <div style="float:right">
-      <button md-mini-fab (click)="save()"><md-icon>check</md-icon></button>
-      <button md-mini-fab routerLink="/pmj" style="margin-left:5px"><md-icon>close</md-icon></button>
+      <button mat-mini-fab (click)="save()"><mat-icon>check</mat-icon></button>
+      <button mat-mini-fab routerLink="/pmj" style="margin-left:5px"><mat-icon>close</mat-icon></button>
     </div>
     <!--<button style="float:right" appPmjButton (click)="back()">Back</button>-->
-    <button md-mini-fab (click)="back()"><md-icon>chevron_left</md-icon></button>
-  </md-card-actions>
-</md-card>
+    <button mat-mini-fab (click)="back()"><mat-icon>chevron_left</mat-icon></button>
+  </mat-card-actions>
+</mat-card>

@@ -8,10 +8,10 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { SharedProductModule } from "../../shared-product/shared-product.module";
 
-import { MaterialModule } from "@angular/material";
+import { MatButtonModule } from "@angular/material";
 @NgModule({
   imports: [
-    CommonModule,MaterialModule,FormsModule,SharedProductModule,
+    CommonModule,MatButtonModule,FormsModule,SharedProductModule,
     RouterModule.forChild([
       { path: '', component: ProductListPageComponent, pathMatch: 'full' },
       { path: 'edit/:id', component: ProductEditComponent, pathMatch: 'full' }

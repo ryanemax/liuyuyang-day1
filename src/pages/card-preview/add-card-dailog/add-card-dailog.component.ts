@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MdDialogRef , MD_DIALOG_DATA} from '@angular/material';
-import { MaterialModule ,MdInputModule} from '@angular/material';
+import {MatDialogRef , MAT_DIALOG_DATA} from '@angular/material';
+import { MatButtonModule ,MatInputModule} from '@angular/material';
 import { CardPreviewService,CardDatabase ,CardDataSource} from '../card-preview.service';
 @Component({
   selector: 'app-add-card-dailog',
@@ -17,7 +17,7 @@ export class AddCardDailogComponent implements OnInit {
     vocation:"",
     img:""
   }
-  constructor(private cardPreviewService:CardPreviewService,public dialogRef: MdDialogRef<AddCardDailogComponent>) {
+  constructor(private cardPreviewService:CardPreviewService,public dialogRef: MatDialogRef<AddCardDailogComponent>) {
     this.cardDatabase = new CardDatabase(cardPreviewService);
 
     if(cardPreviewService.card){

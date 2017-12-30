@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { HanshengBookStoreService } from "../hansheng-book-store.service"
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-hansheng-book-store-edit',
@@ -22,7 +22,7 @@ export class HanshengBookStoreEditComponent implements OnInit {
     private route: ActivatedRoute,
     private loc:Location,
   private hanshengBookStoreService:HanshengBookStoreService,
-  public dialog: MdDialog) { 
+  public dialog: MatDialog) { 
     if(hanshengBookStoreService.editObject){
       this.book = hanshengBookStoreService.editObject
     }

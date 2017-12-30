@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AssetService } from '../asset.service'
 import { Location } from '@angular/common';
 
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { AssetEditDialogComponent } from '../asset-edit-dialog/asset-edit-dialog.component';
 
 @Component({
@@ -16,7 +16,7 @@ export class AssetListPageComponent implements OnInit {
   searchText: string = "";
   searchType: string = "name";
   constructor(private assetService: AssetService, private location: Location,
-    public dialog: MdDialog) {
+    public dialog: MatDialog) {
     this.assetService.connect().subscribe(data => {
       this.assets = data
     })

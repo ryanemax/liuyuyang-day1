@@ -1,44 +1,44 @@
-<md-card class="example-card">
-    <md-card-header>
-      <div md-card-avatar class="example-header-image"></div>
-      <md-card-title>学生姓名 : {{record.stName}}</md-card-title>
-      <md-card-title>是否完成:{{record.isOk | statusFinish:"cn"}}</md-card-title>
-      <md-card-title>课程名:{{record.courseName}}</md-card-title>
-      <md-card-title>完成日期:{{record.date }}</md-card-title>
-    </md-card-header>
-    <md-card-content>
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>学生姓名 : {{record.stName}}</mat-card-title>
+      <mat-card-title>是否完成:{{record.isOk | statusFinish:"cn"}}</mat-card-title>
+      <mat-card-title>课程名:{{record.courseName}}</mat-card-title>
+      <mat-card-title>完成日期:{{record.date }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
 
-          <md-input-container>
+          <mat-input-container>
               <input [(ngModel)]="record.stName" mdInput placeholder="学生姓名" value="">
-            </md-input-container>
+            </mat-input-container>
             
          
 
             <form>
-              <md-select placeholder="是否完成" [(ngModel)]="record.isOk"  name="record">
-                <md-option value="Ok">
+              <mat-select placeholder="是否完成" [(ngModel)]="record.isOk"  name="record">
+                <mat-option value="Ok">
                  完成
-                </md-option>
-                <md-option value="Ng">
+                </mat-option>
+                <mat-option value="Ng">
                   未完成
-                 </md-option>
-              </md-select>
+                 </mat-option>
+              </mat-select>
               <p>  </p>
             </form>
             
-            <md-input-container>
+            <mat-input-container>
                 <input [(ngModel)]="record.courseName" mdInput placeholder="课程名" value="">
-           </md-input-container>
-              <md-input-container>
+           </mat-input-container>
+              <mat-input-container>
                   <input mdInput type="date" [(ngModel)]="record.date" mdInput placeholder="完成日期">
                   <!-- <input [(ngModel)]="record.date" mdInput placeholder="完成日期" value=""> -->
-                </md-input-container>
+                </mat-input-container>
   
 
 
-    </md-card-content>
-    <md-card-actions>
-      <button md-button (click)="back()">BACK</button>
-      <button md-button (click)="save()">SAVE</button>
-    </md-card-actions>
-</md-card>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="back()">BACK</button>
+      <button mat-button (click)="save()">SAVE</button>
+    </mat-card-actions>
+</mat-card>

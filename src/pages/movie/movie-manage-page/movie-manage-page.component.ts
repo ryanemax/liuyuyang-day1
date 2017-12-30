@@ -5,7 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { MovieService } from "../movie.service";
 
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-movie-manage-page',
@@ -24,7 +24,7 @@ export class MovieManagePageComponent implements OnInit {
     private route: ActivatedRoute,
     private loc:Location,
   private movieServe:MovieService,
-  public dialog: MdDialog) { 
+  public dialog: MatDialog) { 
     if(movieServe.editObject){
       this.object = movieServe.editObject
     }
