@@ -5,6 +5,8 @@ import {  Meta, Title } from '@angular/platform-browser';
 
 import { Observable } from 'rxjs/Observable'
 
+import { StudentData } from '../student.data'
+
 @Component({
   selector: 'app-student-analysis',
   templateUrl: './student-analysis.component.html',
@@ -51,7 +53,10 @@ export class StudentAnalysisComponent implements OnInit {
             exam3:0.1,
             exam4:0.5,
         }
-       return this.students.map(item=>item[type]*weight[type])
+        if(StudentData.weight){
+            weight = StudentData.weight;
+        }
+       return this.students.map(item=>item[type]*weight[type]);
    }
    getStudentNameList(){
        return this.students.map(item=>item.name)

@@ -186,7 +186,7 @@ export class ParseDatabase {
   get data(): Student[] { return this.dataChange.value; }
   http:Http;
   mockData:any = StudentData
-  sourceType:string = "parse" // 设置数据源方式，mock本地本地模拟数据，parse微服务接口数据
+  sourceType:string = "mock" // 设置数据源方式，mock本地本地模拟数据，parse微服务接口数据
   searchType:string
   searchText:string
   constructor(http:Http) {

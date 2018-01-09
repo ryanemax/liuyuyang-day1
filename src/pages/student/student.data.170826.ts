@@ -264,5 +264,11 @@ function makeStudents(){
 }
 
 export let StudentData = {
-    students:makeStudents()
+    students:makeStudents(),
+    weight:{
+      exam1:0.3,
+      exam2:0.1,
+      exam3:0.1,
+      exam4:0.5,
+  }
 };
